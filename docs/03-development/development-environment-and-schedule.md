@@ -64,30 +64,51 @@ Edit/Play Mode 테스트 배치 실행 (분 단위)
 
 각 단계는 검증 명령이 통과해야 다음으로 넘어간다. `Verify`가 실패하면 다음 단계를 시작하지 않는다.
 
-### S1. Unity Android Build Support 설치 (약 40분, 다운로드 대기 포함)
+### S1. Unity Editor·Android·WebGL 지원 설치 (약 40분, 다운로드 대기 포함)
 
-Unity Hub CLI 문법은 이 머신에서 확인했다.
+이 환경에는 Unity 6000.3.23f1을 설치했다. 명령줄 설치는 선택 사항이며, GUI에서 설치한 Editor 버전과 맞춰야 한다.
 
 ```bash
 HUB="/Applications/Unity Hub.app/Contents/MacOS/Unity Hub"
-"$HUB" -- --headless install-modules --version 6000.4.4f1 -m android --childModules
+"$HUB" -- --headless install-modules --version 6000.3.23f1 -m android --childModules
 ```
 
-`--childModules`가 Android SDK & NDK Tools, OpenJDK, platform-tools를 함께 설치한다. CLI가 실패하면 Unity Hub GUI의 `Installs → 6000.4.4f1 → Add modules`로 동일 작업을 한다.
+`--childModules`가 Android SDK & NDK Tools, OpenJDK, platform-tools를 함께 설치한다. CLI가 실패하면 Unity Hub GUI의 `Installs → 6000.3.23f1 → Add modules`로 동일 작업을 한다.
+
+WebGL도 같은 `Add modules` 화면에서 **Web Build Support**를 추가한다. Unity Hub의 이 표기는 Unity WebGL 빌드 지원을 뜻한다.
 
 **Verify:**
 
 ```bash
-ls "/Applications/Unity/Hub/Editor/6000.4.4f1/PlaybackEngines/AndroidPlayer/SDK/platform-tools/adb"
-ls "/Applications/Unity/Hub/Editor/6000.4.4f1/PlaybackEngines/AndroidPlayer/OpenJDK/bin/java"
+ls "/Applications/Unity/Hub/Editor/6000.3.23f1/PlaybackEngines/AndroidPlayer/SDK/platform-tools/adb"
+ls "/Applications/Unity/Hub/Editor/6000.3.23f1/PlaybackEngines/AndroidPlayer/OpenJDK/bin/java"
+ls -d "/Applications/Unity/Hub/Editor/6000.3.23f1/PlaybackEngines/WebGLSupport"
 ```
+
+### S1-1. Unity 프로젝트 생성 설정 (약 10분)
+
+Unity Hub의 `Projects → New project`에서 아래 설정으로 생성한다. 이 저장소 루트에는 문서와 Node 도구가 있으므로 Unity 프로젝트는 `unity/` 하위 폴더에 둔다.
+
+| 항목 | 선택값 | 선택 이유 |
+|---|---|---|
+| Editor | Unity 6.3 LTS (`6000.3.23f1`), Apple Silicon | 장기 지원 버전이라 Gate 0의 Android·WebGL 검증에 안정적이다. |
+| Template | **2D (Built-In Render Pipeline)** | 빈 2D 시작점이다. URP 구성보다 가벼워 Android·WebGL 성능 검증의 변수를 줄인다. |
+| Project name | `unity` | 저장소 안의 Unity 프로젝트 폴더 이름이다. |
+| Location | `/Users/easyoon/mallang-brain` | 실제 Unity 프로젝트 경로는 `/Users/easyoon/mallang-brain/unity`가 된다. |
+| Use AI Assistant | 선택하지 않음 | 별도 Unity AI 서비스 연결은 Gate 0에 필요 없다. |
+| Use Unity CLI | 선택하지 않음 | 프로젝트 생성용 서비스 연결은 필요 없으며, 필요한 Editor 명령은 직접 실행한다. |
+| Source control provider | 선택하지 않음 | 저장소 전체를 이미 Git과 GitHub 원격 저장소로 관리한다. Unity 전용 소스 관리 서비스를 추가하지 않는다. |
+
+`2D (Built-In Render Pipeline)` 카드가 보이지 않으면 템플릿 필터를 `Learning`에서 `Core` 또는 `All`로 바꾼다. `2D Platformer Microgame`은 예제 게임 파일이 포함되므로 선택하지 않는다.
+
+**Verify:** 생성 뒤 Unity Editor가 오류 없이 열리고, 프로젝트 폴더에 `Assets/`, `Packages/`, `ProjectSettings/`가 생성된다.
 
 ### S2. `adb` PATH 등록 + 실기기 인식 (약 15분)
 
 Unity 번들 SDK의 platform-tools를 쓴다. 별도 Android Studio를 설치하지 않는다(SDK 버전이 두 개로 갈라지면 빌드 재현성이 깨진다).
 
 ```bash
-echo 'export ANDROID_SDK_ROOT="/Applications/Unity/Hub/Editor/6000.4.4f1/PlaybackEngines/AndroidPlayer/SDK"' >> ~/.zshrc
+echo 'export ANDROID_SDK_ROOT="/Applications/Unity/Hub/Editor/6000.3.23f1/PlaybackEngines/AndroidPlayer/SDK"' >> ~/.zshrc
 echo 'export PATH="$ANDROID_SDK_ROOT/platform-tools:$PATH"' >> ~/.zshrc
 ```
 
@@ -104,15 +125,15 @@ adb shell dumpsys display | grep -i "fps\|refresh" | head -3
 
 ```bash
 cd ~/Desktop/projects/mallang-brain
-echo "20" > .nvmrc
-source "$HOME/.nvm/nvm.sh" && nvm use
-npm init -y
-npm i -D @apps-in-toss/web-framework@^3.0.2
+echo "24" > .nvmrc
+nvm install 24
+nvm use 24
+npm install
 ```
 
-**Verify:** `node -v`가 v20.x, `npx ait --help`가 정상 출력.
+**Verify:** `node -v`가 v24.x, `npx ait --help`가 정상 출력.
 
-> 기본 PATH의 Node는 v23.7.0이다. `.nvmrc` 없이 작업하면 툴체인 버전이 세션마다 달라진다. 빌드 재현성 계약(`BuildManifest`)의 일부로 취급한다.
+> `@apps-in-toss/ait-format@1.0.0`은 Node 24 이상이 필요하다. `.nvmrc` 없이 작업하면 툴체인 버전이 세션마다 달라진다. 이 파일을 빌드 재현성 계약(`BuildManifest`)의 일부로 취급한다. Homebrew로 설치한 Node 24를 쓸 때는 `/opt/homebrew/opt/node@24/bin`이 PATH의 앞에 오도록 설정한다.
 
 ### S4. 측정 도구 설치 (약 10분)
 
@@ -153,7 +174,7 @@ brew install ffmpeg
 
 - [ ] `adb devices`에 Gate 기기 1대 인식 + 모델·OS·주사율 기록
 - [ ] Unity Editor에서 Android / Web 두 빌드 타깃이 모두 선택 가능
-- [ ] `npx ait --help` 정상 + `.nvmrc` = 20
+- [x] `npx ait --help` 정상 + `.nvmrc` = 24
 - [ ] 정적 "Hello" 번들이 `.ait`로 패키징되어 실기기 실행 (D2 분기 확정)
 
 ---
