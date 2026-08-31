@@ -103,6 +103,13 @@ Unity Hub의 `Projects → New project`에서 아래 설정으로 생성한다. 
 
 **Verify:** 생성 뒤 Unity Editor가 오류 없이 열리고, 프로젝트 폴더에 `Assets/`, `Packages/`, `ProjectSettings/`가 생성된다.
 
+**이 머신에서 확인한 결과 (2026-08-31):**
+
+- Unity Edit Mode 환경 테스트: 2개 중 2개 통과
+- WebGL 스모크 빌드: `unity/Builds/Smoke/WebGL/index.html` 생성 성공
+- Android 스모크 빌드: `unity/Builds/Smoke/Android/mallang-brain-smoke.apk` 생성 성공
+- 두 빌드는 확인용 산출물이므로 Git에는 포함하지 않는다.
+
 ### S2. `adb` PATH 등록 + 실기기 인식 (약 15분)
 
 Unity 번들 SDK의 platform-tools를 쓴다. 별도 Android Studio를 설치하지 않는다(SDK 버전이 두 개로 갈라지면 빌드 재현성이 깨진다).
@@ -173,7 +180,7 @@ brew install ffmpeg
 아래 4개가 모두 통과해야 Day 0 오후(정책 동결)로 넘어간다.
 
 - [ ] `adb devices`에 Gate 기기 1대 인식 + 모델·OS·주사율 기록
-- [ ] Unity Editor에서 Android / Web 두 빌드 타깃이 모두 선택 가능
+- [x] Unity Editor에서 Android / Web 두 빌드 타깃 확인 + 양쪽 스모크 빌드 성공
 - [x] `npx ait --help` 정상 + `.nvmrc` = 24
 - [ ] 정적 "Hello" 번들이 `.ait`로 패키징되어 실기기 실행 (D2 분기 확정)
 

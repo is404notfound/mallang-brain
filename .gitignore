@@ -5,6 +5,33 @@ build/
 .next/
 coverage/
 
+# Unity generated files and local editor state
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+.utmp/
+.vs/
+*.csproj
+*.sln
+*.unitypackage
+
+# The Gate 0 Editor build scripts are source code, not build output.
+!unity/Assets/Mallang/Gate0/Editor/Build/
+!unity/Assets/Mallang/Gate0/Editor/Build/**
+
+# Generated build binaries. Keep the JSON evidence files under Artifacts/.
+Artifacts/Builds/*/
+!Artifacts/Builds/**/
+!Artifacts/Builds/**/BuildManifest.json
+!Artifacts/Builds/**/BuildReport.json
+Artifacts/Runs/*/
+!Artifacts/Runs/**/
+!Artifacts/Runs/**/*.json
+
 # Local environment and secrets
 .env
 .env.*

@@ -1,0 +1,12 @@
+{
+  "name": "mallang-brain",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Apps in Toss packaging tools for the Mallang Brain Gate 0 spike.",
+  "scripts": {
+    "ait:help": "ait --help"
+  },
+  "devDependencies": {
+    "@apps-in-toss/web-framework": "^3.1.1"
+  }
+}

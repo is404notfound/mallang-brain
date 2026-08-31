@@ -1,0 +1,13 @@
+{
+  "name": "Mallang.Gate0.Tests.EditMode",
+  "rootNamespace": "Mallang.Gate0.Tests.EditMode",
+  "references": [
+    "Mallang.Gate0.Runtime"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

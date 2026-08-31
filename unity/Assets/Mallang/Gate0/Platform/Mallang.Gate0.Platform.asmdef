@@ -1,0 +1,7 @@
+{
+  "name": "Mallang.Gate0.Platform",
+  "rootNamespace": "Mallang.Gate0.Platform",
+  "references": [
+    "Mallang.Gate0.Runtime"
+  ]
+}
