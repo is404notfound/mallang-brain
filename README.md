@@ -13,6 +13,7 @@
 
 ## 문서
 
+- [전체 개발 플랜](docs/development-plan.md) — 환경 구성과 Gate 0 실행 순서
 - [Gate 0 구현 계획](docs/gate-0-implementation-plan.md)
 - [6주 제품 로드맵](docs/office-hours-result.md)
 - [초기 사양 기록](docs/initial-game-spec.md) — 현재 계획으로 대체됨
