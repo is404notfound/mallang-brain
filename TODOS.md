@@ -1,4 +1,14 @@
-# TODOS
+# TODOS After Gate 0
+
+## 먼저 읽는 쉬운 설명
+
+이 문서는 **Gate 0이라는 첫 기술 시험을 통과한 뒤** 할 일을 적어 둔 목록이다.
+
+- Gate 1에서는 게임의 가장 중요한 부분인 리듬 판정, 점수, 콤보, 길게 누르기, 탈락 규칙을 제대로 만든다.
+- Apps in Toss에서는 로그인·결제·저장처럼 실제 서비스에 필요한 기능을 연결한다.
+- 나중에는 Android와 Apps in Toss용 파일을 자동으로 만들고 배포하는 과정도 준비한다.
+
+`P1`은 먼저 해야 하는 일이고, `P2`는 그다음 일이다. `Depends on`은 **이 일을 시작하기 전에 끝나야 하는 조건**이다. 아래의 원래 계획은 이 뜻을 더 자세히 적어 둔 것이다.
 
 ## Gate 1
 
@@ -8,7 +18,7 @@
 
 **Why:** Gate 0의 `±60ms/±120ms` 판정 프로브는 플랫폼 간 시간 일치 여부만 확인하므로 실제 게임 규칙으로 사용할 수 없다.
 
-**Context:** [Gate 0 구현 계획](docs/gate-0-implementation-plan.md)의 원시 타이밍 프로브와 측정 기록을 입력으로 사용한다. 기술 실험 코드를 그대로 확장하지 말고, [6주 제품 로드맵](docs/office-hours-result.md)의 코어 규칙 기본값과 최소 수용 테스트를 별도 Gate 1 계획으로 옮긴다.
+**Context:** [Gate 0 구현 계획](docs/02-gate-0/implementation-plan.md)의 원시 타이밍 프로브와 측정 기록을 입력으로 사용한다. 기술 실험 코드를 그대로 확장하지 말고, [제품 비전과 6주 로드맵](docs/01-product/product-vision-and-roadmap.md)의 코어 규칙 기본값과 최소 수용 테스트를 별도 Gate 1 계획으로 옮긴다.
 
 **Effort:** M  
 **Priority:** P1  

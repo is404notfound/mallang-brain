@@ -1,12 +1,24 @@
-# 말랑브레인음악대학 Gate 0 구현 계획
+# Gate 0 기술 검증: 구현 계획
 
-Source roadmap: [office-hours-result.md](office-hours-result.md)  
+이 문서는 게임의 첫 시험인 **Gate 0** 계획이다. 아직 재미있는 콘텐츠를 많이 만드는 단계가 아니다. 같은 Unity 게임이 Android와 Apps in Toss에서 똑같이 안정적으로 돌아가는지 확인하는 단계다.
+
+이 시험에서 확인할 일은 다섯 가지다.
+
+1. 두 플랫폼에서 게임을 만들고 실행할 수 있는가?
+2. 누른 시간과 소리 시간을 정확히 맞출 수 있는가?
+3. 앱이 잠깐 멈췄다가 돌아와도 게임이 이상해지지 않는가?
+4. 사람이 많아 보이는 장면에서도 느려지지 않는가?
+5. 어떤 버전으로 어떻게 시험했는지 나중에도 확인할 수 있는가?
+
+두 플랫폼이 모두 기준을 통과해야 Gate 1에서 실제 리듬게임을 만든다. 하나라도 실패하면, 기능을 더 만들기보다 실패한 이유를 기록하고 기술 방법을 다시 고른다. 아래 원문에는 시험 기준, 시간 수치, 파일 형식, 테스트 방법을 빠짐없이 적어 두었다.
+
+Source roadmap: [제품 비전과 6주 로드맵](../01-product/product-vision-and-roadmap.md)  
 Review: `/plan-eng-review`, 2026-08-30  
 Status: REVIEWED, READY TO IMPLEMENT
 
 ## Goal
 
-콘텐츠와 백엔드를 만들기 전에 하나의 Unity 6 프로젝트가 Android 네이티브와 Apps in Toss Unity WebGL에서 리듬게임에 필요한 입력 반응성, 오디오 안정성, 로딩 시간, 프레임 안정성을 충족하는지 최대 7영업일 안에 검증한다.
+콘텐츠와 백엔드를 만들기 전에 하나의 Unity 6 프로젝트가 Android 네이티브와 Apps in Toss용 WebGL 패키지에서 리듬게임에 필요한 입력 반응성, 오디오 안정성, 로딩 시간, 프레임 안정성을 충족하는지 최대 7영업일 안에 검증한다.
 
 Gate 0의 결과물은 출시 가능한 게임이 아니다. 같은 시나리오와 판정 정책으로 두 플랫폼을 측정하고 `통과`, `실패`, `측정 불가` 중 하나를 근거와 함께 기록하는 기술 스파이크다.
 
@@ -46,16 +58,6 @@ Gate 1   2일 이내 한 번만   증거와 막힌 조건 기록
 - Gate 0 기본 기간은 최대 7영업일이다. 실패나 측정 불가도 유효한 종료 결과다.
 - 한 번의 2일 수정 기회는 판정 정책을 바꾸지 않는다. 정책을 바꾸면 기존 결과를 폐기하고 전체 행렬을 다시 실행한다.
 - 진단용 UI, 자동 리포트 꾸미기, 추가 계측은 Gate 지표 구현 뒤 시간이 남을 때만 한다.
-
-## What Already Exists
-
-- [office-hours-result.md](office-hours-result.md): 제품 가설, 6주 조건부 로드맵, 플랫폼 수용선의 원본이다. 제품 로드맵으로 계속 사용한다.
-- [initial-game-spec.md](initial-game-spec.md): 초기 아이디어 기록이다. iOS 동시 출시와 선행 Supabase 구축 등 현재 결정과 충돌하므로 구현 기준으로 사용하지 않는다.
-- [README.md](../README.md): 현재 단계, 두 플랫폼의 역할, 최신 문서 진입점을 제공한다.
-- [.gitignore](../.gitignore): Unity 생성물, 로컬 빌드, 환경 파일을 제외한다. Unity `.meta` 파일은 커밋한다.
-- [Gate 0 테스트 계획](/Users/easyoon/.gstack/projects/mallang-brain/easyoon-no-branch-eng-review-test-plan-20260830-153015.md): 27개 코드·사용자 경로와 5개 대상 기기 E2E 흐름을 정리했다.
-- 구현 코드, Unity 프로젝트, 테스트 프레임워크, 빌드 파이프라인은 아직 없다.
-- Ghost Dash의 코드와 분석 산출물은 이 저장소에 없으므로 재사용 가능하다고 가정하지 않는다.
 
 ## Scope
 
@@ -111,7 +113,7 @@ Gate 1   2일 이내 한 번만   증거와 막힌 조건 기록
 
 Toss 의존성은 두 종류로 분리한다.
 
-1. **패키징 의존성:** Apps in Toss Unity 패키지와 `.ait` 생성 도구. Gate 0에 필요하지만 공통 런타임 코드에 연결하지 않는다.
+1. **패키징 의존성:** `@apps-in-toss/web-framework`와 `ait` CLI. Unity WebGL 출력 폴더를 `webBundleDir`로 지정해 `.ait`를 만든다. Gate 0에 필요하지만 공통 런타임 코드에 연결하지 않는다.
 2. **런타임 의존성:** 로그인·결제·브리지·저장 API. Gate 0에서는 만들지 않는다.
 
 따라서 공통 스파이크 코드에는 Toss 인터페이스도 Android no-op 구현도 없다. 실제 런타임 호출이 생길 때만 WebGL 전용 assembly definition을 추가한다.
@@ -302,7 +304,7 @@ Gate 지표와 진단 지표는 `Gate0AcceptancePolicy`에서 구분한다. 진�
 
 ```text
 build-android ──► APK/AAB ──► Android device launch smoke
-build-webgl   ──► WebGL ──► Apps in Toss package tool ──► .ait sandbox smoke
+build-webgl   ──► WebGL output ──► webBundleDir ──► ait build ──► .ait sandbox smoke
        │
        └─► Unity BuildReport JSON + immutable BuildManifest
 
@@ -355,7 +357,7 @@ Target-device E2E                 ▼
 - Edit Mode: scenario·policy schema, deterministic phase order, clock 보정·역행·jump, band 경계, 집계, manifest/run record 검증, lifecycle 전이 표
 - Play Mode: 장면 시작, count-in 입력 차단, 좌·우·멀티터치, cancellation, 즉시 VFX, Android/WebGL 공통 중단 이벤트, recount, 오류·retry UI
 - Target-device E2E 5개: Android build/launch, Toss `.ait` sandbox launch, Android 3분 측정, Toss 3분 측정, 외부 A/V 표본과 내부 기록 대조
-- 상세 입력과 27개 경로는 [Gate 0 테스트 계획](/Users/easyoon/.gstack/projects/mallang-brain/easyoon-no-branch-eng-review-test-plan-20260830-153015.md)을 따른다.
+- 상세 입력과 27개 경로는 [Gate 0 테스트 계획](test-plan.md)을 따른다.
 
 필수 경계 사례:
 
@@ -371,23 +373,23 @@ Target-device E2E                 ▼
 
 ## Failure Modes
 
-| Path | Production failure | Test | Handling | User-visible result |
-|---|---|---|---|---|
-| Scenario/policy load | missing, incompatible, changed hash | Edit Mode | startup blocked | asset와 schema를 명시한 오류 |
-| Android build | profile 또는 SDK 누락 | build smoke | non-zero exit, report 저장 | 실패한 설정과 command 출력 |
-| Toss packaging | package tool 또는 `.ait` 생성 실패 | Toss build smoke | non-zero exit, partial artifact 거부 | 재현 명령이 있는 오류 |
-| Clock calibration | negative, non-monotonic, error >5ms | Edit Mode | segment invalidated | 측정 오류, false pass 금지 |
-| Raw judgement | platform별 band 불일치 | Edit + device E2E | Gate failure | 다른 offset 배열과 환경 표시 |
-| Input | duplicate/cancelled touch | Edit + Play Mode | deduplicate or discard | 중복 VFX·표본 없음 |
-| Android lifecycle | pause/focus 중복·역순 | Play + device E2E | adapter coalescing | 한 번의 4박 recount |
-| WebGL lifecycle | hidden tab 또는 AudioContext만 suspend | Play + Toss E2E | common interrupt, audio reinit | 4박 recount 또는 retry |
-| Audio resume | device init failure | Play + device E2E | Error 유지, retry 제공 | 복구 가능한 오류 화면 |
-| Measurement | interrupted/invalid data aggregated | Edit Mode | segment 제외, raw 보존 | report에 무효 사유 표시 |
-| Workload | phase 순서나 seed가 달라짐 | Edit + E2E | run rejected | 재실행 요구 |
-| External capture | frame/audio sample 누락 | manual protocol check | run incomplete | 부족한 표본 수 표시 |
-| BuildManifest | dirty/unknown source 또는 checksum 누락 | Edit Mode | final Gate eligibility 거부 | 진단 빌드로만 표시 |
-| RunRecord | overwrite, missing build link | Edit Mode | immutable new ID, reject | 비교 불가 사유 표시 |
-| Runtime load | FPS/latency threshold breach | device E2E | Gate failure | 원자료와 병목 지표 표시 |
+| Path                 | Production failure                      | Test                  | Handling                             | User-visible result          |
+| -------------------- | --------------------------------------- | --------------------- | ------------------------------------ | ---------------------------- |
+| Scenario/policy load | missing, incompatible, changed hash     | Edit Mode             | startup blocked                      | asset와 schema를 명시한 오류 |
+| Android build        | profile 또는 SDK 누락                   | build smoke           | non-zero exit, report 저장           | 실패한 설정과 command 출력   |
+| Toss packaging       | package tool 또는 `.ait` 생성 실패      | Toss build smoke      | non-zero exit, partial artifact 거부 | 재현 명령이 있는 오류        |
+| Clock calibration    | negative, non-monotonic, error >5ms     | Edit Mode             | segment invalidated                  | 측정 오류, false pass 금지   |
+| Raw judgement        | platform별 band 불일치                  | Edit + device E2E     | Gate failure                         | 다른 offset 배열과 환경 표시 |
+| Input                | duplicate/cancelled touch               | Edit + Play Mode      | deduplicate or discard               | 중복 VFX·표본 없음           |
+| Android lifecycle    | pause/focus 중복·역순                   | Play + device E2E     | adapter coalescing                   | 한 번의 4박 recount          |
+| WebGL lifecycle      | hidden tab 또는 AudioContext만 suspend  | Play + Toss E2E       | common interrupt, audio reinit       | 4박 recount 또는 retry       |
+| Audio resume         | device init failure                     | Play + device E2E     | Error 유지, retry 제공               | 복구 가능한 오류 화면        |
+| Measurement          | interrupted/invalid data aggregated     | Edit Mode             | segment 제외, raw 보존               | report에 무효 사유 표시      |
+| Workload             | phase 순서나 seed가 달라짐              | Edit + E2E            | run rejected                         | 재실행 요구                  |
+| External capture     | frame/audio sample 누락                 | manual protocol check | run incomplete                       | 부족한 표본 수 표시          |
+| BuildManifest        | dirty/unknown source 또는 checksum 누락 | Edit Mode             | final Gate eligibility 거부          | 진단 빌드로만 표시           |
+| RunRecord            | overwrite, missing build link           | Edit Mode             | immutable new ID, reject             | 비교 불가 사유 표시          |
+| Runtime load         | FPS/latency threshold breach            | device E2E            | Gate failure                         | 원자료와 병목 지표 표시      |
 
 계획된 모든 경로에는 테스트와 명시적 처리, 사용자 또는 측정자에게 보이는 실패 결과가 있다. 현재 무음 실패 critical gap은 0개다.
 
@@ -402,7 +404,7 @@ Synthesized from this review's findings. 각 작업은 선행 작업이 끝난 �
 - [ ] **T2 (P1, human: ~6h / CC: ~2h)** — Packaging — 빈 공통 장면을 Android와 실제 Toss `.ait`로 빌드한다
   - Surfaced by: Outside Voice — 실제 Toss 패키징이 계획 후반에 있어 핵심 위험 발견이 늦음
   - Files: `Assets/Mallang/Gate0/Scenes/`, `Assets/Mallang/Gate0/Editor/Build/`, `ProjectSettings/`
-  - Verify: Android device launch and Apps in Toss sandbox launch by Day 3
+  - Verify: Android device launch, Unity WebGL output → `webBundleDir` → `ait build` → Apps in Toss sandbox launch by Day 3. 첫 시도는 WebGL compression disabled·single-thread로 한다.
 - [ ] **T3 (P1, human: ~4h / CC: ~1h)** — Configuration — 실행 시나리오와 판정 정책을 분리하고 hash 검증을 구현한다
   - Surfaced by: Architecture + Outside Voice — workload와 pass line 혼합, 재현 조건 누락
   - Files: `Assets/Mallang/Gate0/Runtime/Configuration/`, `Assets/Mallang/Gate0/Settings/`, `Assets/Mallang/Gate0/Tests/EditMode/`
@@ -487,19 +489,3 @@ Gate 0은 다음 조건을 모두 만족할 때만 통과한다.
 7. 모든 실패·무효 원자료가 보존되고 최종 `RunRecord`가 빌드·시나리오·정책과 checksum으로 연결된다.
 8. 7영업일 종료 시 `통과`, `실패`, `측정 불가` 중 하나와 근거를 기록한다.
 9. Android와 Apps in Toss가 모두 통과하지 않으면 Gate 1 구현을 시작하지 않는다.
-
-## GSTACK REVIEW REPORT
-
-| Review | Trigger | Why | Runs | Status | Findings |
-|--------|---------|-----|------|--------|----------|
-| CEO Review | `/plan-ceo-review` | Scope & strategy | 0 | NOT RUN | — |
-| Codex Review | `/codex review` | Independent 2nd opinion | 1 | RESOLVED | 14 findings, 14/14 folded into plan |
-| Eng Review | `/plan-eng-review` | Architecture & tests (required) | 1 | CLEAR | 28 issues, 0 critical gaps |
-| Design Review | `/plan-design-review` | UI/UX gaps | 0 | NOT RUN | — |
-| DX Review | `/plan-devex-review` | Developer experience gaps | 0 | NOT RUN | — |
-
-**CODEX:** 실제 양 플랫폼 빌드의 조기 검증, 설정·정책 및 빌드·실행 기록 분리, 외부 A/V 측정, 결정적 부하, lifecycle 분리, 7일 stop rule을 반영했다.
-
-**VERDICT:** ENG CLEARED — Gate 0 구현을 시작할 준비가 됐다.
-
-NO UNRESOLVED DECISIONS
