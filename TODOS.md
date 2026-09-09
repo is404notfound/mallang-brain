@@ -1,14 +1,25 @@
-# TODOS After Gate 0
+# 구현 전 준비와 후속 작업
 
 ## 먼저 읽는 쉬운 설명
 
-이 문서는 **Gate 0이라는 첫 기술 시험을 통과한 뒤** 할 일을 적어 둔 목록이다.
+이 문서는 구현 전에 준비할 문서와 **Gate 0이라는 첫 기술 시험을 통과한 뒤** 할 일을 적어 둔 목록이다. 먼저 [구현 전 체크리스트](docs/03-development/pre-implementation-checklist.md)에서 해당 단계에 필요한 준비를 확인한다.
 
 - Gate 1에서는 게임의 가장 중요한 부분인 리듬 판정, 점수, 콤보, 길게 누르기, 탈락 규칙을 제대로 만든다.
-- Apps in Toss에서는 로그인·결제·저장처럼 실제 서비스에 필요한 기능을 연결한다.
+- 공개 준비 단계에서는 Android·Apps in Toss의 광고와 필요한 저장·로그인 기능만 연결한다. 첫 출시의 결제 상품·상점은 범위 밖이다.
 - 나중에는 Android와 Apps in Toss용 파일을 자동으로 만들고 배포하는 과정도 준비한다.
 
 `P1`은 먼저 해야 하는 일이고, `P2`는 그다음 일이다. `Depends on`은 **이 일을 시작하기 전에 끝나야 하는 조건**이다. 아래의 원래 계획은 이 뜻을 더 자세히 적어 둔 것이다.
+
+## 구현 전 문서 준비
+
+- [x] [수익화·퍼블리싱 전략](docs/01-product/monetization-and-publishing-strategy.md)과 [구현 전 체크리스트](docs/03-development/pre-implementation-checklist.md) 정리 — 2026-09-09. 문서 작성 완료이며 구현·계약 완료가 아니다.
+- [ ] Gate 0 측정 결과를 반영한 Gate 1 구현·사용자 테스트 계획 작성.
+- [ ] UI 구현 전 한글·영문 문구 구조·용어·기본 언어·화면 범위 결정.
+- [ ] 사용자 테스트 전 이벤트·분모·오류·언어·유입 경로 기록 설계.
+- [ ] 광고 구현 전 형식·빈도·보상 채택 여부·실패 복귀 규칙 결정.
+- [ ] 공개 전 정책·권리·수익 검증표, 제보 전 한글·영문 영상·소개 자료 준비.
+
+외부 승인 지연 때 Gate 1 진입 조건을 완화하는 안은 아직 미승인이다. 현재 두 플랫폼 Gate 0 통과 조건을 유지한다. 퍼블리셔 문의·제출·계약은 이 문서 작성과 별개다.
 
 ## Gate 1
 
@@ -18,23 +29,25 @@
 
 **Why:** Gate 0의 `±60ms/±120ms` 판정 프로브는 플랫폼 간 시간 일치 여부만 확인하므로 실제 게임 규칙으로 사용할 수 없다.
 
-**Context:** [Gate 0 구현 계획](docs/02-gate-0/implementation-plan.md)의 원시 타이밍 프로브와 측정 기록을 입력으로 사용한다. 기술 실험 코드를 그대로 확장하지 말고, [제품 비전과 6주 로드맵](docs/01-product/product-vision-and-roadmap.md)의 코어 규칙 기본값과 최소 수용 테스트를 별도 Gate 1 계획으로 옮긴다.
+**Context:** [Gate 0 구현 계획](docs/02-gate-0/implementation-plan.md)의 원시 타이밍 프로브와 측정 기록을 입력으로 사용한다. 기술 실험 코드를 그대로 확장하지 말고, [제품 비전과 단계별 로드맵](docs/01-product/product-vision-and-roadmap.md)의 코어 규칙 기본값과 최소 수용 테스트를 별도 Gate 1 계획으로 옮긴다.
 
 **Effort:** M  
 **Priority:** P1  
 **Depends on:** Android와 Apps in Toss Gate 0 통과 및 최종 `RunRecord` 확정
 
-### Apps in Toss 런타임 API 통합
+## 공개 준비 — Milestone 2
 
-**What:** 로그인, 결제, 브리지, 저장 기능 중 제품에 필요한 Toss 런타임 API를 선정하고 샌드박스부터 통합한다.
+### Android·Apps in Toss 광고와 필요한 런타임 API 통합
 
-**Why:** Apps in Toss가 핵심 수익 채널이지만 Gate 0은 `.ait` 패키징과 실행만 확인하고 실제 수익 기능은 연결하지 않는다.
+**What:** 두 플랫폼의 광고와 필요한 브리지·저장·로그인 기능을 선정하고 테스트 환경부터 통합한다. 인앱결제·광고 제거 구매는 첫 출시 범위에서 제외한다.
 
-**Context:** Gate 0의 Apps in Toss 의존성은 패키징 도구에 한정한다. Gate 1 시작 시 상품과 수익 모델을 먼저 확정하고, 공통 스파이크 코드에 SDK가 퍼지지 않도록 WebGL 전용 경계에서 필요한 API만 연결한다.
+**Why:** 두 채널의 무료 상업 공개판은 광고 수익을 검증해야 한다. Gate 0은 기술 가능성만 확인하며, Gate 1에서는 콘테스트의 재미를 먼저 검증한다.
+
+**Context:** [수익화 전략](docs/01-product/monetization-and-publishing-strategy.md)에 따라 공개 전에 광고 형식·빈도·실패 처리를 확정한다. 공통 리듬 코어에 SDK가 퍼지지 않도록 플랫폼별 연결 경계를 둔다. 광고가 없거나 복귀에 실패할 때도 기본 플레이가 막히지 않는지 시험한다. 결제 상품 정의를 이 작업의 선행 조건으로 두지 않는다.
 
 **Effort:** L  
 **Priority:** P1  
-**Depends on:** Apps in Toss Gate 0 통과, 결제 상품과 수익 모델 정의
+**Depends on:** 두 플랫폼 Gate 0 및 Gate 1 통과, 광고 상세 설계와 플랫폼별 정책 확인
 
 ## Infrastructure
 
@@ -52,4 +65,4 @@
 
 ## Completed
 
-_아직 완료된 항목이 없습니다._
+- 2026-09-09: 사업 전략·구현 전 준비 문서와 기존 계획의 충돌 정리. 게임 기능·기술 Gate 완료를 뜻하지 않는다.

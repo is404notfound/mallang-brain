@@ -12,9 +12,11 @@
 
 두 플랫폼이 모두 기준을 통과해야 Gate 1에서 실제 리듬게임을 만든다. 하나라도 실패하면, 기능을 더 만들기보다 실패한 이유를 기록하고 기술 방법을 다시 고른다. 아래 원문에는 시험 기준, 시간 수치, 파일 형식, 테스트 방법을 빠짐없이 적어 두었다.
 
-Source roadmap: [제품 비전과 6주 로드맵](../01-product/product-vision-and-roadmap.md)  
+Source roadmap: [제품 비전과 단계별 로드맵](../01-product/product-vision-and-roadmap.md)
 Review: `/plan-eng-review`, 2026-08-30  
 Status: REVIEWED, READY TO IMPLEMENT
+
+2026-09-09 문서 정리: 후속 수익화 범위만 무료+광고·첫 결제 제외 방향에 맞췄다. 아래 기술 기준, 7영업일 시험, 두 플랫폼 통과 조건은 변경하지 않았다. 전체 프로젝트에 고정 6주 마감은 없으며 [구현 전 체크리스트](../03-development/pre-implementation-checklist.md)의 미승인 Gate 예외를 적용하지 않는다. 위 검토 상태는 기존 기술 계획에 대한 것이며 실제 시험 통과를 뜻하지 않는다.
 
 ## Goal
 
@@ -24,7 +26,7 @@ Gate 0의 결과물은 출시 가능한 게임이 아니다. 같은 시나리오
 
 두 채널은 역할이 다르지만 모두 필수다.
 
-- Android는 Google Play 자체등급분류와 배포 경로를 확보하는 채널이다.
+- Android는 Google Play 자체등급분류와 배포 경로를 확보하고, 후속 무료 공개에서 광고 수익을 검증하는 채널이다.
 - Apps in Toss는 실제 수익화를 검증할 핵심 채널이다.
 - 한 채널만 통과한 상태로 Gate 1을 시작하지 않는다.
 
@@ -84,9 +86,9 @@ Gate 1   2일 이내 한 번만   증거와 막힌 조건 기록
 - Supabase, nonce, 공식 랭킹, 백분위: 기술·재미 게이트 전에는 사용자 가치가 없고 Gate 0 실패 시 폐기된다.
 - PostHog production 연동: Gate 0은 로컬 `RunRecord`만 사용한다.
 - 범용 `IPlatformBridge`, `IBackendService`, `IAnalyticsService`: 실제 두 번째 소비자가 생기기 전에는 만들지 않는다.
-- Toss 로그인·결제·저장 런타임 API: `.ait` 패키징과 샌드박스 실행만 Gate 0에서 확인하고, 수익 기능 통합은 Gate 1의 P1 TODO로 관리한다.
+- Toss 광고·필요한 로그인·저장 런타임 API: `.ait` 패키징과 샌드박스 실행만 Gate 0에서 확인하고, 광고·수익 기능은 Gate 1 통과 후 공개 준비 TODO로 관리한다. 첫 결제 상품은 범위 밖이다.
 - 학점, 뇌 등급, 성적표, 외형 성장, 최종 아트: Gate 1 재미 통과 뒤에 연다.
-- 광고 SDK, IAP 상품, 공유 카드, deep link: 공개 소프트런치 준비 단계로 미룬다.
+- 광고 SDK, 공유 카드, deep link: 공개 준비 단계에서 필요한 범위를 정한다. IAP 상품·광고 제거 구매는 첫 출시에서 제외한다.
 - Poki, CrazyGames, iOS, Steam: 두 필수 채널의 기술 판단과 무관하다.
 - CI/CD와 스토어 자동 배포: Gate 0은 재현 가능한 로컬 빌드까지만 만든다. 후속 P2 TODO로 관리한다.
 - 원격 설정·실험 프레임워크: 버전이 있는 로컬 자산 두 개로 충분하다.
@@ -114,7 +116,7 @@ Gate 1   2일 이내 한 번만   증거와 막힌 조건 기록
 Toss 의존성은 두 종류로 분리한다.
 
 1. **패키징 의존성:** `@apps-in-toss/web-framework`와 `ait` CLI. Unity WebGL 출력 폴더를 `webBundleDir`로 지정해 `.ait`를 만든다. Gate 0에 필요하지만 공통 런타임 코드에 연결하지 않는다.
-2. **런타임 의존성:** 로그인·결제·브리지·저장 API. Gate 0에서는 만들지 않는다.
+2. **런타임 의존성:** 광고·필요한 로그인·브리지·저장 API. Gate 0에서는 만들지 않으며 첫 출시에 결제 API를 선행 통합하지 않는다.
 
 따라서 공통 스파이크 코드에는 Toss 인터페이스도 Android no-op 구현도 없다. 실제 런타임 호출이 생길 때만 WebGL 전용 assembly definition을 추가한다.
 

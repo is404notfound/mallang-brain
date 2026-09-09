@@ -18,7 +18,7 @@
 
 어려운 말은 [문서 안내](../README.md)에서 먼저 확인할 수 있다.
 
-> **상태: SUPERSEDED.** 이 문서는 초기 아이디어 기록이며 구현 기준이 아닙니다. 현재 제품 방향은 [제품 비전과 6주 로드맵](product-vision-and-roadmap.md), 당장 실행할 기술 범위는 [Gate 0 구현 계획](../02-gate-0/implementation-plan.md)을 따릅니다. 특히 iOS 동시 출시와 선행 백엔드 구축 가정은 폐기됐습니다.
+> **상태: SUPERSEDED.** 이 문서는 초기 아이디어 기록이며 구현 기준이 아닙니다. 현재 제품 방향은 [제품 비전과 단계별 로드맵](product-vision-and-roadmap.md), 사업 방향은 [수익화·퍼블리싱 전략](monetization-and-publishing-strategy.md), 당장 실행할 기술 범위는 [Gate 0 구현 계획](../02-gate-0/implementation-plan.md)을 따릅니다. 특히 iOS 동시 출시와 선행 백엔드 구축 가정은 폐기됐습니다. 아래의 초기 IAP·광고 보상·수집·출시 일정도 현재 구현 지시가 아닙니다.
 >
 > Ghost Dash PostHog 데이터(4,747판/275명) 인사이트 기반으로 설계한 차기 게임.
 > 작성일: 2026-08-06
