@@ -4,9 +4,16 @@
   "private": true,
   "description": "Apps in Toss packaging tools for the Mallang Brain Gate 0 spike.",
   "scripts": {
-    "ait:help": "ait --help"
+    "ait:help": "ait --help",
+    "gate0:prepare": "node tools/gate0/run.mjs prepare",
+    "gate0:test-edit": "node tools/gate0/run.mjs test-edit",
+    "gate0:test-play": "node tools/gate0/run.mjs test-play",
+    "gate0:build-android": "node tools/gate0/run.mjs build-android",
+    "gate0:build-webgl": "node tools/gate0/run.mjs build-webgl",
+    "gate0:package-toss": "node tools/gate0/run.mjs package-toss"
   },
   "devDependencies": {
-    "@apps-in-toss/web-framework": "^3.1.1"
+    "@apps-in-toss/web-framework": "^3.1.1",
+    "esbuild": "0.25.9"
   }
 }

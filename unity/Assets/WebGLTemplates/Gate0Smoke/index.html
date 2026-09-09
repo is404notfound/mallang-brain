@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>말랑두뇌음악대학 · 기기 실행 시험</title>
+  <style>
+    * { box-sizing:border-box; } html,body { margin:0; width:100%; height:100%; overflow:hidden; background:#192635; color:#fff; font:14px system-ui,sans-serif; }
+    #unity-canvas { width:100%; height:100%; display:block; touch-action:none; }
+    #status { position:fixed; top:0; left:0; width:100%; padding:8px 16px; background:#101922e8; pointer-events:none; font-size:12px; }
+    #loading { position:fixed; inset:0; display:grid; place-content:center; text-align:center; background:#192635; padding:24px; }
+    #loading[hidden] { display:none; }
+    #loading p { color:#c4d6df; }
+  </style>
+</head>
+<body>
+  <canvas id="unity-canvas" width="960" height="540" tabindex="0" aria-label="좌우 화면을 탭하면 색과 시험음이 바뀝니다"></canvas>
+  <div id="status">로컬 실행 시험 · 실제 토스 검증 전</div>
+  <div id="loading"><h1>말랑두뇌음악대학</h1><p id="progress">기기 실행 시험을 준비하고 있어요.</p></div>
+  <script>
+    const status = document.getElementById('status');
+    const progress = document.getElementById('progress');
+    window.gate0Smoke = { unityReady:false, orientation:'not-checked', scope:'T2 diagnostic; not Gate pass' };
+    window.gate0OrientationStatus = function(message) { status.textContent = message; };
+    const loader = document.createElement('script');
+    loader.src = 'Build/{{{ LOADER_FILENAME }}}';
+    loader.onerror = () => { progress.textContent = '실행 파일을 불러오지 못했어요. 연결을 확인한 뒤 새로고침해 주세요.'; };
+    loader.onload = () => {
+      createUnityInstance(document.getElementById('unity-canvas'), {
+        dataUrl:'Build/{{{ DATA_FILENAME }}}', frameworkUrl:'Build/{{{ FRAMEWORK_FILENAME }}}', codeUrl:'Build/{{{ CODE_FILENAME }}}',
+        streamingAssetsUrl:'StreamingAssets', companyName:'is404notfound', productName:'Mallang Gate0 Smoke', productVersion:'0.1.0',
+        showBanner:(message,type) => { if(type === 'error') { progress.textContent=message; document.getElementById('loading').hidden=false; } console[type === 'error' ? 'error' : 'warn'](message); }
+      }, p => { progress.textContent = '불러오는 중 ' + Math.round(p * 100) + '%'; })
+      .then(instance => { window.gate0Unity=instance; window.gate0Smoke.unityReady=true; document.getElementById('loading').hidden=true; })
+      .catch(error => { progress.textContent='Unity 실행 실패: '+error.message; });
+    };
+    document.body.appendChild(loader);
+  </script>
+  <!-- Added only by the Toss packaging step. Local Unity smoke has no SDK dependency. -->
+</body>
+</html>

@@ -12,17 +12,22 @@ namespace Mallang.Gate0.Editor.Build
     {
         public static void BuildWebGL()
         {
+            SmokeSceneSetup.Prepare();
             PlayerSettings.companyName = "is404notfound";
             PlayerSettings.productName = "Mallang Brain";
             PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Disabled;
+            PlayerSettings.WebGL.threadsSupport = false;
+            PlayerSettings.WebGL.dataCaching = false;
+            PlayerSettings.WebGL.template = "PROJECT:Gate0Smoke";
 
             Build(
                 BuildTarget.WebGL,
-                Path.Combine(ProjectRoot(), "Builds", "Smoke", "WebGL"));
+                OutputPath("WebGL"));
         }
 
         public static void BuildAndroid()
         {
+            SmokeSceneSetup.Prepare();
             PlayerSettings.companyName = "is404notfound";
             PlayerSettings.productName = "Mallang Brain";
             PlayerSettings.SetApplicationIdentifier(
@@ -31,7 +36,7 @@ namespace Mallang.Gate0.Editor.Build
 
             Build(
                 BuildTarget.Android,
-                Path.Combine(ProjectRoot(), "Builds", "Smoke", "Android", "mallang-brain-smoke.apk"));
+                OutputPath("mallang-brain-smoke.apk"));
         }
 
         private static void Build(BuildTarget target, string outputPath)
@@ -65,6 +70,15 @@ namespace Mallang.Gate0.Editor.Build
                 options = BuildOptions.Development
             });
 
+            File.WriteAllText(Path.Combine(outputDirectory, "BuildReport.json"), JsonUtility.ToJson(new SmokeReport
+            {
+                target = target.ToString(), result = report.summary.result.ToString(),
+                unityVersion = Application.unityVersion, outputPath = outputPath,
+                sizeBytes = report.summary.totalSize.ToString(), errors = report.summary.totalErrors,
+                warnings = report.summary.totalWarnings, durationSeconds = report.summary.totalTime.TotalSeconds,
+                scope = "T2 launch smoke only; not a Gate pass candidate"
+            }, true));
+
             if (report.summary.result != BuildResult.Succeeded)
             {
                 throw new BuildFailedException(
@@ -78,6 +92,22 @@ namespace Mallang.Gate0.Editor.Build
         private static string ProjectRoot()
         {
             return Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
+        }
+
+        private static string OutputPath(string name)
+        {
+            var directory = Environment.GetEnvironmentVariable("GATE0_BUILD_DIR");
+            if (string.IsNullOrWhiteSpace(directory))
+                directory = Path.Combine(ProjectRoot(), "Builds", "T2-" + DateTime.UtcNow.ToString("yyyyMMdd-HHmmss-fff"));
+            return Path.Combine(directory, name);
+        }
+
+        [Serializable]
+        private sealed class SmokeReport
+        {
+            public string target, result, unityVersion, outputPath, sizeBytes, scope;
+            public int errors, warnings;
+            public double durationSeconds;
         }
     }
 }

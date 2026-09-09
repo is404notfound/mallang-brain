@@ -4,6 +4,8 @@
 
 ## 프로젝트 문서
 
+- [Gate 0 시험 장면 실행 방법](tools/gate0/README.md): Android·WebGL 빌드, Toss 패키징, 자동 테스트. 기술 시험용이며 게임 완성판이 아니다.
+
 - [전체 문서 안내](docs/README.md): 제품 방향, 기술 시험, 개발 순서, 화면 설계.
 - [수익화·퍼블리싱 전략](docs/01-product/monetization-and-publishing-strategy.md): 국내·글로벌 채널, 무료+광고 모델, 두 언어 대응, 사업 위험.
 - [구현 전 체크리스트](docs/03-development/pre-implementation-checklist.md): 단계별 준비 문서와 아직 결정할 일.
