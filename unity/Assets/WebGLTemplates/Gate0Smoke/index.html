@@ -7,7 +7,9 @@
   <style>
     * { box-sizing:border-box; } html,body { margin:0; width:100%; height:100%; overflow:hidden; background:#192635; color:#fff; font:14px system-ui,sans-serif; }
     #unity-canvas { width:100%; height:100%; display:block; touch-action:none; }
-    #status { position:fixed; top:0; left:0; width:100%; padding:8px 16px; background:#101922e8; pointer-events:none; font-size:12px; }
+    #diagnostics { position:fixed; bottom:max(8px, env(safe-area-inset-bottom)); left:max(8px, env(safe-area-inset-left)); max-width:calc(100% - 32px); font-size:12px; z-index:2; }
+    #diagnostics summary { cursor:pointer; padding:6px 10px; width:max-content; background:#101922e8; border-radius:8px; }
+    #status { margin:4px 0 0; padding:8px 12px; background:#101922f2; max-width:520px; border-radius:8px; }
     #loading { position:fixed; inset:0; display:grid; place-content:center; text-align:center; background:#192635; padding:24px; }
     #loading[hidden] { display:none; }
     #loading p { color:#c4d6df; }
@@ -15,13 +17,18 @@
 </head>
 <body>
   <canvas id="unity-canvas" width="960" height="540" tabindex="0" aria-label="좌우 화면을 탭하면 색과 시험음이 바뀝니다"></canvas>
-  <div id="status">로컬 실행 시험 · 실제 토스 검증 전</div>
+  <details id="diagnostics"><summary>시험 정보</summary><p id="status" role="status">로컬 실행 시험 · 실제 토스 검증 전</p></details>
   <div id="loading"><h1>말랑두뇌음악대학</h1><p id="progress">기기 실행 시험을 준비하고 있어요.</p></div>
   <script>
     const status = document.getElementById('status');
     const progress = document.getElementById('progress');
     window.gate0Smoke = { unityReady:false, orientation:'not-checked', scope:'T2 diagnostic; not Gate pass' };
     window.gate0OrientationStatus = function(message) { status.textContent = message; };
+    // Diagnostic controls must never become a game tap or keyboard input.
+    const diagnostics = document.getElementById('diagnostics');
+    for (const eventName of ['pointerdown','pointerup','mousedown','mouseup','touchstart','touchend','keydown','keyup'])
+      diagnostics.addEventListener(eventName, event => event.stopPropagation());
+    if (new URLSearchParams(location.search).get('diagnostics') === '1') diagnostics.open = true;
     const loader = document.createElement('script');
     loader.src = 'Build/{{{ LOADER_FILENAME }}}';
     loader.onerror = () => { progress.textContent = '실행 파일을 불러오지 못했어요. 연결을 확인한 뒤 새로고침해 주세요.'; };

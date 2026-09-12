@@ -14,6 +14,7 @@
 
 - [x] [수익화·퍼블리싱 전략](docs/01-product/monetization-and-publishing-strategy.md)과 [구현 전 체크리스트](docs/03-development/pre-implementation-checklist.md) 정리 — 2026-09-09. 문서 작성 완료이며 구현·계약 완료가 아니다.
 - [ ] Gate 0 측정 결과를 반영한 Gate 1 구현·사용자 테스트 계획 작성.
+- [ ] Gate 1 계획에 [연습실·콘테스트·뇌 타워 밸런스 설계](docs/01-product/practice-contest-balance-design.md)의 스테이지 기술 태그, 성향 수치와 타워 결과 규칙 확정.
 - [ ] UI 구현 전 한글·영문 문구 구조·용어·기본 언어·화면 범위 결정.
 - [ ] 사용자 테스트 전 이벤트·분모·오류·언어·유입 경로 기록 설계.
 - [ ] 광고 구현 전 형식·빈도·보상 채택 여부·실패 복귀 규칙 결정.
@@ -34,6 +35,18 @@
 **Effort:** M  
 **Priority:** P1  
 **Depends on:** Android와 Apps in Toss Gate 0 통과 및 최종 `RunRecord` 확정
+
+### 연습실·뇌 성향·뇌 타워 구현 계획 작성
+
+**What:** 콘테스트 재미를 먼저 확인한 뒤 스테이지별 30~45초 연습, 오늘의 3분 연습 코스, 매 판과 누적 뇌 성향, 결과 화면의 20층 뇌 타워를 구현 가능한 작업으로 나눈다.
+
+**Why:** 연습실은 막힌 기술을 고치고 다시 콘테스트에 도전하게 해야 한다. 뇌 성향과 타워는 새 수집 에셋 없이도 플레이 기록을 재미와 성장으로 보여준다.
+
+**Context:** [밸런스 설계](docs/01-product/practice-contest-balance-design.md)의 승인된 흐름을 따른다. 추천·성향·순위 서버 일부가 실패해도 리듬 연주와 로컬 결과가 작동하도록 나눈다. 연습 사용 시간보다 `연습 → 콘테스트 복귀 → 같은 스테이지 향상`을 먼저 확인한다.
+
+**Effort:** L
+**Priority:** P1
+**Depends on:** Gate 1 콘테스트 재미 통과, 스테이지별 chart metadata와 최종 `RunRecord` 확정
 
 ## 공개 준비 — Milestone 2
 

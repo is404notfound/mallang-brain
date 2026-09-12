@@ -10,7 +10,8 @@
     "gate0:test-play": "node tools/gate0/run.mjs test-play",
     "gate0:build-android": "node tools/gate0/run.mjs build-android",
     "gate0:build-webgl": "node tools/gate0/run.mjs build-webgl",
-    "gate0:package-toss": "node tools/gate0/run.mjs package-toss"
+    "gate0:package-toss": "node tools/gate0/run.mjs package-toss",
+    "gate0:deploy-toss": "ait deploy --profile mallang-brain --location"
   },
   "devDependencies": {
     "@apps-in-toss/web-framework": "^3.1.1",

@@ -1,5 +1,5 @@
 {
   "name": "Mallang.Gate0.Tests.PlayMode",
-  "references": ["Mallang.Gate0.Runtime", "Unity.InputSystem"],
+  "references": ["Mallang.Gate0.Runtime", "Mallang.Gate0.Platform", "Unity.InputSystem"],
   "optionalUnityReferences": ["TestAssemblies"]
 }

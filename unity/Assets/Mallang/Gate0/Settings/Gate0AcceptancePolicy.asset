@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0395b46e8e03f4d519695edec354e023, type: 3}
+  m_Name: Gate0AcceptancePolicy
+  m_EditorClassIdentifier: Mallang.Gate0.Runtime::Mallang.Gate0.Runtime.Configuration.Gate0AcceptancePolicy
+  specification:
+    schemaVersion: 1
+    policyId: gate0-original-thresholds-v1
+    validRuns: 5
+    clockErrorUs: 5000
+    androidColdMs: 5000
+    tossColdMs: 10000
+    meanFps: 50
+    tapP95Us: 60000
+    avOffsetUs: 60000
+    avDriftUs: 20000
+    avJitterP95Us: 20000
+    internalExternalGapUs: 16700
+    externalFps: 240
+    tapsAtStart: 20
+    tapsAtEnd: 20
+    avAtStart: 10
+    avAtEnd: 10
+    invalidationReasons:
+    - call
+    - notification-overlay
+    - manual-input-error
+    - network-loss
+    - lifecycle-interrupt
+    - clock-error
+    devices: []
+  contentHash: 
+  frozen: 0

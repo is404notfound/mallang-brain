@@ -6,17 +6,19 @@
 
 1. [제품 비전과 단계별 로드맵](01-product/product-vision-and-roadmap.md)
    - 누구를 위한 게임인지, 무엇을 먼저 만들지, 성공을 어떻게 판단할지 설명한다.
-2. [수익화·퍼블리싱 전략](01-product/monetization-and-publishing-strategy.md)
+2. [연습실·콘테스트·뇌 타워 밸런스 설계](01-product/practice-contest-balance-design.md)
+   - 스테이지별 연습, 3분 코스, 뇌 성향, 난이도와 타워 분포를 어떻게 연결할지 설명한다.
+3. [수익화·퍼블리싱 전략](01-product/monetization-and-publishing-strategy.md)
    - 국내·글로벌 채널, 무료+광고 모델, 한글·영문 대응과 사업 위험을 정리한다. 추천 후보는 계약 확정이 아니다.
-3. [구현 전 체크리스트](03-development/pre-implementation-checklist.md)
+4. [구현 전 체크리스트](03-development/pre-implementation-checklist.md)
    - 지금 필요한 준비와 광고·공개·계약 전에 정할 일을 구분한다.
-4. [Gate 0 구현 계획](02-gate-0/implementation-plan.md)
+5. [Gate 0 구현 계획](02-gate-0/implementation-plan.md)
    - Android와 Apps in Toss에서 기술이 가능한지 확인하는 첫 관문의 기준이다.
-5. [Gate 0 테스트 계획](02-gate-0/test-plan.md)
+6. [Gate 0 테스트 계획](02-gate-0/test-plan.md)
    - Gate 0에서 실행할 27개 테스트와 기록 방법이다.
-6. [개발 환경과 7일 실행 계획](03-development/development-environment-and-schedule.md)
+7. [개발 환경과 7일 실행 계획](03-development/development-environment-and-schedule.md)
    - 개발 도구를 준비하고 Day 0부터 Day 7까지 실제로 일하는 순서다.
-7. [음악대학 와이어프레임](04-design/music-university-wireframe.html)
+8. [음악대학 와이어프레임](04-design/music-university-wireframe.html)
    - 첫 화면과 핵심 사용자 흐름을 눈으로 보는 설계안이다.
 
 사업 선택은 수익화 전략, 게임 규칙은 제품 비전, 기술 측정은 Gate 0 문서를 기준으로 본다. 구현 전 체크리스트는 이 문서를 연결하는 안내이며 기술 통과 조건을 바꾸지 않는다. 전체 프로젝트에 고정 6주 마감은 없지만, Gate 0의 기존 기술 시험 기간·판정 기준은 유지한다.

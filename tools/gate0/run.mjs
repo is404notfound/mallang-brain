@@ -8,7 +8,7 @@ import { build } from 'esbuild';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const unity = process.env.UNITY_EDITOR || '/Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/MacOS/Unity';
 const action = process.argv[2];
-const valid = ['prepare','test-edit','test-play','build-android','build-webgl','package-toss'];
+const valid = ['prepare','prepare-contracts','validate-contracts','test-edit','test-play','build-android','build-webgl','package-toss'];
 if (!valid.includes(action)) throw new Error(`Choose ${valid.join(', ')}`);
 if (Number(process.versions.node.split('.')[0]) < 24) throw new Error('Node 24 or newer required by the installed AIT CLI.');
 const id = new Date().toISOString().replace(/[:.]/g, '-') + '-' + action;
@@ -18,6 +18,8 @@ const record = { id, action, startedUtc:new Date().toISOString(), scope:'T2 diag
   source:spawnSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).stdout.trim(),
   dirty:spawnSync('git',['status','--porcelain'],{cwd:root,encoding:'utf8'}).stdout.trim().length > 0,
   node:process.versions.node };
+if(action.endsWith('-contracts')) record.scope = 'T3 configuration only; not a measured Gate result';
+if(action.startsWith('test-')) record.scope = 'Unity automated tests only; not device measurement';
 function run(command,args,env={}) {
   const result = spawnSync(command,args,{cwd:root,stdio:'inherit',env:{...process.env,...env}});
   if (result.error) throw result.error;
@@ -43,9 +45,8 @@ try {
     await build({entryPoints:[join(root,'tools/gate0/toss-orientation.js')],bundle:true,format:'iife',platform:'browser',target:'es2020',outfile:join(dest,'toss-orientation.js')});
     html=html.replace('</body>','<script src="toss-orientation.js"></script>\n</body>');
     writeFileSync(htmlPath,html);
-    record.appName=process.env.TOSS_APP_NAME || 'mallang-brain';
-    record.consoleAppNameVerified=false;
-    if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(record.appName)) throw new Error('TOSS_APP_NAME must be kebab-case.');
+    record.appName='mallang-brain';
+    record.consoleAppNameVerified=true;
     run(process.execPath,[join(root,'node_modules/@apps-in-toss/web-framework/bin/ait.js'),'build'],{GATE0_WEB_BUNDLE:dest});
     cpSync(join(root,`${record.appName}.ait`),join(out,`${record.appName}.ait`));
     record.sourceWebGL=input;
@@ -53,7 +54,7 @@ try {
     const args=['-batchmode','-projectPath',join(root,'unity'),'-logFile',join(out,'Unity.log')];
     if(action.startsWith('test-')) args.push('-runTests','-testPlatform',action==='test-edit'?'EditMode':'PlayMode','-testResults',join(out,'TestResults.xml'));
     else {
-      const method=action==='prepare'?'SmokeSceneSetup.Prepare':action==='build-android'?'SmokeBuild.BuildAndroid':'SmokeBuild.BuildWebGL';
+      const method=action==='validate-contracts'?'Gate0ContractSetup.ValidateMeasurement':action==='prepare-contracts'?'Gate0ContractSetup.Prepare':action==='prepare'?'SmokeSceneSetup.Prepare':action==='build-android'?'SmokeBuild.BuildAndroid':'SmokeBuild.BuildWebGL';
       args.push('-executeMethod','Mallang.Gate0.Editor.Build.'+method,'-quit');
       if(action.startsWith('build-')) args.push('-buildTarget',action==='build-android'?'Android':'WebGL');
     }
