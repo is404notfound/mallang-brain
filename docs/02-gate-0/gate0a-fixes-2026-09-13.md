@@ -134,7 +134,7 @@
 ## 커밋과 새 빌드
 
 - 이전 커밋: `f4c7ac4` "feat: wire Gate 0 timing/lifecycle/workload harness into a real scene, add Gate 0A/0B split" (109개 파일, push 안 함).
-- 이번 커밋(시계 보정 재설계 + 재검증): 아래 "커밋 정리" 참고.
+- 이번 커밋(시계 보정 재설계 + 재검증): `9a5cfdb` "fix: redesign clock calibration to fix silent invalidation on real hardware" (11개 파일, push 안 함).
 - Android APK(시계 보정 재설계 반영, 실기기 9-phase 전체 재검증에 사용): `Artifacts/T2/2026-09-13T06-02-44-614Z-build-android/mallang-brain-smoke.apk`
 - Toss `.ait` 배포(같은 수정 반영, 새 배포): 배포 ID `01a0996e-beec-7643-882d-fae03dfa5baa`
   ```
