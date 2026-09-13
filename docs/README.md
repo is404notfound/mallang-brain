@@ -18,7 +18,11 @@
    - Gate 0에서 실행할 27개 테스트와 기록 방법이다.
 7. [개발 환경과 7일 실행 계획](03-development/development-environment-and-schedule.md)
    - 개발 도구를 준비하고 Day 0부터 Day 7까지 실제로 일하는 순서다.
-8. [음악대학 와이어프레임](04-design/music-university-wireframe.html)
+8. [오프닝 연출 설계](04-design/opening-sequence-design.md)
+   - 많은 말랑뇌와 타악기가 박자에 맞춰 움직이는 5~6초 타이틀 장면을 설명한다.
+9. [브레인 콘테스트 군중 UI 설계](04-design/brain-contest-crowd-ui.md)
+   - 제1대합주관에서 100명의 참가자가 실제로 줄어드는 경기 화면을 설명한다.
+10. [음악대학 와이어프레임](04-design/music-university-wireframe.html)
    - 첫 화면과 핵심 사용자 흐름을 눈으로 보는 설계안이다.
 
 사업 선택은 수익화 전략, 게임 규칙은 제품 비전, 기술 측정은 Gate 0 문서를 기준으로 본다. 구현 전 체크리스트는 이 문서를 연결하는 안내이며 기술 통과 조건을 바꾸지 않는다. 전체 프로젝트에 고정 6주 마감은 없지만, Gate 0의 기존 기술 시험 기간·판정 기준은 유지한다.
