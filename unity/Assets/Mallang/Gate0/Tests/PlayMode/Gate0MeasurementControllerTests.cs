@@ -12,6 +12,13 @@ namespace Mallang.Gate0.Tests.PlayMode
 {
     // Exercises the real MonoBehaviour that wires T4-T7 into an actual scene: real audio-scheduled count-in,
     // real crowd spawn, real tap judging through the Input System, and real pause/resume recovery.
+    //
+    // Starting a phase (or resuming after an interrupt) now waits for a full ClockCalibrator calibration burst
+    // (DefaultRequiredSamples, ~2.7s at 60fps) rather than firing immediately — a single instantaneous sample
+    // was found, by pulling real device clock traces, to be meaningless (dspTime only advances once per audio
+    // buffer, so one reading carries up to a whole buffer of quantization noise). Tests below wait for the
+    // actual state transition (with a generous timeout) instead of a fixed real-time delay, so they stay
+    // correct regardless of the exact required-sample count or the test runner's actual frame rate.
     public sealed class Gate0MeasurementControllerTests
     {
         private GameObject root;
@@ -37,13 +44,23 @@ namespace Mallang.Gate0.Tests.PlayMode
             Object.DestroyImmediate(scenario);
         }
 
-        [UnityTest] public IEnumerator BeginPhaseSpawnsCrowdImmediately()
+        private static IEnumerator WaitUntilState(Gate0MeasurementController c, GameState state, float timeoutSeconds = 10f)
+        {
+            var start = Time.realtimeSinceStartup;
+            while (c.Lifecycle.State != state)
+            {
+                Assert.Less(Time.realtimeSinceStartup - start, timeoutSeconds,
+                    $"Timed out waiting for {state}; state is still {c.Lifecycle.State}.");
+                yield return null;
+            }
+        }
+
+        [UnityTest] public IEnumerator BeginPhaseCalibratesThenSpawnsCrowdOnCountIn()
         {
             Assert.AreEqual(GameState.Idle, controller.Lifecycle.State);
             controller.BeginPhase(); // phase 0 = "30-idle"
-            Assert.AreEqual(GameState.CountIn, controller.Lifecycle.State);
+            yield return WaitUntilState(controller, GameState.CountIn);
             Assert.AreEqual(30, controller.LoadDriver.ActiveCrowd);
-            yield return null;
         }
 
         // Each real phase runs 180s, so a full nine-phase auto run cannot be exercised end-to-end in an
@@ -54,14 +71,28 @@ namespace Mallang.Gate0.Tests.PlayMode
             Assert.IsFalse(controller.AutoRunActive);
             controller.StartAutoRun();
             Assert.IsTrue(controller.AutoRunActive);
-            Assert.AreEqual(GameState.CountIn, controller.Lifecycle.State);
+            yield return WaitUntilState(controller, GameState.CountIn);
             Assert.AreEqual(0, controller.PhaseIndex);
             Assert.AreEqual(30, controller.LoadDriver.ActiveCrowd);
 
             controller.CancelAutoRun();
             Assert.IsFalse(controller.AutoRunActive, "Cancelling must stop the auto-advance without interrupting the phase already in progress.");
             Assert.AreEqual(GameState.CountIn, controller.Lifecycle.State, "The in-progress phase itself keeps running after a cancel.");
-            yield return null;
+        }
+
+        [UnityTest] public IEnumerator RecordFailureStopsAutoRunAndRemainsVisible()
+        {
+            controller.runWriterOverride = (_, __, ___) => throw new System.IO.IOException("test storage unavailable");
+            controller.StartAutoRun();
+            yield return WaitUntilState(controller, GameState.Playing);
+
+            LogAssert.Expect(LogType.Error, "RECORD FAILED in 30-idle. Auto run stopped. test storage unavailable");
+            root.SendMessage("FinishPhase");
+
+            Assert.IsFalse(controller.AutoRunActive);
+            Assert.AreEqual(1, controller.Batch.FailedCount);
+            StringAssert.Contains("RECORD FAILED", controller.StatusMessage);
+            StringAssert.Contains("30-idle", controller.StatusMessage);
         }
 
         // BeginPhase (the manual "Start phase" button) must not silently continue an auto run in the
@@ -70,16 +101,17 @@ namespace Mallang.Gate0.Tests.PlayMode
         {
             controller.StartAutoRun();
             Assert.IsTrue(controller.AutoRunActive);
-            yield return new WaitForSecondsRealtime(2.2f); // let the first phase reach Playing
-            Assert.AreEqual(GameState.Playing, controller.Lifecycle.State);
+            yield return WaitUntilState(controller, GameState.Playing);
 
             // Interrupt cancels the running attempt; a manual BeginPhase afterwards must not resume auto-run.
             root.SendMessage("OnApplicationPause", true);
             root.SendMessage("OnApplicationPause", false);
-            for (var attempt = 0; attempt < 10 && controller.Lifecycle.State == GameState.Error; attempt++)
+            var start = Time.realtimeSinceStartup;
+            while (controller.Lifecycle.State == GameState.Error || controller.Lifecycle.State == GameState.Recalibrating)
             {
-                yield return new WaitForSecondsRealtime(0.2f);
-                controller.Retry();
+                Assert.Less(Time.realtimeSinceStartup - start, 10f, "Timed out waiting to leave Error/Recalibrating.");
+                if (controller.Lifecycle.State == GameState.Error) controller.Retry();
+                yield return null;
             }
             controller.BeginPhase();
             Assert.IsFalse(controller.AutoRunActive);
@@ -88,8 +120,7 @@ namespace Mallang.Gate0.Tests.PlayMode
         [UnityTest] public IEnumerator CountInAdvancesToPlayingAfterFourRealBeats()
         {
             controller.BeginPhase();
-            yield return new WaitForSecondsRealtime(2.2f); // 4 beats @ 500ms
-            Assert.AreEqual(GameState.Playing, controller.Lifecycle.State);
+            yield return WaitUntilState(controller, GameState.Playing);
             Assert.IsNotNull(controller.CurrentSession);
         }
 
@@ -103,8 +134,7 @@ namespace Mallang.Gate0.Tests.PlayMode
             try
             {
                 controller.BeginPhase();
-                yield return new WaitForSecondsRealtime(2.2f);
-                Assert.AreEqual(GameState.Playing, controller.Lifecycle.State);
+                yield return WaitUntilState(controller, GameState.Playing);
 
                 // The scenario's synthetic input schedule auto-replays in the background (see PhaseSession.
                 // ConsumeDueSyntheticInputs), so a real key press must be checked as an *increase*, not an
@@ -127,16 +157,21 @@ namespace Mallang.Gate0.Tests.PlayMode
         [UnityTest] public IEnumerator PauseDuringCountInInterruptsAndResumeRecounts()
         {
             controller.BeginPhase();
-            yield return null;
-            Assert.AreEqual(GameState.CountIn, controller.Lifecycle.State);
+            yield return WaitUntilState(controller, GameState.CountIn);
 
             root.SendMessage("OnApplicationPause", true);
             Assert.AreEqual(GameState.Interrupted, controller.Lifecycle.State);
 
             root.SendMessage("OnApplicationPause", false);
-            // Resume recalibrates synchronously and starts a fresh count-in.
-            Assert.AreEqual(GameState.CountIn, controller.Lifecycle.State);
-            yield return null;
+            // Resume enters Recalibrating and needs a fresh calibration burst before reaching CountIn again;
+            // Retry recovers if it lands in Error while the audio/clock is still settling (test-plan P07).
+            var start = Time.realtimeSinceStartup;
+            while (controller.Lifecycle.State != GameState.CountIn)
+            {
+                Assert.Less(Time.realtimeSinceStartup - start, 10f, "Timed out waiting for CountIn after resume.");
+                if (controller.Lifecycle.State == GameState.Error) controller.Retry();
+                yield return null;
+            }
         }
 
         // An interrupt must throw away the whole in-progress attempt — crowd, session, tally, frame stats —
@@ -144,8 +179,7 @@ namespace Mallang.Gate0.Tests.PlayMode
         [UnityTest] public IEnumerator InterruptDuringPlayingResetsCrowdAndSessionThenResumeStartsFresh()
         {
             controller.BeginPhase();
-            yield return new WaitForSecondsRealtime(2.2f);
-            Assert.AreEqual(GameState.Playing, controller.Lifecycle.State);
+            yield return WaitUntilState(controller, GameState.Playing);
             Assert.AreEqual(30, controller.LoadDriver.ActiveCrowd);
 
             root.SendMessage("OnApplicationPause", true);
@@ -154,21 +188,20 @@ namespace Mallang.Gate0.Tests.PlayMode
             Assert.AreEqual(0, controller.LoadDriver.ActiveCrowd, "The crowd must be cleared on interrupt.");
 
             root.SendMessage("OnApplicationPause", false);
-            // Resume recalibrates immediately using a short recent sample burst. In a batch-mode CI
-            // environment the audio clock can occasionally still be settling, which sends this through Error
-            // instead of straight to CountIn — Retry is the documented recovery path for exactly that
-            // (test-plan P07), so exercise it for real rather than asserting away real-world flakiness.
-            for (var attempt = 0; attempt < 10 && controller.Lifecycle.State == GameState.Error; attempt++)
+            // Resume recalibrates via a fresh sample burst; Retry is the documented recovery path if it lands
+            // in Error while the audio/clock is still settling (test-plan P07) — exercise it for real rather
+            // than asserting away real-world timing variance.
+            var start = Time.realtimeSinceStartup;
+            while (controller.Lifecycle.State != GameState.CountIn)
             {
-                yield return new WaitForSecondsRealtime(0.2f);
-                controller.Retry();
+                Assert.Less(Time.realtimeSinceStartup - start, 10f, "Timed out waiting for CountIn after resume.");
+                if (controller.Lifecycle.State == GameState.Error) controller.Retry();
+                yield return null;
             }
-            Assert.AreEqual(GameState.CountIn, controller.Lifecycle.State);
             // A fresh attempt is started immediately on re-entering CountIn: crowd respawns, new session.
             Assert.AreEqual(30, controller.LoadDriver.ActiveCrowd);
             Assert.IsNotNull(controller.CurrentSession);
             Assert.AreEqual(0, controller.CurrentSession.Tally.TotalJudged);
-            yield return null;
         }
     }
 }

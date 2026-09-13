@@ -39,6 +39,7 @@ namespace Mallang.Gate0.Runtime.Measurement
 #if UNITY_WEBGL && !UNITY_EDITOR
         [DllImport("__Internal")] private static extern void Gate0InstallAudioContextBridge(string objectName, string methodName);
         [DllImport("__Internal")] private static extern double Gate0GetDevicePixelRatio();
+        [DllImport("__Internal")] private static extern void Gate0DownloadText(string fileName, string contents);
 #endif
 
         public Gate0Scenario scenario;
@@ -53,6 +54,10 @@ namespace Mallang.Gate0.Runtime.Measurement
         public int PhaseIndex { get; private set; }
         public PhaseSession CurrentSession { get; private set; }
         public LoadDriver LoadDriver => loadDriver;
+        public MeasurementBatch Batch => measurementBatch;
+
+        // Test seam for a storage failure. Player builds leave this null and use MeasurementWriter.WriteRun.
+        [NonSerialized] public Action<string, RunRecord, byte[]> runWriterOverride;
 
         private readonly InterruptCoalescer coalescer = new InterruptCoalescer();
         private readonly IRhythmClock clock = new SystemRhythmClock();
@@ -86,6 +91,11 @@ namespace Mallang.Gate0.Runtime.Measurement
         private AutoPhaseRunner autoRunner;
         private bool autoNextQueued;
         private double autoNextRealtime;
+        private MeasurementBatch measurementBatch;
+        // True while waiting for a fresh calibration burst (ClockCalibrator.DefaultRequiredSamples readings,
+        // ~2.7s at 60fps) to fill up before starting a phase. See BeginSelectedPhase for why this can no longer
+        // be a single instantaneous sample.
+        private bool startPending;
 
         public bool AutoRunActive => autoRunner != null && autoRunner.Active;
 
@@ -171,6 +181,7 @@ namespace Mallang.Gate0.Runtime.Measurement
         public void BeginPhase()
         {
             autoRunner.Cancel();
+            StartMeasurementBatch(1);
             BeginSelectedPhase();
         }
 
@@ -179,7 +190,19 @@ namespace Mallang.Gate0.Runtime.Measurement
             if (Lifecycle.State != GameState.Idle && Lifecycle.State != GameState.Completed) return;
             PhaseIndex = autoRunner.Start();
             autoNextQueued = false;
+            StartMeasurementBatch(scenario.specification.phases.Length);
             BeginSelectedPhase();
+        }
+
+        private void StartMeasurementBatch(int expectedPhaseCount)
+        {
+            var buildId = string.IsNullOrWhiteSpace(Application.buildGUID) ? "diagnostic-unlinked" : Application.buildGUID;
+            measurementBatch = new MeasurementBatch(
+                Path.Combine(Application.persistentDataPath, "Gate0Runs"),
+                expectedPhaseCount,
+                buildId,
+                Application.platform.ToString(),
+                runWriterOverride);
         }
 
         public void CancelAutoRun()
@@ -195,23 +218,23 @@ namespace Mallang.Gate0.Runtime.Measurement
             var phase = CurrentPhaseSpec;
             if (phase == null) { StatusMessage = "No phase selected."; return; }
 
-            // Start from a single fresh sample: any samples accumulated while Idle can span the audio device's
-            // startup instability (dspTime can jump during the first frames of a scene), which would otherwise
-            // make this segment-start calibration spuriously invalid.
-            liveCalibrator = new ClockCalibrator();
+            // Do not fire Begin yet: a single instantaneous sample was found (by pulling real device clock
+            // traces) to be meaningless here — dspTime only advances once per audio callback while realtime
+            // advances every video frame, so any individual reading carries up to about one audio-buffer of
+            // quantization noise. Wait for Update() to accumulate a full calibration burst (ClockCalibrator.
+            // DefaultRequiredSamples) instead, which is what actually lets Build() distinguish a genuine clock
+            // problem from that per-sample jitter. In practice Idle has usually already been sampling for a
+            // while, so this resolves within the same frame the button was pressed.
             rawTrace = new RawMeasurementTrace(phase.id);
-            AddCalibrationSample();
-            if (!FinalizeCalibration()) { StatusMessage = "Clock calibration invalid; cannot start."; return; }
-
-            phaseStartedUtc = DateTime.UtcNow.ToString("o");
-            Lifecycle.Fire(LifecycleTrigger.Begin); // -> CountIn, which triggers StartAttempt() below
+            startPending = true;
+            StatusMessage = "Calibrating...";
         }
 
         public void Retry()
         {
             if (Lifecycle.State != GameState.Error) return;
-            Lifecycle.Fire(LifecycleTrigger.Retry);
-            FinishRecalibration();
+            Lifecycle.Fire(LifecycleTrigger.Retry); // -> Recalibrating; Update() drives the fresh burst below
+            BeginRecalibrationBurst();
         }
 
         // Called by every entry into CountIn: the first Begin from Idle/Completed, and every fresh
@@ -256,10 +279,19 @@ namespace Mallang.Gate0.Runtime.Measurement
         private void Update()
         {
             if (Lifecycle.State == GameState.Boot) return;
-            if (Lifecycle.State == GameState.Idle || Lifecycle.State == GameState.CountIn || Lifecycle.State == GameState.Playing)
+
+            var accumulatingCalibration = Lifecycle.State == GameState.Idle || Lifecycle.State == GameState.CountIn
+                || Lifecycle.State == GameState.Playing || Lifecycle.State == GameState.Completed
+                || Lifecycle.State == GameState.Recalibrating;
+            if (accumulatingCalibration)
             {
                 AddCalibrationSample();
-                if (clock.RealtimeSeconds - lastCalibrationFinalizeRealtime >= CalibrationWindowSeconds)
+
+                if (Lifecycle.State == GameState.Recalibrating)
+                {
+                    TryCompleteRecalibrationBurst();
+                }
+                else if (clock.RealtimeSeconds - lastCalibrationFinalizeRealtime >= CalibrationWindowSeconds)
                 {
                     var wasValid = calibrationState.Current.Valid;
                     if (!FinalizeCalibration() && wasValid && CurrentSession != null)
@@ -269,6 +301,20 @@ namespace Mallang.Gate0.Runtime.Measurement
                         CurrentSession.Invalidate("clock-error");
                         StatusMessage = "Clock calibration failed mid-run; segment invalidated.";
                     }
+                }
+            }
+
+            if (startPending && liveCalibrator.SampleCount >= liveCalibrator.RequiredSamples)
+            {
+                startPending = false;
+                if (FinalizeCalibration())
+                {
+                    phaseStartedUtc = DateTime.UtcNow.ToString("o");
+                    Lifecycle.Fire(LifecycleTrigger.Begin); // -> CountIn, which triggers StartAttempt() below
+                }
+                else
+                {
+                    StatusMessage = "Clock calibration invalid; cannot start.";
                 }
             }
 
@@ -425,12 +471,20 @@ namespace Mallang.Gate0.Runtime.Measurement
 
         private void FinishPhase()
         {
+            var wasAutoRun = AutoRunActive;
             Lifecycle.Fire(LifecycleTrigger.Finish);
-            WriteRunRecord();
+            var recordSaved = WriteRunRecord();
             loadDriver.EndPhase();
             CurrentSession = null;
             phaseStartDsp = null;
             rawTrace = null;
+
+            if (!recordSaved)
+            {
+                autoRunner.Cancel();
+                autoNextQueued = false;
+                return;
+            }
 
             if (autoRunner.TryAdvance(out var nextPhase))
             {
@@ -441,11 +495,13 @@ namespace Mallang.Gate0.Runtime.Measurement
             }
             else
             {
-                StatusMessage = AutoRunActive ? "Automatic run complete." : "Phase complete.";
+                StatusMessage = wasAutoRun
+                    ? $"Automatic run complete. Saved {measurementBatch.SavedCount}/{measurementBatch.ExpectedPhaseCount}."
+                    : "Phase complete.";
             }
         }
 
-        private void WriteRunRecord()
+        private bool WriteRunRecord()
         {
             var frames = CurrentSession.FrameStats.Compute();
             var invalid = CurrentSession.Invalidated;
@@ -485,9 +541,31 @@ namespace Mallang.Gate0.Runtime.Measurement
                 duplicateCount = CurrentSession.Tally.Duplicate,
             };
             var raw = rawTrace != null ? rawTrace.ToUtf8Json() : Encoding.UTF8.GetBytes("{}");
-            var dir = Path.Combine(Application.persistentDataPath, "Gate0Runs", record.runId);
-            try { MeasurementWriter.WriteRun(dir, record, raw); StatusMessage = (invalid ? "Saved INVALID run: " : "Saved run: ") + dir; }
-            catch (Exception e) { StatusMessage = "Record write failed: " + e.Message; Debug.LogError(StatusMessage); }
+            if (measurementBatch == null) StartMeasurementBatch(1);
+            if (measurementBatch.TrySave(record, raw, out var error))
+            {
+                StatusMessage = $"Saved {measurementBatch.SavedCount}/{measurementBatch.ExpectedPhaseCount}: {measurementBatch.BundlePath}";
+                return true;
+            }
+
+            StatusMessage = $"RECORD FAILED in {CurrentSession.Phase.id}. Auto run stopped. {error}";
+            Debug.LogError(StatusMessage);
+            return false;
+        }
+
+        public void ExportMeasurementBundle()
+        {
+            if (measurementBatch == null || measurementBatch.AttemptedCount == 0)
+            {
+                StatusMessage = "No measurement results to export.";
+                return;
+            }
+#if UNITY_WEBGL && !UNITY_EDITOR
+            Gate0DownloadText("Gate0RunBundle-" + measurementBatch.SessionId + ".json", measurementBatch.ToJson());
+            StatusMessage = "Result download requested. Check the browser download list.";
+#else
+            StatusMessage = "Results saved: " + measurementBatch.BundlePath;
+#endif
         }
 
         private static string MapNetwork(NetworkReachability reachability) => reachability switch
@@ -505,10 +583,21 @@ namespace Mallang.Gate0.Runtime.Measurement
             return calibrationState.Apply(result);
         }
 
-        private void FinishRecalibration()
+        // Resets the calibrator to collect an entirely fresh burst across the Recalibrating state, rather than
+        // reusing whatever was accumulated before the interrupt — the whole point of resuming is to check
+        // whether something changed (jump, backward clock, audio device reinit) across the suspend boundary,
+        // which stale pre-interrupt samples would dilute.
+        private void BeginRecalibrationBurst()
         {
             if (rawTrace == null && CurrentPhaseSpec != null) rawTrace = new RawMeasurementTrace(CurrentPhaseSpec.id);
-            AddCalibrationSample();
+            liveCalibrator = new ClockCalibrator();
+        }
+
+        // Called every frame while Recalibrating; only decides once a full burst has accumulated (see
+        // ClockCalibrator's required-sample-count rationale).
+        private void TryCompleteRecalibrationBurst()
+        {
+            if (liveCalibrator.SampleCount < liveCalibrator.RequiredSamples) return;
             var clockOk = FinalizeCalibration();
             // On WebGL, a resume must not be reported successful while the browser's Web Audio context is
             // still suspended (see SetWebGLAudioContextRunning) — otherwise a fresh count-in would start with
@@ -557,7 +646,7 @@ namespace Mallang.Gate0.Runtime.Measurement
                     Lifecycle.TryFire(LifecycleTrigger.Interrupt);
                     break;
                 case InterruptCoalescer.Signal.Resume:
-                    if (Lifecycle.TryFire(LifecycleTrigger.Resume)) FinishRecalibration();
+                    if (Lifecycle.TryFire(LifecycleTrigger.Resume)) BeginRecalibrationBurst();
                     break;
             }
         }
@@ -573,7 +662,12 @@ namespace Mallang.Gate0.Runtime.Measurement
             GUI.Label(new Rect(10, y, 920, 24), $"Gate0 Measurement — phase {PhaseIndex + 1}/{scenario.specification.phases.Length} ({CurrentPhaseSpec?.id}) — {Lifecycle.State}"); y += 24;
             GUI.Label(new Rect(10, y, 920, 24), $"Perfect {CurrentSession?.Tally.Perfect ?? 0}  Good {CurrentSession?.Tally.Good ?? 0}  Miss {CurrentSession?.Tally.Miss ?? 0}  Dup {CurrentSession?.Tally.Duplicate ?? 0}"); y += 24;
             GUI.Label(new Rect(10, y, 920, 24), $"beat {uiElapsedBeats}  t={uiLastElapsedMs:0}ms  crowd {uiActiveCrowd}  judged {uiJudgedTotal}"); y += 24;
-            GUI.Label(new Rect(10, y, 920, 24), StatusMessage);
+            var statusLine = StatusMessage;
+            if (startPending || Lifecycle.State == GameState.Recalibrating)
+                statusLine += $" ({liveCalibrator.SampleCount}/{liveCalibrator.RequiredSamples})";
+            GUI.Label(new Rect(10, y, 920, 24), statusLine);
+            if (measurementBatch != null)
+                GUI.Label(new Rect(10, y + 24, 920, 24), $"records {measurementBatch.SavedCount}/{measurementBatch.ExpectedPhaseCount}  invalid {measurementBatch.InvalidCount}  failed {measurementBatch.FailedCount}");
 
             if (Lifecycle.State == GameState.Idle || Lifecycle.State == GameState.Completed)
             {
@@ -587,6 +681,9 @@ namespace Mallang.Gate0.Runtime.Measurement
                 if (GUI.Button(new Rect(10, ControlsY, 220, 36), "Retry")) Retry();
             }
             if (AutoRunActive && GUI.Button(new Rect(800, ControlsY, 150, 36), "Stop auto")) CancelAutoRun();
+            if (measurementBatch != null && measurementBatch.AttemptedCount > 0
+                && GUI.Button(new Rect(800, ControlsY + 42, 150, 36), "Export results"))
+                ExportMeasurementBundle();
 
             if (flashFramesRemaining > 0) GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Texture2D.whiteTexture);
             var oldColor = GUI.color;

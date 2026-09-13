@@ -38,4 +38,19 @@ mergeInto(LibraryManager.library, {
   Gate0GetDevicePixelRatio: function () {
     return window.devicePixelRatio || 1;
   },
+
+  // Called only from the visible Export button, which keeps the browser download inside a user gesture.
+  Gate0DownloadText: function (fileNamePtr, contentsPtr) {
+    var fileName = UTF8ToString(fileNamePtr);
+    var contents = UTF8ToString(contentsPtr);
+    var blob = new Blob([contents], { type: 'application/json;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = fileName;
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+  },
 });

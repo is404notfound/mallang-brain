@@ -116,7 +116,9 @@ namespace Mallang.Gate0.Editor.Build
             var timestamp = DateTime.UtcNow;
             var manifest = new BuildManifest
             {
-                buildId = target + "-" + timestamp.ToString("yyyyMMddTHHmmssfffZ"),
+                // Unity guarantees that BuildSummary.guid is the Application.buildGUID seen by this player.
+                // Using it here lets every RunRecord join back to exactly one BuildManifest.
+                buildId = report.summary.guid.ToString(),
                 sourceCommit = string.IsNullOrEmpty(commitHash) ? "unknown" : commitHash,
                 dirty = !string.IsNullOrEmpty(RunGit("status --porcelain")),
                 unityVersion = Application.unityVersion,

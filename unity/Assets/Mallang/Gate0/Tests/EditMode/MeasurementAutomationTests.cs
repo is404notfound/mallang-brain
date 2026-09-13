@@ -17,8 +17,9 @@ namespace Mallang.Gate0.Tests.EditMode
             var state = new CalibrationState();
             Assert.IsFalse(state.Current.Valid, "A fresh CalibrationState must start invalid, not silently usable.");
 
-            var calibrator = new ClockCalibrator();
+            var calibrator = new ClockCalibrator(requiredSamples: 2);
             calibrator.AddSample(1.0, 1.1);
+            calibrator.AddSample(1.1, 1.2);
             var good = calibrator.Build();
             Assert.IsTrue(state.Apply(good));
             Assert.IsTrue(state.Current.Valid);
@@ -26,7 +27,7 @@ namespace Mallang.Gate0.Tests.EditMode
 
             // A calibrator that saw a clock rewind produces an Invalid result; applying it must overwrite the
             // still-valid previous result rather than being ignored.
-            var failing = new ClockCalibrator();
+            var failing = new ClockCalibrator(requiredSamples: 2);
             failing.AddSample(2.0, 2.1);
             failing.AddSample(1.5, 2.3); // realtime went backward
             var bad = failing.Build();

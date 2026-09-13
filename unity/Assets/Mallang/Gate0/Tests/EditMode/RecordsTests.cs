@@ -91,6 +91,26 @@ namespace Mallang.Gate0.Tests.EditMode
             Assert.IsFalse(Directory.Exists(dir) && File.Exists(Path.Combine(dir, MeasurementWriter.RunRecordFileName)));
         }
 
+        [Test] public void MeasurementBatchMakesStorageFailureVisibleAndKeepsRawEvidenceInMemory()
+        {
+            var record = CompleteRun();
+            var raw = Encoding.UTF8.GetBytes("{\"sample\":42}");
+            var batch = new MeasurementBatch(
+                tempRoot,
+                9,
+                "build-1",
+                "Android",
+                (_, __, ___) => throw new IOException("disk full"));
+
+            Assert.IsFalse(batch.TrySave(record, raw, out var error));
+            StringAssert.Contains("disk full", error);
+            Assert.AreEqual(0, batch.SavedCount);
+            Assert.AreEqual(1, batch.FailedCount);
+            Assert.AreEqual(1, batch.AttemptedCount);
+            StringAssert.Contains("\"storageStatus\": \"failed\"", batch.ToJson());
+            StringAssert.Contains("\\\"sample\\\":42", batch.ToJson());
+        }
+
         // E13 — dirty or checksum-missing builds are not final Gate candidates; a clean, complete build is.
         [Test] public void BuildManifestEligibilityRules()
         {
