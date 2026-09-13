@@ -1,0 +1,9 @@
+{
+  "name": "Mallang.Gate1.Runtime",
+  "rootNamespace": "Mallang.Gate1.Runtime",
+  "references": [
+    "Mallang.RhythmCore.Runtime",
+    "Mallang.Gate0.Runtime",
+    "Unity.InputSystem"
+  ]
+}

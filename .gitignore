@@ -2,6 +2,7 @@
 node_modules/
 *.ait
 Artifacts/T2/
+Artifacts/Gate1/
 Artifacts/T4-T7-local/
 Artifacts/T8-local/
 dist/

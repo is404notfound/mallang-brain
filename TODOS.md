@@ -13,7 +13,7 @@
 ## 구현 전 문서 준비
 
 - [x] [수익화·퍼블리싱 전략](docs/01-product/monetization-and-publishing-strategy.md)과 [구현 전 체크리스트](docs/03-development/pre-implementation-checklist.md) 정리 — 2026-09-09. 문서 작성 완료이며 구현·계약 완료가 아니다.
-- [ ] Gate 0 측정 결과를 반영한 Gate 1 구현·사용자 테스트 계획 작성.
+- [x] Gate 0A 결과를 반영한 [Gate 1 구현·사용자 테스트 계획](docs/03-development/gate-1-implementation-plan.md) 작성 — 2026-09-13. Gate 0B와 Toss 9-phase 전체 기록은 미측정 상태로 유지.
 - [ ] Gate 1 계획에 [연습실·콘테스트·뇌 타워 밸런스 설계](docs/01-product/practice-contest-balance-design.md)의 스테이지 기술 태그, 성향 수치와 타워 결과 규칙 확정.
 - [ ] UI 구현 전 한글·영문 문구 구조·용어·기본 언어·화면 범위 결정.
 - [ ] 사용자 테스트 전 이벤트·분모·오류·언어·유입 경로 기록 설계.

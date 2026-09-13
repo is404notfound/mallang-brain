@@ -11,6 +11,8 @@
     "gate0:build-android": "node tools/gate0/run.mjs build-android",
     "gate0:build-webgl": "node tools/gate0/run.mjs build-webgl",
     "gate0:package-toss": "node tools/gate0/run.mjs package-toss",
+    "gate1:build-webgl": "node tools/gate1/run.mjs build-webgl",
+    "gate1:package-toss": "node tools/gate1/run.mjs package-toss",
     "gate0:deploy-toss": "ait deploy --profile mallang-brain --location"
   },
   "devDependencies": {
