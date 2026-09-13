@@ -21,7 +21,13 @@
     const status = document.getElementById('status');
     const progress = document.getElementById('progress');
     window.gate1Prototype = { unityReady:false, orientation:'not-checked' };
-    window.gate1OrientationStatus = message => { status.textContent = message; };
+    let statusTimer;
+    window.gate1OrientationStatus = message => {
+      status.hidden = false;
+      status.textContent = message;
+      clearTimeout(statusTimer);
+      if (message.includes('완료')) statusTimer = setTimeout(() => { status.hidden = true; }, 2200);
+    };
     const loader = document.createElement('script');
     loader.src = 'Build/{{{ LOADER_FILENAME }}}';
     loader.onerror = () => { progress.textContent = '실행 파일을 불러오지 못했어요. 연결을 확인한 뒤 새로고침해 주세요.'; };
@@ -31,7 +37,7 @@
         streamingAssetsUrl:'StreamingAssets', companyName:'is404notfound', productName:'Mallang Brain Gate 1', productVersion:'0.1.0',
         showBanner:(message,type) => { if(type === 'error') { progress.textContent=message; document.getElementById('loading').hidden=false; } console[type === 'error' ? 'error' : 'warn'](message); }
       }, p => { progress.textContent = '불러오는 중 ' + Math.round(p * 100) + '%'; })
-      .then(instance => { window.gate1Unity=instance; window.gate1Prototype.unityReady=true; document.getElementById('loading').hidden=true; })
+      .then(instance => { window.gate1Unity=instance; window.gate1Prototype.unityReady=true; document.getElementById('loading').hidden=true; document.getElementById('unity-canvas').focus(); })
       .catch(error => { progress.textContent='Unity 실행 실패: '+error.message; });
     };
     document.body.appendChild(loader);
