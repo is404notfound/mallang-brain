@@ -200,6 +200,13 @@ namespace Mallang.RhythmCore
             return new RunSnapshot(endReason, lastCompletedStage, failStage, baseScore, accuracyScore, Math.Max(0, comboAdjustedScore - ghostMissCount * GhostMissPenalty), accuracy, combo, ghostMissCount);
         }
 
+        public void AdvanceTime(long timeUs, IList<JudgementEvent> output = null)
+        {
+            if (!EnsureTimestamp(timeUs, output)) return;
+            CountCurrentStageForAccuracy();
+            AdvanceTo(timeUs, output);
+        }
+
         private void LoadStage(int nextStageIndex)
         {
             stageIndex = nextStageIndex;

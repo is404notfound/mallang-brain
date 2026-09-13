@@ -165,6 +165,40 @@ namespace Mallang.RhythmCore.Tests.EditMode
             Assert.That(events[1].Kind, Is.EqualTo(JudgementEventKind.GhostMiss));
         }
 
+        [Test]
+        public void AdvanceTimeClosesAnOverdueCueImmediatelyAndOnlyOnce()
+        {
+            var run = new ContestRun(ChartWith(new ChartNote(1, 1, 500000, Hand.Left, NoteKind.Tap)));
+            var events = new List<JudgementEvent>();
+
+            run.AdvanceTime(500000 + ContestRun.GoodWindowUs, events);
+            Assert.That(events, Is.Empty, "The good-window boundary is still playable.");
+
+            run.AdvanceTime(500000 + ContestRun.GoodWindowUs + 1, events);
+            Assert.That(events.Count, Is.EqualTo(1));
+            Assert.That(events[0].Judgement, Is.EqualTo(Judgement.Miss));
+            Assert.That(run.Snapshot().AccuracyBasisPoints, Is.EqualTo(0));
+
+            events.Clear();
+            run.AdvanceTime(800000, events);
+            Assert.That(events, Is.Empty, "A closed cue must not emit duplicate misses.");
+        }
+
+        [Test]
+        public void AdvanceTimeClosesAnOverdueHoldImmediately()
+        {
+            var run = new ContestRun(ChartWith(new[] { new ChartNote(1, 1, 500000, Hand.Left, NoteKind.Hold, 1000000) }, durationUs: 1400000));
+            var events = new List<JudgementEvent>();
+
+            run.ProcessPress(Hand.Left, 7, 500000, events);
+            events.Clear();
+            run.AdvanceTime(1000000 + ContestRun.HoldLateGoodWindowUs + 1, events);
+
+            Assert.That(events.Count, Is.EqualTo(1));
+            Assert.That(events[0].Judgement, Is.EqualTo(Judgement.Miss));
+            Assert.That(run.Snapshot().Combo, Is.EqualTo(0));
+        }
+
         [TestCase(-120000, Judgement.Miss, 50)]
         [TestCase(-60000, Judgement.Perfect, 100)]
         [TestCase(0, Judgement.Perfect, 100)]

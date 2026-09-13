@@ -42,8 +42,12 @@ namespace Mallang.Gate1.Runtime
         private Hand lastHitHand;
         private string feedback = "";
         private AudioSource audioSource;
+        private AudioSource backingSource;
+        private AudioSource[] countInSources;
         private AudioClip leftTone;
         private AudioClip rightTone;
+        private AudioClip countInTone;
+        private AudioClip backingLoop;
         private Texture2D roundedTexture;
         private Texture2D circleTexture;
         private Texture2D ringTexture;
@@ -61,6 +65,10 @@ namespace Mallang.Gate1.Runtime
             audioSource.playOnAwake = false;
             audioSource.spatialBlend = 0;
             audioSource.volume = 0.25f;
+            backingSource = CreateAudioSource("Gate 1 accompaniment", .22f);
+            countInSources = new AudioSource[4];
+            for (var index = 0; index < countInSources.Length; index++)
+                countInSources[index] = CreateAudioSource("Gate 1 count " + (index + 1), .34f);
             roundedTexture = CreateShapeTexture(false, false);
             circleTexture = CreateShapeTexture(true, false);
             ringTexture = CreateShapeTexture(true, true);
@@ -68,6 +76,7 @@ namespace Mallang.Gate1.Runtime
             {
                 leftTone = CreateMarimbaTone("Left marimba", 329.63f);
                 rightTone = CreateMarimbaTone("Right marimba", 493.88f);
+                countInTone = CreateMarimbaTone("Count-in", 880f);
             }
             catch (Exception error)
             {
@@ -89,7 +98,6 @@ namespace Mallang.Gate1.Runtime
 
             if (phase == ScreenPhase.CountIn && clock.DspSeconds >= countInStartDsp + CountInDurationSeconds())
             {
-                stageStartDsp = countInStartDsp + CountInDurationSeconds();
                 phase = ScreenPhase.Playing;
                 feedback = "시작!";
                 feedbackUntil = clock.RealtimeSeconds + .65;
@@ -97,11 +105,19 @@ namespace Mallang.Gate1.Runtime
             }
 
             if (phase != ScreenPhase.Playing || run == null) return;
+            events.Clear();
+            var finalTimestampUs = CurrentStage().DurationUs + ContestRun.HoldLateGoodWindowUs + 1;
+            run.AdvanceTime(Math.Min(CurrentStageUs(), finalTimestampUs), events);
+            CaptureFeedback();
             if (clock.DspSeconds < stageStartDsp + CurrentStage().DurationUs / 1000000.0) return;
             events.Clear();
             run.FinalizeCurrentStage(events);
             CaptureFeedback();
-            if (!run.IsActive) phase = ScreenPhase.Result;
+            if (!run.IsActive)
+            {
+                StopScheduledAudio();
+                phase = ScreenPhase.Result;
+            }
             else BeginCountIn();
         }
 
@@ -346,13 +362,17 @@ namespace Mallang.Gate1.Runtime
             if (!calibration.Valid) return;
             if (chart == null) chart = Gate1ChartFactory.Create();
             if (run == null) run = new ContestRun(chart);
+            StopScheduledAudio();
             countInStartDsp = clock.DspSeconds + .15;
+            stageStartDsp = countInStartDsp + CountInDurationSeconds();
+            ScheduleStageAudio();
             phase = ScreenPhase.CountIn;
             feedback = "";
         }
 
         private void StartCalibration()
         {
+            StopScheduledAudio();
             calibrator = new ClockCalibrator();
             calibration = ClockCalibration.Invalid("not-started", 0);
             chart = null;
@@ -366,8 +386,11 @@ namespace Mallang.Gate1.Runtime
 
         private void OnDestroy()
         {
+            StopScheduledAudio();
             if (leftTone != null) Destroy(leftTone);
             if (rightTone != null) Destroy(rightTone);
+            if (countInTone != null) Destroy(countInTone);
+            if (backingLoop != null) Destroy(backingLoop);
             if (roundedTexture != null) Destroy(roundedTexture);
             if (circleTexture != null) Destroy(circleTexture);
             if (ringTexture != null) Destroy(ringTexture);
@@ -491,6 +514,53 @@ namespace Mallang.Gate1.Runtime
             if (audioSource != null && tone != null) audioSource.PlayOneShot(tone);
         }
 
+        private AudioSource CreateAudioSource(string objectName, float volume)
+        {
+            var child = new GameObject(objectName);
+            child.transform.SetParent(transform, false);
+            var source = child.AddComponent<AudioSource>();
+            source.playOnAwake = false;
+            source.spatialBlend = 0;
+            source.volume = volume;
+            return source;
+        }
+
+        private void ScheduleStageAudio()
+        {
+            if (countInTone != null)
+            {
+                var beatSeconds = 60.0 / CurrentBpm();
+                for (var index = 0; index < countInSources.Length; index++)
+                {
+                    countInSources[index].clip = countInTone;
+                    countInSources[index].pitch = index == 0 ? 1.25f : 1f;
+                    countInSources[index].PlayScheduled(countInStartDsp + beatSeconds * index);
+                }
+            }
+
+            if (backingSource == null) return;
+            try
+            {
+                if (backingLoop != null) Destroy(backingLoop);
+                backingLoop = CreateBackingLoop(CurrentBpm());
+                backingSource.clip = backingLoop;
+                backingSource.loop = true;
+                backingSource.PlayScheduled(stageStartDsp);
+            }
+            catch (Exception error)
+            {
+                Debug.LogWarning("Gate 1 accompaniment unavailable; visual play continues. " + error.Message);
+            }
+        }
+
+        private void StopScheduledAudio()
+        {
+            if (backingSource != null) backingSource.Stop();
+            if (countInSources == null) return;
+            foreach (var source in countInSources)
+                if (source != null) source.Stop();
+        }
+
         private static AudioClip CreateMarimbaTone(string clipName, float frequency)
         {
             const int sampleRate = 44100;
@@ -504,6 +574,29 @@ namespace Mallang.Gate1.Runtime
             }
             var clip = AudioClip.Create(clipName, samples.Length, 1, sampleRate, false);
             if (!clip.SetData(samples, 0)) throw new InvalidOperationException("마림바 음을 만들 수 없습니다.");
+            return clip;
+        }
+
+        private static AudioClip CreateBackingLoop(int bpm)
+        {
+            const int sampleRate = 44100;
+            var beatSeconds = 60f / bpm;
+            var samples = new float[Mathf.RoundToInt(sampleRate * beatSeconds * 4f)];
+            var bassNotes = new[] { 164.81f, 196f, 220f, 196f };
+            for (var index = 0; index < samples.Length; index++)
+            {
+                var time = index / (float)sampleRate;
+                var beatIndex = Mathf.Min(3, Mathf.FloorToInt(time / beatSeconds));
+                var beatTime = time - beatIndex * beatSeconds;
+                var bassEnvelope = Mathf.Exp(-beatTime * 4.5f);
+                var pulseEnvelope = Mathf.Exp(-beatTime * 12f);
+                var bass = Mathf.Sin(2f * Mathf.PI * bassNotes[beatIndex] * time);
+                var overtone = Mathf.Sin(2f * Mathf.PI * bassNotes[beatIndex] * 2f * time);
+                var pulse = Mathf.Sin(2f * Mathf.PI * 659.25f * beatTime);
+                samples[index] = .16f * bassEnvelope * (bass + .24f * overtone) + .055f * pulseEnvelope * pulse;
+            }
+            var clip = AudioClip.Create("Gate 1 prototype accompaniment " + bpm + " BPM", samples.Length, 1, sampleRate, false);
+            if (!clip.SetData(samples, 0)) throw new InvalidOperationException("반주음을 만들 수 없습니다.");
             return clip;
         }
 
