@@ -391,6 +391,45 @@ namespace Mallang.RhythmCore.Tests.EditMode
             Assert.That(snapshot.AccuracyBasisPoints, Is.EqualTo(10000));
         }
 
+        // Listen & Repeat minigame: PatternCompiler is additive (Gate1ChartFactory/ContestRun untouched),
+        // so every pattern it builds must still satisfy the same validator and judgement core.
+        [Test]
+        public void AllListenAndRepeatPatternsCompileToValidCharts()
+        {
+            foreach (var entry in ListenAndRepeatPatterns.All)
+            {
+                var chart = PatternCompiler.BuildSingleBarChart("test-" + entry.Id, entry.Block, 90);
+                var validation = ChartValidator.Validate(chart);
+                Assert.That(validation.IsValid, Is.True, entry.Id + " should compile to a valid chart but failed with " + validation.Error);
+                Assert.That(chart.Stages.Count, Is.EqualTo(1));
+            }
+        }
+
+        [TestCase(0, 90, 0)]
+        [TestCase(480, 90, 666667)]
+        [TestCase(1920, 90, 2666667)]
+        public void PatternCompilerUsesTheSameRoundingRuleAsGate1Factory(int tick, int bpm, long expectedUs)
+        {
+            Assert.That(PatternCompiler.TickToUs(tick, bpm), Is.EqualTo(expectedUs));
+            Assert.That(PatternCompiler.TickToUs(tick, bpm), Is.EqualTo(Gate1ChartFactory.TickToUs(tick, bpm)));
+        }
+
+        [Test]
+        public void PerfectReplayOfEachListenAndRepeatPatternCompletesTheBar()
+        {
+            foreach (var entry in ListenAndRepeatPatterns.All)
+            {
+                var chart = PatternCompiler.BuildSingleBarChart("test-" + entry.Id, entry.Block, 90);
+                var run = new ContestRun(chart);
+                PlayStagePerfect(run, chart.Stages[0]);
+                run.FinalizeCurrentStage();
+
+                var snapshot = run.Snapshot();
+                Assert.That(snapshot.EndReason, Is.EqualTo(RunEndReason.Completed), entry.Id + " should complete on a perfect replay.");
+                Assert.That(snapshot.AccuracyBasisPoints, Is.EqualTo(10000), entry.Id + " should be 100% accurate on a perfect replay.");
+            }
+        }
+
         private static (RunSnapshot snapshot, List<JudgementEvent> events) Replay()
         {
             var chart = ChartWith(new[]

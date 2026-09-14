@@ -8,79 +8,108 @@ using UnityEngine.InputSystem.LowLevel;
 
 namespace Mallang.Gate1.Runtime
 {
+    // "리듬을 듣고, 악보를 보며, 다음 마디에 그대로 따라 연주한다" — listen-and-repeat rhythm minigame.
+    // No falling notes, no moving judgement line, no BGM. Judgement/scoring is entirely delegated to the
+    // unmodified Mallang.RhythmCore.ContestRun (same tap/hold windows, combo and scoring rules as Gate 1's
+    // marimba contest); this screen only supplies a fresh one-bar chart per pattern via PatternCompiler and
+    // presents it. See docs/03-development/gate-1-implementation-plan.md for the reused judgement contract.
     [RequireComponent(typeof(AudioSource))]
     public sealed class ContestPrototypeScreen : MonoBehaviour
     {
-        private enum ScreenPhase { Calibrating, Ready, CountIn, Playing, Result }
+        private enum ScreenPhase { Calibrating, Ready, CountIn, Listen, YourTurn, Result }
 
-        private static readonly Color Cream = Hex("FFF4D6");
-        private static readonly Color Ink = Hex("20343A");
-        private static readonly Color Teal = Hex("1F8F83");
-        private static readonly Color Mint = Hex("6FE0C2");
-        private static readonly Color Coral = Hex("F06B5B");
-        private static readonly Color Gold = Hex("F5C451");
-        private static readonly Color Walnut = Hex("4A271C");
+        private sealed class RawInput
+        {
+            public Hand Hand;
+            public long PressUs;
+            public long? ReleaseUs;
+        }
+
+        private const int Bpm = 90;
+        private const double ResultHoldSeconds = 1.4;
+
+        private static readonly Color Cream = Hex("FFF9F0");
+        private static readonly Color Ink = Hex("183A55");
+        private static readonly Color Teal = Hex("7ABF7E");
+        private static readonly Color Mint = Hex("9ED6F6");
+        private static readonly Color Coral = Hex("FF8F8F");
+        private static readonly Color Gold = Hex("F6C445");
+        private static readonly Color Walnut = Hex("F3C68B");
 
         [Header("Gate 1 visual assets")]
         [SerializeField] private Texture2D stageBackground;
-        [SerializeField] private Texture2D mascotTexture;
         [SerializeField] private Font koreanFont;
         [SerializeField] private double userCalibrationSeconds;
 
         private readonly List<JudgementEvent> events = new List<JudgementEvent>(16);
+        private readonly List<RawInput> rawInputLog = new List<RawInput>(16);
+        private readonly Dictionary<int, RawInput> openRawInputs = new Dictionary<int, RawInput>(8);
+        private readonly Dictionary<int, Hand> activePointerHands = new Dictionary<int, Hand>(8);
         private readonly SystemRhythmClock clock = new SystemRhythmClock();
+
         private ClockCalibrator calibrator;
         private ClockCalibration calibration;
+        private int patternIndex;
+        private PatternBlock currentPattern;
         private ContestChart chart;
         private ContestRun run;
+        private RunSnapshot lastSnapshot;
         private ScreenPhase phase;
         private double countInStartDsp;
-        private double stageStartDsp;
+        private double listenStartDsp;
+        private double yourTurnStartDsp;
+        private double resultShownRealtime;
         private double feedbackUntil;
-        private double mascotBounceUntil;
         private Hand mouseHand;
-        private Hand lastHitHand;
         private string feedback = "";
-        private AudioSource audioSource;
-        private AudioSource backingSource;
-        private AudioSource[] countInSources;
-        private AudioClip leftTone;
-        private AudioClip rightTone;
-        private AudioClip countInTone;
-        private AudioClip backingLoop;
+
+        private AudioSource leftSource;
+        private AudioSource rightSource;
+        private AudioSource[] metronomeSources;
+        private AudioSource[] previewSources;
+        private AudioClip leftTapClip;
+        private AudioClip rightTapClip;
+        private AudioClip leftHoldReleaseClip;
+        private AudioClip rightHoldReleaseClip;
+        private AudioClip metronomeClip;
+        private AudioClip metronomeAccentClip;
         private Texture2D roundedTexture;
         private Texture2D circleTexture;
-        private Texture2D ringTexture;
         private GUIStyle displayStyle;
         private GUIStyle headingStyle;
         private GUIStyle bodyStyle;
         private GUIStyle smallStyle;
         private GUIStyle buttonStyle;
 
+        private double BeatSeconds => 60.0 / Bpm;
+        private double BarSeconds => BeatSeconds * 4.0;
+
         private void Awake()
         {
             Application.targetFrameRate = 60;
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
-            audioSource = GetComponent<AudioSource>();
-            audioSource.playOnAwake = false;
-            audioSource.spatialBlend = 0;
-            audioSource.volume = 0.25f;
-            backingSource = CreateAudioSource("Gate 1 accompaniment", .22f);
-            countInSources = new AudioSource[4];
-            for (var index = 0; index < countInSources.Length; index++)
-                countInSources[index] = CreateAudioSource("Gate 1 count " + (index + 1), .34f);
-            roundedTexture = CreateShapeTexture(false, false);
-            circleTexture = CreateShapeTexture(true, false);
-            ringTexture = CreateShapeTexture(true, true);
+            leftSource = CreateAudioSource("Left tone", .55f, -.35f);
+            rightSource = CreateAudioSource("Right tone", .55f, .35f);
+            metronomeSources = new AudioSource[12];
+            for (var index = 0; index < metronomeSources.Length; index++)
+                metronomeSources[index] = CreateAudioSource("Metronome " + index, .12f, 0f);
+            previewSources = new AudioSource[10];
+            for (var index = 0; index < previewSources.Length; index++)
+                previewSources[index] = CreateAudioSource("Listen preview " + index, .5f, 0f);
+            roundedTexture = CreateShapeTexture(false);
+            circleTexture = CreateShapeTexture(true);
             try
             {
-                leftTone = CreateMarimbaTone("Left marimba", 329.63f);
-                rightTone = CreateMarimbaTone("Right marimba", 493.88f);
-                countInTone = CreateMarimbaTone("Count-in", 880f);
+                leftTapClip = CreatePercussionTone("Left tap", 220f, 14f);
+                rightTapClip = CreatePercussionTone("Right tap", 440f, 16f);
+                leftHoldReleaseClip = CreatePercussionTone("Left hold release", 165f, 30f);
+                rightHoldReleaseClip = CreatePercussionTone("Right hold release", 330f, 30f);
+                metronomeClip = CreatePercussionTone("Metronome tick", 1500f, 55f, .05f);
+                metronomeAccentClip = CreatePercussionTone("Metronome accent", 2000f, 45f, .08f);
             }
             catch (Exception error)
             {
-                Debug.LogWarning("Gate 1 audio unavailable; visual play continues. " + error.Message);
+                Debug.LogWarning("Listen & Repeat audio unavailable; visual play continues. " + error.Message);
             }
             StartCalibration();
         }
@@ -88,6 +117,7 @@ namespace Mallang.Gate1.Runtime
         private void Update()
         {
             ReadInput();
+
             if (phase == ScreenPhase.Calibrating)
             {
                 calibrator.AddSample(clock);
@@ -95,30 +125,45 @@ namespace Mallang.Gate1.Runtime
                 if (calibration.Valid) phase = ScreenPhase.Ready;
                 return;
             }
+            if (phase == ScreenPhase.Ready) return;
 
-            if (phase == ScreenPhase.CountIn && clock.DspSeconds >= countInStartDsp + CountInDurationSeconds())
+            if (phase == ScreenPhase.CountIn && clock.DspSeconds >= listenStartDsp)
             {
-                phase = ScreenPhase.Playing;
-                feedback = "시작!";
-                feedbackUntil = clock.RealtimeSeconds + .65;
+                phase = ScreenPhase.Listen;
                 return;
             }
 
-            if (phase != ScreenPhase.Playing || run == null) return;
-            events.Clear();
-            var finalTimestampUs = CurrentStage().DurationUs + ContestRun.HoldLateGoodWindowUs + 1;
-            run.AdvanceTime(Math.Min(CurrentStageUs(), finalTimestampUs), events);
-            CaptureFeedback();
-            if (clock.DspSeconds < stageStartDsp + CurrentStage().DurationUs / 1000000.0) return;
-            events.Clear();
-            run.FinalizeCurrentStage(events);
-            CaptureFeedback();
-            if (!run.IsActive)
+            if (phase == ScreenPhase.Listen && clock.DspSeconds >= yourTurnStartDsp)
             {
+                phase = ScreenPhase.YourTurn;
+                run = new ContestRun(chart);
+                return;
+            }
+
+            if (phase == ScreenPhase.YourTurn)
+            {
+                if (run == null) return;
+                var stage = chart.Stages[0];
+                events.Clear();
+                var finalUs = stage.DurationUs + ContestRun.HoldLateGoodWindowUs + 1;
+                run.AdvanceTime(Math.Min(YourTurnUs(), finalUs), events);
+                CaptureFeedback();
+                if (clock.DspSeconds < yourTurnStartDsp + stage.DurationUs / 1000000.0) return;
+                events.Clear();
+                run.FinalizeCurrentStage(events);
+                CaptureFeedback();
+                lastSnapshot = run.Snapshot();
                 StopScheduledAudio();
                 phase = ScreenPhase.Result;
+                resultShownRealtime = clock.RealtimeSeconds;
+                return;
             }
-            else BeginCountIn();
+
+            if (phase == ScreenPhase.Result && clock.RealtimeSeconds - resultShownRealtime >= ResultHoldSeconds)
+            {
+                patternIndex = (patternIndex + 1) % ListenAndRepeatPatterns.All.Count;
+                BeginProblem();
+            }
         }
 
         private void ReadInput()
@@ -149,223 +194,84 @@ namespace Mallang.Gate1.Runtime
             }
 
             if (Keyboard.current == null) return;
-            if (Keyboard.current.aKey.wasPressedThisFrame || Keyboard.current.leftArrowKey.wasPressedThisFrame) HandlePress(Hand.Left, 901, EventTime());
-            if (Keyboard.current.lKey.wasPressedThisFrame || Keyboard.current.rightArrowKey.wasPressedThisFrame) HandlePress(Hand.Right, 902, EventTime());
-            if (Keyboard.current.aKey.wasReleasedThisFrame || Keyboard.current.leftArrowKey.wasReleasedThisFrame) HandleRelease(901, EventTime());
-            if (Keyboard.current.lKey.wasReleasedThisFrame || Keyboard.current.rightArrowKey.wasReleasedThisFrame) HandleRelease(902, EventTime());
-        }
-
-        private void OnGUI()
-        {
-            EnsureStyles();
-            var safe = GuiSafeArea();
-            DrawBackdrop();
-            DrawTopShade(safe);
-            if (phase == ScreenPhase.Calibrating) DrawCalibrating(safe);
-            else if (phase == ScreenPhase.Ready) DrawReady(safe);
-            else if (phase == ScreenPhase.Result) DrawResult(safe);
-            else DrawPerformance(safe);
-        }
-
-        private void DrawBackdrop()
-        {
-            GUI.color = Color.white;
-            if (stageBackground != null) GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), stageBackground, ScaleMode.ScaleAndCrop);
-            else Fill(new Rect(0, 0, Screen.width, Screen.height), Walnut);
-        }
-
-        private void DrawTopShade(Rect safe)
-        {
-            Fill(new Rect(0, 0, Screen.width, Mathf.Max(112, safe.y + safe.height * .15f)), new Color(.08f, .04f, .02f, .68f));
-            Fill(new Rect(0, Screen.height * .79f, Screen.width, Screen.height * .21f), new Color(.08f, .04f, .02f, .44f));
-        }
-
-        private void DrawCalibrating(Rect safe)
-        {
-            var unit = Unit(safe);
-            DrawTitle(safe, unit);
-            var panel = CenterRect(safe, Mathf.Min(520 * unit, safe.width * .82f), 168 * unit, -.02f);
-            DrawPanel(panel, new Color(.12f, .12f, .10f, .86f));
-            DrawText(new Rect(panel.x + 20 * unit, panel.y + 24 * unit, panel.width - 40 * unit, 44 * unit), "악기 조율 중…", headingStyle, Cream, TextAnchor.MiddleCenter, 26 * unit);
-            DrawText(new Rect(panel.x + 24 * unit, panel.y + 80 * unit, panel.width - 48 * unit, 28 * unit), "잠시만 기다려 주세요", bodyStyle, Cream, TextAnchor.MiddleCenter, 18 * unit);
-            DrawProgress(new Rect(panel.x + 50 * unit, panel.y + 124 * unit, panel.width - 100 * unit, 10 * unit), calibrator.SampleCount / (float)calibrator.RequiredSamples, Mint);
-        }
-
-        private void DrawReady(Rect safe)
-        {
-            var unit = Unit(safe);
-            DrawTitle(safe, unit);
-            DrawMascot(safe, unit);
-            var panelWidth = Mathf.Min(620 * unit, safe.width * .88f);
-            var panel = new Rect(safe.center.x - panelWidth / 2, safe.y + safe.height * .12f, panelWidth, 202 * unit);
-            DrawPanel(panel, new Color(.13f, .09f, .05f, .88f));
-            DrawText(new Rect(panel.x + 24 * unit, panel.y + 18 * unit, panel.width - 48 * unit, 52 * unit), "마림바 첫 실기", displayStyle, Cream, TextAnchor.MiddleCenter, 38 * unit);
-            DrawText(new Rect(panel.x + 26 * unit, panel.y + 72 * unit, panel.width - 52 * unit, 48 * unit), "음표가 원에 닿는 순간, 같은 쪽 화면을 누르세요", bodyStyle, Cream, TextAnchor.MiddleCenter, 19 * unit);
-            var button = new Rect(panel.center.x - 142 * unit, panel.yMax - 64 * unit, 284 * unit, 48 * unit);
-            GUI.color = Teal;
-            if (GUI.Button(button, "연주 시작", buttonStyle)) BeginCountIn();
-            GUI.color = Color.white;
-        }
-
-        private void DrawTitle(Rect safe, float unit)
-        {
-            DrawText(new Rect(safe.x + 24 * unit, safe.y + 18 * unit, safe.width - 48 * unit, 42 * unit), "말랑두뇌 음악대학", headingStyle, Cream, TextAnchor.MiddleLeft, 26 * unit);
-        }
-
-        private void DrawPerformance(Rect safe)
-        {
-            var unit = Unit(safe);
-            DrawHud(safe, unit);
-            DrawRhythmLane(safe, unit);
-            DrawMascot(safe, unit);
-            DrawHandZones(safe, unit);
-            if (phase == ScreenPhase.CountIn) DrawCountIn(safe, unit);
-            else if (clock.RealtimeSeconds < feedbackUntil) DrawFeedback(safe, unit);
-        }
-
-        private void DrawHud(Rect safe, float unit)
-        {
-            var snapshot = Snapshot();
-            var stageNumber = run == null ? 1 : run.CurrentStageNumber;
-            DrawText(new Rect(safe.x + 24 * unit, safe.y + 14 * unit, 260 * unit, 34 * unit), "STAGE " + stageNumber + " / 20", headingStyle, Cream, TextAnchor.MiddleLeft, 22 * unit);
-            DrawText(new Rect(safe.x + 24 * unit, safe.y + 48 * unit, 260 * unit, 28 * unit), CurrentBpm() + " BPM", bodyStyle, Mint, TextAnchor.MiddleLeft, 16 * unit);
-            DrawText(new Rect(safe.center.x - 180 * unit, safe.y + 12 * unit, 360 * unit, 34 * unit), "현재 " + CrowdRank() + "위", headingStyle, Gold, TextAnchor.MiddleCenter, 23 * unit);
-            DrawProgress(new Rect(safe.center.x - 150 * unit, safe.y + 53 * unit, 300 * unit, 9 * unit), stageNumber / 20f, Gold);
-            var rightEdge = safe.xMax - 116 * unit;
-            DrawText(new Rect(rightEdge - 276 * unit, safe.y + 12 * unit, 276 * unit, 30 * unit), snapshot.RankScore.ToString("N0") + "점", headingStyle, Cream, TextAnchor.MiddleRight, 21 * unit);
-            DrawText(new Rect(rightEdge - 276 * unit, safe.y + 45 * unit, 276 * unit, 27 * unit), "콤보 " + snapshot.Combo + "  ·  정확도 " + (snapshot.AccuracyBasisPoints / 100f).ToString("0.0") + "%", smallStyle, Cream, TextAnchor.MiddleRight, 14 * unit);
-        }
-
-        private void DrawRhythmLane(Rect safe, float unit)
-        {
-            var lane = new Rect(safe.x + safe.width * .15f, safe.y + safe.height * .16f, safe.width * .70f, safe.height * .34f);
-            DrawPanel(lane, new Color(.10f, .07f, .04f, .60f));
-            var leftX = lane.x + lane.width * .30f;
-            var rightX = lane.x + lane.width * .70f;
-            var targetY = lane.yMax - 48 * unit;
-            var targetSize = 72 * unit;
-            DrawRing(new Rect(leftX - targetSize / 2, targetY - targetSize / 2, targetSize, targetSize), Mint);
-            DrawRing(new Rect(rightX - targetSize / 2, targetY - targetSize / 2, targetSize, targetSize), Coral);
-            DrawText(new Rect(leftX - 90 * unit, targetY + 39 * unit, 180 * unit, 26 * unit), "왼손", bodyStyle, Cream, TextAnchor.MiddleCenter, 16 * unit);
-            DrawText(new Rect(rightX - 90 * unit, targetY + 39 * unit, 180 * unit, 26 * unit), "오른손", bodyStyle, Cream, TextAnchor.MiddleCenter, 16 * unit);
-
-            if (phase != ScreenPhase.Playing || run == null) return;
-            var nowUs = CurrentStageUs();
-            foreach (var note in CurrentStage().Notes)
-            {
-                var deltaUs = note.TargetUs - nowUs;
-                if (deltaUs < -ContestRun.GoodWindowUs || deltaUs > 1400000) continue;
-                var progress = Mathf.Clamp01(1f - deltaUs / 1200000f);
-                var x = note.Hand == Hand.Left ? leftX : rightX;
-                var y = Mathf.Lerp(lane.y + 32 * unit, targetY, progress);
-                var size = (note.Kind == NoteKind.Hold ? 48 : 40) * unit;
-                DrawDisc(new Rect(x - size / 2, y - size / 2, size, size), note.Hand == Hand.Left ? Mint : Coral);
-                if (note.Kind == NoteKind.Hold) DrawText(new Rect(x - 60 * unit, y - 13 * unit, 120 * unit, 26 * unit), "길게", smallStyle, Ink, TextAnchor.MiddleCenter, 13 * unit);
-            }
-        }
-
-        private void DrawMascot(Rect safe, float unit)
-        {
-            if (mascotTexture == null) return;
-            var height = Mathf.Min(safe.height * .35f, 280 * unit);
-            var width = height * mascotTexture.width / mascotTexture.height;
-            var bounce = clock.RealtimeSeconds < mascotBounceUntil ? Mathf.Sin((float)(clock.RealtimeSeconds * 32)) * 7 * unit : 0;
-            var lean = clock.RealtimeSeconds < mascotBounceUntil ? (lastHitHand == Hand.Left ? -7 : 7) * unit : 0;
-            var rect = new Rect(safe.center.x - width / 2 + lean, safe.y + safe.height * .48f - height * .18f + bounce, width, height);
-            GUI.color = Color.white;
-            GUI.DrawTexture(rect, mascotTexture, ScaleMode.ScaleToFit, true);
-        }
-
-        private void DrawHandZones(Rect safe, float unit)
-        {
-            var gap = 14 * unit;
-            var side = (safe.width - gap - 32 * unit) / 2;
-            var height = Mathf.Min(104 * unit, safe.height * .16f);
-            var y = safe.yMax - height - 14 * unit;
-            DrawHandZone(new Rect(safe.x + 16 * unit, y, side, height), "왼손", "화면 왼쪽", Mint, TextAnchor.MiddleLeft, unit);
-            DrawHandZone(new Rect(safe.x + 16 * unit + side + gap, y, side, height), "오른손", "화면 오른쪽", Coral, TextAnchor.MiddleRight, unit);
-        }
-
-        private void DrawHandZone(Rect rect, string title, string hint, Color color, TextAnchor alignment, float unit)
-        {
-            DrawPanel(rect, new Color(color.r, color.g, color.b, .88f));
-            var padding = 24 * unit;
-            DrawText(new Rect(rect.x + padding, rect.y + 13 * unit, rect.width - padding * 2, 40 * unit), title, headingStyle, Ink, alignment, 27 * unit);
-            DrawText(new Rect(rect.x + padding, rect.y + 52 * unit, rect.width - padding * 2, 28 * unit), hint, smallStyle, Ink, alignment, 14 * unit);
-        }
-
-        private void DrawCountIn(Rect safe, float unit)
-        {
-            var beatDuration = CountInDurationSeconds() / 4.0;
-            var elapsed = Math.Max(0, clock.DspSeconds - countInStartDsp);
-            var count = Mathf.Clamp(4 - Mathf.FloorToInt((float)(elapsed / beatDuration)), 1, 4);
-            var panel = new Rect(safe.center.x - 90 * unit, safe.center.y - 90 * unit, 180 * unit, 180 * unit);
-            DrawDisc(panel, Gold);
-            DrawText(panel, count.ToString(), displayStyle, Ink, TextAnchor.MiddleCenter, 76 * unit);
-            DrawText(new Rect(panel.x - 100 * unit, panel.y - 42 * unit, panel.width + 200 * unit, 32 * unit), "리듬을 들어 보세요", headingStyle, Cream, TextAnchor.MiddleCenter, 20 * unit);
-        }
-
-        private void DrawFeedback(Rect safe, float unit)
-        {
-            var color = feedback == "PERFECT" ? Mint : feedback == "GOOD" ? Gold : feedback.StartsWith("MISS", StringComparison.Ordinal) ? Coral : Cream;
-            DrawText(new Rect(safe.center.x - 220 * unit, safe.y + safe.height * .51f, 440 * unit, 58 * unit), feedback, displayStyle, color, TextAnchor.MiddleCenter, 42 * unit);
-        }
-
-        private void DrawResult(Rect safe)
-        {
-            var unit = Unit(safe);
-            DrawMascot(safe, unit);
-            var snapshot = Snapshot();
-            var panelWidth = Mathf.Min(580 * unit, safe.width * .88f);
-            var panel = CenterRect(safe, panelWidth, 286 * unit, -.04f);
-            DrawPanel(panel, new Color(.12f, .08f, .04f, .90f));
-            var completed = snapshot.EndReason == RunEndReason.Completed;
-            DrawText(new Rect(panel.x + 20 * unit, panel.y + 18 * unit, panel.width - 40 * unit, 48 * unit), completed ? "첫 실기 완주!" : "다시 도전해 볼까요?", displayStyle, completed ? Gold : Cream, TextAnchor.MiddleCenter, 34 * unit);
-            DrawText(new Rect(panel.x + 20 * unit, panel.y + 78 * unit, panel.width - 40 * unit, 36 * unit), "최종 " + CrowdRank() + "위  ·  " + snapshot.RankScore.ToString("N0") + "점", headingStyle, Cream, TextAnchor.MiddleCenter, 22 * unit);
-            DrawText(new Rect(panel.x + 20 * unit, panel.y + 119 * unit, panel.width - 40 * unit, 30 * unit), "정확도 " + (snapshot.AccuracyBasisPoints / 100f).ToString("0.0") + "%  ·  마지막 콤보 " + snapshot.Combo, bodyStyle, Mint, TextAnchor.MiddleCenter, 17 * unit);
-            GUI.color = Coral;
-            if (GUI.Button(new Rect(panel.center.x - 140 * unit, panel.yMax - 72 * unit, 280 * unit, 50 * unit), "다시 연주", buttonStyle)) StartCalibration();
-            GUI.color = Color.white;
+            if (Keyboard.current.aKey.wasPressedThisFrame || Keyboard.current.fKey.wasPressedThisFrame || Keyboard.current.leftArrowKey.wasPressedThisFrame) HandlePress(Hand.Left, 901, EventTime());
+            if (Keyboard.current.lKey.wasPressedThisFrame || Keyboard.current.jKey.wasPressedThisFrame || Keyboard.current.rightArrowKey.wasPressedThisFrame) HandlePress(Hand.Right, 902, EventTime());
+            if (Keyboard.current.aKey.wasReleasedThisFrame || Keyboard.current.fKey.wasReleasedThisFrame || Keyboard.current.leftArrowKey.wasReleasedThisFrame) HandleRelease(901, EventTime());
+            if (Keyboard.current.lKey.wasReleasedThisFrame || Keyboard.current.jKey.wasReleasedThisFrame || Keyboard.current.rightArrowKey.wasReleasedThisFrame) HandleRelease(902, EventTime());
         }
 
         private void HandlePress(Hand hand, int pointerId, double realtime)
         {
-            if (phase == ScreenPhase.Ready) { BeginCountIn(); return; }
-            if (phase == ScreenPhase.Result) { StartCalibration(); return; }
-            if (phase != ScreenPhase.Playing || run == null) return;
+            activePointerHands[pointerId] = hand;
+            if (phase == ScreenPhase.Ready) { BeginProblem(); return; }
+            if (phase != ScreenPhase.YourTurn || run == null) return;
+
+            var inputUs = ToChartUs(realtime);
             events.Clear();
-            run.ProcessPress(hand, pointerId, ToChartUs(realtime), events);
+            run.ProcessPress(hand, pointerId, inputUs, events);
             CaptureFeedback();
-            lastHitHand = hand;
-            mascotBounceUntil = clock.RealtimeSeconds + .22;
-            PlayTone(hand);
+            openRawInputs[pointerId] = new RawInput { Hand = hand, PressUs = inputUs, ReleaseUs = null };
+            PlayTapTone(hand);
         }
 
         private void HandleRelease(int pointerId, double realtime)
         {
-            if (phase != ScreenPhase.Playing || run == null) return;
+            activePointerHands.Remove(pointerId);
+            if (phase != ScreenPhase.YourTurn || run == null) return;
+
+            var inputUs = ToChartUs(realtime);
             events.Clear();
-            run.ProcessRelease(pointerId, ToChartUs(realtime), events);
+            run.ProcessRelease(pointerId, inputUs, events);
             CaptureFeedback();
+            if (!openRawInputs.TryGetValue(pointerId, out var raw)) return;
+            raw.ReleaseUs = inputUs;
+            rawInputLog.Add(raw);
+            openRawInputs.Remove(pointerId);
+            if (IsHoldReleaseEvent(events)) PlayHoldReleaseTone(raw.Hand);
+        }
+
+        private bool IsHoldReleaseEvent(List<JudgementEvent> evs)
+        {
+            foreach (var candidate in evs)
+                if (candidate.Kind == JudgementEventKind.Note && IsHoldNote(candidate.NoteId)) return true;
+            return false;
+        }
+
+        private bool IsHoldNote(int noteId)
+        {
+            if (chart == null) return false;
+            foreach (var note in chart.Stages[0].Notes)
+                if (note.Id == noteId) return note.Kind == NoteKind.Hold;
+            return false;
         }
 
         private void CaptureFeedback()
         {
             if (events.Count == 0) return;
             var result = events[events.Count - 1];
-            feedback = result.Kind == JudgementEventKind.Guidance ? "왼손부터 시작해요" : result.Kind == JudgementEventKind.GhostMiss ? "MISS" : result.Kind == JudgementEventKind.UnmatchedRelease ? "" : result.Judgement.ToString().ToUpperInvariant();
-            feedbackUntil = clock.RealtimeSeconds + .72;
+            feedback = result.Kind == JudgementEventKind.Guidance ? "왼손부터!"
+                : result.Kind == JudgementEventKind.GhostMiss ? "MISS"
+                : result.Kind == JudgementEventKind.UnmatchedRelease ? ""
+                : result.Judgement.ToString().ToUpperInvariant();
+            feedbackUntil = clock.RealtimeSeconds + .6;
         }
 
-        private void BeginCountIn()
+        private void BeginProblem()
         {
-            if (!calibration.Valid) return;
-            if (chart == null) chart = Gate1ChartFactory.Create();
-            if (run == null) run = new ContestRun(chart);
+            var entry = ListenAndRepeatPatterns.All[patternIndex];
+            currentPattern = entry.Block;
+            chart = PatternCompiler.BuildSingleBarChart("listen-repeat-" + entry.Id, currentPattern, Bpm);
+            run = null;
             StopScheduledAudio();
+            rawInputLog.Clear();
+            openRawInputs.Clear();
+
             countInStartDsp = clock.DspSeconds + .15;
-            stageStartDsp = countInStartDsp + CountInDurationSeconds();
-            ScheduleStageAudio();
+            listenStartDsp = countInStartDsp + BarSeconds;
+            yourTurnStartDsp = listenStartDsp + BarSeconds;
+            ScheduleMetronome(countInStartDsp);
+            ScheduleListenPreview(listenStartDsp, currentPattern);
+
             phase = ScreenPhase.CountIn;
             feedback = "";
         }
@@ -375,7 +281,6 @@ namespace Mallang.Gate1.Runtime
             StopScheduledAudio();
             calibrator = new ClockCalibrator();
             calibration = ClockCalibration.Invalid("not-started", 0);
-            chart = null;
             run = null;
             phase = ScreenPhase.Calibrating;
             feedback = "";
@@ -387,28 +292,329 @@ namespace Mallang.Gate1.Runtime
         private void OnDestroy()
         {
             StopScheduledAudio();
-            if (leftTone != null) Destroy(leftTone);
-            if (rightTone != null) Destroy(rightTone);
-            if (countInTone != null) Destroy(countInTone);
-            if (backingLoop != null) Destroy(backingLoop);
+            DestroyClip(leftTapClip);
+            DestroyClip(rightTapClip);
+            DestroyClip(leftHoldReleaseClip);
+            DestroyClip(rightHoldReleaseClip);
+            DestroyClip(metronomeClip);
+            DestroyClip(metronomeAccentClip);
             if (roundedTexture != null) Destroy(roundedTexture);
             if (circleTexture != null) Destroy(circleTexture);
-            if (ringTexture != null) Destroy(ringTexture);
         }
 
+        private static void DestroyClip(AudioClip clip) { if (clip != null) Destroy(clip); }
+
+        // realtime -> chart-relative microseconds, measured from the start of the current YOUR TURN bar.
         private long ToChartUs(double realtime)
         {
-            var microseconds = (calibration.ToDspSeconds(realtime) - stageStartDsp - userCalibrationSeconds) * 1000000.0;
+            var microseconds = (calibration.ToDspSeconds(realtime) - yourTurnStartDsp - userCalibrationSeconds) * 1000000.0;
             return microseconds >= 0 ? (long)Math.Floor(microseconds + .5) : (long)Math.Ceiling(microseconds - .5);
         }
 
-        private long CurrentStageUs() => ToChartUs(clock.RealtimeSeconds);
+        private long YourTurnUs() => ToChartUs(clock.RealtimeSeconds);
         private static double EventTime() => InputState.currentTime;
-        private StageDefinition CurrentStage() => chart.Stages[run.CurrentStageNumber - 1];
-        private int CurrentBpm() => run == null || chart == null ? 80 : CurrentStage().Bpm;
-        private double CountInDurationSeconds() => 4.0 * 60.0 / CurrentBpm();
-        private RunSnapshot Snapshot() => run == null ? new RunSnapshot(RunEndReason.None, 0, 0, 0, 0, 0, 0, 0, 0) : run.Snapshot();
-        private int CrowdRank() => run == null ? 100 : Mathf.Clamp(100 - Mathf.RoundToInt((run.CurrentStageNumber - 1) / 19f * 99f), 1, 100);
+        private double TickSeconds(int tick) => tick / (double)PatternBlock.TicksPerBeat * BeatSeconds;
+
+        // ---------- Audio ----------
+
+        private void ScheduleMetronome(double startDsp)
+        {
+            for (var index = 0; index < metronomeSources.Length; index++)
+            {
+                var isAccent = index % 4 == 0;
+                var source = metronomeSources[index];
+                source.clip = isAccent ? metronomeAccentClip : metronomeClip;
+                source.volume = isAccent ? .16f : .10f;
+                if (source.clip != null) source.PlayScheduled(startDsp + index * BeatSeconds);
+            }
+        }
+
+        private void ScheduleListenPreview(double barStartDsp, PatternBlock pattern)
+        {
+            var cursor = 0;
+            foreach (var note in pattern.Notes)
+            {
+                var pan = note.Hand == Hand.Left ? -.35f : .35f;
+                var startClip = note.Hand == Hand.Left ? leftTapClip : rightTapClip;
+                cursor = PlayPreviewAt(cursor, barStartDsp + TickSeconds(note.StartTick), startClip, pan);
+                if (note.Kind == NoteKind.Hold)
+                {
+                    var endClip = note.Hand == Hand.Left ? leftHoldReleaseClip : rightHoldReleaseClip;
+                    cursor = PlayPreviewAt(cursor, barStartDsp + TickSeconds(note.EndTick), endClip, pan);
+                }
+            }
+        }
+
+        private int PlayPreviewAt(int cursor, double dsp, AudioClip clip, float pan)
+        {
+            if (clip == null || cursor >= previewSources.Length) return cursor;
+            var source = previewSources[cursor];
+            source.clip = clip;
+            source.panStereo = pan;
+            source.volume = .5f;
+            source.PlayScheduled(dsp);
+            return cursor + 1;
+        }
+
+        private void StopScheduledAudio()
+        {
+            if (metronomeSources != null) foreach (var source in metronomeSources) if (source != null) source.Stop();
+            if (previewSources != null) foreach (var source in previewSources) if (source != null) source.Stop();
+        }
+
+        private void PlayTapTone(Hand hand)
+        {
+            var source = hand == Hand.Left ? leftSource : rightSource;
+            var clip = hand == Hand.Left ? leftTapClip : rightTapClip;
+            if (source != null && clip != null) source.PlayOneShot(clip);
+        }
+
+        private void PlayHoldReleaseTone(Hand hand)
+        {
+            var source = hand == Hand.Left ? leftSource : rightSource;
+            var clip = hand == Hand.Left ? leftHoldReleaseClip : rightHoldReleaseClip;
+            if (source != null && clip != null) source.PlayOneShot(clip);
+        }
+
+        private AudioSource CreateAudioSource(string objectName, float volume, float pan)
+        {
+            var child = new GameObject(objectName);
+            child.transform.SetParent(transform, false);
+            var source = child.AddComponent<AudioSource>();
+            source.playOnAwake = false;
+            source.spatialBlend = 0;
+            source.volume = volume;
+            source.panStereo = pan;
+            return source;
+        }
+
+        private static AudioClip CreatePercussionTone(string clipName, float frequency, float decayRate, float overtoneMix = .18f)
+        {
+            const int sampleRate = 44100;
+            var length = Mathf.Clamp(Mathf.RoundToInt(sampleRate * 5f / decayRate), 512, sampleRate / 2);
+            var samples = new float[length];
+            for (var index = 0; index < samples.Length; index++)
+            {
+                var time = index / (float)sampleRate;
+                var attack = Mathf.Min(1f, time / .003f);
+                var release = Mathf.Exp(-time * decayRate);
+                samples[index] = .85f * attack * release * (Mathf.Sin(2f * Mathf.PI * frequency * time) + overtoneMix * Mathf.Sin(2f * Mathf.PI * frequency * 2f * time));
+            }
+            var clip = AudioClip.Create(clipName, samples.Length, 1, sampleRate, false);
+            if (!clip.SetData(samples, 0)) throw new InvalidOperationException(clipName + " 음을 만들 수 없습니다.");
+            return clip;
+        }
+
+        // ---------- Rendering ----------
+
+        private void OnGUI()
+        {
+            EnsureStyles();
+            var safe = GuiSafeArea();
+            DrawBackdrop();
+            if (phase == ScreenPhase.Calibrating) DrawCalibrating(safe);
+            else if (phase == ScreenPhase.Ready) DrawReady(safe);
+            else DrawPlayField(safe);
+        }
+
+        private void DrawBackdrop()
+        {
+            GUI.color = Color.white;
+            if (stageBackground != null) GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), stageBackground, ScaleMode.ScaleAndCrop);
+            else Fill(new Rect(0, 0, Screen.width, Screen.height), Walnut);
+        }
+
+        private void DrawCalibrating(Rect safe)
+        {
+            var unit = Unit(safe);
+            var panel = CenterRect(safe, Mathf.Min(520 * unit, safe.width * .82f), 168 * unit, -.02f);
+            DrawOutlinedPanel(panel, new Color(Cream.r, Cream.g, Cream.b, .96f), 3 * unit);
+            DrawText(new Rect(panel.x + 20 * unit, panel.y + 24 * unit, panel.width - 40 * unit, 44 * unit), "박자 맞추는 중…", headingStyle, Ink, TextAnchor.MiddleCenter, 26 * unit);
+            DrawText(new Rect(panel.x + 24 * unit, panel.y + 80 * unit, panel.width - 48 * unit, 28 * unit), "잠시만 기다려 주세요", bodyStyle, Ink, TextAnchor.MiddleCenter, 18 * unit);
+            DrawProgress(new Rect(panel.x + 50 * unit, panel.y + 124 * unit, panel.width - 100 * unit, 10 * unit), calibrator.SampleCount / (float)calibrator.RequiredSamples, Mint);
+        }
+
+        private void DrawReady(Rect safe)
+        {
+            var unit = Unit(safe);
+            var panelWidth = Mathf.Min(570 * unit, safe.width * .78f);
+            var panel = new Rect(safe.center.x - panelWidth / 2, safe.y + safe.height * .13f, panelWidth, 194 * unit);
+            DrawOutlinedPanel(panel, new Color(Cream.r, Cream.g, Cream.b, .96f), 3 * unit);
+            DrawText(new Rect(panel.x + 24 * unit, panel.y + 16 * unit, panel.width - 48 * unit, 52 * unit), "리듬 듣고 따라하기", displayStyle, Ink, TextAnchor.MiddleCenter, 32 * unit);
+            DrawText(new Rect(panel.x + 26 * unit, panel.y + 68 * unit, panel.width - 52 * unit, 60 * unit), "악보를 보고, 한 번 들은 뒤\n다음 마디에 그대로 연주하세요", bodyStyle, Ink, TextAnchor.MiddleCenter, 18 * unit);
+            var button = new Rect(panel.center.x - 142 * unit, panel.yMax - 64 * unit, 284 * unit, 48 * unit);
+            GUI.color = Teal;
+            if (GUI.Button(button, "시작", buttonStyle)) BeginProblem();
+            GUI.color = Color.white;
+        }
+
+        private void DrawPlayField(Rect safe)
+        {
+            var unit = Unit(safe);
+            DrawInputZones(safe);
+            DrawHeader(safe, unit);
+            DrawNotation(new Rect(safe.x + safe.width * .28f, safe.y + safe.height * .34f, safe.width * .44f, safe.height * .15f), unit, currentPattern);
+            if (phase == ScreenPhase.CountIn) DrawCountIn(safe, unit);
+            else if (phase == ScreenPhase.YourTurn && clock.RealtimeSeconds < feedbackUntil) DrawFeedback(safe, unit);
+            if (phase == ScreenPhase.Result) DrawResult(safe, unit);
+        }
+
+        private string PhaseLabel()
+        {
+            if (phase == ScreenPhase.CountIn) return "준비";
+            if (phase == ScreenPhase.Listen) return "듣기";
+            if (phase == ScreenPhase.YourTurn) return "연주";
+            return "결과";
+        }
+
+        private void DrawHeader(Rect safe, float unit)
+        {
+            var entry = ListenAndRepeatPatterns.All[patternIndex];
+            var patternLabel = entry.Id.StartsWith("LR", StringComparison.Ordinal) ? entry.Id.Substring(2) : entry.Id;
+            var leftBadge = new Rect(safe.x + 28 * unit, safe.y + 22 * unit, 92 * unit, 52 * unit);
+            var rightBadge = new Rect(safe.xMax - 128 * unit, safe.y + 22 * unit, 100 * unit, 52 * unit);
+            DrawOutlinedPanel(leftBadge, new Color(Cream.r, Cream.g, Cream.b, .96f), 3 * unit);
+            DrawOutlinedPanel(rightBadge, new Color(Cream.r, Cream.g, Cream.b, .96f), 3 * unit);
+            DrawText(leftBadge, patternLabel, displayStyle, Ink, TextAnchor.MiddleCenter, 27 * unit);
+            DrawText(rightBadge, PhaseLabel(), headingStyle, Ink, TextAnchor.MiddleCenter, 20 * unit);
+        }
+
+        private void DrawInputZones(Rect safe)
+        {
+            var zoneTop = safe.y + safe.height * .68f;
+            var zoneHeight = Mathf.Max(0, safe.yMax - zoneTop);
+            var half = Screen.width * .5f;
+            var leftRect = new Rect(0, zoneTop, half, zoneHeight);
+            var rightRect = new Rect(half, zoneTop, Screen.width - half, zoneHeight);
+            var leftPressed = IsHandPressed(Hand.Left);
+            var rightPressed = IsHandPressed(Hand.Right);
+            if (leftPressed) Fill(leftRect, new Color(Mint.r, Mint.g, Mint.b, .13f));
+            if (rightPressed) Fill(rightRect, new Color(Coral.r, Coral.g, Coral.b, .13f));
+
+            var unit = Unit(safe);
+            var badgeSize = 44 * unit;
+            var badgeY = safe.yMax - 72 * unit;
+            var leftBadge = new Rect(safe.x + 34 * unit, badgeY, badgeSize, badgeSize);
+            var rightBadge = new Rect(safe.xMax - 34 * unit - badgeSize, badgeY, badgeSize, badgeSize);
+            DrawDisc(leftBadge, Mint);
+            DrawDisc(rightBadge, Coral);
+            DrawText(leftBadge, "L", headingStyle, Ink, TextAnchor.MiddleCenter, 20 * unit);
+            DrawText(rightBadge, "R", headingStyle, Ink, TextAnchor.MiddleCenter, 20 * unit);
+        }
+
+        private bool IsHandPressed(Hand hand)
+        {
+            foreach (var pair in activePointerHands) if (pair.Value == hand) return true;
+            return false;
+        }
+
+        private void DrawNotation(Rect panel, float unit, PatternBlock pattern)
+        {
+            if (pattern == null) return;
+            DrawOutlinedPanel(panel, new Color(Cream.r, Cream.g, Cream.b, .96f), 3 * unit);
+
+            var laneY = panel.center.y;
+            var laneX0 = panel.x + 30 * unit;
+            var laneX1 = panel.xMax - 30 * unit;
+            var laneWidth = Mathf.Max(1f, laneX1 - laneX0);
+
+            for (var beat = 0; beat <= 4; beat++)
+            {
+                var x = laneX0 + laneWidth * (beat / 4f);
+                Fill(new Rect(x - 1, panel.y + 13 * unit, 2, panel.height - 26 * unit), new Color(Ink.r, Ink.g, Ink.b, .10f));
+            }
+
+            foreach (var note in pattern.Notes) DrawNote(note.Hand, note.Kind, note.StartTick, note.EndTick, laneX0, laneWidth, laneY, unit);
+        }
+
+        private void DrawNote(Hand hand, NoteKind kind, int startTick, int endTick, float laneX0, float laneWidth, float laneY, float unit)
+        {
+            var color = hand == Hand.Left ? Mint : Coral;
+            var label = hand == Hand.Left ? "L" : "R";
+            var x0 = laneX0 + laneWidth * (startTick / (float)PatternBlock.TicksPerBlock);
+            var size = 36 * unit;
+            if (kind == NoteKind.Hold)
+            {
+                var x1 = laneX0 + laneWidth * (endTick / (float)PatternBlock.TicksPerBlock);
+                var tailHeight = 20 * unit;
+                DrawPanel(new Rect(x0, laneY - tailHeight / 2, Mathf.Max(x1 - x0, tailHeight), tailHeight), color);
+            }
+
+            var noteRect = new Rect(x0 - size / 2, laneY - size / 2, size, size);
+            DrawDisc(noteRect, color);
+            DrawText(noteRect, label, headingStyle, Ink, TextAnchor.MiddleCenter, 19 * unit);
+        }
+
+        private void DrawCountIn(Rect safe, float unit)
+        {
+            var elapsed = Math.Max(0, clock.DspSeconds - countInStartDsp);
+            var count = Mathf.Clamp(4 - Mathf.FloorToInt((float)(elapsed / BeatSeconds)), 1, 4);
+            var panel = new Rect(safe.center.x - 46 * unit, safe.y + safe.height * .42f, 92 * unit, 92 * unit);
+            DrawDisc(panel, Gold);
+            DrawText(panel, count.ToString(), displayStyle, Ink, TextAnchor.MiddleCenter, 40 * unit);
+        }
+
+        private void DrawFeedback(Rect safe, float unit)
+        {
+            var color = feedback == "PERFECT" ? Mint : feedback == "GOOD" ? Gold : feedback.StartsWith("MISS", StringComparison.Ordinal) ? Coral : Cream;
+            DrawText(new Rect(safe.center.x - 200 * unit, safe.y + safe.height * .42f, 400 * unit, 50 * unit), feedback, displayStyle, color, TextAnchor.MiddleCenter, 34 * unit);
+        }
+
+        private void DrawResult(Rect safe, float unit)
+        {
+            var panelWidth = Mathf.Min(560 * unit, safe.width * .86f);
+            var panel = CenterRect(safe, panelWidth, 240 * unit, .02f);
+            DrawOutlinedPanel(panel, new Color(Cream.r, Cream.g, Cream.b, .97f), 3 * unit);
+            var headline = lastSnapshot.AccuracyBasisPoints >= 9000 ? "PERFECT!" : lastSnapshot.AccuracyBasisPoints >= 6000 ? "GOOD!" : "다시 들어볼까요?";
+            DrawText(new Rect(panel.x + 16 * unit, panel.y + 14 * unit, panel.width - 32 * unit, 40 * unit), headline, displayStyle, Ink, TextAnchor.MiddleCenter, 28 * unit);
+            DrawText(new Rect(panel.x + 16 * unit, panel.y + 58 * unit, panel.width - 32 * unit, 32 * unit), lastSnapshot.RankScore.ToString("N0") + "점  ·  정확도 " + (lastSnapshot.AccuracyBasisPoints / 100f).ToString("0.0") + "%", headingStyle, Ink, TextAnchor.MiddleCenter, 19 * unit);
+
+            var compareY = panel.y + 104 * unit;
+            DrawMiniLane(new Rect(panel.x + 16 * unit, compareY, panel.width - 32 * unit, 56 * unit), "ORIGINAL", Ink, DrawOriginalLane);
+            DrawMiniLane(new Rect(panel.x + 16 * unit, compareY + 62 * unit, panel.width - 32 * unit, 56 * unit), "YOU", Gold, DrawYouLane);
+        }
+
+        private void DrawMiniLane(Rect rect, string label, Color labelColor, Action<Rect, float, float, float, float> draw)
+        {
+            DrawText(new Rect(rect.x, rect.y, 68, rect.height), label, smallStyle, labelColor, TextAnchor.MiddleLeft, 13);
+            var laneX0 = rect.x + 72;
+            var laneX1 = rect.xMax - 8;
+            var laneWidth = Mathf.Max(1f, laneX1 - laneX0);
+            var laneLeftY = rect.y + rect.height * .30f;
+            var laneRightY = rect.y + rect.height * .74f;
+            draw(rect, laneX0, laneWidth, laneLeftY, laneRightY);
+        }
+
+        private void DrawOriginalLane(Rect rect, float laneX0, float laneWidth, float laneLeftY, float laneRightY)
+        {
+            if (currentPattern == null) return;
+            foreach (var note in currentPattern.Notes)
+            {
+                var y = note.Hand == Hand.Left ? laneLeftY : laneRightY;
+                var color = note.Hand == Hand.Left ? Mint : Coral;
+                var x0 = laneX0 + laneWidth * (note.StartTick / (float)PatternBlock.TicksPerBlock);
+                if (note.Kind == NoteKind.Tap) { DrawDisc(new Rect(x0 - 8, y - 8, 16, 16), color); continue; }
+                var x1 = laneX0 + laneWidth * (note.EndTick / (float)PatternBlock.TicksPerBlock);
+                DrawPanel(new Rect(x0, y - 6, Mathf.Max(x1 - x0, 10), 12), color);
+            }
+        }
+
+        private void DrawYouLane(Rect rect, float laneX0, float laneWidth, float laneLeftY, float laneRightY)
+        {
+            var barUs = (long)(BarSeconds * 1000000.0);
+            foreach (var raw in rawInputLog)
+            {
+                var y = raw.Hand == Hand.Left ? laneLeftY : laneRightY;
+                var color = raw.Hand == Hand.Left ? Mint : Coral;
+                var x0 = laneX0 + laneWidth * Mathf.Clamp01(raw.PressUs / (float)barUs);
+                if (raw.ReleaseUs.HasValue && raw.ReleaseUs.Value - raw.PressUs > 150000)
+                {
+                    var x1 = laneX0 + laneWidth * Mathf.Clamp01(raw.ReleaseUs.Value / (float)barUs);
+                    DrawPanel(new Rect(x0, y - 6, Mathf.Max(x1 - x0, 10), 12), color);
+                }
+                else DrawDisc(new Rect(x0 - 8, y - 8, 16, 16), color);
+            }
+        }
 
         private static Rect GuiSafeArea()
         {
@@ -453,17 +659,16 @@ namespace Mallang.Gate1.Runtime
             GUI.color = Color.white;
         }
 
+        private void DrawOutlinedPanel(Rect rect, Color color, float border)
+        {
+            DrawPanel(rect, Ink);
+            DrawPanel(new Rect(rect.x + border, rect.y + border, rect.width - border * 2, rect.height - border * 2), color);
+        }
+
         private void DrawDisc(Rect rect, Color color)
         {
             GUI.color = color;
             GUI.DrawTexture(rect, circleTexture, ScaleMode.StretchToFill, true);
-            GUI.color = Color.white;
-        }
-
-        private void DrawRing(Rect rect, Color color)
-        {
-            GUI.color = color;
-            GUI.DrawTexture(rect, ringTexture, ScaleMode.StretchToFill, true);
             GUI.color = Color.white;
         }
 
@@ -480,10 +685,10 @@ namespace Mallang.Gate1.Runtime
             GUI.color = Color.white;
         }
 
-        private static Texture2D CreateShapeTexture(bool circle, bool ring)
+        private static Texture2D CreateShapeTexture(bool circle)
         {
             const int size = 64;
-            var texture = new Texture2D(size, size, TextureFormat.RGBA32, false) { name = ring ? "Gate1 ring" : circle ? "Gate1 circle" : "Gate1 rounded panel" };
+            var texture = new Texture2D(size, size, TextureFormat.RGBA32, false) { name = circle ? "Listen&Repeat circle" : "Listen&Repeat rounded panel" };
             var pixels = new Color[size * size];
             for (var y = 0; y < size; y++)
             for (var x = 0; x < size; x++)
@@ -492,7 +697,7 @@ namespace Mallang.Gate1.Runtime
                 if (circle)
                 {
                     var distance = Vector2.Distance(new Vector2(x + .5f, y + .5f), new Vector2(size / 2f, size / 2f));
-                    alpha = ring ? Mathf.Clamp01(2f - Mathf.Abs(distance - 25f)) : Mathf.Clamp01(31f - distance);
+                    alpha = Mathf.Clamp01(31f - distance);
                 }
                 else
                 {
@@ -506,98 +711,6 @@ namespace Mallang.Gate1.Runtime
             texture.Apply(false, true);
             texture.wrapMode = TextureWrapMode.Clamp;
             return texture;
-        }
-
-        private void PlayTone(Hand hand)
-        {
-            var tone = hand == Hand.Left ? leftTone : rightTone;
-            if (audioSource != null && tone != null) audioSource.PlayOneShot(tone);
-        }
-
-        private AudioSource CreateAudioSource(string objectName, float volume)
-        {
-            var child = new GameObject(objectName);
-            child.transform.SetParent(transform, false);
-            var source = child.AddComponent<AudioSource>();
-            source.playOnAwake = false;
-            source.spatialBlend = 0;
-            source.volume = volume;
-            return source;
-        }
-
-        private void ScheduleStageAudio()
-        {
-            if (countInTone != null)
-            {
-                var beatSeconds = 60.0 / CurrentBpm();
-                for (var index = 0; index < countInSources.Length; index++)
-                {
-                    countInSources[index].clip = countInTone;
-                    countInSources[index].pitch = index == 0 ? 1.25f : 1f;
-                    countInSources[index].PlayScheduled(countInStartDsp + beatSeconds * index);
-                }
-            }
-
-            if (backingSource == null) return;
-            try
-            {
-                if (backingLoop != null) Destroy(backingLoop);
-                backingLoop = CreateBackingLoop(CurrentBpm());
-                backingSource.clip = backingLoop;
-                backingSource.loop = true;
-                backingSource.PlayScheduled(stageStartDsp);
-            }
-            catch (Exception error)
-            {
-                Debug.LogWarning("Gate 1 accompaniment unavailable; visual play continues. " + error.Message);
-            }
-        }
-
-        private void StopScheduledAudio()
-        {
-            if (backingSource != null) backingSource.Stop();
-            if (countInSources == null) return;
-            foreach (var source in countInSources)
-                if (source != null) source.Stop();
-        }
-
-        private static AudioClip CreateMarimbaTone(string clipName, float frequency)
-        {
-            const int sampleRate = 44100;
-            var samples = new float[sampleRate / 4];
-            for (var index = 0; index < samples.Length; index++)
-            {
-                var time = index / (float)sampleRate;
-                var attack = Mathf.Min(1f, time / .004f);
-                var release = Mathf.Exp(-time * 14f);
-                samples[index] = .38f * attack * release * (Mathf.Sin(2f * Mathf.PI * frequency * time) + .22f * Mathf.Sin(2f * Mathf.PI * frequency * 3f * time));
-            }
-            var clip = AudioClip.Create(clipName, samples.Length, 1, sampleRate, false);
-            if (!clip.SetData(samples, 0)) throw new InvalidOperationException("마림바 음을 만들 수 없습니다.");
-            return clip;
-        }
-
-        private static AudioClip CreateBackingLoop(int bpm)
-        {
-            const int sampleRate = 44100;
-            var beatSeconds = 60f / bpm;
-            var samples = new float[Mathf.RoundToInt(sampleRate * beatSeconds * 4f)];
-            var bassNotes = new[] { 164.81f, 196f, 220f, 196f };
-            for (var index = 0; index < samples.Length; index++)
-            {
-                var time = index / (float)sampleRate;
-                var beatIndex = Mathf.Min(3, Mathf.FloorToInt(time / beatSeconds));
-                var beatTime = time - beatIndex * beatSeconds;
-                var bassEnvelope = Mathf.Exp(-beatTime * 4.5f);
-                var pulseEnvelope = Mathf.Exp(-beatTime * 12f);
-                var bass = Mathf.Sin(2f * Mathf.PI * bassNotes[beatIndex] * time);
-                var overtone = Mathf.Sin(2f * Mathf.PI * bassNotes[beatIndex] * 2f * time);
-                var pulse = Mathf.Sin(2f * Mathf.PI * 659.25f * beatTime);
-                samples[index] = .16f * bassEnvelope * (bass + .24f * overtone) + .055f * pulseEnvelope * pulse;
-            }
-            var clip = AudioClip.Create("Gate 1 prototype accompaniment " + bpm + " BPM", samples.Length, 1, sampleRate, false);
-            if (!clip.SetData(samples, 0)) throw new InvalidOperationException("반주음을 만들 수 없습니다.");
-            return clip;
         }
 
         private static Color Hex(string value)

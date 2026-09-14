@@ -248,6 +248,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Mallang.Gate1.Runtime::Mallang.Gate1.Runtime.ContestPrototypeScreen
   stageBackground: {fileID: 2800000, guid: 535bb07c8f0a4cd291f783c20ac15ea6, type: 3}
-  mascotTexture: {fileID: 2800000, guid: 2a96efe150084c6da9081ec7ae306473, type: 3}
   koreanFont: {fileID: 12800000, guid: 41802385017543f19a61d4d2f9c1b96f, type: 3}
   userCalibrationSeconds: 0
