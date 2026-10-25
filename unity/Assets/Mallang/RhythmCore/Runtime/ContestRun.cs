@@ -186,7 +186,7 @@ namespace Mallang.RhythmCore
             if (stageIndex == chart.Stages.Count - 1)
             {
                 endReason = RunEndReason.Completed;
-                failStage = 21;
+                failStage = chart.Stages.Count + 1;
                 return;
             }
 

@@ -1,0 +1,12 @@
+{
+  "name": "Mallang.Gate1.Tests.PlayMode",
+  "rootNamespace": "Mallang.Gate1.Tests.PlayMode",
+  "references": [
+    "Mallang.Gate1.Runtime",
+    "Mallang.RhythmCore.Runtime",
+    "Unity.InputSystem"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

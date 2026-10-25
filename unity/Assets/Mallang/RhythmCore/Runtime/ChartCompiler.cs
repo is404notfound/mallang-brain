@@ -22,6 +22,9 @@ namespace Mallang.RhythmCore
 
     public static class Gate1ChartFactory
     {
+        public const string MiniContestChartId = "gate1-mini-contest-v1";
+        public const int MiniContestRulesetVersion = 1;
+
         private static readonly IReadOnlyDictionary<string, PatternBlock> Patterns = CreatePatterns();
 
         private readonly struct StageRecipe
@@ -62,13 +65,25 @@ namespace Mallang.RhythmCore
             new StageRecipe(140, 8500, "P12", "P10", "P08", "P06")
         };
 
-        public static ContestChart Create()
+        private static readonly StageRecipe[] MiniContestRecipes =
         {
-            var stages = new List<StageDefinition>(Recipes.Length);
+            new StageRecipe(80, 5000, "P01", "P02", "P01", "P02"),
+            new StageRecipe(90, 6000, "P03", "P03", "P03", "P03"),
+            new StageRecipe(100, 7000, "P05", "P03", "P06", "P11")
+        };
+
+        public static ContestChart Create() => Build("gate1-marimba-v1", 1, Recipes);
+
+        public static ContestChart CreateMiniContest()
+            => Build(MiniContestChartId, MiniContestRulesetVersion, MiniContestRecipes);
+
+        private static ContestChart Build(string chartId, int rulesetVersion, IReadOnlyList<StageRecipe> recipes)
+        {
+            var stages = new List<StageDefinition>(recipes.Count);
             var nextNoteId = 1;
-            for (var stageIndex = 0; stageIndex < Recipes.Length; stageIndex++)
+            for (var stageIndex = 0; stageIndex < recipes.Count; stageIndex++)
             {
-                var recipe = Recipes[stageIndex];
+                var recipe = recipes[stageIndex];
                 var notes = new List<ChartNote>();
                 for (var blockIndex = 0; blockIndex < recipe.Blocks.Length; blockIndex++)
                 {
@@ -94,7 +109,7 @@ namespace Mallang.RhythmCore
                 stages.Add(new StageDefinition(stageIndex + 1, recipe.Bpm, recipe.PassBasisPoints, durationUs, notes));
             }
 
-            return new ContestChart("gate1-marimba-v1", 1, stages);
+            return new ContestChart(chartId, rulesetVersion, stages);
         }
 
         public static long TickToUs(long tick, int bpm)

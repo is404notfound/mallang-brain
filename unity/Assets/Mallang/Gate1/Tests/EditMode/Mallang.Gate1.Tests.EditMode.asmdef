@@ -1,0 +1,14 @@
+{
+  "name": "Mallang.Gate1.Tests.EditMode",
+  "rootNamespace": "Mallang.Gate1.Tests.EditMode",
+  "references": [
+    "Mallang.Gate1.Runtime",
+    "Mallang.RhythmCore.Runtime"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

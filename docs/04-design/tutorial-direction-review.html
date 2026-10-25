@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>말랑브레인음악대 · 세 방향 비교</title>
+<style>
+@font-face{font-family:Mallang;src:url('../../unity/Assets/Mallang/Gate1/Fonts/NotoSansKR-VF.ttf')}
+:root{--ink:#382d28;--paper:#f5efdf;--pink:#e982a1;--rose:#b84f72;--lavender:#c8c4df}
+*{box-sizing:border-box}body{margin:0;background:#e6e0d5;color:var(--ink);font:16px Mallang,sans-serif}
+main{max-width:1280px;margin:auto;padding:28px 24px 60px}h1{font-size:24px;margin:0 0 8px}p{line-height:1.7}header p{margin:0 0 22px;color:#67594f}
+nav{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}nav button{font:inherit;background:#f8f3e8;border:1px solid #b9a99a;color:var(--ink);padding:10px 18px;cursor:pointer;border-radius:4px}nav button[aria-selected=true]{background:var(--ink);color:#fff8ec}
+.screen{position:relative;aspect-ratio:16/9;background:var(--paper);overflow:hidden;isolation:isolate;box-shadow:0 10px 34px #382d2818;container-type:inline-size}
+.screen:after{content:"";position:absolute;inset:0;opacity:.16;pointer-events:none;z-index:10;filter:url(#grain);background:#e8d7bd;mix-blend-mode:multiply}
+.brand{position:absolute;top:6%;left:5%;font-size:1.6cqw;font-weight:750;letter-spacing:-.06em}.progress{position:absolute;right:5%;top:6%;font-size:1.4cqw}
+.prompt{position:absolute;top:13%;left:30%;width:40%;text-align:center;font-size:2cqw;font-weight:650}
+.rabbit{position:absolute;top:20%;left:39%;width:22%;height:29%;z-index:3}.rabbit svg{position:absolute;width:100%;height:100%;overflow:hidden}.rabbit .brain{left:38%;top:5%;width:25%;height:24%;transition:transform .25s;transform-origin:center center}
+.rabbit.pulse .brain{transform:scale(1.2)}
+.score{position:absolute;left:32%;top:56%;width:36%;height:23%;padding:1.2cqw 1.6cqw;background:#fffaf0;border:2px solid #b09a86;border-radius:3px 6px 2px 4px;transform:rotate(-.5deg);z-index:3}
+.score svg{width:100%;height:100%}.score line{stroke:#b7a99a;stroke-width:2}.score .note{fill:var(--rose);stroke:var(--rose);stroke-width:3}.score .ring{fill:#fffaf0;stroke:var(--ink);stroke-width:4}.score .head{stroke:#6d5546;stroke-width:3}
+.pad{position:absolute;top:42%;width:25%;height:40%;border:0;background:transparent;color:var(--ink);cursor:pointer;z-index:4;transition:transform .09s}.pad:active{transform:scale(.97)}.pad.left{left:3%}.pad.right{right:3%}.pad svg{width:100%;height:100%;filter:url(#pencil)}.pad .surface{fill:#efd1b3;stroke:var(--ink);stroke-width:5}.pad .rim{fill:#f7ebd5;stroke:var(--ink);stroke-width:5}.pad.right .surface{fill:#e8a2b5}.pad.right .rim{fill:#f8d8df}
+.pad .detail{fill:none;stroke:#8d6653;stroke-width:3}.pad .shine{fill:none;stroke:#fff9ed;stroke-width:4;opacity:.8}.pad:focus-visible{outline:3px dashed var(--rose);outline-offset:-15px}
+.foot{position:absolute;bottom:8%;left:33%;width:34%;text-align:center;font-size:1.5cqw;font-weight:600;z-index:3}
+.music-mark{position:absolute;left:25%;top:28%;width:5%;height:12%;opacity:.5;transform:rotate(-14deg)}
+.scene-art{position:absolute;inset:0;z-index:-1;display:none;width:100%;height:100%}.stage .scene-art.stage-art,.cloud .scene-art.cloud-art{display:block}
+.stage{background:#f1e8da}.stage .rabbit{top:24%;width:20%;left:40%;height:28%}.stage .score{top:57%;background:#fbf7ee}.stage .pad{top:44%;height:39%}.stage .foot{bottom:7%}
+.cloud{background:#f5eedf}.cloud .score{border:0;background:#fff9efde;transform:none}.cloud .pad{top:45%;height:33%;width:23%}.cloud .pad.left{left:4%}.cloud .pad.right{right:4%}.cloud .rabbit{top:23%}.cloud .music-mark{display:none}
+.paper .music-mark{display:block}.stage .music-mark{display:none}
+.description{margin-top:22px;padding:0 4px}.description h2{font-size:20px;margin-bottom:8px}.description p{max-width:1000px;margin:7px 0}.critique{color:#864447}
+table{border-collapse:collapse;width:100%;margin-top:28px;font-size:15px}th,td{text-align:left;border-bottom:1px solid #c8bdae;padding:13px 10px;vertical-align:top}th{font-weight:700}.note-text{font-size:14px;color:#67594f;margin-top:24px}a{color:#795172}a:visited{color:#975c65}
+@media(max-width:700px){main{padding:18px 12px}h1{font-size:21px}nav button{font-size:14px;padding:9px 11px}.screen{min-width:0}table{font-size:13px}th,td{padding:10px 5px}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" aria-hidden="true"><defs>
+<filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+<filter id="pencil"><feTurbulence type="fractalNoise" baseFrequency=".032" numOctaves="2" seed="5" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="1.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+</defs></svg>
+<main>
+<header><h1>말랑브레인음악대 · 세 방향 비교</h1><p>제공하신 토끼 원본을 그대로 쓴 검토용 화면입니다. Unity 구현 화면과 소리 시연은 아닙니다.</p></header>
+<nav aria-label="디자인 방향"><button aria-selected="true" data-theme="paper">A · 종이 합주</button><button aria-selected="false" data-theme="stage">B · 작은 연습실</button><button aria-selected="false" data-theme="cloud">C · 생각 구름</button></nav>
+<div class="screen paper" id="screen">
+<svg class="scene-art stage-art" viewBox="0 0 1280 720" preserveAspectRatio="none" aria-hidden="true">
+<path d="M0 0H144L119 461L0 516Z" fill="#dc9aab" opacity=".45"/><path d="M1280 0H1136L1164 461L1280 516Z" fill="#dc9aab" opacity=".45"/>
+<path d="M0 549Q610 526 1280 549V720H0Z" fill="#d4b79a" opacity=".45"/><g stroke="#a7856b" stroke-width="2" opacity=".25"><path d="M0 592H1280M0 646H1280M240 549L180 720M520 549L500 720M760 549L780 720M1040 549L1100 720"/></g>
+<path d="M184 144Q623 114 1096 144" fill="none" stroke="#b49a7d" stroke-width="3" opacity=".3"/>
+</svg>
+<svg class="scene-art cloud-art" viewBox="0 0 1280 720" preserveAspectRatio="none" aria-hidden="true">
+<path d="M177 107Q297 2 501 71Q731 2 884 94Q1167 64 1180 279Q1263 442 1075 558Q912 700 680 630Q431 712 264 586Q80 603 117 396Q32 201 177 107Z" fill="#d6d1e8" opacity=".64"/>
+<path d="M197 146Q371 43 566 105Q779 40 976 153Q1163 158 1123 348Q1190 499 997 552Q811 650 620 578Q390 656 240 513Q110 414 181 296Q103 204 197 146Z" fill="#c4bfdc" opacity=".36"/>
+<g fill="#fff9ef" opacity=".75"><circle cx="235" cy="180" r="7"/><circle cx="1008" cy="191" r="9"/><circle cx="1094" cy="321" r="5"/><circle cx="927" cy="107" r="4"/><circle cx="308" cy="270" r="4"/></g>
+</svg>
+<div class="brand">말랑브레인음악대</div><div class="progress">2 / 2</div>
+<div class="prompt">먼저 들어봐</div>
+<svg class="music-mark" viewBox="0 0 80 100" aria-hidden="true"><path d="M38 74V20L66 13V65" fill="none" stroke="#a88172" stroke-width="5"/><ellipse cx="26" cy="76" rx="13" ry="9" fill="#a88172"/><ellipse cx="55" cy="67" rx="13" ry="9" fill="#a88172"/></svg>
+<div class="rabbit" id="rabbit" role="img" aria-label="제공된 롭이어 토끼와 분홍색 뇌">
+<svg viewBox="16 15 655 468" preserveAspectRatio="xMidYMid meet"><image href="../../unity/Assets/Mallang/Gate1/Resources/lop_rabbit_atlas.png" width="1774" height="887"/></svg>
+<svg class="brain" viewBox="714 158 355 205" preserveAspectRatio="xMidYMid meet"><image href="../../unity/Assets/Mallang/Gate1/Resources/lop_rabbit_atlas.png" width="1774" height="887"/></svg>
+</div>
+<button class="pad left" aria-label="왼손 낮은 북 터치 영역"><svg viewBox="0 0 320 260" aria-hidden="true"><path class="surface" d="M37 96L51 214Q159 254 270 210L285 95Z"/><ellipse class="rim" cx="161" cy="92" rx="125" ry="62"/><ellipse class="detail" cx="161" cy="92" rx="106" ry="46"/><path class="detail" d="M57 122L73 218M93 144L112 232M151 153V241M208 145L195 234M264 124L248 216"/><path class="shine" d="M83 72Q140 43 202 65"/></svg></button>
+<button class="pad right" aria-label="오른손 높은 림 타격 터치 영역"><svg viewBox="0 0 320 260" aria-hidden="true"><path class="surface" d="M41 112L48 188Q159 225 272 187L278 111Z"/><ellipse class="rim" cx="161" cy="108" rx="119" ry="69"/><ellipse class="detail" cx="161" cy="108" rx="96" ry="49"/><path class="detail" d="M53 139L68 194M104 169L108 208M164 178V214M222 168L216 207M272 140L255 195"/><path class="shine" d="M221 58L250 69" stroke-linecap="round"/><path d="M256 42L275 28M268 67L293 68M248 29L249 9" fill="none" stroke="#b84f72" stroke-width="5" stroke-linecap="round"/></svg></button>
+<div class="score" aria-label="고정된 두 줄 악보"><svg viewBox="0 0 440 140"><line x1="16" y1="38" x2="423" y2="38"/><line x1="16" y1="106" x2="423" y2="106"/><circle class="note" cx="45" cy="38" r="10"/><circle class="note" cx="251" cy="38" r="10"/><circle class="ring" cx="149" cy="106" r="10"/><circle class="ring" cx="355" cy="106" r="10"/><line class="head" x1="27" y1="10" x2="27" y2="133"/></svg></div>
+<div class="foot">다음은 네 차례</div>
+</div>
+<section class="description" aria-live="polite"><h2 id="direction-title">A · 종이 위 작은 음악대</h2><p id="direction-copy">아이보리 종이, 진갈색 선, 분홍색 뇌가 한 화면을 묶습니다. 토끼는 원본 몸과 원본 뇌를 분리해 사용합니다. 입력 영역은 두 타악기의 모양으로 보이고, 글자는 첫 안내에만 잠깐 나타납니다.</p><p class="critique" id="direction-critique">반박: 종이색만 바꾸면 또 밋밋해집니다. 북 그림도 매끈한 벡터처럼 보이면 원본과 충돌합니다. 예쁜 악기라도 양손 입력이 바로 이해되지 않으면 실패입니다.</p></section>
+<table><thead><tr><th>방향</th><th>살릴 점</th><th>반박 리뷰의 주요 위험</th><th>필요한 추가 자산</th></tr></thead><tbody>
+<tr><td>A · 종이 합주<br>우선 추천</td><td>원본 질감과 가장 가깝고 악보가 선명함</td><td>장식 부족, 악기 그림의 질감 불일치</td><td>종이 배경 1장, 두 타격 영역 그림</td></tr>
+<tr><td>B · 작은 연습실</td><td>‘연주하는 게임’임을 한눈에 전달</td><td>배경과 소품이 악보를 밀어내고 제작량 증가</td><td>절제된 연습실 배경, 악기, 몸짓 연결</td></tr>
+<tr><td>C · 생각 구름</td><td>최초 연보라 참고 이미지와 연결</td><td>리듬게임보다 감상·휴식 앱처럼 보일 수 있음</td><td>손그림 구름 배경, 색과 대비 조정</td></tr>
+</tbody></table>
+<p class="note-text">악기 그림과 배경은 검토용 도형입니다. 토끼·뇌는 제공 파일 원본입니다. 색과 구성을 비교하는 자료이며, 최종 배경·악기 그림의 손그림 질감과 음질은 별도 검증해야 합니다. 위 악기를 클릭하면 작은 반응만 볼 수 있습니다.</p>
+</main>
+<script>
+const directions={paper:['A · 종이 위 작은 음악대','아이보리 종이, 진갈색 선, 분홍색 뇌가 한 화면을 묶습니다. 토끼는 원본 몸과 원본 뇌를 분리해 사용합니다. 입력 영역은 두 타악기의 모양으로 보이고, 글자는 첫 안내에만 잠깐 나타납니다.','반박: 종이색만 바꾸면 또 밋밋해집니다. 북 그림도 매끈한 벡터처럼 보이면 원본과 충돌합니다. 예쁜 악기라도 양손 입력이 바로 이해되지 않으면 실패입니다.'],stage:['B · 작은 연습실','절제된 커튼과 낮은 무대가 연주 상황을 보여 줍니다. 토끼와 악기는 같은 종이 그림으로 맞추고, 귀와 몸의 짧은 반응으로 입력에 답합니다.','반박: 방을 꾸미는 데 집중하면 악보가 작아집니다. 악기·배경·몸짓 자산이 더 필요하며, 지금 단계의 1인 개발 범위를 늘릴 수 있습니다.'],cloud:['C · 말랑한 생각 구름','첫 참고 이미지의 연보라 종이 배경을 가져옵니다. 별과 구름은 가장자리에서만 보이고, 중앙은 밝게 비워 악보와 토끼를 읽기 쉽게 둡니다.','반박: 분위기는 맞아도 타격감이 약해 보일 수 있습니다. 떠다니는 연출이 박자를 흐리거나 리듬게임보다 휴식 앱처럼 보이는 위험이 있습니다.']};
+document.querySelectorAll('nav button').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('nav button').forEach(item=>item.setAttribute('aria-selected',String(item===button)));document.getElementById('screen').className='screen '+button.dataset.theme;const d=directions[button.dataset.theme];document.getElementById('direction-title').textContent=d[0];document.getElementById('direction-copy').textContent=d[1];document.getElementById('direction-critique').textContent=d[2]}));
+let pulseTimer;document.querySelectorAll('.pad').forEach(pad=>pad.addEventListener('click',()=>{const rabbit=document.getElementById('rabbit');rabbit.classList.add('pulse');clearTimeout(pulseTimer);pulseTimer=setTimeout(()=>rabbit.classList.remove('pulse'),260)}));
+</script>
+</body>
+</html>

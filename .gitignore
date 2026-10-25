@@ -24,9 +24,11 @@ coverage/
 *.sln
 *.unitypackage
 
-# The Gate 0 Editor build scripts are source code, not build output.
+# Gate 0 and Gate 1 Editor build scripts are source code, not build output.
 !unity/Assets/Mallang/Gate0/Editor/Build/
 !unity/Assets/Mallang/Gate0/Editor/Build/**
+!unity/Assets/Mallang/Gate1/Editor/Build/
+!unity/Assets/Mallang/Gate1/Editor/Build/**
 
 # Generated build binaries. Keep the JSON evidence files under Artifacts/.
 Artifacts/Builds/*/

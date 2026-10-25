@@ -17,6 +17,57 @@ namespace Mallang.RhythmCore.Tests.EditMode
             Assert.That(chart.Stages[19].Bpm, Is.EqualTo(140));
         }
 
+        [Test]
+        public void MiniContestFactoryCreatesTheThreeSpecifiedStages()
+        {
+            var chart = Gate1ChartFactory.CreateMiniContest();
+
+            Assert.That(chart.ChartId, Is.EqualTo(Gate1ChartFactory.MiniContestChartId));
+            Assert.That(chart.RulesetVersion, Is.EqualTo(Gate1ChartFactory.MiniContestRulesetVersion));
+            Assert.That(ChartValidator.Validate(chart).IsValid, Is.True);
+            Assert.That(chart.Stages.Count, Is.EqualTo(3));
+            Assert.That(chart.Stages[0].Bpm, Is.EqualTo(80));
+            Assert.That(chart.Stages[0].PassAccuracyBasisPoints, Is.EqualTo(5000));
+            Assert.That(chart.Stages[1].Bpm, Is.EqualTo(90));
+            Assert.That(chart.Stages[1].PassAccuracyBasisPoints, Is.EqualTo(6000));
+            Assert.That(chart.Stages[2].Bpm, Is.EqualTo(100));
+            Assert.That(chart.Stages[2].PassAccuracyBasisPoints, Is.EqualTo(7000));
+            Assert.That(chart.Stages[2].Notes, Has.Some.Matches<ChartNote>(note => note.Kind == NoteKind.Hold));
+        }
+
+        [Test]
+        public void MiniContestWithoutInputFailsStageOne()
+        {
+            var run = new ContestRun(Gate1ChartFactory.CreateMiniContest());
+
+            run.FinalizeCurrentStage();
+
+            var snapshot = run.Snapshot();
+            Assert.That(snapshot.EndReason, Is.EqualTo(RunEndReason.Failed));
+            Assert.That(snapshot.FailStage, Is.EqualTo(1));
+            Assert.That(snapshot.LastCompletedStage, Is.EqualTo(0));
+            Assert.That(snapshot.AccuracyBasisPoints, Is.EqualTo(0));
+        }
+
+        [Test]
+        public void PerfectReplayCompletesMiniContestAndUsesChartLengthSentinel()
+        {
+            var chart = Gate1ChartFactory.CreateMiniContest();
+            var run = new ContestRun(chart);
+
+            foreach (var stage in chart.Stages)
+            {
+                PlayStagePerfect(run, stage);
+                run.FinalizeCurrentStage();
+            }
+
+            var snapshot = run.Snapshot();
+            Assert.That(snapshot.EndReason, Is.EqualTo(RunEndReason.Completed));
+            Assert.That(snapshot.LastCompletedStage, Is.EqualTo(3));
+            Assert.That(snapshot.FailStage, Is.EqualTo(4));
+            Assert.That(snapshot.AccuracyBasisPoints, Is.EqualTo(10000));
+        }
+
         [TestCase(0, 80, 0)]
         [TestCase(480, 80, 750000)]
         [TestCase(480, 90, 666667)]

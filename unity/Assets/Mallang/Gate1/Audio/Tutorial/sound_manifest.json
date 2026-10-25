@@ -1,0 +1,53 @@
+{
+  "creator": "Original procedural synthesis by OpenAI for this project; no third-party sound recordings, sample libraries, melodies or packs used.",
+  "license_note": "Original generated materials; for usage rights consult the applicable service terms. No third-party attribution required by the production process.",
+  "format": "WAV PCM 24-bit, mono, 48000 Hz",
+  "recommended_pair": [
+    "dung_01.wav",
+    "tak_01.wav"
+  ],
+  "files": [
+    {
+      "file": "dung_01.wav",
+      "description": "small round drum; balanced / recommended",
+      "duration_seconds": 0.255,
+      "peak_dbfs": -7.34,
+      "rms_highpass_155_hz": 0.135
+    },
+    {
+      "file": "dung_02.wav",
+      "description": "tighter drum; quicker rebound",
+      "duration_seconds": 0.235,
+      "peak_dbfs": -7.38,
+      "rms_highpass_155_hz": 0.135
+    },
+    {
+      "file": "dung_03.wav",
+      "description": "warm drum; more audible pitched body",
+      "duration_seconds": 0.28,
+      "peak_dbfs": -9.0,
+      "rms_highpass_155_hz": 0.135
+    },
+    {
+      "file": "tak_01.wav",
+      "description": "wood block; balanced / recommended",
+      "duration_seconds": 0.155,
+      "peak_dbfs": -2.62,
+      "rms_highpass_155_hz": 0.1239
+    },
+    {
+      "file": "tak_02.wav",
+      "description": "wood block; crisp and dry",
+      "duration_seconds": 0.138,
+      "peak_dbfs": -2.62,
+      "rms_highpass_155_hz": 0.1184
+    },
+    {
+      "file": "tak_03.wav",
+      "description": "wood block; softer and deeper",
+      "duration_seconds": 0.175,
+      "peak_dbfs": -2.66,
+      "rms_highpass_155_hz": 0.135
+    }
+  ]
+}
