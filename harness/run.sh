@@ -95,9 +95,13 @@ while :; do
   prompt="$(node harness/render-prompt.js "$feature" "$failfile")"
   cp features.json "$SNAP"
 
-  # 워커는 읽기·쓰기만. Bash를 주지 않아 워커가 check(Unity 2분 실행)를 스스로 돌리며
-  # 컨텍스트를 키우지 못하게 합니다. 판정은 아래 check가 전담합니다(64K 서버 보호).
-  default_args=(--allowedTools "Read" "Edit(unity/Assets/Mallang/RR02/Runtime/**)" "Write(unity/Assets/Mallang/RR02/Runtime/**)" --permission-mode acceptEdits)
+  # --strict-mcp-config: MCP 서버를 하나도 로드하지 않습니다 (필수, 64K 모델 생존).
+  #   이 프로젝트엔 Unity MCP가 설정돼 있어, 없으면 워커의 claude -p가 로직 레인엔 안 쓰는
+  #   Unity 도구 수십 개의 스키마(수만 토큰)까지 기본 프롬프트에 실어 64K를 거의 채웁니다
+  #   → 작업 프롬프트가 "Prompt is too long"으로 거부됨(2026-11-07 확인·수정).
+  # 워커는 읽기·쓰기만. Bash를 주지 않아 check(Unity 2분)를 스스로 돌리며 컨텍스트를
+  #   키우지 못하게 합니다. 판정은 아래 check가 전담합니다.
+  default_args=(--strict-mcp-config --allowedTools "Read" "Edit(unity/Assets/Mallang/RR02/Runtime/**)" "Write(unity/Assets/Mallang/RR02/Runtime/**)" --permission-mode acceptEdits)
   if [ "${WORKER_ARGS+set}" = set ]; then
     # shellcheck disable=SC2206
     extra=($WORKER_ARGS)

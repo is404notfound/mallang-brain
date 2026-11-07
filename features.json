@@ -63,7 +63,7 @@
       ],
       "check": "node tools/handoff/run-tests.mjs edit \"Mallang.RR02.Tests.EditMode.BrainScoreTests\"",
       "filter": "Mallang.RR02.Tests.EditMode.BrainScoreTests",
-      "passes": false,
+      "passes": true,
       "attempts": 0,
       "blocked": false
     },
