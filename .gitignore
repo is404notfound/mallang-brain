@@ -36,6 +36,11 @@ Artifacts/Builds/*/
 Artifacts/Runs/*/
 !Artifacts/Runs/**/
 !Artifacts/Runs/**/*.json
+# Handoff 001 logic-lane check evidence. Keep the verdict files, drop the editor logs.
+Artifacts/Handoff001/*/
+!Artifacts/Handoff001/**/
+!Artifacts/Handoff001/**/*.json
+!Artifacts/Handoff001/**/TestResults.xml
 
 # Local environment and secrets
 .env
