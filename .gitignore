@@ -62,3 +62,7 @@ Artifacts/Handoff001/*/
 *.log
 tmp/
 temp/
+
+# Python bytecode (asset-prompts scripts)
+__pycache__/
+*.pyc
