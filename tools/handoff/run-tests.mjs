@@ -31,9 +31,13 @@ const args = ['-batchmode', '-projectPath', join(root, 'unity'),
 if (filter) args.push('-testFilter', filter);
 record.command = [unity, ...args];
 
+// Unity 콘솔은 -logFile로 Unity.log에 그대로 남으므로 stdout/stderr로 중계하지 않습니다.
+// 중계하면 이 명령을 check로 돌리는 로컬 모델 워커의 컨텍스트가 Unity 로그 수천 줄로
+// 가득 차 버립니다(2026-11-07 94% 사례). QUIET=0으로 중계를 되살릴 수 있습니다.
 let ok = false;
 try {
-  const run = spawnSync(unity, args, { cwd: root, stdio: 'inherit' });
+  const stdio = process.env.QUIET === '0' ? 'inherit' : 'ignore';
+  const run = spawnSync(unity, args, { cwd: root, stdio });
   record.unityExit = run.status;
   if (run.error) throw run.error;
   const xml = readFileSync(join(out, 'TestResults.xml'), 'utf8');
