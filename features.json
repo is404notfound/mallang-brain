@@ -12,7 +12,7 @@
       ],
       "check": "node tools/handoff/run-tests.mjs edit \"Mallang.RR02.Tests.EditMode.Rr02ChartTests\"",
       "filter": "Mallang.RR02.Tests.EditMode.Rr02ChartTests",
-      "passes": false,
+      "passes": true,
       "attempts": 0,
       "blocked": false
     },
