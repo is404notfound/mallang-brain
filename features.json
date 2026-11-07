@@ -49,8 +49,8 @@
       "check": "node tools/handoff/run-tests.mjs edit \"Mallang.RR02.Tests.EditMode.Rr02RunTests\"",
       "filter": "Mallang.RR02.Tests.EditMode.Rr02RunTests",
       "passes": false,
-      "attempts": 2,
-      "blocked": true
+      "attempts": 0,
+      "blocked": false
     },
     {
       "id": "L4-brain",
