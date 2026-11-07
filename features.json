@@ -102,7 +102,7 @@
       ],
       "check": "node tools/handoff/run-tests.mjs edit \"Mallang.RR02.Tests.EditMode.Rr02StoreTests\"",
       "filter": "Mallang.RR02.Tests.EditMode.Rr02StoreTests",
-      "passes": false,
+      "passes": true,
       "attempts": 0,
       "blocked": false
     },
