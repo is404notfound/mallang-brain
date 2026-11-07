@@ -8,7 +8,7 @@
 
 - **id** (`AST-001` 등): 고유 식별자.
 - **name** (`friend-rabbit`): 파일명·slot에 쓰는 짧은 영문 이름.
-- **slot**: 코드가 이 에셋을 읽는 경로(작업 저장소 기준). 예: `unity/Assets/Mallang/RR02/Art/friend-rabbit.png`.
+- **slot**: 이 에셋이 놓일 대상 경로(작업 저장소 기준). **코드 경로든 문서/스토리보드 경로든 됩니다.** 예: 코드 slot `unity/Assets/Mallang/RR02/Art/friend-rabbit.png`, 스토리보드 slot `docs/design/storyboard/screen-title.png`.
 - **purpose**: 용도 한 줄(어느 화면·어떤 역할).
 - **changeFrequency** (`high`|`low`): 자주 바뀌는지. **변형 생성 여부를 가릅니다** — high는 2~3안, low는 단발(아래 2단계 참고).
 - **sceneType** (`character`|`scene`|`scene-with-subject`|`ui-icon`): 어떤 구도 규칙을 붙일지 결정합니다.
@@ -32,6 +32,11 @@
     "sceneType": "character", "referenceImage": "docs/design/.../rabbit-ref.png" },
   { "id": "AST-013", "name": "stage-background", "slot": "unity/Assets/Mallang/RR02/Art/stage-background.png",
     "purpose": "타이틀·플레이·결과 공용 무대 배경", "changeFrequency": "low",
-    "sceneType": "scene" }
+    "sceneType": "scene" },
+  { "id": "SB-001", "name": "storyboard-title", "slot": "docs/design/storyboard/screen-title.png",
+    "purpose": "스토리보드에 넣을 타이틀 화면 한 장(전체 구성)", "changeFrequency": "high",
+    "sceneType": "scene-with-subject", "referenceImage": "art-direction/references/screen-title-final.png" }
 ]
 ```
+
+> 스토리보드/화면 이미지 메모: 전체 화면 한 장은 `sceneType`을 `scene`(캐릭터 비주인공) 또는 `scene-with-subject`(캐릭터 주인공)로 두고, `slot`을 스토리보드/문서 경로로 둡니다. 승인 캔버스가 있으면 `referenceImage`로 붙여 미감을 고정합니다. `changeFrequency: high`로 두면 2~3안이 나와 고를 수 있습니다. 배치는 동일하게 `place_by_name.py`가 slot(문서 경로)으로 복사합니다.
