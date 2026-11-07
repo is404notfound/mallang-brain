@@ -1,0 +1,28 @@
+{
+  "id": "2026-11-07T13-40-21-128Z-EditMode-Mallang_RR02_Tests_EditMode_Rr02ChartTests_Mallang_RR02_Test",
+  "platform": "EditMode",
+  "filter": "Mallang.RR02.Tests.EditMode.Rr02ChartTests;Mallang.RR02.Tests.EditMode.BrainScoreTests",
+  "startedUtc": "2026-11-07T13:40:21.129Z",
+  "scope": "Unity automated tests only; logic-lane check for specs/001-listen-and-repeat-core",
+  "source": "c9bf99ef479cbf6f006cf36b17a148e727072229",
+  "dirty": true,
+  "command": [
+    "/Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/MacOS/Unity",
+    "-batchmode",
+    "-projectPath",
+    "/Users/easyoon/orca/workspaces/mallang-brain/palolo/unity",
+    "-runTests",
+    "-testPlatform",
+    "EditMode",
+    "-testResults",
+    "/Users/easyoon/orca/workspaces/mallang-brain/palolo/Artifacts/Handoff001/2026-11-07T13-40-21-128Z-EditMode-Mallang_RR02_Tests_EditMode_Rr02ChartTests_Mallang_RR02_Test/TestResults.xml",
+    "-logFile",
+    "/Users/easyoon/orca/workspaces/mallang-brain/palolo/Artifacts/Handoff001/2026-11-07T13-40-21-128Z-EditMode-Mallang_RR02_Tests_EditMode_Rr02ChartTests_Mallang_RR02_Test/Unity.log",
+    "-testFilter",
+    "Mallang.RR02.Tests.EditMode.Rr02ChartTests;Mallang.RR02.Tests.EditMode.BrainScoreTests"
+  ],
+  "unityExit": 0,
+  "totalTests": 24,
+  "result": "passed",
+  "completedUtc": "2026-11-07T13:40:40.434Z"
+}

@@ -29,7 +29,7 @@
       ],
       "check": "node tools/handoff/run-tests.mjs edit \"Mallang.RR02.Tests.EditMode.Rr02JudgeTests\"",
       "filter": "Mallang.RR02.Tests.EditMode.Rr02JudgeTests",
-      "passes": false,
+      "passes": true,
       "attempts": 0,
       "blocked": false
     },
