@@ -49,8 +49,8 @@
       "check": "node tools/handoff/run-tests.mjs edit \"Mallang.RR02.Tests.EditMode.Rr02RunTests\"",
       "filter": "Mallang.RR02.Tests.EditMode.Rr02RunTests",
       "passes": false,
-      "attempts": 0,
-      "blocked": false
+      "attempts": 2,
+      "blocked": true
     },
     {
       "id": "L4-brain",
@@ -83,7 +83,7 @@
       ],
       "check": "node tools/handoff/run-tests.mjs edit \"Mallang.RR02.Tests.EditMode.RankingRulesTests\"",
       "filter": "Mallang.RR02.Tests.EditMode.RankingRulesTests",
-      "passes": false,
+      "passes": true,
       "attempts": 0,
       "blocked": false
     },
