@@ -43,13 +43,14 @@
         "Failure: do NOT stop early. Keep judging to the end of the phrase span; finalize once at lastTarget+180000us, then Phase=Ended. NormalCleared stays at previous value, scores from correct inputs are kept.",
         "InvalidateOfficial(reason): OfficialEligible=false, keep NormalCleared/Loops, discard the in-progress phrase's inputs, return Phase to Listen of the same round.",
         "Result (after Ended): snapshot of NormalCleared, Loops, OfficialEligible, AnimalScores, TotalScore=sum, AllPerfect=true iff every judged note across all completed phrases was Perfect and no ghost.",
-        "Read unity/Assets/Mallang/RR02/Tests/EditMode/Rr02RunTests.cs for exact expectations."
+        "Read unity/Assets/Mallang/RR02/Tests/EditMode/Rr02RunTests.cs for exact expectations.",
+        "작게 단계별로 구현하라(큰 상태기계라 한 번에 다 짜면 느려 타임아웃 난다): (1) Listen->Repeat 전환과 ProcessPress 위임, (2) 구절 성공/실패 판정과 다음 라운드 진행, (3) 무한 구절, (4) InvalidateOfficial 자격 전환, (5) Result 스냅샷. 각 단계는 Rr02Judge에 최대한 위임하고 중복 로직을 만들지 말 것."
       ],
       "check": "node tools/handoff/run-tests.mjs edit \"Mallang.RR02.Tests.EditMode.Rr02RunTests\"",
       "filter": "Mallang.RR02.Tests.EditMode.Rr02RunTests",
       "passes": false,
-      "attempts": 2,
-      "blocked": true
+      "attempts": 0,
+      "blocked": false
     },
     {
       "id": "L4-brain",
@@ -76,13 +77,15 @@
         "Percentile(rank,n): System.Math.Ceiling(1000.0*rank/n)/10.0 — but compute with integers: ceil(1000*rank/n) = (1000*rank + n - 1)/n using long, then /10.0.",
         "Mode(population): 0 -> BenchmarkOnly, 1..19 -> RankWithBenchmark, >=20 -> Official.",
         "ParseBenchmark(json): parse unity/Assets/Mallang/RR02/Data/ranking-benchmark.json (JsonUtility DTO). BenchmarkGrade(table, mine): the label of the row where minRound<=mine.NormalCleared<=maxRound.",
-        "Read unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs for exact expectations."
+        "Read unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs for exact expectations.",
+        "구체 예시(그대로 만족시킬 것): Rank([(\"A\",(9,3,5000)),(\"B\",(9,3,5000)),(\"C\",(8,0,9999))]) => A:1, B:1, C:3 (완전 동점 공동순위, 다음은 index+1). Percentile(1,20)=5.0, (20,20)=100.0, (7,23)=30.5. Mode(0)=BenchmarkOnly, Mode(19)=RankWithBenchmark, Mode(20)=Official. Compare의 부호는 테스트가 단정하는 방향을 그대로 따를 것 — 먼저 테스트를 읽고 맞출 것.",
+        "작게 구현: 먼저 Compare/Rank/Percentile/Mode만 통과시키고, 그다음 ParseBenchmark/BenchmarkGrade를 붙인다. 한 번에 다 하려 하지 말 것."
       ],
       "check": "node tools/handoff/run-tests.mjs edit \"Mallang.RR02.Tests.EditMode.RankingRulesTests\"",
       "filter": "Mallang.RR02.Tests.EditMode.RankingRulesTests",
       "passes": false,
-      "attempts": 2,
-      "blocked": true
+      "attempts": 0,
+      "blocked": false
     },
     {
       "id": "L6-store",
@@ -94,13 +97,14 @@
         "WriteReachMax(key, runId): update only if RankingRules.Compare says the new key ranks ahead of the stored one.",
         "WriteBadge: first write wins; a second write for the same badgeId returns false and changes nothing.",
         "Never read or convert brain:RR01:* keys.",
-        "Read unity/Assets/Mallang/RR02/Tests/EditMode/Rr02StoreTests.cs for exact expectations."
+        "Read unity/Assets/Mallang/RR02/Tests/EditMode/Rr02StoreTests.cs for exact expectations.",
+        "JSON 직렬화/파싱은 수동 문자열로 간단히(최소 필드만). 복잡한 범용 파서를 만들지 말 것 — 테스트가 쓰는 키/형식만 처리하면 된다. 큰 범용 구현을 피해 생성량을 줄여라."
       ],
       "check": "node tools/handoff/run-tests.mjs edit \"Mallang.RR02.Tests.EditMode.Rr02StoreTests\"",
       "filter": "Mallang.RR02.Tests.EditMode.Rr02StoreTests",
       "passes": false,
-      "attempts": 2,
-      "blocked": true
+      "attempts": 0,
+      "blocked": false
     },
     {
       "id": "L7-submission",
