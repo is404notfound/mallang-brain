@@ -47,10 +47,30 @@ try {
   ok = passed && total > 0;
   record.result = ok ? 'passed' : 'failed';
   if (!ok && total === 0) record.reason = 'no test matched the filter';
+  // 실패 요약을 압축해서 추출합니다: 실패한 test-case의 이름 + 메시지 첫 줄만, 최대 20건.
+  // 재시도 워커에게 넘길 실패 정보는 이 요약뿐이라 Unity 로그 전체가 컨텍스트로 들어가지 않습니다.
+  if (!ok && total > 0) {
+    const fails = [];
+    // 실패한 test-case 블록을 하나씩 떼어, 그 안의 첫 <message>만 짧게 가져옵니다.
+    const caseRe = /<test-case\b[^>]*\bresult="(?:Failed|Error)"[\s\S]*?<\/test-case>/g;
+    let block;
+    while ((block = caseRe.exec(xml)) && fails.length < 20) {
+      const chunk = block[0];
+      const name = (chunk.match(/\bname="([^"]*)"/) || [])[1] || '?';
+      const raw = (chunk.match(/<message>([\s\S]*?)<\/message>/) || [])[1] || '';
+      const msg = raw.replace(/<!\[CDATA\[|\]\]>/g, '').trim().split('\n')[0].slice(0, 160);
+      fails.push(`- ${name.split('.').pop()}: ${msg}`);
+    }
+    record.failedSample = fails;
+  }
 } catch (error) {
   record.result = 'error'; record.error = error.message;
 }
 record.completedUtc = new Date().toISOString();
 writeFileSync(join(out, 'RunRecord.json'), JSON.stringify(record, null, 2) + '\n');
 console.log(`${record.result} (${record.totalTests ?? 0} tests) — evidence: ${out}`);
+if (record.failedSample && record.failedSample.length) {
+  console.log(`failed tests (${record.failedSample.length} shown):`);
+  for (const line of record.failedSample) console.log(line);
+}
 process.exit(ok ? 0 : 1);

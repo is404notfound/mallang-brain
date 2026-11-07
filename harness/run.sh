@@ -95,7 +95,9 @@ while :; do
   prompt="$(node harness/render-prompt.js "$feature" "$failfile")"
   cp features.json "$SNAP"
 
-  default_args=(--allowedTools "Read" "Edit(unity/Assets/Mallang/RR02/Runtime/**)" "Write(unity/Assets/Mallang/RR02/Runtime/**)" "Bash(node tools/handoff/run-tests.mjs:*)" --permission-mode acceptEdits)
+  # 워커는 읽기·쓰기만. Bash를 주지 않아 워커가 check(Unity 2분 실행)를 스스로 돌리며
+  # 컨텍스트를 키우지 못하게 합니다. 판정은 아래 check가 전담합니다(64K 서버 보호).
+  default_args=(--allowedTools "Read" "Edit(unity/Assets/Mallang/RR02/Runtime/**)" "Write(unity/Assets/Mallang/RR02/Runtime/**)" --permission-mode acceptEdits)
   if [ "${WORKER_ARGS+set}" = set ]; then
     # shellcheck disable=SC2206
     extra=($WORKER_ARGS)
