@@ -4,7 +4,7 @@
 
 **Goal:** 잠긴 패키지 specs/001-listen-and-repeat-core(RR02)의 판정·점수·저장·랭킹 로직과 5개 화면 흐름을 Unity 프로토타입으로 구현합니다.
 
-**Architecture:** 새 어셈블리 `Mallang.RR02.Runtime`에 순수 C# 로직(차트·판정·진행·점수·저장·랭킹)을 만들고 EditMode 테스트로 포위합니다. 화면은 같은 어셈블리의 Screens가 로직을 소비하며, 시계 보정은 Gate 0A에서 실기기 검증된 `Mallang.Gate0.Runtime` Clock 계열을 재사용합니다. 기존 `Mallang.RhythmCore`는 수정하지 않습니다(FR-002 회귀 보존).
+**Architecture:** 로직과 화면을 어셈블리로 분리합니다(stage-review 결정 1). 순수 C# 로직(차트·판정·진행·점수·랭킹·저장)은 `Mallang.RR02.Runtime`(참조: RhythmCore만), 화면은 `Mallang.RR02.Screens`(참조: RR02.Runtime + Gate0.Runtime)입니다. 시계 보정은 Gate 0A에서 실기기 검증된 `Mallang.Gate0.Runtime` Clock 계열을 Screens에서만 재사용합니다. 구절 시작 절대시각 산수는 로직의 `Rr02Schedule`이 단일 진실이고 장면은 이것만 소비합니다(결정 3). 기존 `Mallang.RhythmCore`는 수정하지 않습니다(FR-002 회귀 보존).
 
 **Tech Stack:** Unity 6000.3.23f1, Unity Test Framework(EditMode), JsonUtility, 기존 RhythmMath(round_half_away_from_zero).
 
@@ -20,6 +20,7 @@
 - 저장 키: `brain:RR02:v1:<friend>`, `reach:RR02:v1`, `badge:RR02:v1:<badge_id>`. RR01 값 자동 변환 없음.
 - `Mallang.RhythmCore`·`Mallang.Gate0`·`tools/handoff/`·`harness/`·`features.json`·기존 테스트는 수정 금지 (필수).
 - 로직 레인 check: `node tools/handoff/run-tests.mjs edit "<fixture 전체 이름>"` (종료 코드 0 = 통과).
+- 장면 코드는 구절 시작 절대시각을 직접 계산하지 않고 `Rr02Schedule`만 사용합니다 (필수, 결정 3).
 
 ## Review Focus
 
@@ -28,8 +29,8 @@
 1. **±120,000µs 정확히**: 경계는 양끝 포함이므로 Good으로 소비돼야 합니다. ±120,001µs는 소비되지 않습니다. → L2
 2. **음수 offset 반올림**: −60,000µs 정확히는 Perfect(절댓값 대칭). round_half_away_from_zero가 음수에서도 성립해야 합니다. → L2
 3. **거의 동시인 두 입력**: 두 패드를 같은 프레임에 눌러도 sequence_id 순으로 하나씩 처리하고, 먼저 소비된 목표를 두 번째 입력이 되살리지 않습니다(AC-004). → L2
-4. **revision 역순·중복 쓰기**: 뒤늦게 도착한 낮은 revision이나 같은 revision의 중복이 확정값을 덮지 않습니다(AC-017). → L5
-5. **N=19→20 경계와 꼴찌 백분위**: N=19는 실순위+기준표 병기, N=20부터 공식 순위·백분위이고 rank=N이면 ceil(1000×N/N)/10 = 100.0%입니다. → L6
+4. **revision 역순·중복 쓰기**: 뒤늦게 도착한 낮은 revision이나 같은 revision의 중복이 확정값을 덮지 않습니다(AC-017). → L6
+5. **N=19→20 경계와 꼴찌 백분위**: N=19는 실순위+기준표 병기, N=20부터 공식 순위·백분위이고 rank=N이면 ceil(1000×N/N)/10 = 100.0%입니다. → L5
 
 추가 핀(과제 내): 무한 k=9가 R2로 순환(L1), 무한 구절에 R1 두 소리 패턴 미사용(L1).
 
@@ -37,7 +38,7 @@
 
 ## 0단계 준비 (세션, 테스트 번역과 같은 커밋 흐름)
 
-- [ ] `Mallang.RR02.Runtime.asmdef`(참조: Mallang.RhythmCore.Runtime)와 `Mallang.RR02.Tests.EditMode.asmdef` 생성, 패키지에서 `four-friend-chart.json`·`ranking-benchmark.json`을 `unity/Assets/Mallang/RR02/Data/`로 복사(출처 주석 포함), 빈 타입 뼈대 커밋.
+- [ ] 어셈블리 3개 생성(결정 1): `Mallang.RR02.Runtime.asmdef`(참조: Mallang.RhythmCore.Runtime만), `Mallang.RR02.Screens.asmdef`(참조: Mallang.RR02.Runtime, Mallang.Gate0.Runtime — 경로 `unity/Assets/Mallang/RR02/Screens/`), `Mallang.RR02.Tests.EditMode.asmdef`(참조: Runtime). 패키지에서 `four-friend-chart.json`·`ranking-benchmark.json`을 `unity/Assets/Mallang/RR02/Data/`로 복사(출처 주석 포함), 빈 타입 뼈대 커밋.
 - [ ] 하네스 복사·적응: driftfish `harness/` → `palolo/harness/` (경로 `project/`→`unity/Assets/Mallang/RR02/`, 보호 경로에 `unity/Assets/Mallang/RR02/Tests` 추가, 회귀 재검사를 통과 기능 필터를 세미콜론으로 합친 1회 실행으로 교체, CHECK_TIMEOUT 900초). env.sh는 복사하되 커밋 금지.
 
 ---
@@ -63,9 +64,15 @@ public sealed class Rr02Chart {
     public static Rr02Chart LoadFromJson(string json);       // four-friend-chart.json 파싱(JsonUtility)
     public Rr02Round InfinitePhrase(int k);                  // k=1→R2 … k=8→R9, k=9→R2 순환, HiddenIndices=0~7 전부
 }
+public static class Rr02Schedule {                           // 구절 시작 절대시각의 단일 진실(결정 3) — 장면은 이것만 사용
+    public const long CountInUs = 4800000;                   // 12박
+    public static long ListenStartUs(int round);             // 해당 라운드 듣기 시작(도전 시작 기준, 카운트인 포함)
+    public static long RepeatStartUs(int round);             // 해당 라운드 따라치기 시작 = ListenStartUs + 3,200,000
+    public static long RoundEndUs(int round);                // 마무리 4박 포함 라운드 끝
+}
 ```
 
-- [ ] 테스트: `Rounds`가 9개이고 R1 시퀀스가 rabbit,rabbit,capybara,capybara,rabbit,capybara,rabbit,capybara(2소리)인지(AC-003) / hiddenIndices가 R1=0개·R2=[7]·R9=8개(뒤쪽 r−1개)인지(AC-011) / targetTicks 0,480,…,3360이 TargetUs 0,400000,…,2800000으로 변환되는지 / 홀드류 개념이 없는지(노트 전부 단일 시각, AC-002) / InfinitePhrase(1)=R2 시퀀스·(8)=R9·(9)=R2이고 전부 숨김이며 R1 패턴이 안 나오는지(AC-013) / 타이밍 산수: 시연+입력 8박 각 3.2초, 라운드 20박=8초, 9라운드 72판정=72초, 카운트인 12박 4.8초 합 76.8초(AC-007).
+- [ ] 테스트: `Rounds`가 9개이고 R1 시퀀스가 rabbit,rabbit,capybara,capybara,rabbit,capybara,rabbit,capybara(2소리)인지(AC-003) / hiddenIndices가 R1=0개·R2=[7]·R9=8개(뒤쪽 r−1개)인지(AC-011) / targetTicks 0,480,…,3360이 TargetUs 0,400000,…,2800000으로 변환되는지 / 홀드류 개념이 없는지(노트 전부 단일 시각, AC-002) / InfinitePhrase(1)=R2 시퀀스·(8)=R9·(9)=R2이고 전부 숨김이며 R1 패턴이 안 나오는지(AC-013) / 타이밍 산수(Rr02Schedule, AC-007): 시연+입력 8박 각 3,200,000µs, RoundEndUs(r)−ListenStartUs(r)=8,000,000µs(20박), ListenStartUs(1)=CountInUs=4,800,000µs, RoundEndUs(9)=76,800,000µs, RepeatStartUs(r)=ListenStartUs(r)+3,200,000µs.
 - [ ] check: `node tools/handoff/run-tests.mjs edit "Mallang.RR02.Tests.EditMode.Rr02ChartTests"`
 
 ### Task L2: 탭 판정기 [로직]
@@ -148,31 +155,7 @@ public static class BrainScore {
 - [ ] 테스트(자격): eligible=false면 bestAfter=before (FR-015).
 - [ ] check: `node tools/handoff/run-tests.mjs edit "Mallang.RR02.Tests.EditMode.BrainScoreTests"`
 
-### Task L5: 저장·병합 [로직]
-
-**Files:**
-- Create: `unity/Assets/Mallang/RR02/Runtime/Rr02Store.cs`
-- Test: `unity/Assets/Mallang/RR02/Tests/EditMode/Rr02StoreTests.cs`
-
-**Interfaces (Produces):**
-```csharp
-public interface IKeyValueStore { bool TryRead(string key, out string value); bool TryWrite(string key, string value); }
-public readonly struct BrainRecord { public readonly int Confirmed; public readonly int Revision; public readonly bool Unverified; }
-public sealed class Rr02Store {
-    public Rr02Store(IKeyValueStore store);
-    public BrainRecord ReadBrain(Rr02Friend f);                        // 키 brain:RR02:v1:<friend>, 읽기 실패 시 Unverified=true
-    public bool WriteBrainMax(Rr02Friend f, int candidate);            // max 병합 + revision+1 직렬, 쓰기 확인 후 true
-    public (int normalCleared, int loops, string runId) ReadReach();   // reach:RR02:v1
-    public bool WriteReachMax(int normalCleared, int loops, int runScore, string runId); // 순위 키 비교로 갱신
-    public bool WriteBadge(string badgeId, string runId, long earnedAtUs); // badge:RR02:v1:<id>, 최초 1회만
-}
-```
-
-- [ ] 테스트(AC-017): 읽기 실패(Unverified) 상태에서 WriteBrainMax가 원본을 덮지 않고 false / 역순 revision(낮은 값 재도착)·같은 revision 중복이 확정값을 덮지 않음 / max 병합(900 저장소 vs 800 후보 → 900 유지) / RR01 키의 숫자 변환 없음(brain:RR01:* 무시).
-- [ ] 테스트(키 형식): 네 친구 키가 정확히 `brain:RR02:v1:rabbit` 형태(FR-017), 저장됨 표시는 TryWrite true 후에만.
-- [ ] check: `node tools/handoff/run-tests.mjs edit "Mallang.RR02.Tests.EditMode.Rr02StoreTests"`
-
-### Task L6: 랭킹 규칙 [로직]
+### Task L5: 랭킹 규칙 [로직]
 
 **Files:**
 - Create: `unity/Assets/Mallang/RR02/Runtime/RankingRules.cs`
@@ -196,13 +179,37 @@ public static class RankingRules {
 - [ ] 테스트(AC-022·Review Focus 5): Mode(0)=BenchmarkOnly, Mode(1)·Mode(19)=RankWithBenchmark, Mode(20)=Official / Percentile(1,20)=5.0, Percentile(20,20)=100.0, Percentile(7,23)=ceil(7000/23)/10=30.5 / 기준표는 공식 집계에 미합산(Rank 입력에 벤치마크 행 없음).
 - [ ] check: `node tools/handoff/run-tests.mjs edit "Mallang.RR02.Tests.EditMode.RankingRulesTests"`
 
+### Task L6: 저장·병합 [로직]
+
+**Files:**
+- Create: `unity/Assets/Mallang/RR02/Runtime/Rr02Store.cs`
+- Test: `unity/Assets/Mallang/RR02/Tests/EditMode/Rr02StoreTests.cs`
+
+**Interfaces (Consumes L5의 ReachKey·Compare / Produces):**
+```csharp
+public interface IKeyValueStore { bool TryRead(string key, out string value); bool TryWrite(string key, string value); }
+public readonly struct BrainRecord { public readonly int Confirmed; public readonly int Revision; public readonly bool Unverified; }
+public sealed class Rr02Store {
+    public Rr02Store(IKeyValueStore store);
+    public BrainRecord ReadBrain(Rr02Friend f);                        // 키 brain:RR02:v1:<friend>, 읽기 실패 시 Unverified=true
+    public bool WriteBrainMax(Rr02Friend f, int candidate);            // max 병합 + revision+1 직렬, 쓰기 확인 후 true
+    public (int normalCleared, int loops, string runId) ReadReach();   // reach:RR02:v1
+    public bool WriteReachMax(ReachKey key, string runId);             // RankingRules.Compare(L5)로 더 높을 때만 갱신
+    public bool WriteBadge(string badgeId, string runId, long earnedAtUs); // badge:RR02:v1:<id>, 최초 1회만
+}
+```
+
+- [ ] 테스트(AC-017): 읽기 실패(Unverified) 상태에서 WriteBrainMax가 원본을 덮지 않고 false / 역순 revision(낮은 값 재도착)·같은 revision 중복이 확정값을 덮지 않음 / max 병합(900 저장소 vs 800 후보 → 900 유지) / RR01 키의 숫자 변환 없음(brain:RR01:* 무시).
+- [ ] 테스트(키 형식): 네 친구 키가 정확히 `brain:RR02:v1:rabbit` 형태(FR-017), 저장됨 표시는 TryWrite true 후에만.
+- [ ] check: `node tools/handoff/run-tests.mjs edit "Mallang.RR02.Tests.EditMode.Rr02StoreTests"`
+
 ### Task L7: 공식 기록 제출 [로직]
 
 **Files:**
 - Create: `unity/Assets/Mallang/RR02/Runtime/RankingSubmission.cs`
 - Test: `unity/Assets/Mallang/RR02/Tests/EditMode/RankingSubmissionTests.cs`
 
-**Interfaces (Consumes L3·L6 / Produces):**
+**Interfaces (Consumes L3·L5 / Produces):**
 ```csharp
 public enum SubmissionState { Pending, Verifying, Confirmed, Held, Rejected }
 public interface IRankingServer { SubmissionState Submit(string runId, string rulesVersion, ReachKey key, bool eligible); }
@@ -222,7 +229,7 @@ public sealed class FakeRankingServer : IRankingServer { }                     /
 
 ## 장면 레인 (세션 + Unity MCP, 과제마다 증거 생성 → 사람 확인)
 
-장면 과제는 테스트로 완성을 주장하지 않습니다. 각 과제 끝에 스크린샷(필요하면 플레이 영상)을 만들어 사람 확인을 요청하고, 기각 사유는 기준 문서로 내려보낸 뒤 다시 시도합니다. 소리·손맛·실기기 동작은 이 환경에서 통과를 주장하지 않습니다 (필수).
+화면 코드는 전부 `unity/Assets/Mallang/RR02/Screens/`(`Mallang.RR02.Screens.asmdef`, 결정 1)에 두고, 구절 시작 절대시각은 `Rr02Schedule`만 씁니다(결정 3). 장면 과제는 테스트로 완성을 주장하지 않습니다. 각 과제 끝에 스크린샷(필요하면 플레이 영상)을 만들어 사람 확인을 요청하고, 기각 사유는 기준 문서로 내려보낸 뒤 다시 시도합니다. 소리·손맛·실기기 동작은 이 환경에서 통과를 주장하지 않습니다 (필수).
 
 ### Task S1: 씬·16:9·배치 뼈대 [장면 | FR-001·020]
 - [ ] `Rr02Prototype.unity` 씬, 1280×720 기준 16:9 고정(레터박스), 좌우 카드 각 폭 26%·높이 50%(위 0/아래 50%), 중앙 48% 악보 영역. 외형이 입력 영역을 바꾸지 않는 히트 영역 분리.
@@ -233,7 +240,7 @@ public sealed class FakeRankingServer : IRankingServer { }                     /
 - [ ] 증거: 안내→타이틀 전환 영상 → 사람 확인.
 
 ### Task S3: 플레이 화면 [장면 | FR-003·011·012·018 표현, SCR-002]
-- [ ] 8칸 악보(숨김 ?칸은 chart.hiddenIndices 단일 기준), 현재박 표시, 시연(큰 동작)→입력 전환, placeholder 4음(사인톤 등 구별되는 임시음, 입력 즉시 재생), Gate0 Clock으로 보정·카운트인. ?칸에 정답 얼굴·이름·고유색·접근성 이름 금지.
+- [ ] 8칸 악보(숨김 ?칸은 chart.hiddenIndices 단일 기준), 현재박 표시, 시연(큰 동작)→입력 전환, placeholder 4음(사인톤 등 구별되는 임시음, 입력 즉시 재생), Gate0 Clock으로 보정, 구절·카운트인 시각은 Rr02Schedule 소비. ?칸에 정답 얼굴·이름·고유색·접근성 이름 금지.
 - [ ] 증거: R1→R2 플레이 영상(성공·실패 각 1회) → 사람 확인.
 
 ### Task S4: 결과 화면 [장면 | FR-010·016·025, SCR-005]

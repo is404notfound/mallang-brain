@@ -8,9 +8,9 @@
 
 기존 `Mallang.RhythmCore`(탭/홀드·콤보·Perfect/Good/Miss)는 FR-002가 요구하는 "기존 홀드 회귀 보존" 대상이라 **수정하지 않습니다** (필수). RR02 규칙은 새 어셈블리로 만듭니다.
 
-- `unity/Assets/Mallang/RR02/Runtime/` (`Mallang.RR02.Runtime.asmdef`)
-  - `Rr02Types.cs` — Friend(여우·토끼·카피바라·다람쥐), 판정, 노트, 스냅샷
-  - `Rr02ChartFactory.cs` — 라운드 1~9 + 무한 구절 생성(8박, 숨김 규칙, 150BPM·480tick)
+- `unity/Assets/Mallang/RR02/Runtime/` (`Mallang.RR02.Runtime.asmdef`, 참조는 RhythmCore만 — stage-review 결정 1)
+  - `Rr02Types.cs` — Friend(rabbit·capybara·fox·squirrel), 판정, 노트, 스냅샷
+  - `Rr02Chart.cs` — 패키지 `design-tools/four-friend-chart.json`(고정 데이터) 로드 + 무한 구절 순환 + `Rr02Schedule`(구절 시작 절대시각 단일 진실 — 결정 3)
   - `Rr02Judge.cs` — 탭 전용 판정(±60/±120ms, 소유 구간 ±180ms, note_id 선택 규칙, character_id 비교)
   - `Rr02Run.cs` — 도전 상태기계(라운드 진행·성공/실패·무한·자격 상실·runAnimalScores)
   - `BrainScore.cs` — 동물별 최고 병합(max)·내 뇌 합산·뇌 단계 함수(0/200/400/700)
@@ -18,7 +18,7 @@
   - `RankingRules.cs` — 순위 키 비교·공동 순위·N 구간(0/1~19/20+)·백분위·기준표 대체
   - `RankingSubmission.cs` — 제출 상태기계(대기→검증→확정/보류/거부), run_id 멱등, IRankingServer 주입(실서버 미구현)
 - `unity/Assets/Mallang/RR02/Tests/EditMode/` (`Mallang.RR02.Tests.EditMode.asmdef`) — 위 전부의 수용 테스트
-- 장면 레인: `unity/Assets/Mallang/RR02/Scenes/Rr02Prototype.unity` + `Runtime/Screens/`(소리 안내·타이틀·플레이·결과·랭킹). 시계 보정은 Gate 0A에서 검증된 `Mallang.Gate0.Runtime`의 Clock 계열(ClockCalibrator·CalibrationState·RhythmClock)을 참조해 재사용합니다.
+- 장면 레인: `unity/Assets/Mallang/RR02/Scenes/Rr02Prototype.unity` + `unity/Assets/Mallang/RR02/Screens/`(`Mallang.RR02.Screens.asmdef` — RR02.Runtime과 Gate0.Runtime 참조, 결정 1). 소리 안내·타이틀·플레이·결과·랭킹 화면이 여기 살고, 시계 보정은 Gate 0A에서 검증된 Clock 계열(ClockCalibrator·CalibrationState·RhythmClock)을 재사용합니다.
 
 ## FR/AC 지도
 
