@@ -41,7 +41,10 @@ namespace Mallang.RR02.Screens
         public float clearHoldSeconds = 0.9f;
         public float popDuration = 0.34f;
 
-        enum State { Listen, Repeat, Clear, Failed }
+        enum State { Intro, Listen, Repeat, Clear, Failed }
+
+        [Header("인트로")]
+        public int introBeats = 8; // 시작 전 둠칫둠칫 카운트인 박 수
 
         Rr02Chart _chart;
         Rr02Run _run;
@@ -163,9 +166,7 @@ namespace Mallang.RR02.Screens
             InitRefs();
             if (chartJson == null) { Debug.LogError("Rr02PlayController: chartJson 미설정"); enabled = false; return; }
             _chart = Rr02Chart.LoadFromJson(chartJson.text);
-            _brainStages = new[] { brainStage0, brainStage1, brainStage2, brainStage3 };
             BuildGrid();
-            BuildBrains();
             StartRun();
         }
 
@@ -233,13 +234,7 @@ namespace Mallang.RR02.Screens
             _run = new Rr02Run(_chart);
             _lastNormalCleared = 0;
             if (lampRow != null) lampRow.SetClearedInstant(0);
-            // 뇌 초기화: 처음엔 없음(첫 성공 때 생김)
-            foreach (var pair in _bubbles)
-            {
-                var f = pair.Key; _prov[f] = 0;
-                if (_brain.ContainsKey(f) && _brain[f] != null) { _brain[f].enabled = false; _brain[f].rectTransform.localScale = Vector3.one; }
-            }
-            EnterListen();
+            EnterIntro();
         }
 
         Sprite BrainSprite(int stage)
@@ -285,9 +280,9 @@ namespace Mallang.RR02.Screens
             rt.localScale = Vector3.one * baseScale;
         }
 
-        void EnterListen()
+        // 라운드 음표·박자·숨김 세팅(인트로/듣기 공통).
+        void SetupRound()
         {
-            _state = State.Listen; _clock = 0; _listenIndex = 0;
             _phrase.Clear();
             foreach (var n in _chart.Rounds[_run.CurrentRound - 1].Notes) _phrase.Add(n);
             _phrase.Sort((a, b) => a.TargetUs.CompareTo(b.TargetUs));
@@ -295,11 +290,36 @@ namespace Mallang.RR02.Screens
             for (int i = 0; i < _phrase.Count; i++) _targetsUs[i] = _phrase[i].TargetUs;
             if (_targetsUs.Length >= 2) _beatSec = Mathf.Max(0.1f, (_targetsUs[1] - _targetsUs[0]) / 1000000f);
             _hidden = new HashSet<int>(_chart.Rounds[_run.CurrentRound - 1].HiddenIndices);
-            _cursorIdx = -1; _lastBeat = -1;
-            ShowSequence(true); // 듣기: 전부 공개
+        }
+
+        // 시작 전 8박 둠칫둠칫(기본 베이스만, 멜로디 없음). 동물은 리듬 타고, 카드는 비움.
+        void EnterIntro()
+        {
+            SetupRound();
+            _state = State.Intro; _clock = 0; _listenIndex = 0; _cursorIdx = -1; _lastBeat = -1;
+            HideSequence();
             if (roundText != null) roundText.text = _run.CurrentRound + "번째 무대";
+            if (instructionText != null) instructionText.text = "준비~";
+            SetFeedback("");
+        }
+
+        void EnterListen()
+        {
+            SetupRound();
+            _state = State.Listen; _clock = 0; _listenIndex = 0; _cursorIdx = -1; _lastBeat = -1;
+            ShowSequence(true); // 듣기: 전부 공개
             if (instructionText != null) instructionText.text = "잘 들어요";
             SetFeedback("");
+        }
+
+        void HideSequence()
+        {
+            if (_liveFace == null) return;
+            for (int i = 0; i < _liveFace.Length; i++)
+            {
+                if (_liveFace[i] != null) _liveFace[i].enabled = false;
+                if (_liveQ[i] != null) _liveQ[i].enabled = false;
+            }
         }
 
         // revealHidden=false면 숨김 인덱스는 '?'로.
@@ -327,7 +347,8 @@ namespace Mallang.RR02.Screens
         {
             if (_run == null) return;
             _clock += Time.deltaTime;
-            if (_state == State.Listen) TickListen();
+            if (_state == State.Intro) { if (_clock >= introBeats * _beatSec) EnterListen(); }
+            else if (_state == State.Listen) TickListen();
             else if (_state == State.Repeat) TickRepeat();
             else if (_state == State.Clear) { if (_clock >= clearHoldSeconds) EnterListen(); }
             else if (_state == State.Failed) { if (_clock >= clearHoldSeconds) StartRun(); }
@@ -341,7 +362,7 @@ namespace Mallang.RR02.Screens
         void BeatMetronome()
         {
             if (_baselineClip == null || _audio == null) { return; }
-            if (_state != State.Listen && _state != State.Repeat) { _lastBeat = -1; return; }
+            if (_state != State.Intro && _state != State.Listen && _state != State.Repeat) { _lastBeat = -1; return; }
             int beat = (int)(_clock / _beatSec);
             if (beat != _lastBeat && beat < 8)
             {
@@ -413,7 +434,6 @@ namespace Mallang.RR02.Screens
             if (r.Kind == Rr02InputKind.Judged)
             {
                 SetFeedback(r.Judgement == Rr02Judgement.Perfect ? "Perfect!" : r.Judgement == Rr02Judgement.Good ? "Good" : "Miss");
-                if (r.Judgement != Rr02Judgement.Miss) GrowBrain(friend, r.Judgement);
             }
             else if (r.Kind == Rr02InputKind.Ghost) SetFeedback("!");
         }
@@ -450,7 +470,7 @@ namespace Mallang.RR02.Screens
         void GrooveUpdate()
         {
             if (_bubbles == null) return;
-            bool groove = _state == State.Listen;
+            bool groove = _state == State.Intro || _state == State.Listen;
             if (!groove) return;
             float phase = (float)((_clock / _beatSec) % 1.0);
             float bob = Mathf.Sin(phase * Mathf.PI); // 매 박 0->1->0
