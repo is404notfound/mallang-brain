@@ -13,6 +13,7 @@
 - **changeFrequency** (`high`|`low`): 자주 바뀌는지. **변형 생성 여부를 가릅니다** — high는 2~3안, low는 단발(아래 2단계 참고).
 - **sceneType** (`character`|`scene`|`scene-with-subject`|`ui-icon`): 어떤 구도 규칙을 붙일지 결정합니다.
 - **referenceImage** (선택): image→image 스타일 레퍼런스로 붙일 승인 이미지 경로. 없으면 생략.
+- **크기·비율 사양(중요)**: 엔진은 slot 크기를 레이아웃이 정하고 스프라이트는 Image의 **Preserve Aspect**로 비율 유지해 맞추므로, 픽셀 정확은 불필요하고 **비율(aspect)·투명 여부·해상도 하한**이 중요합니다. sceneType별 기본: character/ui-icon = 1:1 정사각·투명 PNG·≥1024px(아이콘은 ≥512), scene = 화면 비율(예 16:9)·불투명·≥기준해상도. **slot 비율이 애매하면 플레이스홀더를 먼저 배치해 slot 비율을 재서 프롬프트에 박습니다.** 배치 시 Image는 Preserve Aspect를 켜고 투명 PNG·pivot center로 import합니다.
 
 ## sceneType별 구도 규칙 매핑
 
