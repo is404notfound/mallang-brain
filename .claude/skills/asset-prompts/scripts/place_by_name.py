@@ -18,7 +18,8 @@ manifest 형식:
       ]
     }
 
-inbox·slot 경로는 manifest 파일 위치를 기준으로 상대 해석합니다.
+inbox 경로는 manifest 파일 위치를 기준으로, slot 경로는 저장소 루트(.git 보유 폴더)를
+기준으로 상대 해석합니다. 저장소 루트를 못 찾으면 manifest 폴더를 기준으로 되돌립니다.
 chosen이 있으면 그 파일을, 없으면 expectedFile을 inbox에서 찾습니다.
 slot에 파일이 이미 있으면 --force 없이는 건너뜁니다(placeholder 교체는 --force).
 결과를 manifest 폴더 옆 placed.json에 기록합니다.
@@ -45,9 +46,22 @@ class PlaceResult:
         return 1 if bad else 0
 
 
+def find_repo_root(start):
+    """start에서 위로 올라가며 .git을 가진 폴더를 찾습니다. 없으면 start를 돌려줍니다."""
+    cur = os.path.abspath(start)
+    while True:
+        if os.path.exists(os.path.join(cur, ".git")):
+            return cur
+        parent = os.path.dirname(cur)
+        if parent == cur:
+            return os.path.abspath(start)
+        cur = parent
+
+
 def place(manifest_path, force=False, dry_run=False):
     manifest_path = os.path.abspath(manifest_path)
     base = os.path.dirname(manifest_path)
+    repo_root = find_repo_root(base)
     with open(manifest_path, encoding="utf-8") as f:
         man = json.load(f)
 
@@ -67,7 +81,7 @@ def place(manifest_path, force=False, dry_run=False):
         if not src or not os.path.exists(src):
             result.unmatched_assets.append(a["id"])
             continue
-        slot_abs = a["slot"] if os.path.isabs(a["slot"]) else os.path.join(base, a["slot"])
+        slot_abs = a["slot"] if os.path.isabs(a["slot"]) else os.path.join(repo_root, a["slot"])
         if os.path.exists(slot_abs) and not force:
             result.skipped.append(a["id"])
             continue

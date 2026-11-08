@@ -1,5 +1,5 @@
 {
-  "inbox": "asset-requests/_inbox",
+  "inbox": "_inbox",
   "assets": [
     {
       "id": "AST-001",
@@ -102,6 +102,94 @@
       "name": "stage-background",
       "slot": "unity/Assets/Mallang/RR02/Art/stage-background.png",
       "expectedFile": "AST-013-stage-background.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-014",
+      "name": "frame-bubble",
+      "slot": "unity/Assets/Mallang/RR02/Art/frame-bubble.png",
+      "expectedFile": "AST-014-frame-bubble.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-015",
+      "name": "panel-score",
+      "slot": "unity/Assets/Mallang/RR02/Art/panel-score.png",
+      "expectedFile": "AST-015-panel-score.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-016",
+      "name": "card-tile",
+      "slot": "unity/Assets/Mallang/RR02/Art/card-tile.png",
+      "expectedFile": "AST-016-card-tile.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-017",
+      "name": "banner-ribbon",
+      "slot": "unity/Assets/Mallang/RR02/Art/banner-ribbon.png",
+      "expectedFile": "AST-017-banner-ribbon.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-018",
+      "name": "garland-lights",
+      "slot": "unity/Assets/Mallang/RR02/Art/garland-lights.png",
+      "expectedFile": "AST-018-garland-lights.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-019",
+      "name": "face-rabbit",
+      "slot": "unity/Assets/Mallang/RR02/Art/face-rabbit.png",
+      "expectedFile": "AST-019-face-rabbit.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-020",
+      "name": "face-capybara",
+      "slot": "unity/Assets/Mallang/RR02/Art/face-capybara.png",
+      "expectedFile": "AST-020-face-capybara.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-021",
+      "name": "face-fox",
+      "slot": "unity/Assets/Mallang/RR02/Art/face-fox.png",
+      "expectedFile": "AST-021-face-fox.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-022",
+      "name": "face-squirrel",
+      "slot": "unity/Assets/Mallang/RR02/Art/face-squirrel.png",
+      "expectedFile": "AST-022-face-squirrel.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-023",
+      "name": "bulb-on",
+      "slot": "unity/Assets/Mallang/RR02/Art/bulb-on.png",
+      "expectedFile": "AST-023-bulb-on.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-024",
+      "name": "bulb-off",
+      "slot": "unity/Assets/Mallang/RR02/Art/bulb-off.png",
+      "expectedFile": "AST-024-bulb-off.png",
       "variations": 1,
       "chosen": null
     }

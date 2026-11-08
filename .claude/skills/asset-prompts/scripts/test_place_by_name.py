@@ -95,6 +95,23 @@ class PlaceByNameTest(unittest.TestCase):
         result2 = place_by_name.place(man, force=True)
         self.assertEqual([p["id"] for p in result2.placed], ["AST-001"])
 
+    def test_slot_resolves_from_repo_root_not_manifest_dir(self):
+        # 저장소 루트(.git 보유)를 기준으로 slot을 풉니다.
+        # 매니페스트는 하위 폴더(asset-requests)에 있고 inbox는 그 옆에 둡니다.
+        os.makedirs(os.path.join(self.root, ".git"))
+        reqdir = os.path.join(self.root, "asset-requests")
+        _png(os.path.join(reqdir, "_inbox", "AST-001-friend-rabbit.png"))
+        man = _manifest(reqdir, [
+            {"id": "AST-001", "name": "friend-rabbit",
+             "slot": "unity/art/friend-rabbit.png",
+             "expectedFile": "AST-001-friend-rabbit.png"}
+        ])
+        result = place_by_name.place(man)
+        # slot은 저장소 루트 기준: root/unity/art/... (매니페스트 폴더 밑이 아님)
+        self.assertTrue(os.path.exists(os.path.join(self.root, "unity/art/friend-rabbit.png")))
+        self.assertFalse(os.path.exists(os.path.join(reqdir, "unity/art/friend-rabbit.png")))
+        self.assertEqual([p["id"] for p in result.placed], ["AST-001"])
+
     def test_dry_run_writes_nothing(self):
         _png(os.path.join(self.root, "_inbox", "AST-001-friend-rabbit.png"))
         man = _manifest(self.root, [

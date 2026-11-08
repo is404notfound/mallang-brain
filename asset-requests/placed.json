@@ -1,0 +1,103 @@
+{
+  "placed": [
+    {
+      "id": "AST-001",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-rabbit.png"
+    },
+    {
+      "id": "AST-002",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-capybara.png"
+    },
+    {
+      "id": "AST-003",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-fox.png"
+    },
+    {
+      "id": "AST-004",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-squirrel.png"
+    },
+    {
+      "id": "AST-005",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-rabbit-hit.png"
+    },
+    {
+      "id": "AST-006",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-capybara-hit.png"
+    },
+    {
+      "id": "AST-007",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-fox-hit.png"
+    },
+    {
+      "id": "AST-008",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-squirrel-hit.png"
+    },
+    {
+      "id": "AST-009",
+      "slot": "unity/Assets/Mallang/RR02/Art/brain-stage0.png"
+    },
+    {
+      "id": "AST-010",
+      "slot": "unity/Assets/Mallang/RR02/Art/brain-stage1.png"
+    },
+    {
+      "id": "AST-011",
+      "slot": "unity/Assets/Mallang/RR02/Art/brain-stage2.png"
+    },
+    {
+      "id": "AST-012",
+      "slot": "unity/Assets/Mallang/RR02/Art/brain-stage3.png"
+    },
+    {
+      "id": "AST-013",
+      "slot": "unity/Assets/Mallang/RR02/Art/stage-background.png"
+    },
+    {
+      "id": "AST-014",
+      "slot": "unity/Assets/Mallang/RR02/Art/frame-bubble.png"
+    },
+    {
+      "id": "AST-015",
+      "slot": "unity/Assets/Mallang/RR02/Art/panel-score.png"
+    },
+    {
+      "id": "AST-016",
+      "slot": "unity/Assets/Mallang/RR02/Art/card-tile.png"
+    },
+    {
+      "id": "AST-017",
+      "slot": "unity/Assets/Mallang/RR02/Art/banner-ribbon.png"
+    },
+    {
+      "id": "AST-018",
+      "slot": "unity/Assets/Mallang/RR02/Art/garland-lights.png"
+    },
+    {
+      "id": "AST-019",
+      "slot": "unity/Assets/Mallang/RR02/Art/face-rabbit.png"
+    },
+    {
+      "id": "AST-020",
+      "slot": "unity/Assets/Mallang/RR02/Art/face-capybara.png"
+    },
+    {
+      "id": "AST-021",
+      "slot": "unity/Assets/Mallang/RR02/Art/face-fox.png"
+    },
+    {
+      "id": "AST-022",
+      "slot": "unity/Assets/Mallang/RR02/Art/face-squirrel.png"
+    },
+    {
+      "id": "AST-023",
+      "slot": "unity/Assets/Mallang/RR02/Art/bulb-on.png"
+    },
+    {
+      "id": "AST-024",
+      "slot": "unity/Assets/Mallang/RR02/Art/bulb-off.png"
+    }
+  ],
+  "unmatchedAssets": [],
+  "unmatchedFiles": [],
+  "skipped": []
+}

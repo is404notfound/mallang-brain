@@ -115,5 +115,104 @@
     "changeFrequency": "low",
     "sceneType": "scene",
     "referenceImage": "art-direction/references/screen-title-final.png"
+  },
+  {
+    "id": "AST-014",
+    "name": "frame-bubble",
+    "slot": "unity/Assets/Mallang/RR02/Art/frame-bubble.png",
+    "purpose": "네 모서리 캐릭터를 감싸는 무지갯빛 비눗방울 프레임",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "art-direction/references/screen-play-final.png"
+  },
+  {
+    "id": "AST-015",
+    "name": "panel-score",
+    "slot": "unity/Assets/Mallang/RR02/Art/panel-score.png",
+    "purpose": "중앙 악보 카드가 올라가는 양피지 패널",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "art-direction/references/screen-play-final.png"
+  },
+  {
+    "id": "AST-016",
+    "name": "card-tile",
+    "slot": "unity/Assets/Mallang/RR02/Art/card-tile.png",
+    "purpose": "악보판 안 카드 한 칸(얼굴칩·물음표 틀)",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "art-direction/references/screen-play-final.png"
+  },
+  {
+    "id": "AST-017",
+    "name": "banner-ribbon",
+    "slot": "unity/Assets/Mallang/RR02/Art/banner-ribbon.png",
+    "purpose": "위/아래 글자가 올라갈 가로 양피지 배너",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "art-direction/references/screen-play-final.png"
+  },
+  {
+    "id": "AST-018",
+    "name": "garland-lights",
+    "slot": "unity/Assets/Mallang/RR02/Art/garland-lights.png",
+    "purpose": "화면 위를 가로지르는 축제 전구 줄",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "art-direction/references/screen-play-final.png"
+  },
+  {
+    "id": "AST-019",
+    "name": "face-rabbit",
+    "slot": "unity/Assets/Mallang/RR02/Art/face-rabbit.png",
+    "purpose": "토끼 카드 얼굴 칩",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "unity/Assets/Mallang/RR02/Art/friend-rabbit.png"
+  },
+  {
+    "id": "AST-020",
+    "name": "face-capybara",
+    "slot": "unity/Assets/Mallang/RR02/Art/face-capybara.png",
+    "purpose": "카피바라 카드 얼굴 칩",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "unity/Assets/Mallang/RR02/Art/friend-capybara.png"
+  },
+  {
+    "id": "AST-021",
+    "name": "face-fox",
+    "slot": "unity/Assets/Mallang/RR02/Art/face-fox.png",
+    "purpose": "사막여우 카드 얼굴 칩",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "unity/Assets/Mallang/RR02/Art/friend-fox.png"
+  },
+  {
+    "id": "AST-022",
+    "name": "face-squirrel",
+    "slot": "unity/Assets/Mallang/RR02/Art/face-squirrel.png",
+    "purpose": "다람쥐 카드 얼굴 칩",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "unity/Assets/Mallang/RR02/Art/friend-squirrel.png"
+  },
+  {
+    "id": "AST-023",
+    "name": "bulb-on",
+    "slot": "unity/Assets/Mallang/RR02/Art/bulb-on.png",
+    "purpose": "라운드 진행 전구(켜짐)",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "art-direction/references/screen-play-final.png"
+  },
+  {
+    "id": "AST-024",
+    "name": "bulb-off",
+    "slot": "unity/Assets/Mallang/RR02/Art/bulb-off.png",
+    "purpose": "라운드 진행 전구(꺼짐)",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "art-direction/references/screen-play-final.png"
   }
 ]
