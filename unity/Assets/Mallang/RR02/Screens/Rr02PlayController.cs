@@ -30,6 +30,8 @@ namespace Mallang.RR02.Screens
         public Sprite faceRabbit, faceCapybara, faceFox, faceSquirrel;
         [Header("뇌 단계(머리 위 — 맞출 때 성장)")]
         public Sprite brainStage0, brainStage1, brainStage2, brainStage3;
+        [Header("소리(친구 악기 + 8박 베이스라인)")]
+        public AudioClip clipRabbit, clipCapybara, clipFox, clipSquirrel, clipBaseline;
 
         [Header("텍스트")]
         public Text roundText, instructionText, feedbackText;
@@ -70,7 +72,8 @@ namespace Mallang.RR02.Screens
         // 소리(플레이스홀더 — 코드 생성 음. 실제 악기 소리는 에셋으로 교체 예정).
         AudioSource _audio;
         Dictionary<Rr02Friend, AudioClip> _tone = new Dictionary<Rr02Friend, AudioClip>();
-        AudioClip _clearClip, _failClip;
+        AudioClip _clearClip, _failClip, _baselineClip;
+        int _lastBeat = -1; // 8박 베이스라인 메트로놈
 
         // 머리 위 뇌(친구별). 맞출 때마다 pop + 임시 점수로 단계 성장(단계 계산은 BrainScore.Stage).
         Dictionary<Rr02Friend, Image> _brain = new Dictionary<Rr02Friend, Image>();
@@ -125,12 +128,14 @@ namespace Mallang.RR02.Screens
             }
             if (_tone.Count == 0)
             {
-                _tone[Rr02Friend.Rabbit] = MakeTone(523.25f);   // C5
-                _tone[Rr02Friend.Capybara] = MakeTone(659.25f); // E5
-                _tone[Rr02Friend.Fox] = MakeTone(783.99f);      // G5
-                _tone[Rr02Friend.Squirrel] = MakeTone(1046.5f); // C6
-                _clearClip = MakeTone(880f, 0.5f);              // 클리어: 밝은 A5
-                _failClip = MakeTone(196f, 0.45f);             // 실패: 낮은 G3
+                // 고른 악기 클립(없으면 코드 생성 음으로 폴백).
+                _tone[Rr02Friend.Rabbit] = clipRabbit != null ? clipRabbit : MakeTone(523.25f);
+                _tone[Rr02Friend.Capybara] = clipCapybara != null ? clipCapybara : MakeTone(659.25f);
+                _tone[Rr02Friend.Fox] = clipFox != null ? clipFox : MakeTone(783.99f);
+                _tone[Rr02Friend.Squirrel] = clipSquirrel != null ? clipSquirrel : MakeTone(1046.5f);
+                _baselineClip = clipBaseline;
+                _clearClip = MakeTone(880f, 0.5f);
+                _failClip = MakeTone(196f, 0.45f);
             }
         }
 
@@ -290,7 +295,7 @@ namespace Mallang.RR02.Screens
             for (int i = 0; i < _phrase.Count; i++) _targetsUs[i] = _phrase[i].TargetUs;
             if (_targetsUs.Length >= 2) _beatSec = Mathf.Max(0.1f, (_targetsUs[1] - _targetsUs[0]) / 1000000f);
             _hidden = new HashSet<int>(_chart.Rounds[_run.CurrentRound - 1].HiddenIndices);
-            _cursorIdx = -1;
+            _cursorIdx = -1; _lastBeat = -1;
             ShowSequence(true); // 듣기: 전부 공개
             if (roundText != null) roundText.text = _run.CurrentRound + "번째 무대";
             if (instructionText != null) instructionText.text = "잘 들어요";
@@ -329,6 +334,20 @@ namespace Mallang.RR02.Screens
 
             UpdateCursor();
             GrooveUpdate();
+            BeatMetronome();
+        }
+
+        // 기본 8박으로 깔리는 베이스라인(상시 반주 비트). 듣기/따라치기 내내 매 박.
+        void BeatMetronome()
+        {
+            if (_baselineClip == null || _audio == null) { return; }
+            if (_state != State.Listen && _state != State.Repeat) { _lastBeat = -1; return; }
+            int beat = (int)(_clock / _beatSec);
+            if (beat != _lastBeat && beat < 8)
+            {
+                _lastBeat = beat;
+                _audio.PlayOneShot(_baselineClip, 0.55f);
+            }
         }
 
         void TickListen()
@@ -346,7 +365,7 @@ namespace Mallang.RR02.Screens
                     _run.BeginRepeat();
                     ResetBubbleScales();
                     ShowSequence(false); // 따라치기: 숨긴 칸 '?'
-                    _state = State.Repeat; _clock = 0;
+                    _state = State.Repeat; _clock = 0; _lastBeat = -1;
                     if (instructionText != null) instructionText.text = "따라 쳐요";
                 }
             }

@@ -3501,6 +3501,11 @@ MonoBehaviour:
   brainStage1: {fileID: 21300000, guid: b873af53409f04070b74fe0eee8b422e, type: 3}
   brainStage2: {fileID: 21300000, guid: 5e55d1aaa6bcb4504b23b3b8efdf9b8c, type: 3}
   brainStage3: {fileID: 21300000, guid: 0759e27bd934548fda44be8765822feb, type: 3}
+  clipRabbit: {fileID: 8300000, guid: 9c8b3f368ef6949c7a89f95f5893fd02, type: 3}
+  clipCapybara: {fileID: 8300000, guid: 3df652bea5fa547ec81b479b2fc5a80d, type: 3}
+  clipFox: {fileID: 8300000, guid: fdef35977f99c4fbf97d55b4ce1bfdc3, type: 3}
+  clipSquirrel: {fileID: 8300000, guid: a31d6dca373d2458a938a8b6fb716e6c, type: 3}
+  clipBaseline: {fileID: 8300000, guid: 582f2e07215004b4cb4a1db8b02cc05a, type: 3}
   roundText: {fileID: 1666115445}
   instructionText: {fileID: 681517719}
   feedbackText: {fileID: 1783538802}
