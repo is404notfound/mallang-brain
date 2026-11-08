@@ -68,18 +68,25 @@ namespace Mallang.RR02.Screens
 
         IEnumerator PopRoutine(RectTransform rt)
         {
+            // 보잉: 크게 튀어나왔다가 ease-out-back으로 살짝 반동하며 1로 안착(쫀득).
             float t = 0f;
             while (t < popDuration)
             {
                 t += Time.deltaTime;
                 float u = Mathf.Clamp01(t / popDuration);
-                float punch = Mathf.Sin(u * Mathf.PI); // 0 -> 1 -> 0
-                float s = 1f + (popScale - 1f) * punch;
+                float eob = EaseOutBack(u);          // 0 -> 1(끝에서 오버슈트)
+                float s = popScale + (1f - popScale) * eob; // popScale -> 1 (중간에 1 아래로 살짝 반동)
                 rt.localScale = new Vector3(s, s, 1f);
                 yield return null;
             }
             rt.localScale = Vector3.one;
             _pop = null;
+        }
+
+        static float EaseOutBack(float x)
+        {
+            float c1 = 1.70158f, c3 = c1 + 1f, p = x - 1f;
+            return 1f + c3 * p * p * p + c1 * p * p;
         }
     }
 }

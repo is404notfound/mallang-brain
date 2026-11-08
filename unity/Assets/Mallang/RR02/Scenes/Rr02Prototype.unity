@@ -3456,12 +3456,16 @@ MonoBehaviour:
   bubbleCapybara: {fileID: 1056919777}
   bubbleFox: {fileID: 179378425}
   bubbleSquirrel: {fileID: 845611231}
+  hitRabbit: {fileID: 21300000, guid: 61bb55db5b0644817820379abd1d5fdd, type: 3}
+  hitCapybara: {fileID: 21300000, guid: b4d1cdfb6b8944132ac44ec1586e5d94, type: 3}
+  hitFox: {fileID: 21300000, guid: b590d3d43e01a4358b81a210ca80bc24, type: 3}
+  hitSquirrel: {fileID: 21300000, guid: 9ee964eb8c4764b6eacca2bfde6e339f, type: 3}
   roundText: {fileID: 1666115445}
   instructionText: {fileID: 681517719}
   feedbackText: {fileID: 1783538802}
-  listenNoteGap: 0
   listenTailSeconds: 0.7
   clearHoldSeconds: 0.9
+  popDuration: 0.34
 --- !u!4 &1733537670
 Transform:
   m_ObjectHideFlags: 0

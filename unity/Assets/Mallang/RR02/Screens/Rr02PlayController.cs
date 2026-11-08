@@ -7,11 +7,10 @@ using UnityEngine.InputSystem;
 namespace Mallang.RR02.Screens
 {
     // 플레이 루프 글루(장면 레인). 로직은 전부 로직 레인의 Rr02Chart/Rr02Run/Rr02Judge가 하고,
-    // 이 컴포넌트는 그걸 입력·타이밍·뷰에 잇습니다.
-    //   듣기(Listen): 라운드 시퀀스를 모서리 친구를 순서대로 퐁 시켜 시연.
-    //   따라치기(Repeat): 키 1~4 또는 모서리 탭 -> Rr02Run.ProcessPress.
-    //   라운드 클리어 -> StageLampRow.SetCleared(NormalCleared)로 전구 점등(퐁). 실패 -> 1라운드부터 다시.
-    // 타이밍·손맛은 사람 플레이테스트로 다듬습니다.
+    // 이 컴포넌트는 그걸 입력·타이밍·뷰에 잇고 '손맛(juice)'을 입힙니다.
+    //   듣기(Listen): 라운드 시퀀스를 모서리 친구가 순서대로 '연주'(타격 포즈+스쿼시 스트레치)로 시연.
+    //   따라치기(Repeat): 키 1~4 또는 모서리 탭 -> Rr02Run.ProcessPress, 친구가 쫀득하게 튕김.
+    //   라운드 클리어 -> StageLampRow.SetCleared로 전구 보잉 점등. 실패 -> 1라운드부터 다시.
     public class Rr02PlayController : MonoBehaviour
     {
         public TextAsset chartJson;
@@ -23,27 +22,38 @@ namespace Mallang.RR02.Screens
         public RectTransform bubbleFox;
         public RectTransform bubbleSquirrel;
 
+        [Header("타격 포즈 스프라이트(눌림/연주 순간)")]
+        public Sprite hitRabbit;
+        public Sprite hitCapybara;
+        public Sprite hitFox;
+        public Sprite hitSquirrel;
+
         [Header("텍스트")]
-        public Text roundText;      // 상단 배너
-        public Text instructionText; // 하단 배너
-        public Text feedbackText;   // 중앙 피드백(없으면 자동 생성)
+        public Text roundText;
+        public Text instructionText;
+        public Text feedbackText;
 
         [Header("타이밍(초)")]
-        public float listenNoteGap = 0.0f; // 노트 간격은 차트 TargetUs를 따름
-        public float listenTailSeconds = 0.7f;   // 시퀀스 끝난 뒤 따라치기 전환 여유
+        public float listenTailSeconds = 0.7f;
         public float clearHoldSeconds = 0.9f;
+        public float popDuration = 0.34f; // 쫀득한 튕김 길이
 
         enum State { Listen, Repeat, Clear, Failed }
 
         Rr02Chart _chart;
         Rr02Run _run;
         State _state;
-        double _clock;        // 현재 상태 경과(초)
-        int _listenIndex;     // 듣기에서 다음 재생할 노트
+        double _clock;
+        int _listenIndex;
         List<Rr02Note> _phrase = new List<Rr02Note>();
         int _lastNormalCleared;
+
         Dictionary<Rr02Friend, RectTransform> _bubbles;
+        Dictionary<Rr02Friend, Image> _charImg = new Dictionary<Rr02Friend, Image>();
+        Dictionary<Rr02Friend, Sprite> _idle = new Dictionary<Rr02Friend, Sprite>();
+        Dictionary<Rr02Friend, Sprite> _hit = new Dictionary<Rr02Friend, Sprite>();
         Dictionary<Rr02Friend, Coroutine> _pulse = new Dictionary<Rr02Friend, Coroutine>();
+        Coroutine _fbPop;
 
         void Awake()
         {
@@ -54,17 +64,36 @@ namespace Mallang.RR02.Screens
                 { Rr02Friend.Fox, bubbleFox },
                 { Rr02Friend.Squirrel, bubbleSquirrel },
             };
-            // 모서리 탭 입력: 각 버블의 Image에 Button을 달아 Press로 연결(런타임 배선).
+            _hit[Rr02Friend.Rabbit] = hitRabbit;
+            _hit[Rr02Friend.Capybara] = hitCapybara;
+            _hit[Rr02Friend.Fox] = hitFox;
+            _hit[Rr02Friend.Squirrel] = hitSquirrel;
+
             foreach (var pair in _bubbles)
             {
                 var bubble = pair.Value; var friend = pair.Key;
                 if (bubble == null) continue;
-                var img = bubble.GetComponentInChildren<Image>();
-                if (img == null) continue;
-                var btn = img.gameObject.GetComponent<Button>();
-                if (btn == null) btn = img.gameObject.AddComponent<Button>();
-                btn.transition = Selectable.Transition.None;
-                btn.onClick.AddListener(() => Press(friend));
+                // 캐릭터 Image(= Ring이 아닌 쪽) 찾기
+                var imgs = bubble.GetComponentsInChildren<Image>();
+                foreach (var im in imgs)
+                {
+                    if (im.gameObject.name.StartsWith("Char"))
+                    {
+                        _charImg[friend] = im;
+                        _idle[friend] = im.sprite;
+                        break;
+                    }
+                }
+                // 탭 입력: 캐릭터 Image에 Button
+                Image target = _charImg.ContainsKey(friend) ? _charImg[friend] : (imgs.Length > 0 ? imgs[0] : null);
+                if (target != null)
+                {
+                    var btn = target.gameObject.GetComponent<Button>();
+                    if (btn == null) btn = target.gameObject.AddComponent<Button>();
+                    btn.transition = Selectable.Transition.None;
+                    var captured = friend;
+                    btn.onClick.AddListener(() => Press(captured));
+                }
             }
         }
 
@@ -88,8 +117,7 @@ namespace Mallang.RR02.Screens
             _state = State.Listen;
             _clock = 0; _listenIndex = 0;
             _phrase.Clear();
-            var notes = _chart.Rounds[_run.CurrentRound - 1].Notes;
-            foreach (var n in notes) _phrase.Add(n);
+            foreach (var n in _chart.Rounds[_run.CurrentRound - 1].Notes) _phrase.Add(n);
             _phrase.Sort((a, b) => a.TargetUs.CompareTo(b.TargetUs));
             if (roundText != null) roundText.text = _run.CurrentRound + "번째 무대";
             if (instructionText != null) instructionText.text = "잘 들어요";
@@ -99,9 +127,7 @@ namespace Mallang.RR02.Screens
         void Update()
         {
             if (_run == null) return;
-            float dt = Time.deltaTime;
-            _clock += dt;
-
+            _clock += Time.deltaTime;
             if (_state == State.Listen) TickListen();
             else if (_state == State.Repeat) TickRepeat();
             else if (_state == State.Clear) { if (_clock >= clearHoldSeconds) EnterListen(); }
@@ -110,11 +136,9 @@ namespace Mallang.RR02.Screens
 
         void TickListen()
         {
-            // 각 노트를 TargetUs(초) 시점에 해당 친구 퐁
-            while (_listenIndex < _phrase.Count &&
-                   _clock >= _phrase[_listenIndex].TargetUs / 1000000.0)
+            while (_listenIndex < _phrase.Count && _clock >= _phrase[_listenIndex].TargetUs / 1000000.0)
             {
-                Pulse(_phrase[_listenIndex].Friend);
+                Pulse(_phrase[_listenIndex].Friend, 0.9f);
                 _listenIndex++;
             }
             if (_listenIndex >= _phrase.Count)
@@ -123,8 +147,7 @@ namespace Mallang.RR02.Screens
                 if (_clock >= lastSec + listenTailSeconds)
                 {
                     _run.BeginRepeat();
-                    _state = State.Repeat;
-                    _clock = 0;
+                    _state = State.Repeat; _clock = 0;
                     if (instructionText != null) instructionText.text = "따라 쳐요";
                 }
             }
@@ -135,10 +158,8 @@ namespace Mallang.RR02.Screens
             ReadInput();
             long us = (long)(_clock * 1000000.0);
             _run.AdvanceTime(us);
-
             if (_run.Phase == Rr02Phase.Listen)
             {
-                // 구절 성공 -> 다음 라운드(또는 무한). NormalCleared 증가분을 전구로.
                 if (_run.NormalCleared > _lastNormalCleared)
                 {
                     if (lampRow != null) lampRow.SetCleared(_run.NormalCleared);
@@ -157,22 +178,20 @@ namespace Mallang.RR02.Screens
         void ReadInput()
         {
             var kb = Keyboard.current;
-            if (kb != null)
-            {
-                if (kb.digit1Key.wasPressedThisFrame) Press(Rr02Friend.Rabbit);
-                if (kb.digit2Key.wasPressedThisFrame) Press(Rr02Friend.Capybara);
-                if (kb.digit3Key.wasPressedThisFrame) Press(Rr02Friend.Fox);
-                if (kb.digit4Key.wasPressedThisFrame) Press(Rr02Friend.Squirrel);
-            }
+            if (kb == null) return;
+            if (kb.digit1Key.wasPressedThisFrame) Press(Rr02Friend.Rabbit);
+            if (kb.digit2Key.wasPressedThisFrame) Press(Rr02Friend.Capybara);
+            if (kb.digit3Key.wasPressedThisFrame) Press(Rr02Friend.Fox);
+            if (kb.digit4Key.wasPressedThisFrame) Press(Rr02Friend.Squirrel);
         }
 
-        // 모서리 탭/버튼에서도 호출(공개).
         public void Press(Rr02Friend friend)
         {
             if (_state != State.Repeat || _run == null) return;
             long us = (long)(_clock * 1000000.0);
             var r = _run.ProcessPress(friend, us);
-            Pulse(friend);
+            float intensity = r.Kind == Rr02InputKind.Judged && r.Judgement == Rr02Judgement.Perfect ? 1.25f : 1.0f;
+            Pulse(friend, intensity);
             if (r.Kind == Rr02InputKind.Judged)
                 SetFeedback(r.Judgement == Rr02Judgement.Perfect ? "Perfect!"
                     : r.Judgement == Rr02Judgement.Good ? "Good" : "Miss");
@@ -180,29 +199,73 @@ namespace Mallang.RR02.Screens
                 SetFeedback("!");
         }
 
-        void Pulse(Rr02Friend friend)
+        // 스쿼시-스트레치 + 타격 포즈 전환(쫀득한 손맛)
+        void Pulse(Rr02Friend friend, float intensity)
         {
             RectTransform rt;
             if (_bubbles == null || !_bubbles.TryGetValue(friend, out rt) || rt == null) return;
             if (_pulse.ContainsKey(friend) && _pulse[friend] != null) StopCoroutine(_pulse[friend]);
-            _pulse[friend] = StartCoroutine(PulseRoutine(rt));
+            _pulse[friend] = StartCoroutine(PulseRoutine(friend, rt, intensity));
         }
 
-        IEnumerator PulseRoutine(RectTransform rt)
+        IEnumerator PulseRoutine(Rr02Friend friend, RectTransform rt, float intensity)
         {
-            const float dur = 0.22f, peak = 1.12f;
+            // 타격 포즈로 스왑
+            Image ci = _charImg.ContainsKey(friend) ? _charImg[friend] : null;
+            Sprite hit = _hit.ContainsKey(friend) ? _hit[friend] : null;
+            Sprite idle = _idle.ContainsKey(friend) ? _idle[friend] : null;
+            if (ci != null && hit != null) ci.sprite = hit;
+
+            float amp = 0.26f * intensity;
             float t = 0f;
+            while (t < popDuration)
+            {
+                t += Time.deltaTime;
+                float u = Mathf.Clamp01(t / popDuration);
+                // 스프링 펀치: 1 -> 크게 -> 작은 반동 -> 1 (쫀득)
+                float punch = Mathf.Sin(u * Mathf.PI) + 0.28f * Mathf.Sin(u * Mathf.PI * 3f) * (1f - u);
+                float sy = 1f + amp * punch;        // 세로 스트레치
+                float sx = 1f - amp * 0.55f * punch; // 가로 스쿼시(부피 보존 느낌)
+                rt.localScale = new Vector3(sx, sy, 1f);
+                yield return null;
+            }
+            rt.localScale = Vector3.one;
+            if (ci != null && idle != null) ci.sprite = idle; // 대기 포즈 복귀
+            _pulse[friend] = null;
+        }
+
+        void SetFeedback(string s)
+        {
+            if (feedbackText == null) return;
+            feedbackText.text = s;
+            if (!string.IsNullOrEmpty(s))
+            {
+                if (_fbPop != null) StopCoroutine(_fbPop);
+                _fbPop = StartCoroutine(FeedbackPop());
+            }
+        }
+
+        IEnumerator FeedbackPop()
+        {
+            var rt = feedbackText.rectTransform;
+            float dur = 0.3f, t = 0f;
             while (t < dur)
             {
                 t += Time.deltaTime;
                 float u = Mathf.Clamp01(t / dur);
-                float s = 1f + (peak - 1f) * Mathf.Sin(u * Mathf.PI);
+                float eob = EaseOutBack(u);
+                float s = 0.6f + 0.4f * eob; // 0.6 -> 1(오버슈트)
                 rt.localScale = new Vector3(s, s, 1f);
                 yield return null;
             }
             rt.localScale = Vector3.one;
+            _fbPop = null;
         }
 
-        void SetFeedback(string s) { if (feedbackText != null) feedbackText.text = s; }
+        static float EaseOutBack(float x)
+        {
+            float c1 = 1.70158f, c3 = c1 + 1f, p = x - 1f;
+            return 1f + c3 * p * p * p + c1 * p * p;
+        }
     }
 }
