@@ -12,6 +12,7 @@ namespace Mallang.RR02.Screens
     //                 파란 커서가 박자마다 카드에 딱딱 걸리며 이동.
     //   따라치기(Repeat): 숨긴 칸은 '?'로. 키 1~4 / 모서리 탭으로 따라치면 그 동물만 hit 포즈로 튕김.
     //   라운드 클리어 -> 전구 보잉 점등. 실패 -> 1라운드부터.
+    [RequireComponent(typeof(AudioSource))]
     public class Rr02PlayController : MonoBehaviour
     {
         public TextAsset chartJson;
@@ -66,6 +67,11 @@ namespace Mallang.RR02.Screens
         int _cursorIdx = -1;
         Coroutine _cursorPop;
 
+        // 소리(플레이스홀더 — 코드 생성 음. 실제 악기 소리는 에셋으로 교체 예정).
+        AudioSource _audio;
+        Dictionary<Rr02Friend, AudioClip> _tone = new Dictionary<Rr02Friend, AudioClip>();
+        AudioClip _clearClip, _failClip;
+
         // 머리 위 뇌(친구별). 맞출 때마다 pop + 임시 점수로 단계 성장(단계 계산은 BrainScore.Stage).
         Dictionary<Rr02Friend, Image> _brain = new Dictionary<Rr02Friend, Image>();
         Dictionary<Rr02Friend, int> _prov = new Dictionary<Rr02Friend, int>();
@@ -106,7 +112,46 @@ namespace Mallang.RR02.Screens
                     btn.onClick.AddListener(() => Press(captured));
                 }
             }
+            SetupAudio();
         }
+
+        // 플레이스홀더 음 생성(친구마다 다른 음정, 펜타토닉). 실제 악기 소리는 에셋으로 교체.
+        void SetupAudio()
+        {
+            if (_audio == null)
+            {
+                _audio = GetComponent<AudioSource>() ?? gameObject.AddComponent<AudioSource>();
+                _audio.playOnAwake = false;
+            }
+            if (_tone.Count == 0)
+            {
+                _tone[Rr02Friend.Rabbit] = MakeTone(523.25f);   // C5
+                _tone[Rr02Friend.Capybara] = MakeTone(659.25f); // E5
+                _tone[Rr02Friend.Fox] = MakeTone(783.99f);      // G5
+                _tone[Rr02Friend.Squirrel] = MakeTone(1046.5f); // C6
+                _clearClip = MakeTone(880f, 0.5f);              // 클리어: 밝은 A5
+                _failClip = MakeTone(196f, 0.45f);             // 실패: 낮은 G3
+            }
+        }
+
+        // 사인 + 빠른 어택·지수 감쇠로 마림바풍 소리 한 음.
+        AudioClip MakeTone(float freq, float dur = 0.35f)
+        {
+            int sr = 44100; int n = (int)(sr * dur);
+            var s = new float[n];
+            for (int i = 0; i < n; i++)
+            {
+                float t = i / (float)sr;
+                float env = Mathf.Exp(-t * 6f) * Mathf.Clamp01(t * 200f); // 감쇠 + 짧은 어택
+                float w = Mathf.Sin(2f * Mathf.PI * freq * t) + 0.3f * Mathf.Sin(2f * Mathf.PI * freq * 2f * t);
+                s[i] = w * env * 0.4f;
+            }
+            var clip = AudioClip.Create("tone_" + (int)freq, n, 1, sr, false);
+            clip.SetData(s, 0);
+            return clip;
+        }
+
+        void PlayTone(Rr02Friend f) { if (_audio != null && _tone.ContainsKey(f) && _tone[f] != null) _audio.PlayOneShot(_tone[f]); }
 
         void OnEnable()
         {
@@ -131,8 +176,8 @@ namespace Mallang.RR02.Screens
                 go.transform.SetParent(bubble, false);
                 var img = go.GetComponent<Image>(); img.preserveAspect = true; img.raycastTarget = false;
                 var rt = img.rectTransform; rt.anchorMin = rt.anchorMax = new Vector2(0.5f, 0.5f); rt.pivot = new Vector2(0.5f, 0.5f);
-                rt.anchoredPosition = new Vector2(0, bw * 0.5f); // 학사모 위로 공간 띄워 띄움
-                rt.sizeDelta = new Vector2(bw * 0.3f, bw * 0.3f);
+                rt.anchoredPosition = new Vector2(0, bw * 0.16f); // 동물 머리 안(학사모 아래 머리 영역)
+                rt.sizeDelta = new Vector2(bw * 0.26f, bw * 0.26f);
                 img.enabled = false; // 처음엔 없음(첫 성공 때 생김)
                 _brain[friend] = img;
                 _prov[friend] = 0;
@@ -289,7 +334,10 @@ namespace Mallang.RR02.Screens
         void TickListen()
         {
             if (_listenIndex < _phrase.Count && _clock >= _phrase[_listenIndex].TargetUs / 1000000.0)
-                _listenIndex++; // 진행만 추적(동물 hit 없음, 그루브로 리듬)
+            {
+                PlayTone(_phrase[_listenIndex].Friend); // 듣기: 시퀀스를 소리로 들려줌(동물 hit 없음, 그루브)
+                _listenIndex++;
+            }
             if (_listenIndex >= _phrase.Count)
             {
                 double lastSec = _phrase.Count > 0 ? _phrase[_phrase.Count - 1].TargetUs / 1000000.0 : 0;
@@ -316,10 +364,12 @@ namespace Mallang.RR02.Screens
                     if (lampRow != null) lampRow.SetCleared(_run.NormalCleared);
                     _lastNormalCleared = _run.NormalCleared;
                 }
+                if (_audio != null && _clearClip != null) _audio.PlayOneShot(_clearClip);
                 SetFeedback("좋아요!"); _state = State.Clear; _clock = 0;
             }
             else if (_run.Phase == Rr02Phase.Ended)
             {
+                if (_audio != null && _failClip != null) _audio.PlayOneShot(_failClip);
                 SetFeedback("다시 해봐요"); _state = State.Failed; _clock = 0;
             }
         }
@@ -338,6 +388,7 @@ namespace Mallang.RR02.Screens
             if (_state != State.Repeat || _run == null) return;
             long us = (long)(_clock * 1000000.0);
             var r = _run.ProcessPress(friend, us);
+            PlayTone(friend); // 누를 때 소리
             float intensity = r.Kind == Rr02InputKind.Judged && r.Judgement == Rr02Judgement.Perfect ? 1.25f : 1.0f;
             HitPulse(friend, intensity);
             if (r.Kind == Rr02InputKind.Judged)
