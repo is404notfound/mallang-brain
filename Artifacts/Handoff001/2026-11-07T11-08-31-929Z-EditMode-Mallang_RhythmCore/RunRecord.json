@@ -1,0 +1,28 @@
+{
+  "id": "2026-11-07T11-08-31-929Z-EditMode-Mallang_RhythmCore",
+  "platform": "EditMode",
+  "filter": "Mallang.RhythmCore",
+  "startedUtc": "2026-11-07T11:08:31.935Z",
+  "scope": "Unity automated tests only; logic-lane check for specs/001-listen-and-repeat-core",
+  "source": "ab29e128b7885e80419e27e3968f08315254252a",
+  "dirty": true,
+  "command": [
+    "/Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/MacOS/Unity",
+    "-batchmode",
+    "-projectPath",
+    "/Users/easyoon/orca/workspaces/mallang-brain/palolo/unity",
+    "-runTests",
+    "-testPlatform",
+    "EditMode",
+    "-testResults",
+    "/Users/easyoon/orca/workspaces/mallang-brain/palolo/Artifacts/Handoff001/2026-11-07T11-08-31-929Z-EditMode-Mallang_RhythmCore/TestResults.xml",
+    "-logFile",
+    "/Users/easyoon/orca/workspaces/mallang-brain/palolo/Artifacts/Handoff001/2026-11-07T11-08-31-929Z-EditMode-Mallang_RhythmCore/Unity.log",
+    "-testFilter",
+    "Mallang.RhythmCore"
+  ],
+  "unityExit": 0,
+  "totalTests": 55,
+  "result": "passed",
+  "completedUtc": "2026-11-07T11:10:32.545Z"
+}

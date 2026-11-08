@@ -1,0 +1,109 @@
+{
+  "inbox": "asset-requests/_inbox",
+  "assets": [
+    {
+      "id": "AST-001",
+      "name": "friend-rabbit",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-rabbit.png",
+      "expectedFile": "AST-001-friend-rabbit.png",
+      "variations": 3,
+      "chosen": null
+    },
+    {
+      "id": "AST-002",
+      "name": "friend-capybara",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-capybara.png",
+      "expectedFile": "AST-002-friend-capybara.png",
+      "variations": 3,
+      "chosen": null
+    },
+    {
+      "id": "AST-003",
+      "name": "friend-fox",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-fox.png",
+      "expectedFile": "AST-003-friend-fox.png",
+      "variations": 3,
+      "chosen": null
+    },
+    {
+      "id": "AST-004",
+      "name": "friend-squirrel",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-squirrel.png",
+      "expectedFile": "AST-004-friend-squirrel.png",
+      "variations": 3,
+      "chosen": null
+    },
+    {
+      "id": "AST-005",
+      "name": "friend-rabbit-hit",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-rabbit-hit.png",
+      "expectedFile": "AST-005-friend-rabbit-hit.png",
+      "variations": 3,
+      "chosen": null
+    },
+    {
+      "id": "AST-006",
+      "name": "friend-capybara-hit",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-capybara-hit.png",
+      "expectedFile": "AST-006-friend-capybara-hit.png",
+      "variations": 3,
+      "chosen": null
+    },
+    {
+      "id": "AST-007",
+      "name": "friend-fox-hit",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-fox-hit.png",
+      "expectedFile": "AST-007-friend-fox-hit.png",
+      "variations": 3,
+      "chosen": null
+    },
+    {
+      "id": "AST-008",
+      "name": "friend-squirrel-hit",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-squirrel-hit.png",
+      "expectedFile": "AST-008-friend-squirrel-hit.png",
+      "variations": 3,
+      "chosen": null
+    },
+    {
+      "id": "AST-009",
+      "name": "brain-stage0",
+      "slot": "unity/Assets/Mallang/RR02/Art/brain-stage0.png",
+      "expectedFile": "AST-009-brain-stage0.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-010",
+      "name": "brain-stage1",
+      "slot": "unity/Assets/Mallang/RR02/Art/brain-stage1.png",
+      "expectedFile": "AST-010-brain-stage1.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-011",
+      "name": "brain-stage2",
+      "slot": "unity/Assets/Mallang/RR02/Art/brain-stage2.png",
+      "expectedFile": "AST-011-brain-stage2.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-012",
+      "name": "brain-stage3",
+      "slot": "unity/Assets/Mallang/RR02/Art/brain-stage3.png",
+      "expectedFile": "AST-012-brain-stage3.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-013",
+      "name": "stage-background",
+      "slot": "unity/Assets/Mallang/RR02/Art/stage-background.png",
+      "expectedFile": "AST-013-stage-background.png",
+      "variations": 1,
+      "chosen": null
+    }
+  ]
+}

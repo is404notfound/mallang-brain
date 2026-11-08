@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="29" result="Failed(Child)" total="29" passed="0" failed="29" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.0451146">
+  <test-suite type="TestSuite" id="1000" name="Mallang Brain · Gate 1" fullname="Mallang Brain · Gate 1" runstate="Runnable" testcasecount="217" result="Failed" site="Child" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.045115" total="29" passed="0" failed="29" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1263" name="Mallang.RR02.Tests.EditMode.dll" fullname="/Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Library/ScriptAssemblies/Mallang.RR02.Tests.EditMode.dll" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.035880" total="29" passed="0" failed="29" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="40201" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1264" name="Mallang" fullname="Mallang" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.034564" total="29" passed="0" failed="29" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1265" name="RR02" fullname="Mallang.RR02" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.033448" total="29" passed="0" failed="29" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestSuite" id="1266" name="Tests" fullname="Mallang.RR02.Tests" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.032419" total="29" passed="0" failed="29" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="TestSuite" id="1267" name="EditMode" fullname="Mallang.RR02.Tests.EditMode" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.031193" total="29" passed="0" failed="29" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-suite type="TestFixture" id="1204" name="Rr02JudgeTests" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" testcasecount="29" result="Failed" site="Child" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.028903" total="29" passed="0" failed="29" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[One or more child tests had errors]]></message>
+                </failure>
+                <test-case id="1222" name="AdvanceTimeAtExactGoodBoundaryKeepsNoteOpen" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.AdvanceTimeAtExactGoodBoundaryKeepsNoteOpen" methodname="AdvanceTimeAtExactGoodBoundaryKeepsNoteOpen" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="687133873" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.007539" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SingleNoteJudge (Mallang.RR02.Rr02Friend friend, System.Int64 targetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:16 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.AdvanceTimeAtExactGoodBoundaryKeepsNoteOpen () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:90 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1236" name="CompletedBecomesTrueAtLastTargetPlus180Ms" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.CompletedBecomesTrueAtLastTargetPlus180Ms" methodname="CompletedBecomesTrueAtLastTargetPlus180Ms" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1600258021" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000565" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.MakeJudge (Mallang.RR02.Rr02Note[] notes) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:21 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.CompletedBecomesTrueAtLastTargetPlus180Ms () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:254 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1227" name="CrossFriendSelectionClosesNearestOpenTargetAsMiss" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.CrossFriendSelectionClosesNearestOpenTargetAsMiss" methodname="CrossFriendSelectionClosesNearestOpenTargetAsMiss" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1472225389" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000309" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.MakeJudge (Mallang.RR02.Rr02Note[] notes) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:21 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.CrossFriendSelectionClosesNearestOpenTargetAsMiss () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:166 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1226" name="GhostIsCountedWhenNoOpenTargetIsInWindow" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.GhostIsCountedWhenNoOpenTargetIsInWindow" methodname="GhostIsCountedWhenNoOpenTargetIsInWindow" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="440432428" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000213" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.MakeJudge (Mallang.RR02.Rr02Note[] notes) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:21 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.GhostIsCountedWhenNoOpenTargetIsInWindow () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:150 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-suite type="ParameterizedMethod" id="1215" name="GoodWindowIsInclusiveAtOneHundredTwentyMs" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.GoodWindowIsInclusiveAtOneHundredTwentyMs" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" testcasecount="6" result="Failed" site="Child" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.003014" total="6" passed="0" failed="6" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <failure>
+                    <message><![CDATA[One or more child tests had errors]]></message>
+                  </failure>
+                  <test-case id="1209" name="GoodWindowIsInclusiveAtOneHundredTwentyMs(-120000L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.GoodWindowIsInclusiveAtOneHundredTwentyMs(-120000L)" methodname="GoodWindowIsInclusiveAtOneHundredTwentyMs" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="2061024914" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000274" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SingleNoteJudge (Mallang.RR02.Rr02Friend friend, System.Int64 targetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:16 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.GoodWindowIsInclusiveAtOneHundredTwentyMs (System.Int64 offsetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:48 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1210" name="GoodWindowIsInclusiveAtOneHundredTwentyMs(-61000L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.GoodWindowIsInclusiveAtOneHundredTwentyMs(-61000L)" methodname="GoodWindowIsInclusiveAtOneHundredTwentyMs" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1627459103" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000125" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SingleNoteJudge (Mallang.RR02.Rr02Friend friend, System.Int64 targetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:16 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.GoodWindowIsInclusiveAtOneHundredTwentyMs (System.Int64 offsetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:48 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1211" name="GoodWindowIsInclusiveAtOneHundredTwentyMs(-60001L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.GoodWindowIsInclusiveAtOneHundredTwentyMs(-60001L)" methodname="GoodWindowIsInclusiveAtOneHundredTwentyMs" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="490237460" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000116" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SingleNoteJudge (Mallang.RR02.Rr02Friend friend, System.Int64 targetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:16 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.GoodWindowIsInclusiveAtOneHundredTwentyMs (System.Int64 offsetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:48 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1212" name="GoodWindowIsInclusiveAtOneHundredTwentyMs(60001L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.GoodWindowIsInclusiveAtOneHundredTwentyMs(60001L)" methodname="GoodWindowIsInclusiveAtOneHundredTwentyMs" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1301443842" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000109" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SingleNoteJudge (Mallang.RR02.Rr02Friend friend, System.Int64 targetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:16 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.GoodWindowIsInclusiveAtOneHundredTwentyMs (System.Int64 offsetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:48 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1213" name="GoodWindowIsInclusiveAtOneHundredTwentyMs(61000L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.GoodWindowIsInclusiveAtOneHundredTwentyMs(61000L)" methodname="GoodWindowIsInclusiveAtOneHundredTwentyMs" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1142535915" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000110" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SingleNoteJudge (Mallang.RR02.Rr02Friend friend, System.Int64 targetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:16 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.GoodWindowIsInclusiveAtOneHundredTwentyMs (System.Int64 offsetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:48 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1214" name="GoodWindowIsInclusiveAtOneHundredTwentyMs(120000L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.GoodWindowIsInclusiveAtOneHundredTwentyMs(120000L)" methodname="GoodWindowIsInclusiveAtOneHundredTwentyMs" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1596822188" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000107" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SingleNoteJudge (Mallang.RR02.Rr02Friend friend, System.Int64 targetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:16 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.GoodWindowIsInclusiveAtOneHundredTwentyMs (System.Int64 offsetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:48 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                </test-suite>
+                <test-case id="1223" name="NearSimultaneousSecondInputDoesNotReviveConsumedTarget" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.NearSimultaneousSecondInputDoesNotReviveConsumedTarget" methodname="NearSimultaneousSecondInputDoesNotReviveConsumedTarget" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="360198547" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000277" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SingleNoteJudge (Mallang.RR02.Rr02Friend friend, System.Int64 targetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:16 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.NearSimultaneousSecondInputDoesNotReviveConsumedTarget () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:104 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-suite type="ParameterizedMethod" id="1220" name="OffsetsBeyondGoodWindowDoNotConsumeTarget" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OffsetsBeyondGoodWindowDoNotConsumeTarget" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" testcasecount="4" result="Failed" site="Child" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.001175" total="4" passed="0" failed="4" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <failure>
+                    <message><![CDATA[One or more child tests had errors]]></message>
+                  </failure>
+                  <test-case id="1216" name="OffsetsBeyondGoodWindowDoNotConsumeTarget(-121000L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OffsetsBeyondGoodWindowDoNotConsumeTarget(-121000L)" methodname="OffsetsBeyondGoodWindowDoNotConsumeTarget" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="310445410" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000215" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SingleNoteJudge (Mallang.RR02.Rr02Friend friend, System.Int64 targetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:16 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OffsetsBeyondGoodWindowDoNotConsumeTarget (System.Int64 offsetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:62 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1217" name="OffsetsBeyondGoodWindowDoNotConsumeTarget(-120001L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OffsetsBeyondGoodWindowDoNotConsumeTarget(-120001L)" methodname="OffsetsBeyondGoodWindowDoNotConsumeTarget" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1307094561" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000115" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SingleNoteJudge (Mallang.RR02.Rr02Friend friend, System.Int64 targetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:16 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OffsetsBeyondGoodWindowDoNotConsumeTarget (System.Int64 offsetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:62 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1218" name="OffsetsBeyondGoodWindowDoNotConsumeTarget(120001L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OffsetsBeyondGoodWindowDoNotConsumeTarget(120001L)" methodname="OffsetsBeyondGoodWindowDoNotConsumeTarget" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1023926030" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000111" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SingleNoteJudge (Mallang.RR02.Rr02Friend friend, System.Int64 targetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:16 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OffsetsBeyondGoodWindowDoNotConsumeTarget (System.Int64 offsetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:62 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1219" name="OffsetsBeyondGoodWindowDoNotConsumeTarget(121000L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OffsetsBeyondGoodWindowDoNotConsumeTarget(121000L)" methodname="OffsetsBeyondGoodWindowDoNotConsumeTarget" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1336942617" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000110" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SingleNoteJudge (Mallang.RR02.Rr02Friend friend, System.Int64 targetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:16 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OffsetsBeyondGoodWindowDoNotConsumeTarget (System.Int64 offsetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:62 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                </test-suite>
+                <test-case id="1237" name="OutcomesReportFinalJudgementsInNoteIdOrder" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OutcomesReportFinalJudgementsInNoteIdOrder" methodname="OutcomesReportFinalJudgementsInNoteIdOrder" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="684271000" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000321" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.MakeJudge (Mallang.RR02.Rr02Note[] notes) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:21 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OutcomesReportFinalJudgementsInNoteIdOrder () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:266 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-suite type="ParameterizedMethod" id="1235" name="OwnershipSpanIsInclusiveAt180MsPads" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OwnershipSpanIsInclusiveAt180MsPads" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" testcasecount="4" result="Failed" site="Child" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.001204" total="4" passed="0" failed="4" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <failure>
+                    <message><![CDATA[One or more child tests had errors]]></message>
+                  </failure>
+                  <test-case id="1231" name="OwnershipSpanIsInclusiveAt180MsPads(820000L,False)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OwnershipSpanIsInclusiveAt180MsPads(820000L,False)" methodname="OwnershipSpanIsInclusiveAt180MsPads" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="416385790" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000307" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.MakeJudge (Mallang.RR02.Rr02Note[] notes) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:21 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OwnershipSpanIsInclusiveAt180MsPads (System.Int64 inputUs, System.Boolean outside) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:234 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1232" name="OwnershipSpanIsInclusiveAt180MsPads(819999L,True)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OwnershipSpanIsInclusiveAt180MsPads(819999L,True)" methodname="OwnershipSpanIsInclusiveAt180MsPads" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1229219731" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000118" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.MakeJudge (Mallang.RR02.Rr02Note[] notes) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:21 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OwnershipSpanIsInclusiveAt180MsPads (System.Int64 inputUs, System.Boolean outside) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:234 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1233" name="OwnershipSpanIsInclusiveAt180MsPads(2180000L,False)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OwnershipSpanIsInclusiveAt180MsPads(2180000L,False)" methodname="OwnershipSpanIsInclusiveAt180MsPads" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1396406783" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000112" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.MakeJudge (Mallang.RR02.Rr02Note[] notes) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:21 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OwnershipSpanIsInclusiveAt180MsPads (System.Int64 inputUs, System.Boolean outside) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:234 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1234" name="OwnershipSpanIsInclusiveAt180MsPads(2180001L,True)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OwnershipSpanIsInclusiveAt180MsPads(2180001L,True)" methodname="OwnershipSpanIsInclusiveAt180MsPads" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1660204807" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000109" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.MakeJudge (Mallang.RR02.Rr02Note[] notes) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:21 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OwnershipSpanIsInclusiveAt180MsPads (System.Int64 inputUs, System.Boolean outside) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:234 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                </test-suite>
+                <test-suite type="ParameterizedMethod" id="1208" name="PerfectWindowIsInclusiveAtSixtyMs" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.PerfectWindowIsInclusiveAtSixtyMs" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" testcasecount="3" result="Failed" site="Child" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000906" total="3" passed="0" failed="3" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <failure>
+                    <message><![CDATA[One or more child tests had errors]]></message>
+                  </failure>
+                  <test-case id="1205" name="PerfectWindowIsInclusiveAtSixtyMs(-60000L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.PerfectWindowIsInclusiveAtSixtyMs(-60000L)" methodname="PerfectWindowIsInclusiveAtSixtyMs" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="436172961" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000191" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SingleNoteJudge (Mallang.RR02.Rr02Friend friend, System.Int64 targetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:16 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.PerfectWindowIsInclusiveAtSixtyMs (System.Int64 offsetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:31 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1206" name="PerfectWindowIsInclusiveAtSixtyMs(0L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.PerfectWindowIsInclusiveAtSixtyMs(0L)" methodname="PerfectWindowIsInclusiveAtSixtyMs" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="748203834" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000112" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SingleNoteJudge (Mallang.RR02.Rr02Friend friend, System.Int64 targetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:16 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.PerfectWindowIsInclusiveAtSixtyMs (System.Int64 offsetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:31 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1207" name="PerfectWindowIsInclusiveAtSixtyMs(60000L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.PerfectWindowIsInclusiveAtSixtyMs(60000L)" methodname="PerfectWindowIsInclusiveAtSixtyMs" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1541127711" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000111" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SingleNoteJudge (Mallang.RR02.Rr02Friend friend, System.Int64 targetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:16 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.PerfectWindowIsInclusiveAtSixtyMs (System.Int64 offsetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:31 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                </test-suite>
+                <test-case id="1225" name="SecondInputDoesNotReviveTargetClosedByWrongFriend" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SecondInputDoesNotReviveTargetClosedByWrongFriend" methodname="SecondInputDoesNotReviveTargetClosedByWrongFriend" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1753879853" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000207" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SingleNoteJudge (Mallang.RR02.Rr02Friend friend, System.Int64 targetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:16 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SecondInputDoesNotReviveTargetClosedByWrongFriend () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:135 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1228" name="SelectionPicksSmallestAbsoluteOffsetFirst" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SelectionPicksSmallestAbsoluteOffsetFirst" methodname="SelectionPicksSmallestAbsoluteOffsetFirst" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="921483793" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000219" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.MakeJudge (Mallang.RR02.Rr02Note[] notes) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:21 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SelectionPicksSmallestAbsoluteOffsetFirst () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:186 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1229" name="SelectionTieOnAbsoluteOffsetPrefersEarlierTarget" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SelectionTieOnAbsoluteOffsetPrefersEarlierTarget" methodname="SelectionTieOnAbsoluteOffsetPrefersEarlierTarget" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1223038080" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000183" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.MakeJudge (Mallang.RR02.Rr02Note[] notes) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:21 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SelectionTieOnAbsoluteOffsetPrefersEarlierTarget () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:203 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1230" name="SelectionTieOnTargetTimePrefersLowerNoteId" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SelectionTieOnTargetTimePrefersLowerNoteId" methodname="SelectionTieOnTargetTimePrefersLowerNoteId" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1290430639" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000177" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.MakeJudge (Mallang.RR02.Rr02Note[] notes) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:21 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SelectionTieOnTargetTimePrefersLowerNoteId () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:217 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1221" name="UnansweredNoteClosesAsMissAfterGoodWindow" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.UnansweredNoteClosesAsMissAfterGoodWindow" methodname="UnansweredNoteClosesAsMissAfterGoodWindow" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1826642102" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000160" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SingleNoteJudge (Mallang.RR02.Rr02Friend friend, System.Int64 targetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:16 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.UnansweredNoteClosesAsMissAfterGoodWindow () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:80 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1224" name="WrongFriendPressClosesTargetAsMissWithoutGhost" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.WrongFriendPressClosesTargetAsMissWithoutGhost" methodname="WrongFriendPressClosesTargetAsMissWithoutGhost" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1131683701" result="Failed" label="Error" start-time="2026-11-07 12:34:00Z" end-time="2026-11-07 12:34:00Z" duration="0.000214" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SingleNoteJudge (Mallang.RR02.Rr02Friend friend, System.Int64 targetUs) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:16 
+  at Mallang.RR02.Tests.EditMode.Rr02JudgeTests.WrongFriendPressClosesTargetAsMissWithoutGhost () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs:120 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                  <output><![CDATA[Saving results to: /Users/easyoon/Library/Application Support/is404notfound/Mallang Brain · Gate 1/TestResults.xml
+]]></output>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

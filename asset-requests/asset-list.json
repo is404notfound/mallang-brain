@@ -1,0 +1,119 @@
+[
+  {
+    "id": "AST-001",
+    "name": "friend-rabbit",
+    "slot": "unity/Assets/Mallang/RR02/Art/friend-rabbit.png",
+    "purpose": "토끼 기본 자세(플레이 카드·악보·결과 재사용)",
+    "changeFrequency": "high",
+    "sceneType": "character",
+    "referenceImage": "art-direction/references/charactors.png"
+  },
+  {
+    "id": "AST-002",
+    "name": "friend-capybara",
+    "slot": "unity/Assets/Mallang/RR02/Art/friend-capybara.png",
+    "purpose": "카피바라 기본 자세",
+    "changeFrequency": "high",
+    "sceneType": "character",
+    "referenceImage": "art-direction/references/charactors.png"
+  },
+  {
+    "id": "AST-003",
+    "name": "friend-fox",
+    "slot": "unity/Assets/Mallang/RR02/Art/friend-fox.png",
+    "purpose": "사막여우(핑크) 기본 자세",
+    "changeFrequency": "high",
+    "sceneType": "character",
+    "referenceImage": "art-direction/references/charactors.png"
+  },
+  {
+    "id": "AST-004",
+    "name": "friend-squirrel",
+    "slot": "unity/Assets/Mallang/RR02/Art/friend-squirrel.png",
+    "purpose": "다람쥐(복슬 꼬리) 기본 자세",
+    "changeFrequency": "high",
+    "sceneType": "character",
+    "referenceImage": "art-direction/references/charactors.png"
+  },
+  {
+    "id": "AST-005",
+    "name": "friend-rabbit-hit",
+    "slot": "unity/Assets/Mallang/RR02/Art/friend-rabbit-hit.png",
+    "purpose": "토끼 연주 타격 자세(기본과 같은 규격)",
+    "changeFrequency": "high",
+    "sceneType": "character",
+    "referenceImage": "art-direction/references/charactors.png"
+  },
+  {
+    "id": "AST-006",
+    "name": "friend-capybara-hit",
+    "slot": "unity/Assets/Mallang/RR02/Art/friend-capybara-hit.png",
+    "purpose": "카피바라 큰북 타격 자세",
+    "changeFrequency": "high",
+    "sceneType": "character",
+    "referenceImage": "art-direction/references/charactors.png"
+  },
+  {
+    "id": "AST-007",
+    "name": "friend-fox-hit",
+    "slot": "unity/Assets/Mallang/RR02/Art/friend-fox-hit.png",
+    "purpose": "사막여우 트럼펫 부는 자세",
+    "changeFrequency": "high",
+    "sceneType": "character",
+    "referenceImage": "art-direction/references/charactors.png"
+  },
+  {
+    "id": "AST-008",
+    "name": "friend-squirrel-hit",
+    "slot": "unity/Assets/Mallang/RR02/Art/friend-squirrel-hit.png",
+    "purpose": "다람쥐 플루트 부는 자세",
+    "changeFrequency": "high",
+    "sceneType": "character",
+    "referenceImage": "art-direction/references/charactors.png"
+  },
+  {
+    "id": "AST-009",
+    "name": "brain-stage0",
+    "slot": "unity/Assets/Mallang/RR02/Art/brain-stage0.png",
+    "purpose": "뇌 단계0(콩알)",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "art-direction/references/screen-play-final.png"
+  },
+  {
+    "id": "AST-010",
+    "name": "brain-stage1",
+    "slot": "unity/Assets/Mallang/RR02/Art/brain-stage1.png",
+    "purpose": "뇌 단계1(자람)",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "art-direction/references/screen-play-final.png"
+  },
+  {
+    "id": "AST-011",
+    "name": "brain-stage2",
+    "slot": "unity/Assets/Mallang/RR02/Art/brain-stage2.png",
+    "purpose": "뇌 단계2(점화, 분홍 불꽃)",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "art-direction/references/screen-play-final.png"
+  },
+  {
+    "id": "AST-012",
+    "name": "brain-stage3",
+    "slot": "unity/Assets/Mallang/RR02/Art/brain-stage3.png",
+    "purpose": "뇌 단계3(치솟음, 강한 분홍 불꽃)",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "art-direction/references/screen-play-final.png"
+  },
+  {
+    "id": "AST-013",
+    "name": "stage-background",
+    "slot": "unity/Assets/Mallang/RR02/Art/stage-background.png",
+    "purpose": "타이틀·플레이·결과 공용 저녁 축제 배경(캐릭터 없음)",
+    "changeFrequency": "low",
+    "sceneType": "scene",
+    "referenceImage": "art-direction/references/screen-title-final.png"
+  }
+]

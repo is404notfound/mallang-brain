@@ -1,0 +1,126 @@
+{
+  "features": [
+    {
+      "id": "L1-chart",
+      "title": "Rr02Chart.LoadFromJson + InfinitePhrase + Rr02Schedule (file: Rr02Chart.cs)",
+      "steps": [
+        "Implement Rr02Chart.LoadFromJson(string json): parse the chart JSON with UnityEngine.JsonUtility using [System.Serializable] DTO classes, then map to Rr02Round/Rr02Note. Do NOT open the data file; its exact shape is: top-level { rulesVersion, bpm, ticksPerBeat, rounds:[ { round:int, hiddenCount:int, sequence:[string], steps:[ { length:int, sequence:[string], hiddenIndices:[int], targetTicks:[int] } ] } ] }. There are 9 rounds; each round has exactly one step; use that step's sequence/hiddenIndices/targetTicks. Friend ids are lowercase strings rabbit/capybara/fox/squirrel -> map to Rr02Friend. Note.TargetUs = targetTicks[i] * 400000 / 480. NoteId = index within the round starting at 0. Round.HiddenIndices = step.hiddenIndices. Note: JsonUtility cannot deserialize top-level arrays or List<string> inside nested generics cleanly — use arrays (string[], int[]) in DTOs.",
+        "Throw System.ArgumentException on null/empty/malformed json or wrong round count — no silent defaults.",
+        "Implement InfinitePhrase(int k): k=1 returns round 2's notes, k=8 returns round 9's, k=9 wraps to round 2 again ((k-1)%8+2). HiddenIndices must be [0..7] all hidden. Round 1's two-sound pattern is never used.",
+        "Implement Rr02Schedule: ListenStartUs(round)=CountInUs+(round-1)*8000000; RepeatStartUs=ListenStartUs+3200000; RoundEndUs=ListenStartUs+8000000.",
+        "Read the tests in unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ChartTests.cs for exact expectations."
+      ],
+      "check": "node tools/handoff/run-tests.mjs edit \"Mallang.RR02.Tests.EditMode.Rr02ChartTests\"",
+      "filter": "Mallang.RR02.Tests.EditMode.Rr02ChartTests",
+      "passes": true,
+      "attempts": 0,
+      "blocked": false
+    },
+    {
+      "id": "L2-judge",
+      "title": "Rr02Judge tap judgement (file: Rr02Judge.cs)",
+      "steps": [
+        "Implement Rr02Judge over a list of Rr02Note. All boundaries inclusive: |offset|<=60000us Perfect, <=120000us Good, else the input does not consume that note.",
+        "ProcessPress(friend, inputUs): first find the candidate among OPEN notes within 120000us by smallest |offset|, tie -> earlier TargetUs, tie -> lower NoteId. Candidate search ignores friend; THEN compare friend: same friend -> judge Perfect/Good and close note; different friend -> close that note as Miss (count 1 Miss, no ghost). If no open note within window but input is inside ownership span (firstTarget-180000us..lastTarget+180000us inclusive) -> Ghost (GhostCount+1). Outside span -> OutsideOwnership (no effect).",
+        "A closed note is never revived; a second input near it becomes Ghost if no other open note matches.",
+        "AdvanceTime(nowUs): close as Miss every open note with TargetUs+120000us < nowUs. Completed(nowUs) = nowUs >= lastTarget+180000us.",
+        "Outcomes: final judgement per note in NoteId order. Calls happen in input sequence order.",
+        "Read unity/Assets/Mallang/RR02/Tests/EditMode/Rr02JudgeTests.cs for exact expectations."
+      ],
+      "check": "node tools/handoff/run-tests.mjs edit \"Mallang.RR02.Tests.EditMode.Rr02JudgeTests\"",
+      "filter": "Mallang.RR02.Tests.EditMode.Rr02JudgeTests",
+      "passes": true,
+      "attempts": 0,
+      "blocked": false
+    },
+    {
+      "id": "L3-run",
+      "title": "Rr02Run challenge state machine (file: Rr02Run.cs)",
+      "steps": [
+        "Implement Rr02Run using Rr02Judge per phrase. Phase starts Listen at round 1. BeginRepeat() switches to Repeat with a fresh judge for the current phrase notes (hidden indices do not change notes, only presentation).",
+        "Phrase success = every note Perfect or Good, zero Miss, zero Ghost. On success at AdvanceTime(lastTarget+180000us): rounds 1-9 -> NormalCleared+1 and next round Listen; after round 9 -> infinite phrases via chart.InfinitePhrase, each success Loops+1.",
+        "Scoring: each correctly-owned note adds Perfect 100 / Good 70 / Miss 0 to that note's friend in RunAnimalScores. No combo multiplier. A Ghost input adds 0 and fails the phrase.",
+        "Failure: do NOT stop early. Keep judging to the end of the phrase span; finalize once at lastTarget+180000us, then Phase=Ended. NormalCleared stays at previous value, scores from correct inputs are kept.",
+        "InvalidateOfficial(reason): OfficialEligible=false, keep NormalCleared/Loops, discard the in-progress phrase's inputs, return Phase to Listen of the same round.",
+        "Result (after Ended): snapshot of NormalCleared, Loops, OfficialEligible, AnimalScores, TotalScore=sum, AllPerfect=true iff every judged note across all completed phrases was Perfect and no ghost.",
+        "Read unity/Assets/Mallang/RR02/Tests/EditMode/Rr02RunTests.cs for exact expectations.",
+        "작게 단계별로 구현하라(큰 상태기계라 한 번에 다 짜면 느려 타임아웃 난다): (1) Listen->Repeat 전환과 ProcessPress 위임, (2) 구절 성공/실패 판정과 다음 라운드 진행, (3) 무한 구절, (4) InvalidateOfficial 자격 전환, (5) Result 스냅샷. 각 단계는 Rr02Judge에 최대한 위임하고 중복 로직을 만들지 말 것."
+      ],
+      "check": "node tools/handoff/run-tests.mjs edit \"Mallang.RR02.Tests.EditMode.Rr02RunTests\"",
+      "filter": "Mallang.RR02.Tests.EditMode.Rr02RunTests",
+      "passes": true,
+      "attempts": 0,
+      "blocked": false
+    },
+    {
+      "id": "L4-brain",
+      "title": "BrainScore merge/stage/badges (file: BrainScore.cs)",
+      "steps": [
+        "Stage(score): 0..199 -> 0, 200..399 -> 1, 400..699 -> 2, 700+ -> 3.",
+        "MergeBest(before, run, eligible): if eligible, per friend max(before, run); else return before values unchanged. Missing friend key means 0.",
+        "MyBrainTotal: sum of the four merged values.",
+        "Badges(result, prevBestLoops): list containing \"all-clear\" if NormalCleared==9, \"all-perfect\" if AllPerfect, \"loop-best\" if Loops>prevBestLoops. Order: all-clear, all-perfect, loop-best.",
+        "Read unity/Assets/Mallang/RR02/Tests/EditMode/BrainScoreTests.cs for exact expectations (example: before 1200/1100/900/800 + run 1400/980/1100/850 -> after 1400/1100/1100/850, total 4450)."
+      ],
+      "check": "node tools/handoff/run-tests.mjs edit \"Mallang.RR02.Tests.EditMode.BrainScoreTests\"",
+      "filter": "Mallang.RR02.Tests.EditMode.BrainScoreTests",
+      "passes": true,
+      "attempts": 0,
+      "blocked": false
+    },
+    {
+      "id": "L5-ranking",
+      "title": "RankingRules compare/rank/percentile/benchmark (file: RankingRules.cs)",
+      "steps": [
+        "Compare(a,b): key priority is NormalCleared, then Loops, then RunScore (all higher-is-better). Return negative when a ranks ahead of b, 0 when all three are equal, positive otherwise. The tests are the truth — read them first and match their asserted sign convention.",
+        "Rank(entries): sort by key descending; exact ties share the same rank; next distinct key gets rank = index+1 (1,1,3 pattern).",
+        "Percentile(rank,n): System.Math.Ceiling(1000.0*rank/n)/10.0 — but compute with integers: ceil(1000*rank/n) = (1000*rank + n - 1)/n using long, then /10.0.",
+        "Mode(population): 0 -> BenchmarkOnly, 1..19 -> RankWithBenchmark, >=20 -> Official.",
+        "ParseBenchmark(json): parse unity/Assets/Mallang/RR02/Data/ranking-benchmark.json (JsonUtility DTO). BenchmarkGrade(table, mine): the label of the row where minRound<=mine.NormalCleared<=maxRound.",
+        "Read unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs for exact expectations.",
+        "구체 예시(그대로 만족시킬 것): Rank([(\"A\",(9,3,5000)),(\"B\",(9,3,5000)),(\"C\",(8,0,9999))]) => A:1, B:1, C:3 (완전 동점 공동순위, 다음은 index+1). Percentile(1,20)=5.0, (20,20)=100.0, (7,23)=30.5. Mode(0)=BenchmarkOnly, Mode(19)=RankWithBenchmark, Mode(20)=Official. Compare의 부호는 테스트가 단정하는 방향을 그대로 따를 것 — 먼저 테스트를 읽고 맞출 것.",
+        "작게 구현: 먼저 Compare/Rank/Percentile/Mode만 통과시키고, 그다음 ParseBenchmark/BenchmarkGrade를 붙인다. 한 번에 다 하려 하지 말 것."
+      ],
+      "check": "node tools/handoff/run-tests.mjs edit \"Mallang.RR02.Tests.EditMode.RankingRulesTests\"",
+      "filter": "Mallang.RR02.Tests.EditMode.RankingRulesTests",
+      "passes": true,
+      "attempts": 0,
+      "blocked": false
+    },
+    {
+      "id": "L6-store",
+      "title": "Rr02Store save/merge/revision (file: Rr02Store.cs)",
+      "steps": [
+        "Keys: brain:RR02:v1:<friend lowercase>, reach:RR02:v1, badge:RR02:v1:<badgeId>. Values are small JSON strings you define (keep stable field names).",
+        "ReadBrain: missing key -> Confirmed 0, Revision 0, Unverified false (first run is not an error). TryRead returning false for an EXISTING-but-unreadable value is signaled by the test store; then Unverified=true.",
+        "WriteBrainMax(friend, candidate): read current; if Unverified -> do not overwrite, return false. New confirmed = max(current, candidate); write with Revision+1; only return true after TryWrite returns true. A candidate lower than current still succeeds but keeps the max. Never apply a write whose revision would not be exactly current+1 (no out-of-order or duplicate revisions).",
+        "WriteReachMax(key, runId): update only if RankingRules.Compare says the new key ranks ahead of the stored one.",
+        "WriteBadge: first write wins; a second write for the same badgeId returns false and changes nothing.",
+        "Never read or convert brain:RR01:* keys.",
+        "Read unity/Assets/Mallang/RR02/Tests/EditMode/Rr02StoreTests.cs for exact expectations.",
+        "JSON 직렬화/파싱은 수동 문자열로 간단히(최소 필드만). 복잡한 범용 파서를 만들지 말 것 — 테스트가 쓰는 키/형식만 처리하면 된다. 큰 범용 구현을 피해 생성량을 줄여라."
+      ],
+      "check": "node tools/handoff/run-tests.mjs edit \"Mallang.RR02.Tests.EditMode.Rr02StoreTests\"",
+      "filter": "Mallang.RR02.Tests.EditMode.Rr02StoreTests",
+      "passes": true,
+      "attempts": 0,
+      "blocked": false
+    },
+    {
+      "id": "L7-submission",
+      "title": "RankingSubmission idempotent client + FakeRankingServer (file: RankingSubmission.cs)",
+      "steps": [
+        "RankingSubmission.Submit(runId, key, eligible): if this runId was already submitted, return the recorded state without calling the server again (idempotent, no double counting). Otherwise call server.Submit and record the state.",
+        "eligible=false -> Rejected without counting as official. OnTimeout(runId) -> state becomes Held unless already Confirmed (a Confirmed record is never downgraded).",
+        "StateOf(runId): recorded state; unknown runId -> Pending.",
+        "FakeRankingServer: idempotent by runId (same response on repeat), Rejected when eligible=false or rulesVersion differs from \"RR02-v1\", otherwise Confirmed.",
+        "Read unity/Assets/Mallang/RR02/Tests/EditMode/RankingSubmissionTests.cs for exact expectations — tests may pin a different rulesVersion string; follow the tests."
+      ],
+      "check": "node tools/handoff/run-tests.mjs edit \"Mallang.RR02.Tests.EditMode.RankingSubmissionTests\"",
+      "filter": "Mallang.RR02.Tests.EditMode.RankingSubmissionTests",
+      "passes": true,
+      "attempts": 0,
+      "blocked": false
+    }
+  ]
+}

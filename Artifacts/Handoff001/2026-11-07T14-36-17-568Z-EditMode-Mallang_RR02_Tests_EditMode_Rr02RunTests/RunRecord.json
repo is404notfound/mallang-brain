@@ -1,0 +1,40 @@
+{
+  "id": "2026-11-07T14-36-17-568Z-EditMode-Mallang_RR02_Tests_EditMode_Rr02RunTests",
+  "platform": "EditMode",
+  "filter": "Mallang.RR02.Tests.EditMode.Rr02RunTests",
+  "startedUtc": "2026-11-07T14:36:17.573Z",
+  "scope": "Unity automated tests only; logic-lane check for specs/001-listen-and-repeat-core",
+  "source": "c8ded49d07d5e56622e69774a7d47954a9e5d8d9",
+  "dirty": true,
+  "command": [
+    "/Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/MacOS/Unity",
+    "-batchmode",
+    "-projectPath",
+    "/Users/easyoon/orca/workspaces/mallang-brain/palolo/unity",
+    "-runTests",
+    "-testPlatform",
+    "EditMode",
+    "-testResults",
+    "/Users/easyoon/orca/workspaces/mallang-brain/palolo/Artifacts/Handoff001/2026-11-07T14-36-17-568Z-EditMode-Mallang_RR02_Tests_EditMode_Rr02RunTests/TestResults.xml",
+    "-logFile",
+    "/Users/easyoon/orca/workspaces/mallang-brain/palolo/Artifacts/Handoff001/2026-11-07T14-36-17-568Z-EditMode-Mallang_RR02_Tests_EditMode_Rr02RunTests/Unity.log",
+    "-testFilter",
+    "Mallang.RR02.Tests.EditMode.Rr02RunTests"
+  ],
+  "unityExit": 2,
+  "totalTests": 10,
+  "result": "failed",
+  "failedSample": [
+    "- AllPerfectIsFalseWhenAnyNormalJudgementIsGood: System.NotImplementedException : The method or operation is not implemented.",
+    "- ClearingPhraseAdvancesToNextRoundListen: System.NotImplementedException : The method or operation is not implemented.",
+    "- ClearingRoundNineEntersInfiniteLoopCounting: System.NotImplementedException : The method or operation is not implemented.",
+    "- GhostInputScoresZeroAndFailsThePhrase: System.NotImplementedException : The method or operation is not implemented.",
+    "- InvalidateOfficialKeepsProgressAndRestartsSameListen: System.NotImplementedException : The method or operation is not implemented.",
+    "- MidPhraseMissKeepsMusicRunningAndEndsOnceAtPhraseEnd: System.NotImplementedException : The method or operation is not implemented.",
+    "- OnlyCorrectlyPressedFriendGainsAnimalScore: System.NotImplementedException : The method or operation is not implemented.",
+    "- PhraseConfirmsExactlyAtLastTargetPlus180Ms: System.NotImplementedException : The method or operation is not implemented.",
+    "- ScoreSumsPerfectGoodMissWithoutComboMultiplier: System.NotImplementedException : The method or operation is not implemented.",
+    "- StartsListeningAtRoundOneWithOfficialEligibility: System.NotImplementedException : The method or operation is not implemented."
+  ],
+  "completedUtc": "2026-11-07T14:36:35.409Z"
+}

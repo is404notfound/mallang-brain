@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="10" result="Failed(Child)" total="10" passed="0" failed="10" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-07 12:35:46Z" end-time="2026-11-07 12:35:46Z" duration="0.065227">
+  <test-suite type="TestSuite" id="1000" name="Mallang Brain · Gate 1" fullname="Mallang Brain · Gate 1" runstate="Runnable" testcasecount="217" result="Failed" site="Child" start-time="2026-11-07 12:35:46Z" end-time="2026-11-07 12:35:46Z" duration="0.065227" total="10" passed="0" failed="10" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1263" name="Mallang.RR02.Tests.EditMode.dll" fullname="/Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Library/ScriptAssemblies/Mallang.RR02.Tests.EditMode.dll" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 12:35:46Z" end-time="2026-11-07 12:35:46Z" duration="0.051470" total="10" passed="0" failed="10" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="42646" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1264" name="Mallang" fullname="Mallang" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 12:35:46Z" end-time="2026-11-07 12:35:46Z" duration="0.048102" total="10" passed="0" failed="10" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1265" name="RR02" fullname="Mallang.RR02" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 12:35:46Z" end-time="2026-11-07 12:35:46Z" duration="0.045088" total="10" passed="0" failed="10" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestSuite" id="1266" name="Tests" fullname="Mallang.RR02.Tests" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 12:35:46Z" end-time="2026-11-07 12:35:46Z" duration="0.042730" total="10" passed="0" failed="10" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="TestSuite" id="1267" name="EditMode" fullname="Mallang.RR02.Tests.EditMode" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 12:35:46Z" end-time="2026-11-07 12:35:46Z" duration="0.040282" total="10" passed="0" failed="10" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-suite type="TestFixture" id="1238" name="Rr02RunTests" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" testcasecount="10" result="Failed" site="Child" start-time="2026-11-07 12:35:46Z" end-time="2026-11-07 12:35:46Z" duration="0.033409" total="10" passed="0" failed="10" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[One or more child tests had errors]]></message>
+                </failure>
+                <test-case id="1243" name="AllPerfectIsFalseWhenAnyNormalJudgementIsGood" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.AllPerfectIsFalseWhenAnyNormalJudgementIsGood" methodname="AllPerfectIsFalseWhenAnyNormalJudgementIsGood" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="278156975" result="Failed" label="Error" start-time="2026-11-07 12:35:46Z" end-time="2026-11-07 12:35:46Z" duration="0.009916" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02RunTests.LoadRealChart () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02RunTests.cs:18 
+  at Mallang.RR02.Tests.EditMode.Rr02RunTests.AllPerfectIsFalseWhenAnyNormalJudgementIsGood () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02RunTests.cs:139 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1240" name="ClearingPhraseAdvancesToNextRoundListen" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.ClearingPhraseAdvancesToNextRoundListen" methodname="ClearingPhraseAdvancesToNextRoundListen" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="691097079" result="Failed" label="Error" start-time="2026-11-07 12:35:46Z" end-time="2026-11-07 12:35:46Z" duration="0.000534" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02RunTests.LoadRealChart () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02RunTests.cs:18 
+  at Mallang.RR02.Tests.EditMode.Rr02RunTests.ClearingPhraseAdvancesToNextRoundListen () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02RunTests.cs:69 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1242" name="ClearingRoundNineEntersInfiniteLoopCounting" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.ClearingRoundNineEntersInfiniteLoopCounting" methodname="ClearingRoundNineEntersInfiniteLoopCounting" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="1599271673" result="Failed" label="Error" start-time="2026-11-07 12:35:46Z" end-time="2026-11-07 12:35:46Z" duration="0.000599" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02RunTests.LoadRealChart () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02RunTests.cs:18 
+  at Mallang.RR02.Tests.EditMode.Rr02RunTests.ClearingRoundNineEntersInfiniteLoopCounting () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02RunTests.cs:107 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1245" name="GhostInputScoresZeroAndFailsThePhrase" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.GhostInputScoresZeroAndFailsThePhrase" methodname="GhostInputScoresZeroAndFailsThePhrase" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="1448773464" result="Failed" label="Error" start-time="2026-11-07 12:35:46Z" end-time="2026-11-07 12:35:46Z" duration="0.001339" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02RunTests.GhostInputScoresZeroAndFailsThePhrase () [0x0007d] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02RunTests.cs:189 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1247" name="InvalidateOfficialKeepsProgressAndRestartsSameListen" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.InvalidateOfficialKeepsProgressAndRestartsSameListen" methodname="InvalidateOfficialKeepsProgressAndRestartsSameListen" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="1863032978" result="Failed" label="Error" start-time="2026-11-07 12:35:46Z" end-time="2026-11-07 12:35:46Z" duration="0.000558" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02RunTests.LoadRealChart () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02RunTests.cs:18 
+  at Mallang.RR02.Tests.EditMode.Rr02RunTests.InvalidateOfficialKeepsProgressAndRestartsSameListen () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02RunTests.cs:243 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1246" name="MidPhraseMissKeepsMusicRunningAndEndsOnceAtPhraseEnd" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.MidPhraseMissKeepsMusicRunningAndEndsOnceAtPhraseEnd" methodname="MidPhraseMissKeepsMusicRunningAndEndsOnceAtPhraseEnd" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="1103190665" result="Failed" label="Error" start-time="2026-11-07 12:35:46Z" end-time="2026-11-07 12:35:46Z" duration="0.000640" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02RunTests.MidPhraseMissKeepsMusicRunningAndEndsOnceAtPhraseEnd () [0x0006a] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02RunTests.cs:216 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1248" name="OnlyCorrectlyPressedFriendGainsAnimalScore" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.OnlyCorrectlyPressedFriendGainsAnimalScore" methodname="OnlyCorrectlyPressedFriendGainsAnimalScore" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="369251102" result="Failed" label="Error" start-time="2026-11-07 12:35:46Z" end-time="2026-11-07 12:35:46Z" duration="0.000546" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02RunTests.LoadRealChart () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02RunTests.cs:18 
+  at Mallang.RR02.Tests.EditMode.Rr02RunTests.OnlyCorrectlyPressedFriendGainsAnimalScore () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02RunTests.cs:268 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1241" name="PhraseConfirmsExactlyAtLastTargetPlus180Ms" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.PhraseConfirmsExactlyAtLastTargetPlus180Ms" methodname="PhraseConfirmsExactlyAtLastTargetPlus180Ms" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="141690146" result="Failed" label="Error" start-time="2026-11-07 12:35:46Z" end-time="2026-11-07 12:35:46Z" duration="0.000711" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02RunTests.LoadRealChart () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02RunTests.cs:18 
+  at Mallang.RR02.Tests.EditMode.Rr02RunTests.PhraseConfirmsExactlyAtLastTargetPlus180Ms () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02RunTests.cs:83 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1244" name="ScoreSumsPerfectGoodMissWithoutComboMultiplier" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.ScoreSumsPerfectGoodMissWithoutComboMultiplier" methodname="ScoreSumsPerfectGoodMissWithoutComboMultiplier" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="1436274957" result="Failed" label="Error" start-time="2026-11-07 12:35:46Z" end-time="2026-11-07 12:35:46Z" duration="0.000466" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02RunTests.ScoreSumsPerfectGoodMissWithoutComboMultiplier () [0x0007d] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02RunTests.cs:165 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1239" name="StartsListeningAtRoundOneWithOfficialEligibility" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.StartsListeningAtRoundOneWithOfficialEligibility" methodname="StartsListeningAtRoundOneWithOfficialEligibility" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="1864585780" result="Failed" label="Error" start-time="2026-11-07 12:35:46Z" end-time="2026-11-07 12:35:46Z" duration="0.000540" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02RunTests.LoadRealChart () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02RunTests.cs:18 
+  at Mallang.RR02.Tests.EditMode.Rr02RunTests.StartsListeningAtRoundOneWithOfficialEligibility () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02RunTests.cs:57 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                  <output><![CDATA[Saving results to: /Users/easyoon/Library/Application Support/is404notfound/Mallang Brain · Gate 1/TestResults.xml
+]]></output>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
