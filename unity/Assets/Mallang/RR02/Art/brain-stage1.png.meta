@@ -1,0 +1,1209 @@
+fileFormatVersion: 2
+guid: b873af53409f04070b74fe0eee8b422e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3714632742717949438
+    second: brain-stage1_0
+  - first:
+      213: 3631422766480470371
+    second: brain-stage1_1
+  - first:
+      213: -8458603760559910222
+    second: brain-stage1_2
+  - first:
+      213: 1660711345846712636
+    second: brain-stage1_3
+  - first:
+      213: 859965331441229276
+    second: brain-stage1_4
+  - first:
+      213: -3340235699176175531
+    second: brain-stage1_5
+  - first:
+      213: -8893063342779828502
+    second: brain-stage1_6
+  - first:
+      213: 8197505660924182672
+    second: brain-stage1_7
+  - first:
+      213: -1902382236433798345
+    second: brain-stage1_8
+  - first:
+      213: 3126674446966766509
+    second: brain-stage1_9
+  - first:
+      213: -5072876491160156800
+    second: brain-stage1_10
+  - first:
+      213: -6589721112610086792
+    second: brain-stage1_11
+  - first:
+      213: 3954242020547628461
+    second: brain-stage1_12
+  - first:
+      213: 3265653801172902353
+    second: brain-stage1_13
+  - first:
+      213: -879934616270688144
+    second: brain-stage1_14
+  - first:
+      213: -7698326574056749133
+    second: brain-stage1_15
+  - first:
+      213: 8061555830572004861
+    second: brain-stage1_16
+  - first:
+      213: -2848116369594776810
+    second: brain-stage1_17
+  - first:
+      213: -1298529291147413666
+    second: brain-stage1_18
+  - first:
+      213: -7581992296996886024
+    second: brain-stage1_19
+  - first:
+      213: 3372683420171074514
+    second: brain-stage1_20
+  - first:
+      213: -4619863383544979567
+    second: brain-stage1_21
+  - first:
+      213: -1666338887054056140
+    second: brain-stage1_22
+  - first:
+      213: 8038780780542982001
+    second: brain-stage1_23
+  - first:
+      213: -60160611887781821
+    second: brain-stage1_24
+  - first:
+      213: 5242690036527820760
+    second: brain-stage1_25
+  - first:
+      213: -257029280994452132
+    second: brain-stage1_26
+  - first:
+      213: -5732669045239254393
+    second: brain-stage1_27
+  - first:
+      213: 2279889746273973090
+    second: brain-stage1_28
+  - first:
+      213: 6445997222594730846
+    second: brain-stage1_29
+  - first:
+      213: -6482821044900166083
+    second: brain-stage1_30
+  - first:
+      213: 2421858583609733916
+    second: brain-stage1_31
+  - first:
+      213: 15124634534858801
+    second: brain-stage1_32
+  - first:
+      213: -3808340879523171785
+    second: brain-stage1_33
+  - first:
+      213: 7202470638802614286
+    second: brain-stage1_34
+  - first:
+      213: -3739105800646148166
+    second: brain-stage1_35
+  - first:
+      213: -6757502437891467157
+    second: brain-stage1_36
+  - first:
+      213: 7543599366129163327
+    second: brain-stage1_37
+  - first:
+      213: -8075217733649936086
+    second: brain-stage1_38
+  - first:
+      213: 6688519542681388835
+    second: brain-stage1_39
+  - first:
+      213: 3205056422922555557
+    second: brain-stage1_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: brain-stage1_0
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 889
+        width: 512
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20af2439339f27cc0800000000000000
+      internalID: -3714632742717949438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_1
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 1213
+        width: 42
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 361b55914c7656230800000000000000
+      internalID: 3631422766480470371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_2
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 905
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b21b0402b00d9a80800000000000000
+      internalID: -8458603760559910222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_3
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 921
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3977a39b280c0710800000000000000
+      internalID: 1660711345846712636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_4
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 939
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdd94b3a9e53feb00800000000000000
+      internalID: 859965331441229276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_5
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 988
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5588684345915a1d0800000000000000
+      internalID: -3340235699176175531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_6
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 963
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae67f88d10e759480800000000000000
+      internalID: -8893063342779828502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_7
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 945
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 090c3a367f363c170800000000000000
+      internalID: 8197505660924182672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_8
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 945
+        width: 32
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73ba95a6f616995e0800000000000000
+      internalID: -1902382236433798345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_9
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 931
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dabbebbf7dd246b20800000000000000
+      internalID: 3126674446966766509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_10
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 934
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08508f265b58999b0800000000000000
+      internalID: -5072876491160156800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_11
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 931
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 870ebf9df8b9c84a0800000000000000
+      internalID: -6589721112610086792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_12
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 921
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dad0aaeca2a40e630800000000000000
+      internalID: 3954242020547628461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_13
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 902
+        width: 55
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d1a05a74dee15d20800000000000000
+      internalID: 3265653801172902353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_14
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 923
+        width: 283
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 070bd9be028d9c3f0800000000000000
+      internalID: -879934616270688144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_15
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 947
+        width: 17
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b7c564b4cc0a2590800000000000000
+      internalID: -7698326574056749133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_16
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 903
+        width: 101
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df53932e05660ef60800000000000000
+      internalID: 8061555830572004861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_17
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 901
+        width: 21
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 613045770457978d0800000000000000
+      internalID: -2848116369594776810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 901
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e57f7b65d72bafde0800000000000000
+      internalID: -1298529291147413666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_19
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 905
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f9a0cf4d2a57c690800000000000000
+      internalID: -7581992296996886024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_20
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 39
+        width: 1215
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2db752f83bd2ece20800000000000000
+      internalID: 3372683420171074514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_21
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 887
+        width: 21
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19f97f0dab2f2efb0800000000000000
+      internalID: -4619863383544979567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 773
+        width: 29
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43529b16c99ffd8e0800000000000000
+      internalID: -1666338887054056140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_23
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 318
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1777083578c7f8f60800000000000000
+      internalID: 8038780780542982001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_24
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 260
+        width: 67
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34865f20e344a2ff0800000000000000
+      internalID: -60160611887781821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_25
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 326
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8df68beafc6c1c840800000000000000
+      internalID: 5242690036527820760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_26
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 302
+        width: 77
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5d93711b39de6cf0800000000000000
+      internalID: -257029280994452132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_27
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 295
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 782f2a750e77170b0800000000000000
+      internalID: -5732669045239254393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_28
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 301
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26337b515abc3af10800000000000000
+      internalID: 2279889746273973090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_29
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 304
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5bd9e35258c47950800000000000000
+      internalID: 6445997222594730846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_30
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 308
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d368c4c6b946806a0800000000000000
+      internalID: -6482821044900166083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_31
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 278
+        width: 45
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c13f94cdc8b2c9120800000000000000
+      internalID: 2421858583609733916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_32
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 293
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 130dec466cbb53000800000000000000
+      internalID: 15124634534858801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_33
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 272
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7323c64c52e062bc0800000000000000
+      internalID: -3808340879523171785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_34
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 264
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e08b20bb2e054f360800000000000000
+      internalID: 7202470638802614286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_35
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 192
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abf32eeb5170c1cc0800000000000000
+      internalID: -3739105800646148166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_36
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 190
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6894a4e5578832a0800000000000000
+      internalID: -6757502437891467157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_37
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 200
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3c9df1e7af30b860800000000000000
+      internalID: 7543599366129163327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_38
+      rect:
+        serializedVersion: 2
+        x: 954
+        y: 200
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a215cdd61401fef80800000000000000
+      internalID: -8075217733649936086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_39
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 194
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32748c6361562dc50800000000000000
+      internalID: 6688519542681388835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brain-stage1_40
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 184
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a01265e5d5aa7c20800000000000000
+      internalID: 3205056422922555557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      brain-stage1_0: -3714632742717949438
+      brain-stage1_1: 3631422766480470371
+      brain-stage1_10: -5072876491160156800
+      brain-stage1_11: -6589721112610086792
+      brain-stage1_12: 3954242020547628461
+      brain-stage1_13: 3265653801172902353
+      brain-stage1_14: -879934616270688144
+      brain-stage1_15: -7698326574056749133
+      brain-stage1_16: 8061555830572004861
+      brain-stage1_17: -2848116369594776810
+      brain-stage1_18: -1298529291147413666
+      brain-stage1_19: -7581992296996886024
+      brain-stage1_2: -8458603760559910222
+      brain-stage1_20: 3372683420171074514
+      brain-stage1_21: -4619863383544979567
+      brain-stage1_22: -1666338887054056140
+      brain-stage1_23: 8038780780542982001
+      brain-stage1_24: -60160611887781821
+      brain-stage1_25: 5242690036527820760
+      brain-stage1_26: -257029280994452132
+      brain-stage1_27: -5732669045239254393
+      brain-stage1_28: 2279889746273973090
+      brain-stage1_29: 6445997222594730846
+      brain-stage1_3: 1660711345846712636
+      brain-stage1_30: -6482821044900166083
+      brain-stage1_31: 2421858583609733916
+      brain-stage1_32: 15124634534858801
+      brain-stage1_33: -3808340879523171785
+      brain-stage1_34: 7202470638802614286
+      brain-stage1_35: -3739105800646148166
+      brain-stage1_36: -6757502437891467157
+      brain-stage1_37: 7543599366129163327
+      brain-stage1_38: -8075217733649936086
+      brain-stage1_39: 6688519542681388835
+      brain-stage1_4: 859965331441229276
+      brain-stage1_40: 3205056422922555557
+      brain-stage1_5: -3340235699176175531
+      brain-stage1_6: -8893063342779828502
+      brain-stage1_7: 8197505660924182672
+      brain-stage1_8: -1902382236433798345
+      brain-stage1_9: 3126674446966766509
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

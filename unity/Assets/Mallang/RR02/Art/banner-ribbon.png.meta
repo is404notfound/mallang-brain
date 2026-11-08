@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: 3666ed6794dc148218a538e5ec3b08ff
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5371712916977353044
+    second: banner-ribbon_0
+  - first:
+      213: 7026204803081256035
+    second: banner-ribbon_1
+  - first:
+      213: -7301489494000680160
+    second: banner-ribbon_2
+  - first:
+      213: 6327984803866109297
+    second: banner-ribbon_3
+  - first:
+      213: 4388702976086593670
+    second: banner-ribbon_4
+  - first:
+      213: 53912917790311253
+    second: banner-ribbon_5
+  - first:
+      213: 7482991984486114446
+    second: banner-ribbon_6
+  - first:
+      213: 7620887962268936403
+    second: banner-ribbon_7
+  - first:
+      213: -9220750811337013788
+    second: banner-ribbon_8
+  - first:
+      213: -2248000764941511732
+    second: banner-ribbon_9
+  - first:
+      213: 351730204958265702
+    second: banner-ribbon_10
+  - first:
+      213: -4464174144093373847
+    second: banner-ribbon_11
+  - first:
+      213: 6355073264125402297
+    second: banner-ribbon_12
+  - first:
+      213: 7317880963954598549
+    second: banner-ribbon_13
+  - first:
+      213: 8961779377406982611
+    second: banner-ribbon_14
+  - first:
+      213: 59120669933405435
+    second: banner-ribbon_15
+  - first:
+      213: -6686382471461069362
+    second: banner-ribbon_16
+  - first:
+      213: -6563386868497203740
+    second: banner-ribbon_17
+  - first:
+      213: 4444317669451301656
+    second: banner-ribbon_18
+  - first:
+      213: -4095856281855917928
+    second: banner-ribbon_19
+  - first:
+      213: 7179245413008033093
+    second: banner-ribbon_20
+  - first:
+      213: 5404252987173457980
+    second: banner-ribbon_21
+  - first:
+      213: 2704667095876235311
+    second: banner-ribbon_22
+  - first:
+      213: 6398632138124830956
+    second: banner-ribbon_23
+  - first:
+      213: 1623909526088093603
+    second: banner-ribbon_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: banner-ribbon_0
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 612
+        width: 230
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caeff240097d375b0800000000000000
+      internalID: -5371712916977353044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_1
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 618
+        width: 154
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36c3dceba08128160800000000000000
+      internalID: 7026204803081256035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_2
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 635
+        width: 100
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 023c7da7df5ebaa90800000000000000
+      internalID: -7301489494000680160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_3
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 642
+        width: 49
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 175628ae6a481d750800000000000000
+      internalID: 6327984803866109297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_4
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 659
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 680575aba1ec7ec30800000000000000
+      internalID: 4388702976086593670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_5
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 630
+        width: 77
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55342b953898fb000800000000000000
+      internalID: 53912917790311253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_6
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 644
+        width: 52
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e84e364309de8d760800000000000000
+      internalID: 7482991984486114446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_7
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 626
+        width: 106
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d827187935d2c960800000000000000
+      internalID: 7620887962268936403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_8
+      rect:
+        serializedVersion: 2
+        x: 1339
+        y: 659
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e5ccdf9dff490080800000000000000
+      internalID: -9220750811337013788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_9
+      rect:
+        serializedVersion: 2
+        x: 1357
+        y: 642
+        width: 38
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc3dad6f63f7dc0e0800000000000000
+      internalID: -2248000764941511732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_10
+      rect:
+        serializedVersion: 2
+        x: 1438
+        y: 675
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 661105302c891e400800000000000000
+      internalID: 351730204958265702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_11
+      rect:
+        serializedVersion: 2
+        x: 1456
+        y: 642
+        width: 76
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96ab4d5a4411c02c0800000000000000
+      internalID: -4464174144093373847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_12
+      rect:
+        serializedVersion: 2
+        x: 1565
+        y: 659
+        width: 93
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bcd6cd8671c13850800000000000000
+      internalID: 6355073264125402297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_13
+      rect:
+        serializedVersion: 2
+        x: 1683
+        y: 629
+        width: 26
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5926b1507f55e8560800000000000000
+      internalID: 7317880963954598549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_14
+      rect:
+        serializedVersion: 2
+        x: 1705
+        y: 673
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d9b3c9bcd2ae5c70800000000000000
+      internalID: 8961779377406982611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_15
+      rect:
+        serializedVersion: 2
+        x: 1719
+        y: 659
+        width: 48
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf48342afe902d000800000000000000
+      internalID: 59120669933405435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_16
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 626
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecd1a2471923533a0800000000000000
+      internalID: -6686382471461069362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_17
+      rect:
+        serializedVersion: 2
+        x: 1633
+        y: 616
+        width: 31
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4edb2cbda6a2ae4a0800000000000000
+      internalID: -6563386868497203740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2161
+        height: 570
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81303a49f536dad30800000000000000
+      internalID: 4444317669451301656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_19
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 61
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8900de499689827c0800000000000000
+      internalID: -4095856281855917928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_20
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 51
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54542b57aadc1a360800000000000000
+      internalID: 7179245413008033093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_21
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 67
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3051d87573cffa40800000000000000
+      internalID: 5404252987173457980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_22
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 71
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f20f36dc468e88520800000000000000
+      internalID: 2704667095876235311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_23
+      rect:
+        serializedVersion: 2
+        x: 1359
+        y: 89
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce8245937028cc850800000000000000
+      internalID: 6398632138124830956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banner-ribbon_24
+      rect:
+        serializedVersion: 2
+        x: 1603
+        y: 65
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3af8ad13c19498610800000000000000
+      internalID: 1623909526088093603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      banner-ribbon_0: -5371712916977353044
+      banner-ribbon_1: 7026204803081256035
+      banner-ribbon_10: 351730204958265702
+      banner-ribbon_11: -4464174144093373847
+      banner-ribbon_12: 6355073264125402297
+      banner-ribbon_13: 7317880963954598549
+      banner-ribbon_14: 8961779377406982611
+      banner-ribbon_15: 59120669933405435
+      banner-ribbon_16: -6686382471461069362
+      banner-ribbon_17: -6563386868497203740
+      banner-ribbon_18: 4444317669451301656
+      banner-ribbon_19: -4095856281855917928
+      banner-ribbon_2: -7301489494000680160
+      banner-ribbon_20: 7179245413008033093
+      banner-ribbon_21: 5404252987173457980
+      banner-ribbon_22: 2704667095876235311
+      banner-ribbon_23: 6398632138124830956
+      banner-ribbon_24: 1623909526088093603
+      banner-ribbon_3: 6327984803866109297
+      banner-ribbon_4: 4388702976086593670
+      banner-ribbon_5: 53912917790311253
+      banner-ribbon_6: 7482991984486114446
+      banner-ribbon_7: 7620887962268936403
+      banner-ribbon_8: -9220750811337013788
+      banner-ribbon_9: -2248000764941511732
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

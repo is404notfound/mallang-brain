@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: 61bb55db5b0644817820379abd1d5fdd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8486313379621476557
+    second: friend-rabbit-hit_0
+  - first:
+      213: 1816220041560465961
+    second: friend-rabbit-hit_1
+  - first:
+      213: -7703519987817645784
+    second: friend-rabbit-hit_2
+  - first:
+      213: 5987346196679226669
+    second: friend-rabbit-hit_3
+  - first:
+      213: -116388876386619165
+    second: friend-rabbit-hit_4
+  - first:
+      213: -1919797581781267461
+    second: friend-rabbit-hit_5
+  - first:
+      213: -4376415176637350259
+    second: friend-rabbit-hit_6
+  - first:
+      213: 4815967309406618895
+    second: friend-rabbit-hit_7
+  - first:
+      213: 5913080408538248296
+    second: friend-rabbit-hit_8
+  - first:
+      213: -4904882812941629520
+    second: friend-rabbit-hit_9
+  - first:
+      213: 6260853945956323473
+    second: friend-rabbit-hit_10
+  - first:
+      213: 1060125149167421723
+    second: friend-rabbit-hit_11
+  - first:
+      213: -3813427007477062724
+    second: friend-rabbit-hit_12
+  - first:
+      213: 6876936792156457880
+    second: friend-rabbit-hit_13
+  - first:
+      213: -274174428374168807
+    second: friend-rabbit-hit_14
+  - first:
+      213: -2233555076286340096
+    second: friend-rabbit-hit_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: friend-rabbit-hit_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1209
+        height: 1234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 337640391fe8a3a80800000000000000
+      internalID: -8486313379621476557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-rabbit-hit_1
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 1213
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 922282b4182843910800000000000000
+      internalID: 1816220041560465961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-rabbit-hit_2
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 1181
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 829f106d269971590800000000000000
+      internalID: -7703519987817645784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-rabbit-hit_3
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 939
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d25f950c4a3571350800000000000000
+      internalID: 5987346196679226669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-rabbit-hit_4
+      rect:
+        serializedVersion: 2
+        x: 1212
+        y: 937
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e03b2ffee0826ef0800000000000000
+      internalID: -116388876386619165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-rabbit-hit_5
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 843
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfb064955428b55e0800000000000000
+      internalID: -1919797581781267461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-rabbit-hit_6
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 679
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8ef6e68599d343c0800000000000000
+      internalID: -4376415176637350259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-rabbit-hit_7
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 656
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f05431770c0c5d240800000000000000
+      internalID: 4815967309406618895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-rabbit-hit_8
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 598
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8647e3f7d4b7f0250800000000000000
+      internalID: 5913080408538248296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-rabbit-hit_9
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 307
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b702bd911b5eebb0800000000000000
+      internalID: -4904882812941629520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-rabbit-hit_10
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 321
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 190545f0e7503e650800000000000000
+      internalID: 6260853945956323473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-rabbit-hit_11
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 221
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b190595d43256be00800000000000000
+      internalID: 1060125149167421723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-rabbit-hit_12
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 226
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb3e272575cf31bc0800000000000000
+      internalID: -3813427007477062724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-rabbit-hit_13
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 166
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89bcc4fa399cf6f50800000000000000
+      internalID: 6876936792156457880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-rabbit-hit_14
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 29
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91b034e5fcfe13cf0800000000000000
+      internalID: -274174428374168807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-rabbit-hit_15
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 37
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 004aea3fd71d001e0800000000000000
+      internalID: -2233555076286340096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      friend-rabbit-hit_0: -8486313379621476557
+      friend-rabbit-hit_1: 1816220041560465961
+      friend-rabbit-hit_10: 6260853945956323473
+      friend-rabbit-hit_11: 1060125149167421723
+      friend-rabbit-hit_12: -3813427007477062724
+      friend-rabbit-hit_13: 6876936792156457880
+      friend-rabbit-hit_14: -274174428374168807
+      friend-rabbit-hit_15: -2233555076286340096
+      friend-rabbit-hit_2: -7703519987817645784
+      friend-rabbit-hit_3: 5987346196679226669
+      friend-rabbit-hit_4: -116388876386619165
+      friend-rabbit-hit_5: -1919797581781267461
+      friend-rabbit-hit_6: -4376415176637350259
+      friend-rabbit-hit_7: 4815967309406618895
+      friend-rabbit-hit_8: 5913080408538248296
+      friend-rabbit-hit_9: -4904882812941629520
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

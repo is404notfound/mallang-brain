@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: 8db5bc6d7e44a498e9822f3be3fcd2dc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1156235241577989778
+    second: friend-capybara_0
+  - first:
+      213: 3054233988969124911
+    second: friend-capybara_1
+  - first:
+      213: 3674814443209223272
+    second: friend-capybara_2
+  - first:
+      213: -6547379847673032214
+    second: friend-capybara_3
+  - first:
+      213: 2831304642795280360
+    second: friend-capybara_4
+  - first:
+      213: -2929557042543081467
+    second: friend-capybara_5
+  - first:
+      213: 4516349607006243777
+    second: friend-capybara_6
+  - first:
+      213: -3494173691355503505
+    second: friend-capybara_7
+  - first:
+      213: -5263809811655108387
+    second: friend-capybara_8
+  - first:
+      213: -1594491459408184756
+    second: friend-capybara_9
+  - first:
+      213: -3826747195833962510
+    second: friend-capybara_10
+  - first:
+      213: 7049853111239378025
+    second: friend-capybara_11
+  - first:
+      213: 8833918970371806276
+    second: friend-capybara_12
+  - first:
+      213: 1912333445894711738
+    second: friend-capybara_13
+  - first:
+      213: 3461762144179861299
+    second: friend-capybara_14
+  - first:
+      213: -6604134264674010874
+    second: friend-capybara_15
+  - first:
+      213: 7197453093744218245
+    second: friend-capybara_16
+  - first:
+      213: 540608861506541204
+    second: friend-capybara_17
+  - first:
+      213: 175525120721837388
+    second: friend-capybara_18
+  - first:
+      213: 8747931906533249022
+    second: friend-capybara_19
+  - first:
+      213: 3757341873182448220
+    second: friend-capybara_20
+  - first:
+      213: -931775584305338749
+    second: friend-capybara_21
+  - first:
+      213: -3320112378813539399
+    second: friend-capybara_22
+  - first:
+      213: 6599114206427337411
+    second: friend-capybara_23
+  - first:
+      213: 3954388354256089876
+    second: friend-capybara_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: friend-capybara_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1191
+        height: 1246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e69b4fc7c2a34ffe0800000000000000
+      internalID: -1156235241577989778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_1
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 1179
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f24dd6581a1d26a20800000000000000
+      internalID: 3054233988969124911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_2
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 1124
+        width: 16
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86ce5fe14409ff230800000000000000
+      internalID: 3674814443209223272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_3
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 1124
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae1d5e1d7b80325a0800000000000000
+      internalID: -6547379847673032214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_4
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 1092
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e71abc5290da4720800000000000000
+      internalID: 2831304642795280360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_5
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 1102
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 508c9f9246f1857d0800000000000000
+      internalID: -2929557042543081467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_6
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 1098
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cb0517f90c4dae30800000000000000
+      internalID: 4516349607006243777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_7
+      rect:
+        serializedVersion: 2
+        x: 1065
+        y: 923
+        width: 96
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f646d376a83328fc0800000000000000
+      internalID: -3494173691355503505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_8
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 867
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd8d41b7dd033f6b0800000000000000
+      internalID: -5263809811655108387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_9
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 843
+        width: 76
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4ab494377a3fd9e0800000000000000
+      internalID: -1594491459408184756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_10
+      rect:
+        serializedVersion: 2
+        x: 1077
+        y: 822
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ff281b43b9a4eac0800000000000000
+      internalID: -3826747195833962510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_11
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 821
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9640b1e8d0c16d160800000000000000
+      internalID: 7049853111239378025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_12
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 628
+        width: 116
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 444989bdf72689a70800000000000000
+      internalID: 8833918970371806276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_13
+      rect:
+        serializedVersion: 2
+        x: 1107
+        y: 521
+        width: 86
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab927a61329f98a10800000000000000
+      internalID: 1912333445894711738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_14
+      rect:
+        serializedVersion: 2
+        x: 1101
+        y: 455
+        width: 54
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3373cb43456aa0030800000000000000
+      internalID: 3461762144179861299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_15
+      rect:
+        serializedVersion: 2
+        x: 1131
+        y: 213
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 609be1160e66954a0800000000000000
+      internalID: -6604134264674010874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_16
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 117
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 580192c747d72e360800000000000000
+      internalID: 7197453093744218245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_17
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 108
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 496968035e0a08700800000000000000
+      internalID: 540608861506541204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_18
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 126
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4d58c5da279f6200800000000000000
+      internalID: 175525120721837388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_19
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 103
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eff483078b5e66970800000000000000
+      internalID: 8747931906533249022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_20
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 62
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5a9db2c682c42430800000000000000
+      internalID: 3757341873182448220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_21
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 69
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3862917fa0ba113f0800000000000000
+      internalID: -931775584305338749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_22
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 65
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bb1176d1679ce1d0800000000000000
+      internalID: -3320112378813539399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_23
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 39
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c2d55a3863c49b50800000000000000
+      internalID: 6599114206427337411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friend-capybara_24
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 29
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4133067c14fc0e630800000000000000
+      internalID: 3954388354256089876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      friend-capybara_0: -1156235241577989778
+      friend-capybara_1: 3054233988969124911
+      friend-capybara_10: -3826747195833962510
+      friend-capybara_11: 7049853111239378025
+      friend-capybara_12: 8833918970371806276
+      friend-capybara_13: 1912333445894711738
+      friend-capybara_14: 3461762144179861299
+      friend-capybara_15: -6604134264674010874
+      friend-capybara_16: 7197453093744218245
+      friend-capybara_17: 540608861506541204
+      friend-capybara_18: 175525120721837388
+      friend-capybara_19: 8747931906533249022
+      friend-capybara_2: 3674814443209223272
+      friend-capybara_20: 3757341873182448220
+      friend-capybara_21: -931775584305338749
+      friend-capybara_22: -3320112378813539399
+      friend-capybara_23: 6599114206427337411
+      friend-capybara_24: 3954388354256089876
+      friend-capybara_3: -6547379847673032214
+      friend-capybara_4: 2831304642795280360
+      friend-capybara_5: -2929557042543081467
+      friend-capybara_6: 4516349607006243777
+      friend-capybara_7: -3494173691355503505
+      friend-capybara_8: -5263809811655108387
+      friend-capybara_9: -1594491459408184756
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
