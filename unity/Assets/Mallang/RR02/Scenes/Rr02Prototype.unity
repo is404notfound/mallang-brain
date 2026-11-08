@@ -512,6 +512,7 @@ GameObject:
   - component: {fileID: 397980525}
   - component: {fileID: 397980527}
   - component: {fileID: 397980526}
+  - component: {fileID: 397980528}
   m_Layer: 0
   m_Name: Char-Fox
   m_TagString: Untagged
@@ -576,6 +577,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397980524}
   m_CullTransparentMesh: 1
+--- !u!114 &397980528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397980524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e15763a6646d4709937d263882f2621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Mallang.RR02.Screens::Mallang.RR02.Screens.IdleBreath
+  amp: 0.035
+  speed: 2.3
+  phase: 1.4
 --- !u!1 &415806548
 GameObject:
   m_ObjectHideFlags: 0
@@ -2515,6 +2531,7 @@ GameObject:
   - component: {fileID: 1333415391}
   - component: {fileID: 1333415393}
   - component: {fileID: 1333415392}
+  - component: {fileID: 1333415394}
   m_Layer: 0
   m_Name: Char-Squirrel
   m_TagString: Untagged
@@ -2579,6 +2596,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333415390}
   m_CullTransparentMesh: 1
+--- !u!114 &1333415394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333415390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e15763a6646d4709937d263882f2621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Mallang.RR02.Screens::Mallang.RR02.Screens.IdleBreath
+  amp: 0.035
+  speed: 2.45
+  phase: 2.1
 --- !u!1 &1365633616
 GameObject:
   m_ObjectHideFlags: 0
@@ -3643,6 +3675,7 @@ GameObject:
   - component: {fileID: 1749153943}
   - component: {fileID: 1749153945}
   - component: {fileID: 1749153944}
+  - component: {fileID: 1749153946}
   m_Layer: 0
   m_Name: Char-Rabbit
   m_TagString: Untagged
@@ -3707,6 +3740,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1749153942}
   m_CullTransparentMesh: 1
+--- !u!114 &1749153946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749153942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e15763a6646d4709937d263882f2621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Mallang.RR02.Screens::Mallang.RR02.Screens.IdleBreath
+  amp: 0.035
+  speed: 2
+  phase: 0
 --- !u!1 &1783538801
 GameObject:
   m_ObjectHideFlags: 0
@@ -3718,6 +3766,7 @@ GameObject:
   - component: {fileID: 1783538804}
   - component: {fileID: 1783538803}
   - component: {fileID: 1783538802}
+  - component: {fileID: 1783538805}
   m_Layer: 0
   m_Name: FeedbackText
   m_TagString: Untagged
@@ -3738,7 +3787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.95, b: 0.7, a: 1}
+  m_Color: {r: 1, g: 0.98, b: 0.9, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3747,7 +3796,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 46
+    m_FontSize: 62
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
@@ -3783,9 +3832,24 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -250}
-  m_SizeDelta: {x: 600, y: 70}
+  m_AnchoredPosition: {x: 0, y: 18}
+  m_SizeDelta: {x: 760, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1783538805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783538801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Outline
+  m_EffectColor: {r: 0.33, g: 0.22, b: 0.13, a: 0.95}
+  m_EffectDistance: {x: 3, y: -3}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1812905438
 GameObject:
   m_ObjectHideFlags: 0
@@ -3797,6 +3861,7 @@ GameObject:
   - component: {fileID: 1812905439}
   - component: {fileID: 1812905441}
   - component: {fileID: 1812905440}
+  - component: {fileID: 1812905442}
   m_Layer: 0
   m_Name: Char-Capybara
   m_TagString: Untagged
@@ -3861,6 +3926,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812905438}
   m_CullTransparentMesh: 1
+--- !u!114 &1812905442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812905438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e15763a6646d4709937d263882f2621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Mallang.RR02.Screens::Mallang.RR02.Screens.IdleBreath
+  amp: 0.035
+  speed: 2.15
+  phase: 0.7
 --- !u!1 &1855350398
 GameObject:
   m_ObjectHideFlags: 0

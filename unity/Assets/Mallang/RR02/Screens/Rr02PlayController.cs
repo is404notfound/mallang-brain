@@ -55,6 +55,11 @@ namespace Mallang.RR02.Screens
         Dictionary<Rr02Friend, Coroutine> _pulse = new Dictionary<Rr02Friend, Coroutine>();
         Coroutine _fbPop;
 
+        // 박자 커서(파란 하이라이트): 첫음~끝음을 카드 사이로 이동. 위치 계산은 로직 레인 BeatCursor.
+        RectTransform _cursor;
+        Vector2[] _cardPos;
+        long[] _targetsUs = new long[0];
+
         void Awake()
         {
             _bubbles = new Dictionary<Rr02Friend, RectTransform>
@@ -101,7 +106,23 @@ namespace Mallang.RR02.Screens
         {
             if (chartJson == null) { Debug.LogError("Rr02PlayController: chartJson 미설정"); enabled = false; return; }
             _chart = Rr02Chart.LoadFromJson(chartJson.text);
+            CacheCursor();
             StartRun();
+        }
+
+        void CacheCursor()
+        {
+            var panel = GameObject.Find("ScorePanel");
+            if (panel == null) return;
+            var sel = panel.transform.Find("Select");
+            if (sel != null) _cursor = (RectTransform)sel;
+            var pos = new List<Vector2>();
+            for (int i = 0; i < 8; i++)
+            {
+                var c = panel.transform.Find("Card" + i);
+                if (c != null) pos.Add(((RectTransform)c).anchoredPosition);
+            }
+            _cardPos = pos.ToArray();
         }
 
         void StartRun()
@@ -119,6 +140,8 @@ namespace Mallang.RR02.Screens
             _phrase.Clear();
             foreach (var n in _chart.Rounds[_run.CurrentRound - 1].Notes) _phrase.Add(n);
             _phrase.Sort((a, b) => a.TargetUs.CompareTo(b.TargetUs));
+            _targetsUs = new long[_phrase.Count];
+            for (int i = 0; i < _phrase.Count; i++) _targetsUs[i] = _phrase[i].TargetUs;
             if (roundText != null) roundText.text = _run.CurrentRound + "번째 무대";
             if (instructionText != null) instructionText.text = "잘 들어요";
             SetFeedback("");
@@ -132,6 +155,24 @@ namespace Mallang.RR02.Screens
             else if (_state == State.Repeat) TickRepeat();
             else if (_state == State.Clear) { if (_clock >= clearHoldSeconds) EnterListen(); }
             else if (_state == State.Failed) { if (_clock >= clearHoldSeconds) StartRun(); }
+
+            UpdateCursor();
+        }
+
+        // 파란 커서를 박자에 맞춰 카드 사이로 이동(위치 계산은 BeatCursor). 듣기/따라치기에서만 보임.
+        void UpdateCursor()
+        {
+            if (_cursor == null || _cardPos == null || _cardPos.Length == 0) return;
+            bool active = (_state == State.Listen || _state == State.Repeat) && _targetsUs.Length > 0;
+            if (_cursor.gameObject.activeSelf != active) _cursor.gameObject.SetActive(active);
+            if (!active) return;
+
+            long nowUs = (long)(_clock * 1000000.0);
+            float fi = BeatCursor.FloatIndex(nowUs, _targetsUs);
+            int a = Mathf.Clamp(Mathf.FloorToInt(fi), 0, _cardPos.Length - 1);
+            int b = Mathf.Clamp(a + 1, 0, _cardPos.Length - 1);
+            float frac = fi - a;
+            _cursor.anchoredPosition = Vector2.Lerp(_cardPos[a], _cardPos[b], frac);
         }
 
         void TickListen()

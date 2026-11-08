@@ -11,13 +11,33 @@ namespace Mallang.RR02
         // 배열이 null/비었으면 0, 원소 1개면 0.
         public static float FloatIndex(long nowUs, long[] targetsUs)
         {
-            throw new NotImplementedException();
+            if (targetsUs == null || targetsUs.Length == 0) return 0f;
+            if (targetsUs.Length == 1) return 0f;
+            if (nowUs <= targetsUs[0]) return 0f;
+
+            int n = targetsUs.Length;
+            if (nowUs >= targetsUs[n - 1]) return n - 1f;
+
+            // 정렬된 배열이므로 now를 포함하는 구간 i(>=targets[i]이고 <targets[i+1])는 하나만 처음으로 걸린다.
+            for (int i = 0; i < n - 1; i++)
+            {
+                if (nowUs < targetsUs[i + 1])
+                {
+                    long span = targetsUs[i + 1] - targetsUs[i];
+                    return i + (nowUs - targetsUs[i]) / (float)span;
+                }
+            }
+            return n - 1f; // 이론상 도달하지 않는 방어 값
         }
 
         // 첫음~끝음 사이 진행도 0..1(클램프). lastUs<=firstUs면 0.
         public static float Progress(long nowUs, long firstUs, long lastUs)
         {
-            throw new NotImplementedException();
+            if (lastUs <= firstUs) return 0f;
+            float t = (nowUs - firstUs) / (float)(lastUs - firstUs);
+            if (t < 0f) return 0f;
+            if (t > 1f) return 1f;
+            return t;
         }
     }
 }
