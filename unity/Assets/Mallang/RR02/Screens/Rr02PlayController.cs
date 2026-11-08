@@ -72,8 +72,15 @@ namespace Mallang.RR02.Screens
         Dictionary<Rr02Friend, Coroutine> _brainPop = new Dictionary<Rr02Friend, Coroutine>();
         Sprite[] _brainStages;
 
-        void Awake()
+        bool _inited;
+
+        void Awake() { InitRefs(); }
+
+        // 멱등 참조 초기화. 플레이 중 재컴파일(도메인 리로드)로 Awake가 생략돼도 OnEnable에서 보장.
+        void InitRefs()
         {
+            if (_inited) return;
+            _inited = true;
             _bubbles = new Dictionary<Rr02Friend, RectTransform>
             {
                 { Rr02Friend.Rabbit, bubbleRabbit }, { Rr02Friend.Capybara, bubbleCapybara },
@@ -103,6 +110,7 @@ namespace Mallang.RR02.Screens
 
         void OnEnable()
         {
+            InitRefs();
             if (chartJson == null) { Debug.LogError("Rr02PlayController: chartJson 미설정"); enabled = false; return; }
             _chart = Rr02Chart.LoadFromJson(chartJson.text);
             _brainStages = new[] { brainStage0, brainStage1, brainStage2, brainStage3 };
@@ -123,8 +131,9 @@ namespace Mallang.RR02.Screens
                 go.transform.SetParent(bubble, false);
                 var img = go.GetComponent<Image>(); img.preserveAspect = true; img.raycastTarget = false;
                 var rt = img.rectTransform; rt.anchorMin = rt.anchorMax = new Vector2(0.5f, 0.5f); rt.pivot = new Vector2(0.5f, 0.5f);
-                rt.anchoredPosition = new Vector2(0, bw * 0.34f); // 머리 위쪽 중앙
+                rt.anchoredPosition = new Vector2(0, bw * 0.5f); // 학사모 위로 공간 띄워 띄움
                 rt.sizeDelta = new Vector2(bw * 0.3f, bw * 0.3f);
+                img.enabled = false; // 처음엔 없음(첫 성공 때 생김)
                 _brain[friend] = img;
                 _prov[friend] = 0;
             }
@@ -174,11 +183,11 @@ namespace Mallang.RR02.Screens
             _run = new Rr02Run(_chart);
             _lastNormalCleared = 0;
             if (lampRow != null) lampRow.SetClearedInstant(0);
-            // 뇌 초기화(단계0)
+            // 뇌 초기화: 처음엔 없음(첫 성공 때 생김)
             foreach (var pair in _bubbles)
             {
                 var f = pair.Key; _prov[f] = 0;
-                if (_brain.ContainsKey(f) && _brain[f] != null) { _brain[f].sprite = BrainSprite(0); _brain[f].rectTransform.localScale = Vector3.one; }
+                if (_brain.ContainsKey(f) && _brain[f] != null) { _brain[f].enabled = false; _brain[f].rectTransform.localScale = Vector3.one; }
             }
             EnterListen();
         }
@@ -189,7 +198,13 @@ namespace Mallang.RR02.Screens
             return _brainStages[Mathf.Clamp(stage, 0, _brainStages.Length - 1)];
         }
 
-        // 친구를 맞췄을 때: 임시 점수 누적 -> BrainScore.Stage로 단계 성장 + pop.
+        // 단계별 기본 크기: 점점 커지다 최대(불붙음)에서 가장 큼.
+        static float BrainBaseScale(int stage)
+        {
+            switch (Mathf.Clamp(stage, 0, 3)) { case 0: return 0.7f; case 1: return 0.92f; case 2: return 1.12f; default: return 1.35f; }
+        }
+
+        // 친구를 맞췄을 때: 임시 점수 누적 -> BrainScore.Stage. 처음이면 쫀득하게 생기고, 이후엔 커지며 pop.
         void GrowBrain(Rr02Friend friend, Rr02Judgement j)
         {
             if (!_brain.ContainsKey(friend) || _brain[friend] == null) return;
@@ -197,22 +212,27 @@ namespace Mallang.RR02.Screens
             _prov[friend] = _prov[friend] + add;
             int stage = BrainScore.Stage(_prov[friend]);
             var img = _brain[friend];
-            img.sprite = BrainSprite(stage);
+            bool firstAppear = !img.enabled;
+            img.enabled = true;
+            img.sprite = BrainSprite(stage); // stage3 = 불붙은 뇌
+            float baseScale = BrainBaseScale(stage);
             if (_brainPop.ContainsKey(friend) && _brainPop[friend] != null) StopCoroutine(_brainPop[friend]);
-            _brainPop[friend] = StartCoroutine(BrainPop(img.rectTransform));
+            _brainPop[friend] = StartCoroutine(BrainGrowPop(img.rectTransform, baseScale, firstAppear));
         }
 
-        IEnumerator BrainPop(RectTransform rt)
+        // 생김/성장 연출: from -> baseScale로 ease-out-back(끝에서 오버슈트=쫀득). 처음 생길 땐 0에서 크게 튀어나옴.
+        IEnumerator BrainGrowPop(RectTransform rt, float baseScale, bool firstAppear)
         {
-            float dur = 0.26f, t = 0f;
+            float from = firstAppear ? 0.1f : rt.localScale.x;
+            float dur = firstAppear ? 0.42f : 0.26f, t = 0f;
             while (t < dur)
             {
                 t += Time.deltaTime; float u = Mathf.Clamp01(t / dur);
-                float s = 1f + 0.35f * Mathf.Sin(u * Mathf.PI);
+                float s = Mathf.LerpUnclamped(from, baseScale, EaseOutBack(u));
                 rt.localScale = new Vector3(s, s, 1f);
                 yield return null;
             }
-            rt.localScale = Vector3.one;
+            rt.localScale = Vector3.one * baseScale;
         }
 
         void EnterListen()
