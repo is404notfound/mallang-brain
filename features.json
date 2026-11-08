@@ -121,6 +121,21 @@
       "passes": true,
       "attempts": 0,
       "blocked": false
+    },
+    {
+      "id": "L8-stagelamps",
+      "title": "StageLamps round-progress lamp mapping (file: Rr02Progress.cs)",
+      "steps": [
+        "Implement the static class StageLamps in namespace Mallang.RR02 (file unity/Assets/Mallang/RR02/Runtime/Rr02Progress.cs). Pure logic, no UnityEngine dependency.",
+        "Compute(int cleared, int total): return a bool[] of length max(total,0) where lit[i] = (i < clamp(cleared, 0, total)). total<=0 returns an empty array. Never throw for out-of-range cleared — clamp it into [0,total].",
+        "JustLitIndex(int prevCleared, int newCleared, int total): let p=clamp(prevCleared,0,total), n=clamp(newCleared,0,total); if n>p return n-1 (the highest newly-lit index), else return -1.",
+        "Read unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ProgressTests.cs for exact expectations — the tests are the truth."
+      ],
+      "check": "node tools/handoff/run-tests.mjs edit \"Mallang.RR02.Tests.EditMode.Rr02ProgressTests\"",
+      "filter": "Mallang.RR02.Tests.EditMode.Rr02ProgressTests",
+      "passes": false,
+      "attempts": 0,
+      "blocked": false
     }
   ]
 }
