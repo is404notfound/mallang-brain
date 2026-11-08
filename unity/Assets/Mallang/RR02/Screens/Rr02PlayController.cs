@@ -299,7 +299,7 @@ namespace Mallang.RR02.Screens
             _state = State.Intro; _clock = 0; _listenIndex = 0; _cursorIdx = -1; _lastBeat = -1;
             HideSequence();
             if (roundText != null) roundText.text = _run.CurrentRound + "번째 무대";
-            if (instructionText != null) instructionText.text = "준비~";
+            if (instructionText != null) instructionText.text = "자, 준비 됐나요?";
             SetFeedback("");
         }
 
