@@ -72,15 +72,12 @@ namespace Mallang.RR02.Screens
         Dictionary<Rr02Friend, Coroutine> _brainPop = new Dictionary<Rr02Friend, Coroutine>();
         Sprite[] _brainStages;
 
-        bool _inited;
-
         void Awake() { InitRefs(); }
 
-        // 멱등 참조 초기화. 플레이 중 재컴파일(도메인 리로드)로 Awake가 생략돼도 OnEnable에서 보장.
+        // 멱등 참조 초기화. _bubbles가 없을 때만 짓는다(도메인 리로드로 Awake 생략돼도 OnEnable에서 보장).
         void InitRefs()
         {
-            if (_inited) return;
-            _inited = true;
+            if (_bubbles != null) return;
             _bubbles = new Dictionary<Rr02Friend, RectTransform>
             {
                 { Rr02Friend.Rabbit, bubbleRabbit }, { Rr02Friend.Capybara, bubbleCapybara },
@@ -98,10 +95,13 @@ namespace Mallang.RR02.Screens
                 foreach (var im in imgs) if (im.gameObject.name.StartsWith("Char")) { charImg = im; break; }
                 if (charImg != null) { _charImg[friend] = charImg; _idle[friend] = charImg.sprite; }
                 Image target = charImg != null ? charImg : (imgs.Length > 0 ? imgs[0] : null);
+                // 클릭이 동물 버튼에 닿도록: 버튼 대상만 raycast 켜고 나머지(방울 테두리 등)는 끈다.
+                foreach (var im in imgs) im.raycastTarget = (im == target);
                 if (target != null)
                 {
                     var btn = target.gameObject.GetComponent<Button>() ?? target.gameObject.AddComponent<Button>();
                     btn.transition = Selectable.Transition.None;
+                    btn.onClick.RemoveAllListeners();
                     var captured = friend;
                     btn.onClick.AddListener(() => Press(captured));
                 }
@@ -327,10 +327,10 @@ namespace Mallang.RR02.Screens
         void ReadInput()
         {
             var kb = Keyboard.current; if (kb == null) return;
-            if (kb.digit1Key.wasPressedThisFrame) Press(Rr02Friend.Rabbit);
-            if (kb.digit2Key.wasPressedThisFrame) Press(Rr02Friend.Capybara);
-            if (kb.digit3Key.wasPressedThisFrame) Press(Rr02Friend.Fox);
-            if (kb.digit4Key.wasPressedThisFrame) Press(Rr02Friend.Squirrel);
+            if (kb.digit1Key.wasPressedThisFrame || kb.numpad1Key.wasPressedThisFrame) Press(Rr02Friend.Rabbit);
+            if (kb.digit2Key.wasPressedThisFrame || kb.numpad2Key.wasPressedThisFrame) Press(Rr02Friend.Capybara);
+            if (kb.digit3Key.wasPressedThisFrame || kb.numpad3Key.wasPressedThisFrame) Press(Rr02Friend.Fox);
+            if (kb.digit4Key.wasPressedThisFrame || kb.numpad4Key.wasPressedThisFrame) Press(Rr02Friend.Squirrel);
         }
 
         public void Press(Rr02Friend friend)
