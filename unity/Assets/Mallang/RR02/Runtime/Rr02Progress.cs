@@ -9,13 +9,25 @@ namespace Mallang.RR02
         // 전구 점등 배열을 돌려줍니다. lit[i] = (i < clamp(cleared,0,total)). total<=0이면 빈 배열.
         public static bool[] Compute(int cleared, int total)
         {
-            throw new NotImplementedException();
+            if (total <= 0)
+                return new bool[0];
+
+            int c = System.Math.Max(0, System.Math.Min(cleared, total));
+            bool[] result = new bool[total];
+            for (int i = 0; i < c; i++)
+                result[i] = true;
+            return result;
         }
 
         // 방금 켜진 전구의 인덱스(퐁 연출 트리거용). 진행이 없으면 -1.
         public static int JustLitIndex(int prevCleared, int newCleared, int total)
         {
-            throw new NotImplementedException();
+            int p = System.Math.Max(0, System.Math.Min(prevCleared, total));
+            int n = System.Math.Max(0, System.Math.Min(newCleared, total));
+
+            if (n > p)
+                return n - 1;
+            return -1;
         }
     }
 }
