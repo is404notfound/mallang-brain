@@ -3496,6 +3496,10 @@ MonoBehaviour:
   faceCapybara: {fileID: 21300000, guid: 0ec63d78cea624e77ad39b2fa77dfd5e, type: 3}
   faceFox: {fileID: 21300000, guid: a11caa394721a4648a307dc99d7905c3, type: 3}
   faceSquirrel: {fileID: 21300000, guid: 19cdd5297fd8649ce8ce597f8c7b3c64, type: 3}
+  brainStage0: {fileID: 21300000, guid: 46a29ff2892a842d9b2d31e375f4c9af, type: 3}
+  brainStage1: {fileID: 21300000, guid: b873af53409f04070b74fe0eee8b422e, type: 3}
+  brainStage2: {fileID: 21300000, guid: 5e55d1aaa6bcb4504b23b3b8efdf9b8c, type: 3}
+  brainStage3: {fileID: 21300000, guid: 0759e27bd934548fda44be8765822feb, type: 3}
   roundText: {fileID: 1666115445}
   instructionText: {fileID: 681517719}
   feedbackText: {fileID: 1783538802}

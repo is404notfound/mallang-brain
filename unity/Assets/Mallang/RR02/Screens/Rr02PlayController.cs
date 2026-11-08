@@ -27,6 +27,8 @@ namespace Mallang.RR02.Screens
         public Sprite hitRabbit, hitCapybara, hitFox, hitSquirrel;
         [Header("얼굴 칩(카드 표시)")]
         public Sprite faceRabbit, faceCapybara, faceFox, faceSquirrel;
+        [Header("뇌 단계(머리 위 — 맞출 때 성장)")]
+        public Sprite brainStage0, brainStage1, brainStage2, brainStage3;
 
         [Header("텍스트")]
         public Text roundText, instructionText, feedbackText;
@@ -64,6 +66,12 @@ namespace Mallang.RR02.Screens
         int _cursorIdx = -1;
         Coroutine _cursorPop;
 
+        // 머리 위 뇌(친구별). 맞출 때마다 pop + 임시 점수로 단계 성장(단계 계산은 BrainScore.Stage).
+        Dictionary<Rr02Friend, Image> _brain = new Dictionary<Rr02Friend, Image>();
+        Dictionary<Rr02Friend, int> _prov = new Dictionary<Rr02Friend, int>();
+        Dictionary<Rr02Friend, Coroutine> _brainPop = new Dictionary<Rr02Friend, Coroutine>();
+        Sprite[] _brainStages;
+
         void Awake()
         {
             _bubbles = new Dictionary<Rr02Friend, RectTransform>
@@ -97,8 +105,29 @@ namespace Mallang.RR02.Screens
         {
             if (chartJson == null) { Debug.LogError("Rr02PlayController: chartJson 미설정"); enabled = false; return; }
             _chart = Rr02Chart.LoadFromJson(chartJson.text);
+            _brainStages = new[] { brainStage0, brainStage1, brainStage2, brainStage3 };
             BuildGrid();
+            BuildBrains();
             StartRun();
+        }
+
+        // 각 친구의 머리 위(중앙)에 뇌 Image를 만든다. 위치·크기는 조정 가능.
+        void BuildBrains()
+        {
+            foreach (var pair in _bubbles)
+            {
+                var bubble = pair.Value; var friend = pair.Key;
+                if (bubble == null) continue;
+                float bw = bubble.sizeDelta.x;
+                var go = new GameObject("Brain", typeof(RectTransform), typeof(Image));
+                go.transform.SetParent(bubble, false);
+                var img = go.GetComponent<Image>(); img.preserveAspect = true; img.raycastTarget = false;
+                var rt = img.rectTransform; rt.anchorMin = rt.anchorMax = new Vector2(0.5f, 0.5f); rt.pivot = new Vector2(0.5f, 0.5f);
+                rt.anchoredPosition = new Vector2(0, bw * 0.34f); // 머리 위쪽 중앙
+                rt.sizeDelta = new Vector2(bw * 0.3f, bw * 0.3f);
+                _brain[friend] = img;
+                _prov[friend] = 0;
+            }
         }
 
         // 카드 슬롯에 런타임 얼굴 Image + '?' Text를 만들고, 커서를 카드 뒤로 보냅니다.
@@ -145,7 +174,45 @@ namespace Mallang.RR02.Screens
             _run = new Rr02Run(_chart);
             _lastNormalCleared = 0;
             if (lampRow != null) lampRow.SetClearedInstant(0);
+            // 뇌 초기화(단계0)
+            foreach (var pair in _bubbles)
+            {
+                var f = pair.Key; _prov[f] = 0;
+                if (_brain.ContainsKey(f) && _brain[f] != null) { _brain[f].sprite = BrainSprite(0); _brain[f].rectTransform.localScale = Vector3.one; }
+            }
             EnterListen();
+        }
+
+        Sprite BrainSprite(int stage)
+        {
+            if (_brainStages == null || _brainStages.Length == 0) return null;
+            return _brainStages[Mathf.Clamp(stage, 0, _brainStages.Length - 1)];
+        }
+
+        // 친구를 맞췄을 때: 임시 점수 누적 -> BrainScore.Stage로 단계 성장 + pop.
+        void GrowBrain(Rr02Friend friend, Rr02Judgement j)
+        {
+            if (!_brain.ContainsKey(friend) || _brain[friend] == null) return;
+            int add = j == Rr02Judgement.Perfect ? Rr02Rules.PerfectScore : j == Rr02Judgement.Good ? Rr02Rules.GoodScore : 0;
+            _prov[friend] = _prov[friend] + add;
+            int stage = BrainScore.Stage(_prov[friend]);
+            var img = _brain[friend];
+            img.sprite = BrainSprite(stage);
+            if (_brainPop.ContainsKey(friend) && _brainPop[friend] != null) StopCoroutine(_brainPop[friend]);
+            _brainPop[friend] = StartCoroutine(BrainPop(img.rectTransform));
+        }
+
+        IEnumerator BrainPop(RectTransform rt)
+        {
+            float dur = 0.26f, t = 0f;
+            while (t < dur)
+            {
+                t += Time.deltaTime; float u = Mathf.Clamp01(t / dur);
+                float s = 1f + 0.35f * Mathf.Sin(u * Mathf.PI);
+                rt.localScale = new Vector3(s, s, 1f);
+                yield return null;
+            }
+            rt.localScale = Vector3.one;
         }
 
         void EnterListen()
@@ -254,7 +321,10 @@ namespace Mallang.RR02.Screens
             float intensity = r.Kind == Rr02InputKind.Judged && r.Judgement == Rr02Judgement.Perfect ? 1.25f : 1.0f;
             HitPulse(friend, intensity);
             if (r.Kind == Rr02InputKind.Judged)
+            {
                 SetFeedback(r.Judgement == Rr02Judgement.Perfect ? "Perfect!" : r.Judgement == Rr02Judgement.Good ? "Good" : "Miss");
+                if (r.Judgement != Rr02Judgement.Miss) GrowBrain(friend, r.Judgement);
+            }
             else if (r.Kind == Rr02InputKind.Ghost) SetFeedback("!");
         }
 
