@@ -32,16 +32,24 @@ namespace Mallang.RR02.Screens
                 SetClearedInstant(previewCleared);
         }
 
+        // 켜진 전구는 환하게 + 조금 크게, 꺼진 전구는 어둑하게 + 작게 — 대비를 뚜렷하게.
+        static readonly Color LitColor = new Color(1f, 1f, 1f, 1f);
+        static readonly Color OffColor = new Color(0.5f, 0.5f, 0.56f, 0.8f);
+        const float LitScale = 1.06f, OffScale = 0.86f;
+
+        void Apply(int i, bool isLit)
+        {
+            if (lamps[i] == null) return;
+            lamps[i].sprite = isLit ? onSprite : offSprite;
+            lamps[i].color = isLit ? LitColor : OffColor;
+            lamps[i].rectTransform.localScale = Vector3.one * (isLit ? LitScale : OffScale);
+        }
+
         // 전체 즉시 반영(초기화/점프). 연출 없음.
         public void SetClearedInstant(int cleared)
         {
             var lit = StageLamps.Compute(cleared, Total);
-            for (int i = 0; i < lamps.Length && i < lit.Length; i++)
-            {
-                if (lamps[i] == null) continue;
-                lamps[i].sprite = lit[i] ? onSprite : offSprite;
-                lamps[i].rectTransform.localScale = Vector3.one;
-            }
+            for (int i = 0; i < lamps.Length && i < lit.Length; i++) Apply(i, lit[i]);
             _prevCleared = cleared;
         }
 
@@ -50,11 +58,7 @@ namespace Mallang.RR02.Screens
         {
             int justLit = StageLamps.JustLitIndex(_prevCleared, cleared, Total);
             var lit = StageLamps.Compute(cleared, Total);
-            for (int i = 0; i < lamps.Length && i < lit.Length; i++)
-            {
-                if (lamps[i] == null) continue;
-                lamps[i].sprite = lit[i] ? onSprite : offSprite;
-            }
+            for (int i = 0; i < lamps.Length && i < lit.Length; i++) Apply(i, lit[i]);
             _prevCleared = cleared;
             if (justLit >= 0 && justLit < lamps.Length && lamps[justLit] != null)
                 Pop(lamps[justLit].rectTransform);
@@ -68,18 +72,19 @@ namespace Mallang.RR02.Screens
 
         IEnumerator PopRoutine(RectTransform rt)
         {
-            // 보잉: 크게 튀어나왔다가 ease-out-back으로 살짝 반동하며 1로 안착(쫀득).
+            // 보잉: 크게 튀어나왔다가 ease-out-back으로 반동하며 '켜짐 크기'로 안착(쫀득).
+            float rest = LitScale;
             float t = 0f;
             while (t < popDuration)
             {
                 t += Time.deltaTime;
                 float u = Mathf.Clamp01(t / popDuration);
-                float eob = EaseOutBack(u);          // 0 -> 1(끝에서 오버슈트)
-                float s = popScale + (1f - popScale) * eob; // popScale -> 1 (중간에 1 아래로 살짝 반동)
+                float eob = EaseOutBack(u);                 // 0 -> 1(끝에서 오버슈트)
+                float s = popScale + (rest - popScale) * eob; // popScale -> rest
                 rt.localScale = new Vector3(s, s, 1f);
                 yield return null;
             }
-            rt.localScale = Vector3.one;
+            rt.localScale = Vector3.one * rest;
             _pop = null;
         }
 
