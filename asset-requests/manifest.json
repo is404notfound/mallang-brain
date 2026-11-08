@@ -1,45 +1,109 @@
 {
-  "stylePrompt": "말랑브레인음악대 RR02 프로토타입 에셋. 승인된 스타일 가이드(docs/04-design/말랑두뇌음악대_스타일가이드.md)와 2026-11-07 승인 아트 방향(디자인.md v2.1)을 따릅니다. 투명 배경 PNG, 칸 사이 여백 없음, 각 칸 중앙 정렬. 네 친구의 성격: 토끼(장난기)·카피바라(초롱초롱함)·사막여우(까칠하고 삐쭉함)·다람쥐(소심하고 망설임).",
-  "sheets": [
+  "inbox": "asset-requests/_inbox",
+  "assets": [
     {
-      "id": "SHEET-01",
-      "file": "characters.png",
-      "purpose": "네 친구 기본 자세(윗줄)와 연주 타격 자세(아랫줄). 플레이 좌우 카드·악보·결과 화면에서 재사용",
-      "grid": { "cols": 4, "rows": 2, "cellWidth": 512, "cellHeight": 512 },
-      "changeFrequency": "high",
-      "cells": [
-        { "index": 0, "id": "AST-001", "name": "rabbit-idle", "slot": "unity/Assets/Mallang/RR02/Art/friend-rabbit.png", "description": "토끼 기본 자세, 정면, 실로폰 채를 든 모습" },
-        { "index": 1, "id": "AST-002", "name": "capybara-idle", "slot": "unity/Assets/Mallang/RR02/Art/friend-capybara.png", "description": "카피바라 기본 자세, 정면, 큰북 앞" },
-        { "index": 2, "id": "AST-003", "name": "fox-idle", "slot": "unity/Assets/Mallang/RR02/Art/friend-fox.png", "description": "사막여우 기본 자세, 정면, 트럼펫을 든 모습" },
-        { "index": 3, "id": "AST-004", "name": "squirrel-idle", "slot": "unity/Assets/Mallang/RR02/Art/friend-squirrel.png", "description": "다람쥐 기본 자세, 정면, 플루트를 든 모습" },
-        { "index": 4, "id": "AST-005", "name": "rabbit-hit", "slot": "unity/Assets/Mallang/RR02/Art/friend-rabbit-hit.png", "description": "토끼 연주 타격 자세(실로폰을 치는 순간), 기본 자세와 같은 크기·위치 기준" },
-        { "index": 5, "id": "AST-006", "name": "capybara-hit", "slot": "unity/Assets/Mallang/RR02/Art/friend-capybara-hit.png", "description": "카피바라 큰북 타격 자세" },
-        { "index": 6, "id": "AST-007", "name": "fox-hit", "slot": "unity/Assets/Mallang/RR02/Art/friend-fox-hit.png", "description": "사막여우 트럼펫 부는 자세" },
-        { "index": 7, "id": "AST-008", "name": "squirrel-hit", "slot": "unity/Assets/Mallang/RR02/Art/friend-squirrel-hit.png", "description": "다람쥐 플루트 부는 자세" }
-      ]
+      "id": "AST-001",
+      "name": "friend-rabbit",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-rabbit.png",
+      "expectedFile": "AST-001-friend-rabbit.png",
+      "variations": 3,
+      "chosen": null
     },
     {
-      "id": "SHEET-02",
-      "file": "brain.png",
-      "purpose": "캐릭터 머리 위 뇌 표시 4단계(FR-025: 0콩알/200자람/400점화/700치솟음)와 결과 화면 성장 연출 재사용",
-      "grid": { "cols": 4, "rows": 1, "cellWidth": 256, "cellHeight": 256 },
-      "changeFrequency": "low",
-      "cells": [
-        { "index": 0, "id": "AST-009", "name": "brain-stage0", "slot": "unity/Assets/Mallang/RR02/Art/brain-stage0.png", "description": "콩알 뇌 — 아주 작고 소박함" },
-        { "index": 1, "id": "AST-010", "name": "brain-stage1", "slot": "unity/Assets/Mallang/RR02/Art/brain-stage1.png", "description": "자란 뇌 — 또렷하게 커짐" },
-        { "index": 2, "id": "AST-011", "name": "brain-stage2", "slot": "unity/Assets/Mallang/RR02/Art/brain-stage2.png", "description": "점화된 뇌 — 은은한 빛·반짝임" },
-        { "index": 3, "id": "AST-012", "name": "brain-stage3", "slot": "unity/Assets/Mallang/RR02/Art/brain-stage3.png", "description": "치솟는 뇌 — 강한 빛줄기·환한 발광" }
-      ]
+      "id": "AST-002",
+      "name": "friend-capybara",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-capybara.png",
+      "expectedFile": "AST-002-friend-capybara.png",
+      "variations": 3,
+      "chosen": null
     },
     {
-      "id": "SHEET-03",
-      "file": "background.png",
-      "purpose": "타이틀·플레이·결과 공용 무대 배경(16:9, FR-020 기준 해상도)",
-      "grid": { "cols": 1, "rows": 1, "cellWidth": 1280, "cellHeight": 720 },
-      "changeFrequency": "low",
-      "cells": [
-        { "index": 0, "id": "AST-013", "name": "stage-background", "slot": "unity/Assets/Mallang/RR02/Art/stage-background.png", "description": "음악대 무대 배경. 중앙 48% 영역은 악보가 올라가므로 대비가 낮고 차분하게, 좌우는 카드가 덮음" }
-      ]
+      "id": "AST-003",
+      "name": "friend-fox",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-fox.png",
+      "expectedFile": "AST-003-friend-fox.png",
+      "variations": 3,
+      "chosen": null
+    },
+    {
+      "id": "AST-004",
+      "name": "friend-squirrel",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-squirrel.png",
+      "expectedFile": "AST-004-friend-squirrel.png",
+      "variations": 3,
+      "chosen": null
+    },
+    {
+      "id": "AST-005",
+      "name": "friend-rabbit-hit",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-rabbit-hit.png",
+      "expectedFile": "AST-005-friend-rabbit-hit.png",
+      "variations": 3,
+      "chosen": null
+    },
+    {
+      "id": "AST-006",
+      "name": "friend-capybara-hit",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-capybara-hit.png",
+      "expectedFile": "AST-006-friend-capybara-hit.png",
+      "variations": 3,
+      "chosen": null
+    },
+    {
+      "id": "AST-007",
+      "name": "friend-fox-hit",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-fox-hit.png",
+      "expectedFile": "AST-007-friend-fox-hit.png",
+      "variations": 3,
+      "chosen": null
+    },
+    {
+      "id": "AST-008",
+      "name": "friend-squirrel-hit",
+      "slot": "unity/Assets/Mallang/RR02/Art/friend-squirrel-hit.png",
+      "expectedFile": "AST-008-friend-squirrel-hit.png",
+      "variations": 3,
+      "chosen": null
+    },
+    {
+      "id": "AST-009",
+      "name": "brain-stage0",
+      "slot": "unity/Assets/Mallang/RR02/Art/brain-stage0.png",
+      "expectedFile": "AST-009-brain-stage0.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-010",
+      "name": "brain-stage1",
+      "slot": "unity/Assets/Mallang/RR02/Art/brain-stage1.png",
+      "expectedFile": "AST-010-brain-stage1.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-011",
+      "name": "brain-stage2",
+      "slot": "unity/Assets/Mallang/RR02/Art/brain-stage2.png",
+      "expectedFile": "AST-011-brain-stage2.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-012",
+      "name": "brain-stage3",
+      "slot": "unity/Assets/Mallang/RR02/Art/brain-stage3.png",
+      "expectedFile": "AST-012-brain-stage3.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-013",
+      "name": "stage-background",
+      "slot": "unity/Assets/Mallang/RR02/Art/stage-background.png",
+      "expectedFile": "AST-013-stage-background.png",
+      "variations": 1,
+      "chosen": null
     }
   ]
 }
