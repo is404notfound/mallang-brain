@@ -99,7 +99,8 @@ v2의 "다람쥐 꼬리 불일치"는 오해였습니다 — 승인 캔버스의
 
 ## 7. 레퍼런스 이미지 매핑
 
-- **최우선(캔버스)**: `art-direction/references/screen-title-final.png`·`screen-play-final.png`·`screen-result-final.png` (승인 최종 화면, 0절). 에셋의 sceneType·화면에 맞는 캔버스를 image→image 레퍼런스로 첨부합니다 — 캐릭터 단독·타이틀은 title-final, 플레이 요소(비눗방울·악보·? 칸)는 play-final, 결과 연출(뇌 성장·빛 모임)은 result-final. 캐릭터 개별 에셋은 해당 캔버스에서 그 친구를 잘라 참고합니다.
+- **캐릭터 최우선**: `art-direction/references/charactors.png` — 네 친구 캐릭터 시트(4열 토끼·카피바라·사막여우·다람쥐 × 6행 FRONT·PLAY·MOOD1·MOOD2·SILHOUETTE·GRAY POSE). 캐릭터 에셋(기본=FRONT 행, 타격=PLAY 행, 표정 변형=MOOD 행, 숨김 ?칸=SILHOUETTE 행)의 image→image 레퍼런스로 이걸 1순위로 씁니다.
+- **화면 캔버스**: `screen-title-final.png`·`screen-play-final.png`·`screen-result-final.png` (승인 최종 화면, 0절). 장면·배경·UI 에셋은 화면에 맞는 캔버스를 레퍼런스로 — 배경은 title/play-final, 플레이 요소(비눗방울·악보·?칸)는 play-final, 결과 연출(뇌 성장·빛 모임)은 result-final.
 - **쓰지 말 것(확인 전)**: `unity/Assets/Mallang/Gate1/Art/`의 기존 생성물(contest-stage.png·mallang-conductor.png)은 구 컨셉이라 사람 확인 전 레퍼런스로 쓰지 않습니다. storyboard.html에 임베드된 렌더도 낡은 버전이라 쓰지 않습니다.
 
 ## 출처 목록
