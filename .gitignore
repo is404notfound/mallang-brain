@@ -66,3 +66,4 @@ temp/
 # Python bytecode (asset-prompts scripts)
 __pycache__/
 *.pyc
+unity/Assets/Screenshots/
