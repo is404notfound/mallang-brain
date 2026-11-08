@@ -136,6 +136,21 @@
       "passes": true,
       "attempts": 0,
       "blocked": false
+    },
+    {
+      "id": "L9-beatcursor",
+      "title": "BeatCursor 박자 커서 위치 매핑 (file: BeatCursor.cs)",
+      "steps": [
+        "Implement the static class BeatCursor in namespace Mallang.RR02 (file unity/Assets/Mallang/RR02/Runtime/BeatCursor.cs). Pure logic, no UnityEngine dependency (use System.Math / primitive math only).",
+        "FloatIndex(long nowUs, long[] targetsUs): targetsUs is ascending. Return the continuous position as a float in [0, n-1]. null or length 0 -> 0. length 1 -> 0. now <= targets[0] -> 0. now >= targets[n-1] -> n-1. Otherwise find segment i where targets[i] <= now < targets[i+1] and return i + (now - targets[i]) / (float)(targets[i+1] - targets[i]).",
+        "Progress(long nowUs, long firstUs, long lastUs): if lastUs <= firstUs return 0. Else clamp01((now - firstUs) / (float)(lastUs - firstUs)).",
+        "Read unity/Assets/Mallang/RR02/Tests/EditMode/BeatCursorTests.cs for exact expectations — the tests are the truth."
+      ],
+      "check": "node tools/handoff/run-tests.mjs edit \"Mallang.RR02.Tests.EditMode.BeatCursorTests\"",
+      "filter": "Mallang.RR02.Tests.EditMode.BeatCursorTests",
+      "passes": false,
+      "attempts": 0,
+      "blocked": false
     }
   ]
 }
