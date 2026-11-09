@@ -224,6 +224,54 @@
       "expectedFile": "screen-ranking-final.png",
       "variations": 1,
       "chosen": null
+    },
+    {
+      "id": "AST-025",
+      "name": "button-primary",
+      "slot": "unity/Assets/Mallang/RR02/Art/button-primary.png",
+      "expectedFile": "AST-025-button-primary.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-026",
+      "name": "button-secondary",
+      "slot": "unity/Assets/Mallang/RR02/Art/button-secondary.png",
+      "expectedFile": "AST-026-button-secondary.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-027",
+      "name": "score-bubble",
+      "slot": "unity/Assets/Mallang/RR02/Art/score-bubble.png",
+      "expectedFile": "AST-027-score-bubble.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-028",
+      "name": "score-plate",
+      "slot": "unity/Assets/Mallang/RR02/Art/score-plate.png",
+      "expectedFile": "AST-028-score-plate.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-029",
+      "name": "badge-new",
+      "slot": "unity/Assets/Mallang/RR02/Art/badge-new.png",
+      "expectedFile": "AST-029-badge-new.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-030",
+      "name": "connector-glow",
+      "slot": "unity/Assets/Mallang/RR02/Art/connector-glow.png",
+      "expectedFile": "AST-030-connector-glow.png",
+      "variations": 1,
+      "chosen": null
     }
   ]
 }

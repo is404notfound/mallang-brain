@@ -249,5 +249,59 @@
     "purpose": "랭킹 화면 고화질 레퍼런스(신규)",
     "changeFrequency": "low",
     "sceneType": "scene-with-subject"
+  },
+  {
+    "id": "AST-025",
+    "name": "button-primary",
+    "slot": "unity/Assets/Mallang/RR02/Art/button-primary.png",
+    "purpose": "결과·랭킹 주 버튼(노란 알약)",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "art-direction/references/screen-result-final.png"
+  },
+  {
+    "id": "AST-026",
+    "name": "button-secondary",
+    "slot": "unity/Assets/Mallang/RR02/Art/button-secondary.png",
+    "purpose": "보조 버튼(아웃라인 알약)",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "art-direction/references/screen-result-final.png"
+  },
+  {
+    "id": "AST-027",
+    "name": "score-bubble",
+    "slot": "unity/Assets/Mallang/RR02/Art/score-bubble.png",
+    "purpose": "결과 총점 말풍선",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "art-direction/references/screen-result-final.png"
+  },
+  {
+    "id": "AST-028",
+    "name": "score-plate",
+    "slot": "unity/Assets/Mallang/RR02/Art/score-plate.png",
+    "purpose": "친구별 점수판(tint)",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "art-direction/references/screen-result-final.png"
+  },
+  {
+    "id": "AST-029",
+    "name": "badge-new",
+    "slot": "unity/Assets/Mallang/RR02/Art/badge-new.png",
+    "purpose": "NEW 배지(글자 포함)",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "art-direction/references/screen-result-final.png"
+  },
+  {
+    "id": "AST-030",
+    "name": "connector-glow",
+    "slot": "unity/Assets/Mallang/RR02/Art/connector-glow.png",
+    "purpose": "뇌→친구 연결선 글로우",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "art-direction/references/screen-result-final.png"
   }
 ]

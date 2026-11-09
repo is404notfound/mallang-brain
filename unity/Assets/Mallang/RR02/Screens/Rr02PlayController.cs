@@ -90,6 +90,9 @@ namespace Mallang.RR02.Screens
         BenchmarkTable _benchTable;
         Text[] _friendScore = new Text[4];
         Image[] _friendBrainHead = new Image[4];
+        Image[] _lines = new Image[4];       // 뇌 -> 친구 연결선
+        float[] _lineLen = new float[4];      // 각 선의 완성 길이
+        Coroutine _lineAnim;
         static readonly Rr02Friend[] _friendOrder = { Rr02Friend.Rabbit, Rr02Friend.Capybara, Rr02Friend.Fox, Rr02Friend.Squirrel };
         static readonly string[] _friendSpriteName = { "friend-rabbit", "friend-capybara", "friend-fox", "friend-squirrel" };
 
@@ -229,6 +232,22 @@ namespace Mallang.RR02.Screens
                 _friendScore[i] = st;
             }
 
+            // 뇌 -> 각 친구 연결선(처음 길이 0, ShowResult에서 뻗음). 친구·뇌 뒤(배경 위)로.
+            Vector2 brainPt = new Vector2(0, 60);
+            Color[] lineCol = {
+                new Color(1f, 0.6f, 0.78f, 0.9f), new Color(0.6f, 0.9f, 0.62f, 0.9f),
+                new Color(0.6f, 0.8f, 1f, 0.9f), new Color(1f, 0.85f, 0.5f, 0.9f) };
+            for (int i = 0; i < 4; i++)
+            {
+                Vector2 fp = new Vector2(fx[i], -15);
+                Vector2 d = fp - brainPt; float len = d.magnitude; float ang = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
+                var ln = NewImage("Line" + i, _resultRoot.transform, null, false); ln.color = lineCol[i];
+                var lrt = ln.rectTransform; lrt.pivot = new Vector2(0f, 0.5f); lrt.anchoredPosition = brainPt;
+                lrt.sizeDelta = new Vector2(0f, 7f); lrt.localEulerAngles = new Vector3(0, 0, ang);
+                ln.transform.SetSiblingIndex(1); // 배경(0) 바로 위 = 뇌·친구 뒤
+                _lines[i] = ln; _lineLen[i] = len;
+            }
+
             // 다음 버튼(배너 리본) — 맨 아래
             var btnGo = new GameObject("NextButton", typeof(RectTransform), typeof(Image), typeof(Button));
             btnGo.transform.SetParent(_resultRoot.transform, false);
@@ -293,6 +312,35 @@ namespace Mallang.RR02.Screens
             }
             if (_resultRoot != null) _resultRoot.SetActive(true);
             _state = State.Result;
+            // 연결선: 길이 0에서 시작해 뇌 -> 친구로 뻗는 애니메이션
+            for (int i = 0; i < 4; i++) if (_lines[i] != null) _lines[i].rectTransform.sizeDelta = new Vector2(0f, 7f);
+            if (_lineAnim != null) StopCoroutine(_lineAnim);
+            if (isActiveAndEnabled) _lineAnim = StartCoroutine(LinesGrow());
+        }
+
+        IEnumerator LinesGrow()
+        {
+            yield return new WaitForSeconds(0.25f); // 점수 팝 뒤에 선이 뻗음
+            float dur = 0.45f;
+            for (int i = 0; i < 4; i++)
+            {
+                if (_lines[i] == null) continue;
+                StartCoroutine(OneLineGrow(_lines[i].rectTransform, _lineLen[i], dur));
+                yield return new WaitForSeconds(0.08f); // 친구마다 살짝 스태거
+            }
+        }
+
+        IEnumerator OneLineGrow(RectTransform rt, float target, float dur)
+        {
+            float t = 0f;
+            while (t < dur)
+            {
+                t += Time.deltaTime; float u = Mathf.Clamp01(t / dur);
+                float e = 1f - (1f - u) * (1f - u); // ease-out
+                rt.sizeDelta = new Vector2(target * e, rt.sizeDelta.y);
+                yield return null;
+            }
+            rt.sizeDelta = new Vector2(target, rt.sizeDelta.y);
         }
 
         static string Comma(int n) { return n.ToString("N0", System.Globalization.CultureInfo.InvariantCulture); }
