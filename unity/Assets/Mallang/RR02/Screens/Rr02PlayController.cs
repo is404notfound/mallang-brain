@@ -46,7 +46,7 @@ namespace Mallang.RR02.Screens
 
         [Header("인트로")]
         public int introBeats = 4; // 시작 전 둠칫둠칫 카운트인 박 수
-        public float introRestBeats = 0.4f; // 카운트인 끝나고 '잘 들어요' 전 짧은 쉼(박)
+        public float introRestBeats = 0.35f; // 카운트인 끝나고 '잘 들어요' 전 짧은 쉼(박)
 
         Rr02Chart _chart;
         Rr02Run _run;

@@ -3514,6 +3514,7 @@ MonoBehaviour:
   clearHoldSeconds: 0.9
   popDuration: 0.34
   introBeats: 4
+  introRestBeats: 0.35
 --- !u!4 &1733537670
 Transform:
   m_ObjectHideFlags: 0
