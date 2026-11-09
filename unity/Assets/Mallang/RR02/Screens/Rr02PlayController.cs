@@ -100,6 +100,7 @@ namespace Mallang.RR02.Screens
         Image[] _friendBrainHead = new Image[4];
         Rr02CurveLine[] _curves = new Rr02CurveLine[4]; // 뇌 -> 친구 곡선 연결선(글로우 리본)
         Coroutine _lineAnim;
+        Coroutine _introRoutine; // 카운트인(정확히 introBeats박)
         static readonly Rr02Friend[] _friendOrder = { Rr02Friend.Rabbit, Rr02Friend.Capybara, Rr02Friend.Fox, Rr02Friend.Squirrel };
         static readonly string[] _friendSpriteName = { "friend-rabbit", "friend-capybara", "friend-fox", "friend-squirrel" };
 
@@ -739,6 +740,22 @@ namespace Mallang.RR02.Screens
             if (roundText != null) roundText.text = _run.CurrentRound + "번째 무대";
             if (instructionText != null) instructionText.text = "자, 준비 됐나요?";
             SetFeedback("");
+            // 카운트인은 코루틴으로 정확히 introBeats박을 친다(프레임 폴링은 첫 프레임 큰 deltaTime에
+            // beat 0을 건너뛰어 3박만 울리는 버그가 있었음). 끝나면 쉼 뒤 EnterListen.
+            if (_introRoutine != null) StopCoroutine(_introRoutine);
+            if (isActiveAndEnabled) _introRoutine = StartCoroutine(IntroRoutine());
+        }
+
+        IEnumerator IntroRoutine()
+        {
+            float bs = _beatSec > 0.05f ? _beatSec : 0.4f;
+            for (int i = 0; i < introBeats; i++)
+            {
+                if (_audio != null && _baselineClip != null) _audio.PlayOneShot(_baselineClip, 0.55f);
+                yield return new WaitForSeconds(bs);
+            }
+            if (introRestBeats > 0f) yield return new WaitForSeconds(introRestBeats * bs); // 쉼(무음)
+            EnterListen();
         }
 
         void EnterListen()
@@ -785,8 +802,8 @@ namespace Mallang.RR02.Screens
         {
             if (_run == null) return;
             _clock += Time.deltaTime;
-            if (_state == State.Intro) { if (_clock >= (introBeats + introRestBeats) * _beatSec) EnterListen(); }
-            else if (_state == State.Listen) TickListen();
+            // 인트로 전환은 IntroRoutine 코루틴이 담당(프레임 폴링 스킵 방지). 여기선 _clock만 올려 그루브에 씀.
+            if (_state == State.Listen) TickListen();
             else if (_state == State.Repeat) TickRepeat();
             else if (_state == State.Clear) { if (_clock >= clearHoldSeconds) EnterListen(); }
             // State.Result: 입력(다시하기 버튼) 대기, 자동 진행 없음
@@ -800,11 +817,10 @@ namespace Mallang.RR02.Screens
         void BeatMetronome()
         {
             if (_baselineClip == null || _audio == null) { return; }
-            if (_state != State.Intro && _state != State.Listen && _state != State.Repeat) { _lastBeat = -1; return; }
+            // 인트로 카운트인은 IntroRoutine이 친다. 여기선 듣기/따라치기의 8박 베이스만.
+            if (_state != State.Listen && _state != State.Repeat) { _lastBeat = -1; return; }
             int beat = (int)(_clock / _beatSec);
-            // 인트로는 introBeats까지만 친다(그 뒤 introRestBeats 쉼은 무음). 듣기/따라치기는 8박.
-            int maxBeat = (_state == State.Intro) ? introBeats : 8;
-            if (beat != _lastBeat && beat < maxBeat)
+            if (beat != _lastBeat && beat < 8)
             {
                 _lastBeat = beat;
                 _audio.PlayOneShot(_baselineClip, 0.55f);
