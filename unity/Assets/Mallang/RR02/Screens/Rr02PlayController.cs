@@ -691,9 +691,10 @@ namespace Mallang.RR02.Screens
             foreach (Transform c in panel.transform)
                 if (c.name.StartsWith("Face") || c.name.StartsWith("Q")) c.gameObject.SetActive(false);
 
-            // 멜로디 4노트: 카드 4개를 세로 정가운데(y=0) 한 줄로, 가로로 넓게 펼친다. 나머지 카드는 숨긴다.
+            // 멜로디 4노트: 카드 4개를 세로 정가운데(y=0) 한 줄로. 악보(panel-score 680폭) 양옆에 여백이
+            // 남도록 바깥 카드가 가장자리에서 ~53px 안쪽에 오게 폭·크기를 잡는다. 나머지 카드는 숨긴다.
             const int cardCount = 4;
-            const float cardSize = 160f, cardStep = 168f;
+            const float cardSize = 130f, cardStep = 148f;
             float startX = -cardStep * (cardCount - 1) / 2f;
             for (int i = 4; i < 8; i++)
             {
@@ -729,7 +730,12 @@ namespace Mallang.RR02.Screens
             _cardPos = pos.ToArray(); _liveFace = faces.ToArray(); _liveQ = qs.ToArray();
 
             var sel = panel.transform.Find("Select");
-            if (sel != null) { _cursor = (RectTransform)sel; _cursor.SetAsFirstSibling(); } // 카드 뒤 = 테두리 하이라이트
+            if (sel != null)
+            {
+                _cursor = (RectTransform)sel;
+                _cursor.sizeDelta = new Vector2(cardSize + 16f, cardSize + 16f); // 작아진 카드에 맞춰 하이라이트도 축소
+                _cursor.SetAsFirstSibling();
+            } // 카드 뒤 = 테두리 하이라이트
         }
 
         int _runCount;
