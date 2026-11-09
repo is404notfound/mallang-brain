@@ -26,7 +26,6 @@ namespace Mallang.RR02
         // 진행 중 구절. _phraseNotes는 judge의 Outcomes 순서(note_id 오름차순, 동률 시 TargetUs)와 같은 순서로 정렬합니다.
         private Rr02Judge _judge;
         private IReadOnlyList<Rr02Note> _phraseNotes;
-        private HashSet<int> _hiddenIdx = new HashSet<int>(); // 이 구절에서 '?'로 숨긴 note_id들(기억 판정 기준)
 
         // FR-016: 완료된 구절의 판정이 전부 Perfect일 때만 유지됩니다.
         private bool _allPerfect = true;
@@ -57,9 +56,6 @@ namespace Mallang.RR02
                 ? _chart.InfinitePhrase(_loops + 1)
                 : _chart.Rounds[_currentRound - 1];
 
-            _hiddenIdx = round.HiddenIndices != null
-                ? new HashSet<int>(round.HiddenIndices)
-                : new HashSet<int>();
             _phraseNotes = SortForOutcomes(round.Notes);
             _judge = new Rr02Judge(_phraseNotes);
             _phase = Rr02Phase.Repeat;
@@ -122,20 +118,12 @@ namespace Mallang.RR02
             var outcomes = _judge.Outcomes;
             bool phraseAllPerfect = true;
             bool anyMiss = false;
-            int hitCount = 0;           // Perfect 또는 Good(전체)
-            int hiddenTotal = 0, hiddenHit = 0; // 숨김('?') 노트의 기억 판정
 
             for (int i = 0; i < outcomes.Count; i++)
             {
                 var judgement = outcomes[i];
                 if (judgement == Rr02Judgement.Miss) anyMiss = true;
-                else hitCount++;
                 if (judgement != Rr02Judgement.Perfect) phraseAllPerfect = false;
-                if (_hiddenIdx.Contains(_phraseNotes[i].NoteId))
-                {
-                    hiddenTotal++;
-                    if (judgement != Rr02Judgement.Miss) hiddenHit++;
-                }
 
                 // 콤보 배율 없음: Perfect 100 / Good 70 / Miss 0. 노트의 친구에게 가산합니다.
                 int points = judgement == Rr02Judgement.Perfect ? Rr02Rules.PerfectScore
@@ -154,12 +142,10 @@ namespace Mallang.RR02
             }
             else
             {
-                // 일반 라운드(라이프 모델): 통과 기준은 '기억(숨김) 판정'. 숨김 노트가 있으면 그 60% 이상을
-                // 맞혀야 통과(보이는 노트만 쳐서 넘어가지 못함). 숨김이 없으면(순수 복사) 전체 60%.
-                // 통과=전구+1·다음 라운드, 미만=전구-1·같은 라운드 재도전, 전구 0에서 실패=게임오버.
-                bool pass = hiddenTotal > 0
-                    ? hiddenHit * 100 >= hiddenTotal * 60
-                    : hitCount * 100 >= outcomes.Count * 60;
+                // 일반 라운드(라이프 모델): 통과 기준은 100%. 모든 노트를 맞혀야(Miss 0) 통과합니다.
+                // 하나라도 틀리면(Miss) 전구-1·같은 라운드 재도전, 전구 0에서 실패=게임오버.
+                // (ghost 같은 여분 입력은 0점일 뿐 Miss가 아니므로 통과를 막지 않습니다.)
+                bool pass = !anyMiss;
                 if (pass)
                 {
                     _allPerfect = _allPerfect && phraseAllPerfect;

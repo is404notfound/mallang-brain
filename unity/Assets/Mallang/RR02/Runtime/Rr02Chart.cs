@@ -17,7 +17,7 @@ namespace Mallang.RR02
 
         private int _seed;
 
-        private const int MelodyLength = 8;
+        private const int MelodyLength = 4;
 
         private static readonly Rr02Friend[] AllFriends =
         {

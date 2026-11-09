@@ -190,12 +190,14 @@ namespace Mallang.RR02.Tests.EditMode
             run.ProcessPress(Rr02Friend.Rabbit, 0L);                 // Perfect 100
             run.ProcessPress(Rr02Friend.Rabbit, 400000L + 100000L);  // Good 70
             run.ProcessPress(Rr02Friend.Rabbit, 800000L);            // Perfect 100
-            run.AdvanceTime(1200000L + PadUs);                       // 마지막 노트 Miss, 3/4=75% >= 60% → 통과
+            run.AdvanceTime(1200000L + PadUs);                       // 마지막 노트 Miss → 100% 아님 → 실패
 
-            Assert.AreEqual(Rr02Phase.Listen, run.Phase);
+            // 통과 기준은 100%: Miss가 하나라도 있으면 실패. 전구 0에서 실패 → 게임오버.
+            // 점수는 실패해도 그대로 합산됩니다(Perfect 100+Good 70+Perfect 100+Miss 0 = 270).
+            Assert.AreEqual(Rr02Phase.Ended, run.Phase);
             Assert.AreEqual(270, ScoreOf(run.Result.AnimalScores, Rr02Friend.Rabbit)); // 점수 합산(콤보 배율 없음)
             Assert.AreEqual(270, run.Result.TotalScore);
-            Assert.AreEqual(1, run.Result.NormalCleared); // 60% 이상 통과 → 전구 +1
+            Assert.AreEqual(0, run.Result.NormalCleared);
         }
 
         [Test]
@@ -229,7 +231,7 @@ namespace Mallang.RR02.Tests.EditMode
         [Test]
         public void MidPhraseMissKeepsMusicRunningAndFinalizesOnceAtPhraseEnd()
         {
-            // 길이 3 중 2번째 Miss(2/3=67% >= 60% 통과) — 음악은 계속, 마지막 목표 +180ms에 확정 1회.
+            // 길이 3 중 2번째 Miss — 음악은 계속, 마지막 목표 +180ms에 확정 1회. 통과 기준 100%라 Miss로 실패.
             var round1 = MakeRound(1, new int[0],
                 (Rr02Friend.Rabbit, 0L),
                 (Rr02Friend.Rabbit, 400000L),
@@ -250,12 +252,12 @@ namespace Mallang.RR02.Tests.EditMode
             Assert.AreEqual(Rr02Phase.Repeat, run.Phase);
 
             run.AdvanceTime(800000L + PadUs); // 확정은 마지막 목표 +180ms에 1회
-            Assert.AreEqual(Rr02Phase.Listen, run.Phase); // 2/3=67% >= 60% → 통과(다음 라운드 듣기)
-            Assert.AreEqual(1, run.Result.NormalCleared); // 통과 → 전구 +1
-            Assert.AreEqual(200, run.Result.TotalScore);  // 올바른 입력 점수 포함
+            Assert.AreEqual(Rr02Phase.Ended, run.Phase);  // Miss 1개 → 100% 실패, 전구 0에서 게임오버
+            Assert.AreEqual(0, run.Result.NormalCleared);
+            Assert.AreEqual(200, run.Result.TotalScore);  // 올바른 입력 점수는 그대로 포함
 
             run.AdvanceTime(5000000L); // 추가 진행 호출이 상태·결과를 바꾸지 않습니다.
-            Assert.AreEqual(Rr02Phase.Listen, run.Phase);
+            Assert.AreEqual(Rr02Phase.Ended, run.Phase);
             Assert.AreEqual(200, run.Result.TotalScore);
         }
 
@@ -335,20 +337,18 @@ namespace Mallang.RR02.Tests.EditMode
         [Test]
         public void FailsWhenHiddenNotesWrongEvenIfShownAreRight()
         {
-            // 기억 판정: 8노트 중 index 6,7을 숨김. 보이는 6개(토끼)는 다 맞히고 숨김 2개를 틀리면,
-            // 전체 6/8=75%여도 숨김 0/2=0% < 60% → 실패(보이는 노트만 쳐서 넘어가지 못함).
-            var round1 = MakeRound(1, new[] { 6, 7 },
+            // 통과 기준 100%: 4노트 중 index 3만 숨김. 보이는 3개(토끼)를 다 맞혀도 숨김 1개를 틀리면
+            // 그 노트가 Miss → 전체 100% 아님 → 실패(보이는 노트만 쳐서 넘어가지 못함).
+            var round1 = MakeRound(1, new[] { 3 },
                 (Rr02Friend.Rabbit, 0L), (Rr02Friend.Rabbit, 400000L), (Rr02Friend.Rabbit, 800000L),
-                (Rr02Friend.Rabbit, 1200000L), (Rr02Friend.Rabbit, 1600000L), (Rr02Friend.Rabbit, 2000000L),
-                (Rr02Friend.Capybara, 2400000L), (Rr02Friend.Fox, 2800000L)); // 숨김 6,7 = 카피바라/여우
+                (Rr02Friend.Fox, 1200000L)); // 숨김 3 = 여우
             var round2 = MakeRound(2, new int[0], (Rr02Friend.Rabbit, 0L));
             var run = new Rr02Run(MakeChart(round1, round2));
 
             run.BeginRepeat();
-            for (int i = 0; i < 6; i++) { run.AdvanceTime((long)i * 400000L); run.ProcessPress(Rr02Friend.Rabbit, (long)i * 400000L); }
-            run.AdvanceTime(2400000L); run.ProcessPress(Rr02Friend.Rabbit, 2400000L); // 숨김6 실제 카피바라 → Miss
-            run.AdvanceTime(2800000L); run.ProcessPress(Rr02Friend.Rabbit, 2800000L); // 숨김7 실제 여우 → Miss
-            run.AdvanceTime(2800000L + PadUs);
+            for (int i = 0; i < 3; i++) { run.AdvanceTime((long)i * 400000L); run.ProcessPress(Rr02Friend.Rabbit, (long)i * 400000L); }
+            run.AdvanceTime(1200000L); run.ProcessPress(Rr02Friend.Rabbit, 1200000L); // 숨김3 실제 여우 → Miss
+            run.AdvanceTime(1200000L + PadUs);
 
             Assert.AreEqual(Rr02Phase.Ended, run.Phase);     // 전구 0에서 실패 → 게임오버
             Assert.AreEqual(0, run.Result.NormalCleared);
@@ -357,19 +357,17 @@ namespace Mallang.RR02.Tests.EditMode
         [Test]
         public void PassesWhenHiddenNotesRecalledCorrectly()
         {
-            // 같은 구성에서 숨김 2개를 올바르게 치면 통과(전구+1, 다음 라운드).
-            var round1 = MakeRound(1, new[] { 6, 7 },
+            // 같은 구성에서 숨김 1개까지 올바르게 쳐서 모든 노트 100% 맞히면 통과(전구+1, 다음 라운드).
+            var round1 = MakeRound(1, new[] { 3 },
                 (Rr02Friend.Rabbit, 0L), (Rr02Friend.Rabbit, 400000L), (Rr02Friend.Rabbit, 800000L),
-                (Rr02Friend.Rabbit, 1200000L), (Rr02Friend.Rabbit, 1600000L), (Rr02Friend.Rabbit, 2000000L),
-                (Rr02Friend.Capybara, 2400000L), (Rr02Friend.Fox, 2800000L));
+                (Rr02Friend.Fox, 1200000L));
             var round2 = MakeRound(2, new int[0], (Rr02Friend.Rabbit, 0L));
             var run = new Rr02Run(MakeChart(round1, round2));
 
             run.BeginRepeat();
-            for (int i = 0; i < 6; i++) { run.AdvanceTime((long)i * 400000L); run.ProcessPress(Rr02Friend.Rabbit, (long)i * 400000L); }
-            run.AdvanceTime(2400000L); run.ProcessPress(Rr02Friend.Capybara, 2400000L); // 숨김6 정답
-            run.AdvanceTime(2800000L); run.ProcessPress(Rr02Friend.Fox, 2800000L);      // 숨김7 정답
-            run.AdvanceTime(2800000L + PadUs);
+            for (int i = 0; i < 3; i++) { run.AdvanceTime((long)i * 400000L); run.ProcessPress(Rr02Friend.Rabbit, (long)i * 400000L); }
+            run.AdvanceTime(1200000L); run.ProcessPress(Rr02Friend.Fox, 1200000L); // 숨김3 정답
+            run.AdvanceTime(1200000L + PadUs);
 
             Assert.AreEqual(Rr02Phase.Listen, run.Phase);
             Assert.AreEqual(1, run.Result.NormalCleared);

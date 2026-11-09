@@ -3514,6 +3514,11 @@ MonoBehaviour:
   clearHoldSeconds: 0.9
   popDuration: 0.34
   introBeats: 4
+  inputOffsetMs: 0
+  repeatPrerollMs: 180
+  tempoScale: 1.07
+  baselineVolume: 0.35
+  rabbitVolume: 0.7
   introRestBeats: 0.18
 --- !u!4 &1733537670
 Transform:

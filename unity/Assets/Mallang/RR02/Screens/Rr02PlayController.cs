@@ -50,6 +50,7 @@ namespace Mallang.RR02.Screens
         public float repeatPrerollMs = 180f; // 따라치기 전환 직후 프리롤: 노트는 드럼 그대로, 입력만 이만큼 일찍 허용(첫 노트 조기 입력)
         public float tempoScale = 1.15f;   // 재생 템포 배율(>1 = 느리게). 차트/판정 그대로, 재생만 느려짐. 1.15 ≈ 150->130BPM
         [Range(0f, 1f)] public float baselineVolume = 0.35f; // 하이햇(베이스라인) 볼륨. 악기 소리(1.0)보다 작게.
+        [Range(0f, 1f)] public float rabbitVolume = 0.7f; // 토끼 악기 소리가 다른 악기보다 커서 따로 낮춤.
         public float introRestBeats = 0.18f; // 카운트인 끝나고 '잘 들어요' 전 짧은 쉼(박)
 
         Rr02Chart _chart;
@@ -232,7 +233,12 @@ namespace Mallang.RR02.Screens
             return clip;
         }
 
-        void PlayTone(Rr02Friend f) { if (_audio != null && _tone.ContainsKey(f) && _tone[f] != null) _audio.PlayOneShot(_tone[f]); }
+        void PlayTone(Rr02Friend f)
+        {
+            if (_audio == null || !_tone.ContainsKey(f) || _tone[f] == null) return;
+            float vol = f == Rr02Friend.Rabbit ? rabbitVolume : 1f; // 토끼만 볼륨 낮춤
+            _audio.PlayOneShot(_tone[f], vol);
+        }
 
         void OnEnable()
         {
@@ -685,11 +691,24 @@ namespace Mallang.RR02.Screens
             foreach (Transform c in panel.transform)
                 if (c.name.StartsWith("Face") || c.name.StartsWith("Q")) c.gameObject.SetActive(false);
 
-            for (int i = 0; i < 8; i++)
+            // 멜로디 4노트: 카드 4개를 세로 정가운데(y=0) 한 줄로, 가로로 넓게 펼친다. 나머지 카드는 숨긴다.
+            const int cardCount = 4;
+            const float cardSize = 160f, cardStep = 168f;
+            float startX = -cardStep * (cardCount - 1) / 2f;
+            for (int i = 4; i < 8; i++)
+            {
+                var extra = panel.transform.Find("Card" + i);
+                if (extra != null) extra.gameObject.SetActive(false);
+            }
+
+            for (int i = 0; i < cardCount; i++)
             {
                 var card = panel.transform.Find("Card" + i);
                 if (card == null) continue;
                 var crt = (RectTransform)card;
+                crt.gameObject.SetActive(true);
+                crt.anchoredPosition = new Vector2(startX + i * cardStep, 0f);
+                crt.sizeDelta = new Vector2(cardSize, cardSize);
                 pos.Add(crt.anchoredPosition);
 
                 var fgo = new GameObject("LiveFace" + i, typeof(RectTransform), typeof(Image));
