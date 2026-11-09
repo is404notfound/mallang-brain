@@ -121,10 +121,10 @@ namespace Mallang.RR02.Tests.EditMode
             for (int k = 1; k <= 5; k++)
             {
                 var inf = chart.InfinitePhrase(k);
-                Assert.AreEqual(4, inf.Notes.Count, $"무한 k={k} 4노트");
-                CollectionAssert.AreEqual(new[] { 0, 1, 2, 3 }, inf.HiddenIndices.OrderBy(x => x).ToArray(), $"무한 k={k} 전부 숨김");
+                Assert.AreEqual(8, inf.Notes.Count, $"무한 k={k} 8노트");
+                CollectionAssert.AreEqual(new[] { 0, 1, 2, 3, 4, 5, 6, 7 }, inf.HiddenIndices.OrderBy(x => x).ToArray(), $"무한 k={k} 전부 숨김");
                 var t = inf.Notes.Select(n => n.TargetUs).OrderBy(x => x).ToArray();
-                CollectionAssert.AreEqual(new long[] { 0, 400000, 800000, 1200000 }, t, $"무한 k={k} 4박 타이밍");
+                CollectionAssert.AreEqual(new long[] { 0, 400000, 800000, 1200000, 1600000, 2000000, 2400000, 2800000 }, t, $"무한 k={k} 8박 타이밍");
             }
             CollectionAssert.AreEqual(FriendSeq(chart.InfinitePhrase(1)), FriendSeq(chart.InfinitePhrase(1))); // 같은 k 결정적
         }

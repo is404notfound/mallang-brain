@@ -331,5 +331,48 @@ namespace Mallang.RR02.Tests.EditMode
             Assert.AreEqual(0, ScoreOf(scores, Rr02Friend.Squirrel));
             Assert.AreEqual(0, run.Result.NormalCleared); // R1 통과(1) 뒤 R2 실패로 전구 1→0
         }
+
+        [Test]
+        public void FailsWhenHiddenNotesWrongEvenIfShownAreRight()
+        {
+            // 기억 판정: 8노트 중 index 6,7을 숨김. 보이는 6개(토끼)는 다 맞히고 숨김 2개를 틀리면,
+            // 전체 6/8=75%여도 숨김 0/2=0% < 60% → 실패(보이는 노트만 쳐서 넘어가지 못함).
+            var round1 = MakeRound(1, new[] { 6, 7 },
+                (Rr02Friend.Rabbit, 0L), (Rr02Friend.Rabbit, 400000L), (Rr02Friend.Rabbit, 800000L),
+                (Rr02Friend.Rabbit, 1200000L), (Rr02Friend.Rabbit, 1600000L), (Rr02Friend.Rabbit, 2000000L),
+                (Rr02Friend.Capybara, 2400000L), (Rr02Friend.Fox, 2800000L)); // 숨김 6,7 = 카피바라/여우
+            var round2 = MakeRound(2, new int[0], (Rr02Friend.Rabbit, 0L));
+            var run = new Rr02Run(MakeChart(round1, round2));
+
+            run.BeginRepeat();
+            for (int i = 0; i < 6; i++) { run.AdvanceTime((long)i * 400000L); run.ProcessPress(Rr02Friend.Rabbit, (long)i * 400000L); }
+            run.AdvanceTime(2400000L); run.ProcessPress(Rr02Friend.Rabbit, 2400000L); // 숨김6 실제 카피바라 → Miss
+            run.AdvanceTime(2800000L); run.ProcessPress(Rr02Friend.Rabbit, 2800000L); // 숨김7 실제 여우 → Miss
+            run.AdvanceTime(2800000L + PadUs);
+
+            Assert.AreEqual(Rr02Phase.Ended, run.Phase);     // 전구 0에서 실패 → 게임오버
+            Assert.AreEqual(0, run.Result.NormalCleared);
+        }
+
+        [Test]
+        public void PassesWhenHiddenNotesRecalledCorrectly()
+        {
+            // 같은 구성에서 숨김 2개를 올바르게 치면 통과(전구+1, 다음 라운드).
+            var round1 = MakeRound(1, new[] { 6, 7 },
+                (Rr02Friend.Rabbit, 0L), (Rr02Friend.Rabbit, 400000L), (Rr02Friend.Rabbit, 800000L),
+                (Rr02Friend.Rabbit, 1200000L), (Rr02Friend.Rabbit, 1600000L), (Rr02Friend.Rabbit, 2000000L),
+                (Rr02Friend.Capybara, 2400000L), (Rr02Friend.Fox, 2800000L));
+            var round2 = MakeRound(2, new int[0], (Rr02Friend.Rabbit, 0L));
+            var run = new Rr02Run(MakeChart(round1, round2));
+
+            run.BeginRepeat();
+            for (int i = 0; i < 6; i++) { run.AdvanceTime((long)i * 400000L); run.ProcessPress(Rr02Friend.Rabbit, (long)i * 400000L); }
+            run.AdvanceTime(2400000L); run.ProcessPress(Rr02Friend.Capybara, 2400000L); // 숨김6 정답
+            run.AdvanceTime(2800000L); run.ProcessPress(Rr02Friend.Fox, 2800000L);      // 숨김7 정답
+            run.AdvanceTime(2800000L + PadUs);
+
+            Assert.AreEqual(Rr02Phase.Listen, run.Phase);
+            Assert.AreEqual(1, run.Result.NormalCleared);
+        }
     }
 }

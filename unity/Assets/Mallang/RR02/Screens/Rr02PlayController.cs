@@ -685,9 +685,7 @@ namespace Mallang.RR02.Screens
             foreach (Transform c in panel.transform)
                 if (c.name.StartsWith("Face") || c.name.StartsWith("Q")) c.gameObject.SetActive(false);
 
-            // 멜로디 길이 4 고정: 앞 4칸만 사용하고 나머지(4~7)는 숨긴다.
-            for (int i = 4; i < 8; i++) { var ex = panel.transform.Find("Card" + i); if (ex != null) ex.gameObject.SetActive(false); }
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 8; i++)
             {
                 var card = panel.transform.Find("Card" + i);
                 if (card == null) continue;

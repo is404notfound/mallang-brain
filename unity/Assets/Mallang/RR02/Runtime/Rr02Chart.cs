@@ -17,7 +17,7 @@ namespace Mallang.RR02
 
         private int _seed;
 
-        private const int MelodyLength = 4;
+        private const int MelodyLength = 8;
 
         private static readonly Rr02Friend[] AllFriends =
         {
@@ -51,8 +51,8 @@ namespace Mallang.RR02
 
         private static Rr02Round GenerateRound(int number, int variety, int hidden, System.Random rng)
         {
-            variety = Math.Max(1, Math.Min(4, variety));
-            hidden = Math.Max(0, Math.Min(4, hidden));
+            variety = Math.Max(1, Math.Min(AllFriends.Length, variety)); // 동물은 최대 4종
+            hidden = Math.Max(0, Math.Min(MelodyLength, hidden));
 
             var chosen = (Rr02Friend[])AllFriends.Clone();
             Shuffle(chosen, rng);
@@ -71,7 +71,8 @@ namespace Mallang.RR02
                 notes[i] = new Rr02Note(i, slots[i], targetUs);
             }
 
-            var indices = new List<int> { 0, 1, 2, 3 };
+            var indices = new List<int>();
+            for (int i = 0; i < MelodyLength; i++) indices.Add(i);
             Shuffle(indices, rng);
             var hiddenList = indices.GetRange(0, hidden);
             hiddenList.Sort();
