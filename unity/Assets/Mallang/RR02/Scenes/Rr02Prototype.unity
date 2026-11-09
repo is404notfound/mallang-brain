@@ -3513,7 +3513,7 @@ MonoBehaviour:
   listenTailSeconds: 0.7
   clearHoldSeconds: 0.9
   popDuration: 0.34
-  introBeats: 8
+  introBeats: 4
 --- !u!4 &1733537670
 Transform:
   m_ObjectHideFlags: 0

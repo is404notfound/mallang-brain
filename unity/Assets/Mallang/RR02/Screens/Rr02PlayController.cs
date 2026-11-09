@@ -45,7 +45,7 @@ namespace Mallang.RR02.Screens
         enum State { Intro, Listen, Repeat, Clear, Result }
 
         [Header("인트로")]
-        public int introBeats = 8; // 시작 전 둠칫둠칫 카운트인 박 수
+        public int introBeats = 4; // 시작 전 둠칫둠칫 카운트인 박 수
 
         Rr02Chart _chart;
         Rr02Run _run;
