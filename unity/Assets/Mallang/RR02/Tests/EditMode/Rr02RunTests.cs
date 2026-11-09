@@ -168,18 +168,18 @@ namespace Mallang.RR02.Tests.EditMode
             run.ProcessPress(Rr02Friend.Rabbit, 0L);                 // Perfect 100
             run.ProcessPress(Rr02Friend.Rabbit, 400000L + 100000L);  // Good 70
             run.ProcessPress(Rr02Friend.Rabbit, 800000L);            // Perfect 100
-            run.AdvanceTime(1200000L + PadUs);                       // 마지막 노트 미입력 → Miss 0, 구절 실패
+            run.AdvanceTime(1200000L + PadUs);                       // 마지막 노트 Miss, 3/4=75% >= 60% → 통과
 
-            Assert.AreEqual(Rr02Phase.Ended, run.Phase);
-            Assert.AreEqual(270, ScoreOf(run.Result.AnimalScores, Rr02Friend.Rabbit)); // AC-006
+            Assert.AreEqual(Rr02Phase.Listen, run.Phase);
+            Assert.AreEqual(270, ScoreOf(run.Result.AnimalScores, Rr02Friend.Rabbit)); // 점수 합산(콤보 배율 없음)
             Assert.AreEqual(270, run.Result.TotalScore);
-            Assert.AreEqual(0, run.Result.NormalCleared); // 실패한 단계는 클리어 수에 넣지 않음
+            Assert.AreEqual(1, run.Result.NormalCleared); // 60% 이상 통과 → 전구 +1
         }
 
         [Test]
-        public void GhostInputScoresZeroAndFailsThePhrase()
+        public void GhostInputScoresZeroButDoesNotFailNormalRound()
         {
-            // AC-006: ghost는 0점이며 그 단계를 실패시킵니다. 올바른 입력 점수는 포함합니다(AC-008).
+            // 라이프 모델: ghost는 0점이지만 일반 라운드를 실패시키지 않습니다(4/4 통과). 올바른 입력 점수는 포함.
             var round1 = MakeRound(1, new int[0],
                 (Rr02Friend.Rabbit, 0L),
                 (Rr02Friend.Rabbit, 400000L),
@@ -197,17 +197,17 @@ namespace Mallang.RR02.Tests.EditMode
             run.AdvanceTime(1200000L + PadUs);
 
             Assert.AreEqual(Rr02InputKind.Ghost, ghost.Kind);
-            Assert.AreEqual(Rr02Phase.Ended, run.Phase); // 전 목표 성공이어도 ghost가 있으면 단계 실패
-            Assert.AreEqual(0, run.Result.NormalCleared);
+            Assert.AreEqual(Rr02Phase.Listen, run.Phase); // ghost는 0점일 뿐, 4개 노트 다 맞아 통과
+            Assert.AreEqual(1, run.Result.NormalCleared);
             Assert.AreEqual(400, ScoreOf(run.Result.AnimalScores, Rr02Friend.Rabbit));
             Assert.AreEqual(0, ScoreOf(run.Result.AnimalScores, Rr02Friend.Capybara)); // ghost 0점
             Assert.AreEqual(400, run.Result.TotalScore);
         }
 
         [Test]
-        public void MidPhraseMissKeepsMusicRunningAndEndsOnceAtPhraseEnd()
+        public void MidPhraseMissKeepsMusicRunningAndFinalizesOnceAtPhraseEnd()
         {
-            // AC-008: 길이 3 입력 중 2번째 Miss — 음악은 계속, 마지막 목표 +180ms에 종료 1회.
+            // 길이 3 중 2번째 Miss(2/3=67% >= 60% 통과) — 음악은 계속, 마지막 목표 +180ms에 확정 1회.
             var round1 = MakeRound(1, new int[0],
                 (Rr02Friend.Rabbit, 0L),
                 (Rr02Friend.Rabbit, 400000L),
@@ -227,13 +227,13 @@ namespace Mallang.RR02.Tests.EditMode
             run.AdvanceTime(800000L + PadUs - 1L);
             Assert.AreEqual(Rr02Phase.Repeat, run.Phase);
 
-            run.AdvanceTime(800000L + PadUs); // 종료는 마지막 목표 +180ms에 1회
-            Assert.AreEqual(Rr02Phase.Ended, run.Phase);
-            Assert.AreEqual(0, run.Result.NormalCleared); // 완료 단계는 직전까지
+            run.AdvanceTime(800000L + PadUs); // 확정은 마지막 목표 +180ms에 1회
+            Assert.AreEqual(Rr02Phase.Listen, run.Phase); // 2/3=67% >= 60% → 통과(다음 라운드 듣기)
+            Assert.AreEqual(1, run.Result.NormalCleared); // 통과 → 전구 +1
             Assert.AreEqual(200, run.Result.TotalScore);  // 올바른 입력 점수 포함
 
             run.AdvanceTime(5000000L); // 추가 진행 호출이 상태·결과를 바꾸지 않습니다.
-            Assert.AreEqual(Rr02Phase.Ended, run.Phase);
+            Assert.AreEqual(Rr02Phase.Listen, run.Phase);
             Assert.AreEqual(200, run.Result.TotalScore);
         }
 
@@ -273,15 +273,15 @@ namespace Mallang.RR02.Tests.EditMode
             // R2 시퀀스에서 토끼는 index 3(1,200,000µs)·index 7(2,800,000µs)입니다.
             run.ProcessPress(Rr02Friend.Rabbit, 1200000L);
             run.ProcessPress(Rr02Friend.Rabbit, 2800000L);
-            run.AdvanceTime(2800000L + PadUs); // 나머지 6목표 Miss → 구절 실패 → 종료
+            run.AdvanceTime(2800000L + PadUs); // 2/8=25% < 60% 실패: 전구 1→0 깎고 같은 라운드 재도전(게임오버 아님)
 
-            Assert.AreEqual(Rr02Phase.Ended, run.Phase);
+            Assert.AreEqual(Rr02Phase.Listen, run.Phase);
             var scores = run.Result.AnimalScores;
             Assert.AreEqual(600, ScoreOf(scores, Rr02Friend.Rabbit));    // 400 + Perfect 2회
             Assert.AreEqual(400, ScoreOf(scores, Rr02Friend.Capybara));  // R1 값에서 변화 없음
             Assert.AreEqual(0, ScoreOf(scores, Rr02Friend.Fox));
             Assert.AreEqual(0, ScoreOf(scores, Rr02Friend.Squirrel));
-            Assert.AreEqual(1, run.Result.NormalCleared);
+            Assert.AreEqual(0, run.Result.NormalCleared); // R1 통과(1) 뒤 R2 실패로 전구 1→0
         }
     }
 }

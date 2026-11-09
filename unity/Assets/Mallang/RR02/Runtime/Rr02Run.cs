@@ -51,9 +51,9 @@ namespace Mallang.RR02
             if (_phase != Rr02Phase.Listen) return;
 
             // hiddenIndices는 표현만 바꾸고 노트를 바꾸지 않으므로 Notes를 그대로 씁니다.
-            // 9라운드 완료 이후에는 무한 구절(k = Loops + 1)로 진입합니다.
+            // 9라운드(일반)를 모두 지나면(_currentRound>9) 무한 구절(k = Loops + 1)로 진입합니다.
             IReadOnlyList<Rr02Note> notes;
-            if (_normalCleared >= 9) notes = _chart.InfinitePhrase(_loops + 1).Notes;
+            if (_currentRound > 9) notes = _chart.InfinitePhrase(_loops + 1).Notes;
             else notes = _chart.Rounds[_currentRound - 1].Notes;
 
             _phraseNotes = SortForOutcomes(notes);
@@ -116,40 +116,49 @@ namespace Mallang.RR02
         private void FinalizePhrase()
         {
             var outcomes = _judge.Outcomes;
-            bool phraseSuccess = _judge.GhostCount == 0; // ghost 입력은 0점이고 구절 실패(AC-006)
             bool phraseAllPerfect = true;
+            bool anyMiss = false;
+            int hitCount = 0; // Perfect 또는 Good
 
             for (int i = 0; i < outcomes.Count; i++)
             {
                 var judgement = outcomes[i];
-                if (judgement == Rr02Judgement.Miss) phraseSuccess = false;
+                if (judgement == Rr02Judgement.Miss) anyMiss = true;
+                else hitCount++;
                 if (judgement != Rr02Judgement.Perfect) phraseAllPerfect = false;
 
-                // 콤보 배율 없음: Perfect 100 / Good 70 / Miss 0(AC-006). 노트의 친구에게 가산합니다.
+                // 콤보 배율 없음: Perfect 100 / Good 70 / Miss 0. 노트의 친구에게 가산합니다.
                 int points = judgement == Rr02Judgement.Perfect ? Rr02Rules.PerfectScore
                     : judgement == Rr02Judgement.Good ? Rr02Rules.GoodScore
                     : 0;
                 _scores[_phraseNotes[i].Friend] += points;
             }
 
-            if (phraseSuccess)
+            bool inLoop = _currentRound > 9;
+            if (inLoop)
             {
-                _allPerfect = _allPerfect && phraseAllPerfect;
-                if (_normalCleared < 9)
-                {
-                    _normalCleared++;
-                    if (_normalCleared < 9) _currentRound = _normalCleared + 1;
-                }
-                else
-                {
-                    _loops++; // AC-013: 무한 구절 성공마다 완료 수 +1
-                }
-                _phase = Rr02Phase.Listen;
+                // 무한 구간: 기존 엄격 규칙(미스/ghost 없어야 성공). 실패하면 도전 종료(리더보드 기록용).
+                bool loopSuccess = _judge.GhostCount == 0 && !anyMiss;
+                if (loopSuccess) { _loops++; _phase = Rr02Phase.Listen; }
+                else { _phase = Rr02Phase.Ended; }
             }
             else
             {
-                // NormalCleared는 직전 값 유지, 올바른 입력 점수는 유지(AC-008).
-                _phase = Rr02Phase.Ended;
+                // 일반 라운드(라이프 모델): 정확도 60% 이상이면 통과(전구+1·다음 라운드),
+                // 미만이면 전구-1·같은 라운드 재도전. 전구 0에서 실패하면 게임오버.
+                bool pass = hitCount * 100 >= outcomes.Count * 60; // >= 60%
+                if (pass)
+                {
+                    _allPerfect = _allPerfect && phraseAllPerfect;
+                    _currentRound++;                         // 다음 라운드(통과할 때만 전진)
+                    if (_normalCleared < 9) _normalCleared++; // 전구 +1
+                    _phase = Rr02Phase.Listen;
+                }
+                else
+                {
+                    if (_normalCleared <= 0) { _phase = Rr02Phase.Ended; } // 전구 0에서 실패 = 게임오버
+                    else { _normalCleared--; _phase = Rr02Phase.Listen; }  // 전구 -1, _currentRound 유지(재도전)
+                }
             }
 
             _judge = null;

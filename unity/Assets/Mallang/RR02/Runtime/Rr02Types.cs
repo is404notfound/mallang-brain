@@ -10,9 +10,9 @@ namespace Mallang.RR02
 
     public static class Rr02Rules
     {
-        public const long PerfectWindowUs = 60000;
-        public const long GoodWindowUs = 120000;
-        public const long OwnershipPadUs = 180000;
+        public const long PerfectWindowUs = 80000;   // ±80ms (모바일 지연 고려해 넓힘)
+        public const long GoodWindowUs = 150000;      // ±150ms
+        public const long OwnershipPadUs = 180000;    // Good 밖 여유(>GoodWindow). 구절 완료 시점도 이 값 기준.
         public const long BeatUs = 400000;
         public const int TicksPerBeat = 480;
         public const int PerfectScore = 100;

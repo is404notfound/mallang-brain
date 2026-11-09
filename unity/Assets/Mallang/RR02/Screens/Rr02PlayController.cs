@@ -180,6 +180,12 @@ namespace Mallang.RR02.Screens
         // 플레이스홀더 음 생성(친구마다 다른 음정, 펜타토닉). 실제 악기 소리는 에셋으로 교체.
         void SetupAudio()
         {
+            // 모바일 오디오 출력 지연 축소(best latency). 첫 Hit 밀림 완화. 시작 시 1회.
+            if (!_audioPrimed)
+            {
+                var cfg = AudioSettings.GetConfiguration();
+                if (cfg.dspBufferSize > 256) { cfg.dspBufferSize = 256; AudioSettings.Reset(cfg); }
+            }
             if (_audio == null)
             {
                 _audio = GetComponent<AudioSource>() ?? gameObject.AddComponent<AudioSource>();

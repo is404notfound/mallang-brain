@@ -23,10 +23,10 @@ namespace Mallang.RR02.Tests.EditMode
 
         // --- 경계 전수 (AC-005, Review Focus 1·2) ---
 
-        [TestCase(-60000L)] // Review Focus 2: 음수 offset 대칭 — 정확히 −60,000µs는 Perfect
+        [TestCase(-80000L)] // 정확히 −80,000µs는 Perfect(양끝 포함)
         [TestCase(0L)]
-        [TestCase(60000L)]
-        public void PerfectWindowIsInclusiveAtSixtyMs(long offsetUs)
+        [TestCase(80000L)]
+        public void PerfectWindowIsInclusiveAtEightyMs(long offsetUs)
         {
             var judge = SingleNoteJudge(Rr02Friend.Rabbit, T);
 
@@ -37,13 +37,13 @@ namespace Mallang.RR02.Tests.EditMode
             Assert.AreEqual(0, result.NoteId);
         }
 
-        [TestCase(-120000L)] // Review Focus 1: 정확히 ±120,000µs는 양끝 포함으로 Good 소비
-        [TestCase(-61000L)]
-        [TestCase(-60001L)]
-        [TestCase(60001L)]
-        [TestCase(61000L)]
-        [TestCase(120000L)]
-        public void GoodWindowIsInclusiveAtOneHundredTwentyMs(long offsetUs)
+        [TestCase(-150000L)] // 정확히 ±150,000µs는 양끝 포함으로 Good 소비
+        [TestCase(-81000L)]
+        [TestCase(-80001L)]
+        [TestCase(80001L)]
+        [TestCase(81000L)]
+        [TestCase(150000L)]
+        public void GoodWindowIsInclusiveAtOneHundredFiftyMs(long offsetUs)
         {
             var judge = SingleNoteJudge(Rr02Friend.Rabbit, T);
 
@@ -53,10 +53,10 @@ namespace Mallang.RR02.Tests.EditMode
             Assert.AreEqual(Rr02Judgement.Good, result.Judgement);
         }
 
-        [TestCase(-121000L)] // AC-005: −121ms는 소비하지 않음
-        [TestCase(-120001L)] // Review Focus 1: ±120,001µs는 소비하지 않음
-        [TestCase(120001L)]
-        [TestCase(121000L)]
+        [TestCase(-151000L)] // −151ms는 소비하지 않음
+        [TestCase(-150001L)] // ±150,001µs는 소비하지 않음
+        [TestCase(150001L)]
+        [TestCase(151000L)]
         public void OffsetsBeyondGoodWindowDoNotConsumeTarget(long offsetUs)
         {
             var judge = SingleNoteJudge(Rr02Friend.Rabbit, T);
