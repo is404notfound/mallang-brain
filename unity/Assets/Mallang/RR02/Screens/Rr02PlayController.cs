@@ -86,18 +86,9 @@ namespace Mallang.RR02.Screens
         // 랭킹(온라인 리더보드) 화면
         GameObject _rankingRoot;
         BenchmarkTable _benchTable;
+        // 경로 B: 승인 캔버스(screen-ranking)를 배경 한 장으로 쓰고, 상태로 변하는 숫자만 폰트로 오버레이.
         Text _heroScore, _heroReach, _heroGradeLabel, _heroNextChip;
-        Image[] _rowBg = new Image[10];
-        Text[] _rowRank = new Text[10];
-        Image[] _rowAvatar = new Image[10];
-        Text[] _rowName = new Text[10];
-        Text[] _rowScore = new Text[10];
-        GameObject _ellipsisRow;
-        GameObject _myRowGo;
-        Image _myRowBg, _myAvatarImg;
-        Text _myRowRank, _myRowName, _myRowScore;
-        Image[] _badgeIcon = new Image[3];
-        Text[] _badgeLabel = new Text[3];
+        Text _myRowRank, _myRowScore;
         Text[] _friendScore = new Text[4];
         Image[] _friendBrainHead = new Image[4];
         Image[] _lines = new Image[4];       // 뇌 -> 친구 연결선
@@ -368,117 +359,67 @@ namespace Mallang.RR02.Screens
             if (_rankingRoot != null) return;
             var canvas = GameObject.Find("PlayUI");
             if (canvas == null) return;
-            var font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-            var rounded = UnityEditor_RoundedSprite();
-            Color cream = new Color(1f, 0.97f, 0.9f, 0.96f);
+            var font = LoadDisplayFont();
+            Color cream = new Color(1f, 0.95f, 0.84f, 1f);
+            Color green = new Color(0.78f, 0.92f, 0.57f, 1f);
             Color brown = new Color(0.33f, 0.22f, 0.13f, 1f);
-            Color labelBrown = new Color(0.5f, 0.42f, 0.3f, 1f);
 
             _rankingRoot = new GameObject("RankingRoot", typeof(RectTransform));
             _rankingRoot.transform.SetParent(canvas.transform, false);
             var rr = (RectTransform)_rankingRoot.transform;
             rr.anchorMin = Vector2.zero; rr.anchorMax = Vector2.one; rr.offsetMin = rr.offsetMax = Vector2.zero;
 
-            var bg = NewImage("Bg", _rankingRoot.transform, LoadSprite("stage-background"), false);
+            // 배경: 승인 캔버스 한 장(고정 구성). 상위 10행·메달·배지·버튼 아트가 전부 베이크됨.
+            // 목 리더보드가 캔버스와 동일하므로 코드가 그릴 건 '상태로 변하는 숫자'뿐이다(원칙 6: 변하는가로 분해).
+            var bg = NewImage("Bg", _rankingRoot.transform, LoadSprite("screen-ranking"), false);
+            bg.preserveAspect = true;
             var bgrt = bg.rectTransform; bgrt.anchorMin = Vector2.zero; bgrt.anchorMax = Vector2.one; bgrt.offsetMin = bgrt.offsetMax = Vector2.zero;
-            var dim = NewImage("Dim", _rankingRoot.transform, null, false); dim.color = new Color(0.1f, 0.08f, 0.16f, 0.35f);
-            var drt = dim.rectTransform; drt.anchorMin = Vector2.zero; drt.anchorMax = Vector2.one; drt.offsetMin = drt.offsetMax = Vector2.zero;
 
-            // ---- 1) 히어로 바(상단, 가로로 꽉 참) ----
-            var hero = NewImage("Hero", _rankingRoot.transform, rounded, false); hero.type = Image.Type.Sliced; hero.color = cream;
-            var herrt = hero.rectTransform; herrt.anchoredPosition = new Vector2(0, 300); herrt.sizeDelta = new Vector2(1160, 150);
+            // 상태로 변하는 값만 오버레이: 가리개 플레이트(베이크 샘플 숫자를 덮음) + 폰트 텍스트.
+            // 등급 리본·다음 칩은 삽화라 베이크 유지(프로토타입: 대부분 암보 합주). 숫자만 라이브.
+            _heroScore = CoverText(_rankingRoot.transform, font, 44, new Vector2(-44, 276), new Vector2(230, 64), cream, brown, TextAnchor.MiddleCenter);
+            _heroReach = CoverText(_rankingRoot.transform, font, 44, new Vector2(204, 276), new Vector2(210, 64), cream, brown, TextAnchor.MiddleCenter);
+            _myRowRank = CoverText(_rankingRoot.transform, font, 26, new Vector2(-312, -161), new Vector2(150, 38), green, brown, TextAnchor.MiddleCenter);
+            _myRowScore = CoverText(_rankingRoot.transform, font, 26, new Vector2(304, -161), new Vector2(170, 38), green, brown, TextAnchor.MiddleRight);
 
-            // 왼쪽: 큰 금메달 + 그 아래 빨간 리본에 등급명
-            var medal = NewImage("GradeMedal", hero.transform, LoadSprite("grade-emblem"), true);
-            var medrt = medal.rectTransform; medrt.anchoredPosition = new Vector2(-500, 5); medrt.sizeDelta = new Vector2(120, 120);
-            var gradeRibbon = NewImage("GradeRibbon", hero.transform, LoadSprite("banner-ribbon"), false);
-            var grrt = gradeRibbon.rectTransform; grrt.anchoredPosition = new Vector2(-500, -50); grrt.sizeDelta = new Vector2(150, 50);
-            _heroGradeLabel = MakeText(gradeRibbon.transform, font, 20, Vector2.zero, new Vector2(140, 36));
-            _heroGradeLabel.fontStyle = FontStyle.Normal; _heroGradeLabel.color = brown; _heroGradeLabel.raycastTarget = false;
-
-            var div1 = NewImage("Div1", hero.transform, null, false); div1.color = new Color(0f, 0f, 0f, 0.15f);
-            var d1rt = div1.rectTransform; d1rt.anchoredPosition = new Vector2(-350, 0); d1rt.sizeDelta = new Vector2(3, 96);
-
-            var stat1h = MakeText(hero.transform, font, 18, new Vector2(-200, 30), new Vector2(220, 28));
-            stat1h.text = "내 리듬 최고"; stat1h.fontStyle = FontStyle.Normal; stat1h.color = labelBrown;
-            _heroScore = MakeText(hero.transform, font, 40, new Vector2(-200, -16), new Vector2(240, 56)); _heroScore.color = brown;
-
-            var div2 = NewImage("Div2", hero.transform, null, false); div2.color = new Color(0f, 0f, 0f, 0.15f);
-            var d2rt = div2.rectTransform; d2rt.anchoredPosition = new Vector2(10, 0); d2rt.sizeDelta = new Vector2(3, 96);
-
-            var stat2h = MakeText(hero.transform, font, 18, new Vector2(160, 30), new Vector2(220, 28));
-            stat2h.text = "최고 도달"; stat2h.fontStyle = FontStyle.Normal; stat2h.color = labelBrown;
-            _heroReach = MakeText(hero.transform, font, 40, new Vector2(160, -16), new Vector2(240, 56)); _heroReach.color = brown;
-
-            var chipBg = NewImage("NextChip", hero.transform, rounded, false); chipBg.type = Image.Type.Sliced; chipBg.color = new Color(0.75f, 0.85f, 1f, 0.95f);
-            var chiprt = chipBg.rectTransform; chiprt.anchoredPosition = new Vector2(490, 0); chiprt.sizeDelta = new Vector2(170, 54);
-            _heroNextChip = MakeText(chipBg.transform, font, 20, Vector2.zero, new Vector2(160, 40)); _heroNextChip.color = brown;
-
-            // ---- 2) 리더보드 패널(중앙, 가장 큼). 위로 올려 아래 배지/버튼과 띄움.
-            // board 중심 canvas +25 → 자식 local y = (canvas y) - 25. 아래쪽 myRow 바닥이 canvas ≈ -150에서 끝나게 함.
-            var board = NewImage("Board", _rankingRoot.transform, rounded, false); board.type = Image.Type.Sliced; board.color = new Color(1f, 0.99f, 0.94f, 0.96f);
-            var boardrt = board.rectTransform; boardrt.anchoredPosition = new Vector2(0, 25); boardrt.sizeDelta = new Vector2(1120, 350);
-
-            var hRank = MakeText(board.transform, font, 22, new Vector2(-480, 160), new Vector2(120, 30)); hRank.text = "순위"; hRank.fontStyle = FontStyle.Normal; hRank.color = labelBrown;
-            var hPlayer = MakeText(board.transform, font, 22, new Vector2(-280, 160), new Vector2(240, 30)); hPlayer.text = "플레이어"; hPlayer.fontStyle = FontStyle.Normal; hPlayer.color = labelBrown;
-            var hScore = MakeText(board.transform, font, 22, new Vector2(470, 160), new Vector2(160, 30)); hScore.text = "점수"; hScore.fontStyle = FontStyle.Normal; hScore.color = labelBrown; hScore.alignment = TextAnchor.MiddleRight;
-
-            Color rowCream = new Color(1f, 1f, 1f, 0f);
-            for (int i = 0; i < 10; i++)
-            {
-                float y = 130 - i * 26; // local; row0 canvas +155 … row9 canvas -79
-                var slot = NewImage("Row" + i, board.transform, rounded, false); slot.type = Image.Type.Sliced; slot.color = rowCream;
-                var slotrt = slot.rectTransform; slotrt.anchoredPosition = new Vector2(0, y); slotrt.sizeDelta = new Vector2(1080, 24);
-                _rowBg[i] = slot;
-
-                _rowRank[i] = MakeText(slot.transform, font, 20, new Vector2(-480, 0), new Vector2(80, 24)); _rowRank[i].fontStyle = FontStyle.Normal; _rowRank[i].color = brown;
-                _rowAvatar[i] = NewImage("Avatar" + i, slot.transform, null, true);
-                var avrt = _rowAvatar[i].rectTransform; avrt.anchoredPosition = new Vector2(-380, 0); avrt.sizeDelta = new Vector2(26, 26);
-                _rowName[i] = MakeText(slot.transform, font, 20, new Vector2(-150, 0), new Vector2(300, 24)); _rowName[i].fontStyle = FontStyle.Normal; _rowName[i].alignment = TextAnchor.MiddleLeft; _rowName[i].color = brown;
-                _rowScore[i] = MakeText(slot.transform, font, 20, new Vector2(470, 0), new Vector2(160, 24)); _rowScore[i].fontStyle = FontStyle.Normal; _rowScore[i].alignment = TextAnchor.MiddleRight; _rowScore[i].color = brown;
-            }
-
-            var ellipsis = MakeText(board.transform, font, 26, new Vector2(0, -125), new Vector2(1080, 24)); // canvas -100
-            ellipsis.text = "⋯"; ellipsis.color = labelBrown;
-            _ellipsisRow = ellipsis.gameObject;
-
-            var myRowBgImg = NewImage("MyRow", board.transform, rounded, false); myRowBgImg.type = Image.Type.Sliced; myRowBgImg.color = new Color(0.7f, 0.9f, 0.6f, 1f);
-            var myrt = myRowBgImg.rectTransform; myrt.anchoredPosition = new Vector2(0, -148); myrt.sizeDelta = new Vector2(1080, 28); // canvas center -123, 바닥 canvas ≈ -137
-            _myRowBg = myRowBgImg; _myRowGo = myRowBgImg.gameObject;
-
-            _myRowRank = MakeText(myRowBgImg.transform, font, 20, new Vector2(-480, 0), new Vector2(80, 28)); _myRowRank.fontStyle = FontStyle.Normal; _myRowRank.color = brown;
-            _myAvatarImg = NewImage("MyAvatar", myRowBgImg.transform, null, true);
-            var myavrt = _myAvatarImg.rectTransform; myavrt.anchoredPosition = new Vector2(-380, 0); myavrt.sizeDelta = new Vector2(30, 30);
-            _myRowName = MakeText(myRowBgImg.transform, font, 20, new Vector2(-150, 0), new Vector2(200, 28)); _myRowName.fontStyle = FontStyle.Normal; _myRowName.alignment = TextAnchor.MiddleLeft; _myRowName.color = brown;
-            var youPill = NewImage("YouPin", myRowBgImg.transform, rounded, false); youPill.type = Image.Type.Sliced; youPill.color = new Color(0.9f, 0.25f, 0.25f, 1f);
-            var youprt = youPill.rectTransform; youprt.anchoredPosition = new Vector2(-40, 0); youprt.sizeDelta = new Vector2(52, 24);
-            var youTxt = MakeText(youPill.transform, font, 14, Vector2.zero, new Vector2(48, 22)); youTxt.text = "YOU"; youTxt.color = Color.white;
-            _myRowScore = MakeText(myRowBgImg.transform, font, 20, new Vector2(470, 0), new Vector2(160, 28)); _myRowScore.fontStyle = FontStyle.Normal; _myRowScore.alignment = TextAnchor.MiddleRight; _myRowScore.color = brown;
-
-            // ---- 3) 업적 배지(자체 밴드: 패널 아래 ~ 버튼 위) ----
-            // 옅은 크림 알약 배경(세 배지를 한 바로 묶음). 아이콘·라벨보다 먼저 만들어 뒤로 깔림.
-            var badgePill = NewImage("BadgePill", _rankingRoot.transform, rounded, false); badgePill.type = Image.Type.Sliced; badgePill.color = new Color(1f, 0.97f, 0.9f, 0.5f);
-            var bprt = badgePill.rectTransform; bprt.anchoredPosition = new Vector2(0, -210); bprt.sizeDelta = new Vector2(700, 96);
-
-            string[] badgeSprite = { "badge-allclear", "badge-allperfect", "badge-loop" };
-            string[] badgeLabel = { "올클리어", "올퍼펙트", "무한루프" };
-            float[] bx = { -230, 0, 230 };
-            for (int i = 0; i < 3; i++)
-            {
-                var bimg = NewImage("Badge" + i, _rankingRoot.transform, LoadSprite(badgeSprite[i]), true);
-                var bimgrt = bimg.rectTransform; bimgrt.anchoredPosition = new Vector2(bx[i], -195); bimgrt.sizeDelta = new Vector2(64, 64);
-                _badgeIcon[i] = bimg;
-                var blabel = MakeText(_rankingRoot.transform, font, 18, new Vector2(bx[i], -244), new Vector2(160, 26));
-                blabel.text = badgeLabel[i]; blabel.fontStyle = FontStyle.Normal; blabel.color = brown;
-                _badgeLabel[i] = blabel;
-            }
-
-            // ---- 4) 버튼 3개(맨 아래 밴드) ----
-            MakeRibbonButton(_rankingRoot.transform, font, "다시 연주", new Vector2(-360, -310), OnRetry);
-            MakeRibbonButton(_rankingRoot.transform, font, "공유하기", new Vector2(0, -310), OnShare);
-            MakeRibbonButton(_rankingRoot.transform, font, "타이틀", new Vector2(360, -310), OnTitle);
+            // 베이크된 버튼 아트 위에 투명 클릭 영역.
+            InvisibleButton(_rankingRoot.transform, new Vector2(-360, -305), new Vector2(360, 110), OnRetry);
+            InvisibleButton(_rankingRoot.transform, new Vector2(0, -305), new Vector2(360, 110), OnShare);
+            InvisibleButton(_rankingRoot.transform, new Vector2(360, -305), new Vector2(360, 110), OnTitle);
 
             _rankingRoot.SetActive(false);
+        }
+
+        // 디스플레이 폰트(BMJUA 주아체). 없으면 기본 폰트 폴백.
+        Font LoadDisplayFont()
+        {
+#if UNITY_EDITOR
+            var f = UnityEditor.AssetDatabase.LoadAssetAtPath<Font>("Assets/Mallang/RR02/Fonts/BMJUA.ttf");
+            if (f != null) return f;
+#endif
+            return Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        }
+
+        // 가리개 플레이트(베이크된 샘플 숫자를 덮음) + 그 위 폰트 텍스트. 텍스트 반환.
+        Text CoverText(Transform parent, Font font, int size, Vector2 pos, Vector2 plate, Color plateColor, Color textColor, TextAnchor align)
+        {
+            var cover = NewImage("Cover", parent, null, false); cover.color = plateColor;
+            var crt = cover.rectTransform; crt.anchorMin = crt.anchorMax = new Vector2(0.5f, 0.5f); crt.pivot = new Vector2(0.5f, 0.5f);
+            crt.anchoredPosition = pos; crt.sizeDelta = plate;
+            var t = MakeText(cover.transform, font, size, Vector2.zero, new Vector2(plate.x - 8, plate.y - 4));
+            t.color = textColor; t.alignment = align; t.fontStyle = FontStyle.Normal; t.raycastTarget = false;
+            return t;
+        }
+
+        // 베이크된 버튼 아트 위의 투명 클릭 영역(아트는 캔버스에, 입력만 코드).
+        void InvisibleButton(Transform parent, Vector2 pos, Vector2 size, UnityEngine.Events.UnityAction cb)
+        {
+            var go = new GameObject("BtnZone", typeof(RectTransform), typeof(Image), typeof(Button));
+            go.transform.SetParent(parent, false);
+            var img = go.GetComponent<Image>(); img.color = new Color(1f, 1f, 1f, 0f);
+            var rt = img.rectTransform; rt.anchorMin = rt.anchorMax = new Vector2(0.5f, 0.5f); rt.pivot = new Vector2(0.5f, 0.5f);
+            rt.anchoredPosition = pos; rt.sizeDelta = size;
+            var bt = go.GetComponent<Button>(); bt.transition = Selectable.Transition.None; bt.onClick.AddListener(cb);
         }
 
         void MakeRibbonButton(Transform parent, Font font, string label, Vector2 pos, UnityEngine.Events.UnityAction cb)
@@ -518,57 +459,11 @@ namespace Mallang.RR02.Screens
         {
             var res = _run.Result;
             var board = MockLeaderboard.Build(res.TotalScore, "나", 0);
-
-            // 히어로 바
-            var mine = new ReachKey(res.NormalCleared, res.Loops, res.TotalScore);
-            string grade = _benchTable != null ? RankingRules.BenchmarkGrade(_benchTable, mine) : "-";
+            // 경로 B: 상태로 변하는 숫자만 오버레이. 10행·등급 리본·배지는 캔버스에 베이크.
             if (_heroScore != null) _heroScore.text = Comma(res.TotalScore);
             if (_heroReach != null) _heroReach.text = (res.NormalCleared >= 9 ? "All" : res.NormalCleared + "라운드");
-            if (_heroGradeLabel != null) _heroGradeLabel.text = grade;
-            if (_heroNextChip != null)
-            {
-                int idx = System.Array.IndexOf(_gradeOrder, grade);
-                if (idx < 0 || idx >= _gradeOrder.Length - 1) _heroNextChip.text = "최고 등급";
-                else _heroNextChip.text = "다음: " + _gradeOrder[idx + 1];
-            }
-
-            // 리더보드 상위 10행
-            for (int i = 0; i < 10; i++)
-            {
-                bool hasRow = board.Top != null && i < board.Top.Count;
-                var entry = hasRow ? board.Top[i] : default(LeaderEntry);
-                if (_rowRank[i] != null) _rowRank[i].text = hasRow ? entry.Rank.ToString() : "";
-                if (_rowAvatar[i] != null) { _rowAvatar[i].sprite = hasRow ? FaceSprite(entry.Avatar) : null; _rowAvatar[i].enabled = hasRow; }
-                if (_rowName[i] != null) _rowName[i].text = hasRow ? entry.Name : "";
-                if (_rowScore[i] != null) _rowScore[i].text = hasRow ? Comma(entry.Score) : "";
-                if (_rowBg[i] != null) _rowBg[i].color = hasRow ? RowTint(i, entry.IsMe) : new Color(1f, 1f, 1f, 0f);
-            }
-
-            // ⋯ 생략 행: 내 등수가 상위 10위 밖일 때만
-            if (_ellipsisRow != null) _ellipsisRow.SetActive(board.ShowEllipsis);
-
-            // 내 행: 이미 상위 10행 안에 있으면(MeInTop) 별도 행은 숨긴다. 아니면 채워서 보여준다.
-            if (board.MeInTop)
-            {
-                if (_myRowGo != null) _myRowGo.SetActive(false);
-            }
-            else
-            {
-                if (_myRowGo != null) _myRowGo.SetActive(true);
-                if (_myRowRank != null) _myRowRank.text = board.Me.Rank + "등";
-                if (_myAvatarImg != null) { _myAvatarImg.sprite = FaceSprite(board.Me.Avatar); _myAvatarImg.enabled = true; }
-                if (_myRowName != null) _myRowName.text = "나";
-                if (_myRowScore != null) _myRowScore.text = Comma(board.Me.Score);
-                if (_myRowBg != null) _myRowBg.color = new Color(0.7f, 0.9f, 0.6f, 1f);
-            }
-
-            // 업적 배지: 올클리어 = 전 라운드 클리어, 무한루프 = 루프 1회 이상, 올퍼펙트는 아직 집계하지 않음(항상 미획득).
-            bool[] earned = { res.NormalCleared >= 9, false, res.Loops > 0 };
-            for (int i = 0; i < 3; i++)
-            {
-                if (_badgeIcon[i] == null) continue;
-                _badgeIcon[i].color = earned[i] ? Color.white : new Color(0.6f, 0.6f, 0.6f, 0.5f);
-            }
+            if (_myRowRank != null) _myRowRank.text = Comma(board.Me.Rank) + "등";
+            if (_myRowScore != null) _myRowScore.text = Comma(board.Me.Score);
 
             if (_rankingRoot != null) _rankingRoot.SetActive(true);
             _state = State.Result;
