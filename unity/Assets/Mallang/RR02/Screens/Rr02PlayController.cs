@@ -339,7 +339,8 @@ namespace Mallang.RR02.Screens
             return t;
         }
 
-        Sprite LoadSprite(string n) { return UnityEditor_LoadOrNull("Assets/Mallang/RR02/Art/" + n + ".png"); }
+        // 빌드 포함을 위해 Resources에서 로드(에디터·기기 모두 동작). 아트는 Resources/Art 아래.
+        Sprite LoadSprite(string n) { return Resources.Load<Sprite>("Art/" + n); }
 
         // 에디터에선 AssetDatabase, 빌드에선 이미 씬에 들어간 스프라이트를 재사용(여기선 간단히 에디터 로드).
         static Sprite UnityEditor_LoadOrNull(string path)
@@ -512,10 +513,8 @@ namespace Mallang.RR02.Screens
         // 디스플레이 폰트(BMJUA 주아체). 없으면 기본 폰트 폴백.
         Font LoadDisplayFont()
         {
-#if UNITY_EDITOR
-            var f = UnityEditor.AssetDatabase.LoadAssetAtPath<Font>("Assets/Mallang/RR02/Fonts/BMJUA.ttf");
+            var f = Resources.Load<Font>("Fonts/BMJUA");
             if (f != null) return f;
-#endif
             return Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
         }
 
