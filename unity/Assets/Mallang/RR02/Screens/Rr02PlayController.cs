@@ -237,8 +237,7 @@ namespace Mallang.RR02.Screens
         void OnEnable()
         {
             InitRefs();
-            if (chartJson == null) { Debug.LogError("Rr02PlayController: chartJson 미설정"); enabled = false; return; }
-            _chart = Rr02Chart.LoadFromJson(chartJson.text);
+            // 차트는 StartRun에서 판마다 절차적으로 생성한다(chartJson은 더는 쓰지 않음).
             if (benchmarkJson != null) _benchTable = RankingRules.ParseBenchmark(benchmarkJson.text);
             BuildGrid();
             BuildResult();
@@ -686,7 +685,9 @@ namespace Mallang.RR02.Screens
             foreach (Transform c in panel.transform)
                 if (c.name.StartsWith("Face") || c.name.StartsWith("Q")) c.gameObject.SetActive(false);
 
-            for (int i = 0; i < 8; i++)
+            // 멜로디 길이 4 고정: 앞 4칸만 사용하고 나머지(4~7)는 숨긴다.
+            for (int i = 4; i < 8; i++) { var ex = panel.transform.Find("Card" + i); if (ex != null) ex.gameObject.SetActive(false); }
+            for (int i = 0; i < 4; i++)
             {
                 var card = panel.transform.Find("Card" + i);
                 if (card == null) continue;
@@ -714,8 +715,12 @@ namespace Mallang.RR02.Screens
             if (sel != null) { _cursor = (RectTransform)sel; _cursor.SetAsFirstSibling(); } // 카드 뒤 = 테두리 하이라이트
         }
 
+        int _runCount;
         void StartRun()
         {
+            // 판마다 새 시드로 절차적 랜덤 악보 생성(다시 시도 때마다 새 악보, 한 판 안에서도 라운드마다 다름).
+            int seed = System.Environment.TickCount ^ (_runCount++ * 7919);
+            _chart = Rr02Chart.Generate(seed);
             _run = new Rr02Run(_chart);
             _lastNormalCleared = 0;
             if (lampRow != null) lampRow.SetClearedInstant(0);
@@ -769,12 +774,16 @@ namespace Mallang.RR02.Screens
         void SetupRound()
         {
             _phrase.Clear();
-            foreach (var n in _chart.Rounds[_run.CurrentRound - 1].Notes) _phrase.Add(n);
+            // 일반 라운드를 다 지나면 무한 구절. BeginRepeat와 같은 k로 생성해 표시=판정 일치.
+            var round = _run.CurrentRound > _chart.Rounds.Count
+                ? _chart.InfinitePhrase(_run.Loops + 1)
+                : _chart.Rounds[_run.CurrentRound - 1];
+            foreach (var n in round.Notes) _phrase.Add(n);
             _phrase.Sort((a, b) => a.TargetUs.CompareTo(b.TargetUs));
             _targetsUs = new long[_phrase.Count];
             for (int i = 0; i < _phrase.Count; i++) _targetsUs[i] = _phrase[i].TargetUs;
             if (_targetsUs.Length >= 2) _beatSec = Mathf.Max(0.1f, (_targetsUs[1] - _targetsUs[0]) / 1000000f);
-            _hidden = new HashSet<int>(_chart.Rounds[_run.CurrentRound - 1].HiddenIndices);
+            _hidden = new HashSet<int>(round.HiddenIndices);
         }
 
         // 시작 전 8박 둠칫둠칫(기본 베이스만, 멜로디 없음). 동물은 리듬 타고, 카드는 비움.

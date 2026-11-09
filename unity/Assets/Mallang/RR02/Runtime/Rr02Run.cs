@@ -51,9 +51,9 @@ namespace Mallang.RR02
             if (_phase != Rr02Phase.Listen) return;
 
             // hiddenIndices는 표현만 바꾸고 노트를 바꾸지 않으므로 Notes를 그대로 씁니다.
-            // 9라운드(일반)를 모두 지나면(_currentRound>9) 무한 구절(k = Loops + 1)로 진입합니다.
+            // 일반 라운드(_chart.Rounds.Count개)를 모두 지나면 무한 구절(k = Loops + 1)로 진입합니다.
             IReadOnlyList<Rr02Note> notes;
-            if (_currentRound > 9) notes = _chart.InfinitePhrase(_loops + 1).Notes;
+            if (_currentRound > _chart.Rounds.Count) notes = _chart.InfinitePhrase(_loops + 1).Notes;
             else notes = _chart.Rounds[_currentRound - 1].Notes;
 
             _phraseNotes = SortForOutcomes(notes);
@@ -134,7 +134,7 @@ namespace Mallang.RR02
                 _scores[_phraseNotes[i].Friend] += points;
             }
 
-            bool inLoop = _currentRound > 9;
+            bool inLoop = _currentRound > _chart.Rounds.Count;
             if (inLoop)
             {
                 // 무한 구간: 기존 엄격 규칙(미스/ghost 없어야 성공). 실패하면 도전 종료(리더보드 기록용).
@@ -151,7 +151,7 @@ namespace Mallang.RR02
                 {
                     _allPerfect = _allPerfect && phraseAllPerfect;
                     _currentRound++;                         // 다음 라운드(통과할 때만 전진)
-                    if (_normalCleared < 9) _normalCleared++; // 전구 +1
+                    if (_normalCleared < _chart.Rounds.Count) _normalCleared++; // 전구 +1
                     _phase = Rr02Phase.Listen;
                 }
                 else

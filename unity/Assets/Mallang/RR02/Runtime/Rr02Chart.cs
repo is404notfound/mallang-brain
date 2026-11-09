@@ -15,6 +15,84 @@ namespace Mallang.RR02
     {
         public IReadOnlyList<Rr02Round> Rounds;
 
+        private int _seed;
+
+        private const int MelodyLength = 4;
+
+        private static readonly Rr02Friend[] AllFriends =
+        {
+            Rr02Friend.Rabbit, Rr02Friend.Capybara, Rr02Friend.Fox, Rr02Friend.Squirrel
+        };
+
+        // 난이도 스케줄을 따라 시드 기반 절차 생성 차트를 만든다. 라운드마다 독립된 System.Random을 쓴다.
+        public static Rr02Chart Generate(int seed)
+        {
+            var schedule = BuildSchedule();
+            var rounds = new Rr02Round[schedule.Count];
+            for (int r = 0; r < schedule.Count; r++)
+            {
+                var rng = new System.Random(unchecked(seed * 1000003 + r * 9176 + 17));
+                rounds[r] = GenerateRound(r + 1, schedule[r].variety, schedule[r].hidden, rng);
+            }
+
+            return new Rr02Chart { Rounds = rounds, _seed = seed };
+        }
+
+        // 난이도 램프: hidden 0~3 각 블록 안에서 variety(=n) 1~4가 n번씩 반복된다 → 총 40라운드.
+        public static List<(int variety, int hidden)> BuildSchedule()
+        {
+            var list = new List<(int variety, int hidden)>();
+            for (int h = 0; h <= 3; h++)
+                for (int n = 1; n <= 4; n++)
+                    for (int rep = 0; rep < n; rep++)
+                        list.Add((n, h));
+            return list;
+        }
+
+        private static Rr02Round GenerateRound(int number, int variety, int hidden, System.Random rng)
+        {
+            variety = Math.Max(1, Math.Min(4, variety));
+            hidden = Math.Max(0, Math.Min(4, hidden));
+
+            var chosen = (Rr02Friend[])AllFriends.Clone();
+            Shuffle(chosen, rng);
+
+            var slots = new Rr02Friend[MelodyLength];
+            for (int i = 0; i < variety; i++)
+                slots[i] = chosen[i];
+            for (int i = variety; i < MelodyLength; i++)
+                slots[i] = chosen[rng.Next(variety)];
+            Shuffle(slots, rng);
+
+            var notes = new Rr02Note[MelodyLength];
+            for (int i = 0; i < MelodyLength; i++)
+            {
+                long targetUs = (long)i * Rr02Rules.BeatUs;
+                notes[i] = new Rr02Note(i, slots[i], targetUs);
+            }
+
+            var indices = new List<int> { 0, 1, 2, 3 };
+            Shuffle(indices, rng);
+            var hiddenList = indices.GetRange(0, hidden);
+            hiddenList.Sort();
+
+            return new Rr02Round
+            {
+                Number = number,
+                Notes = notes,
+                HiddenIndices = hiddenList.ToArray()
+            };
+        }
+
+        private static void Shuffle<T>(IList<T> a, System.Random rng)
+        {
+            for (int i = a.Count - 1; i > 0; i--)
+            {
+                int j = rng.Next(i + 1);
+                (a[i], a[j]) = (a[j], a[i]);
+            }
+        }
+
         // four-friend-chart.json(패키지 원본 그대로)을 파싱한다. 형식이 어긋나면 조용한 기본값 대신 예외.
         public static Rr02Chart LoadFromJson(string json)
         {
@@ -73,25 +151,14 @@ namespace Mallang.RR02
             return new Rr02Chart { Rounds = rounds };
         }
 
-        // k=1→R2 … k=8→R9, k=9→다시 R2 순환. HiddenIndices는 0~7 전부. R1 두 소리 패턴은 쓰지 않는다.
+        // k번째 무한 구절은 매번 새로 생성하는 최대 난이도(variety 4) 멜로디다. 전 칸이 숨겨진 채로 시작한다(AC-013).
         public Rr02Round InfinitePhrase(int k)
         {
             if (k < 1)
                 throw new ArgumentException($"k는 1 이상이어야 합니다 (k={k}).", nameof(k));
 
-            var source = Rounds[(k - 1) % (Rounds.Count - 1) + 1];
-
-            // 무한 모드에서는 입력되는 칸(0~7)이 전부 숨겨진 채로 시작한다(AC-013).
-            var allHidden = new int[source.Notes.Count];
-            for (int i = 0; i < allHidden.Length; i++)
-                allHidden[i] = i;
-
-            return new Rr02Round
-            {
-                Number = source.Number,
-                Notes = source.Notes,
-                HiddenIndices = allHidden
-            };
+            var rng = new System.Random(unchecked(_seed * 2000003 + k * 31337 + 7));
+            return GenerateRound(1000 + k, 4, MelodyLength, rng);
         }
 
         // JsonUtility는 최상위 배열이나 중첩 제네릭 안의 List<T]를 안정적으로 읽지 못하므로

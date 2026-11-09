@@ -101,24 +101,46 @@ namespace Mallang.RR02.Tests.EditMode
             Assert.AreEqual(1, run.NormalCleared);
         }
 
-        [Test]
-        public void ClearingRoundNineEntersInfiniteLoopCounting()
+        // 일반 라운드 수는 더 이상 9로 고정되지 않으므로(Rr02Chart.Generate가 라운드 수를 결정)
+        // 작은 커스텀 차트로 "일반 라운드를 전부 지나면 무한 구절로 진입"하는 동작만 확인합니다.
+        private static Rr02Chart MakeThreeRoundChart()
         {
-            var chart = LoadRealChart();
+            var round1 = MakeRound(1, new int[0],
+                (Rr02Friend.Rabbit, 0L),
+                (Rr02Friend.Rabbit, 400000L),
+                (Rr02Friend.Rabbit, 800000L),
+                (Rr02Friend.Rabbit, 1200000L));
+            var round2 = MakeRound(2, new int[0],
+                (Rr02Friend.Capybara, 0L),
+                (Rr02Friend.Capybara, 400000L),
+                (Rr02Friend.Capybara, 800000L),
+                (Rr02Friend.Capybara, 1200000L));
+            var round3 = MakeRound(3, new int[0],
+                (Rr02Friend.Fox, 0L),
+                (Rr02Friend.Fox, 400000L),
+                (Rr02Friend.Fox, 800000L),
+                (Rr02Friend.Fox, 1200000L));
+            return MakeChart(round1, round2, round3);
+        }
+
+        [Test]
+        public void ClearingAllNormalRoundsEntersInfiniteLoopCounting()
+        {
+            var chart = MakeThreeRoundChart();
             var run = new Rr02Run(chart);
 
-            for (int r = 0; r < 9; r++)
+            for (int r = 0; r < chart.Rounds.Count; r++)
                 ClearPhrase(run, chart.Rounds[r].Notes);
 
-            // AC-013: R9 성공은 All — 도전은 끝나지 않고 무한 구절로 이어집니다.
-            Assert.AreEqual(9, run.NormalCleared);
+            // AC-013: 마지막 일반 라운드 성공은 끝이 아니라 — 도전은 끝나지 않고 무한 구절로 이어집니다.
+            Assert.AreEqual(chart.Rounds.Count, run.NormalCleared);
             Assert.AreEqual(Rr02Phase.Listen, run.Phase);
             Assert.AreEqual(0, run.Loops);
 
-            ClearPhrase(run, chart.InfinitePhrase(1).Notes); // 무한 k=1 = R2 패턴
+            ClearPhrase(run, chart.InfinitePhrase(1).Notes); // 무한 k=1
             Assert.AreEqual(1, run.Loops); // AC-013: 구절 성공마다 무한 완료 수 +1
 
-            ClearPhrase(run, chart.InfinitePhrase(2).Notes); // 무한 k=2 = R3 패턴
+            ClearPhrase(run, chart.InfinitePhrase(2).Notes); // 무한 k=2
             Assert.AreEqual(2, run.Loops);
 
             // 다음 무한 구절을 무입력으로 실패시켜 도전을 종료합니다. 진행 중 구절은 Loops에 넣지 않습니다.
@@ -127,20 +149,20 @@ namespace Mallang.RR02.Tests.EditMode
             run.AdvanceTime(failing[failing.Count - 1].TargetUs + PadUs);
 
             Assert.AreEqual(Rr02Phase.Ended, run.Phase);
-            Assert.AreEqual(9, run.Result.NormalCleared);
+            Assert.AreEqual(chart.Rounds.Count, run.Result.NormalCleared);
             Assert.AreEqual(2, run.Result.Loops); // AC-013: All+2 = 완료한 무한 구절만
-            // FR-016 기준안: All Perfect는 일반 9라운드 72판정 기준이며 무한 구간은 포함하지 않습니다.
+            // FR-016 기준안: All Perfect는 일반 라운드 판정 기준이며 무한 구간은 포함하지 않습니다.
             Assert.IsTrue(run.Result.AllPerfect);
         }
 
         [Test]
         public void AllPerfectIsFalseWhenAnyNormalJudgementIsGood()
         {
-            var chart = LoadRealChart();
+            var chart = MakeThreeRoundChart();
             var run = new Rr02Run(chart);
 
             ClearPhrase(run, chart.Rounds[0].Notes, goodIndex: 3); // R1에 Good 1개
-            for (int r = 1; r < 9; r++)
+            for (int r = 1; r < chart.Rounds.Count; r++)
                 ClearPhrase(run, chart.Rounds[r].Notes);
 
             run.BeginRepeat(); // 무한 첫 구절 무입력 실패로 종료
@@ -148,8 +170,8 @@ namespace Mallang.RR02.Tests.EditMode
             run.AdvanceTime(inf[inf.Count - 1].TargetUs + PadUs);
 
             Assert.AreEqual(Rr02Phase.Ended, run.Phase);
-            Assert.AreEqual(9, run.Result.NormalCleared);
-            Assert.IsFalse(run.Result.AllPerfect); // FR-016: 72판정 전부 Perfect일 때만
+            Assert.AreEqual(chart.Rounds.Count, run.Result.NormalCleared);
+            Assert.IsFalse(run.Result.AllPerfect); // FR-016: 일반 라운드 판정 전부 Perfect일 때만
         }
 
         [Test]
@@ -240,9 +262,20 @@ namespace Mallang.RR02.Tests.EditMode
         [Test]
         public void InvalidateOfficialKeepsProgressAndRestartsSameListen()
         {
-            var chart = LoadRealChart();
+            // R1: 토끼·카피바라가 번갈아 2회씩 → 각 Perfect 2회 = 200점.
+            var round1 = MakeRound(1, new int[0],
+                (Rr02Friend.Rabbit, 0L),
+                (Rr02Friend.Capybara, 400000L),
+                (Rr02Friend.Rabbit, 800000L),
+                (Rr02Friend.Capybara, 1200000L));
+            var round2 = MakeRound(2, new int[0],
+                (Rr02Friend.Capybara, 0L),
+                (Rr02Friend.Fox, 400000L),
+                (Rr02Friend.Squirrel, 800000L),
+                (Rr02Friend.Rabbit, 1200000L));
+            var chart = MakeChart(round1, round2);
             var run = new Rr02Run(chart);
-            ClearPhrase(run, chart.Rounds[0].Notes); // R1 성공(토끼 400·카피바라 400)
+            ClearPhrase(run, chart.Rounds[0].Notes); // R1 성공(토끼 200·카피바라 200)
 
             run.BeginRepeat(); // R2 따라치기 진입
             run.ProcessPress(Rr02Friend.Capybara, 0L); // R2 첫 노트(카피바라) Perfect
@@ -254,7 +287,7 @@ namespace Mallang.RR02.Tests.EditMode
             Assert.AreEqual(2, run.CurrentRound);
             Assert.AreEqual(Rr02Phase.Listen, run.Phase);
             // 미완료 구절 입력은 폐기 — R2에서 친 카피바라 점수가 남지 않습니다.
-            Assert.AreEqual(400, ScoreOf(run.RunAnimalScores, Rr02Friend.Capybara));
+            Assert.AreEqual(200, ScoreOf(run.RunAnimalScores, Rr02Friend.Capybara));
 
             ClearPhrase(run, chart.Rounds[1].Notes); // 연습으로 R2 재도전·성공
             Assert.AreEqual(2, run.NormalCleared);
@@ -265,20 +298,35 @@ namespace Mallang.RR02.Tests.EditMode
         public void OnlyCorrectlyPressedFriendGainsAnimalScore()
         {
             // FR-025 전제(AC-025): R2 입력 구간에서 토끼만 올바르게 치면 토끼 점수만 증가합니다.
-            var chart = LoadRealChart();
+            // R1: 토끼·카피바라가 번갈아 2회씩 → 각 Perfect 2회 = 200점.
+            var round1 = MakeRound(1, new int[0],
+                (Rr02Friend.Rabbit, 0L),
+                (Rr02Friend.Capybara, 400000L),
+                (Rr02Friend.Rabbit, 800000L),
+                (Rr02Friend.Capybara, 1200000L));
+            // R2: 8노트, 토끼는 index 3(1,200,000µs)·index 7(2,800,000µs)뿐입니다.
+            var round2 = MakeRound(2, new int[0],
+                (Rr02Friend.Fox, 0L),
+                (Rr02Friend.Fox, 400000L),
+                (Rr02Friend.Squirrel, 800000L),
+                (Rr02Friend.Rabbit, 1200000L),
+                (Rr02Friend.Squirrel, 1600000L),
+                (Rr02Friend.Fox, 2000000L),
+                (Rr02Friend.Squirrel, 2400000L),
+                (Rr02Friend.Rabbit, 2800000L));
+            var chart = MakeChart(round1, round2);
             var run = new Rr02Run(chart);
-            ClearPhrase(run, chart.Rounds[0].Notes); // R1: 토끼 400·카피바라 400
+            ClearPhrase(run, chart.Rounds[0].Notes); // R1: 토끼 200·카피바라 200
 
             run.BeginRepeat();
-            // R2 시퀀스에서 토끼는 index 3(1,200,000µs)·index 7(2,800,000µs)입니다.
             run.ProcessPress(Rr02Friend.Rabbit, 1200000L);
             run.ProcessPress(Rr02Friend.Rabbit, 2800000L);
             run.AdvanceTime(2800000L + PadUs); // 2/8=25% < 60% 실패: 전구 1→0 깎고 같은 라운드 재도전(게임오버 아님)
 
             Assert.AreEqual(Rr02Phase.Listen, run.Phase);
             var scores = run.Result.AnimalScores;
-            Assert.AreEqual(600, ScoreOf(scores, Rr02Friend.Rabbit));    // 400 + Perfect 2회
-            Assert.AreEqual(400, ScoreOf(scores, Rr02Friend.Capybara));  // R1 값에서 변화 없음
+            Assert.AreEqual(400, ScoreOf(scores, Rr02Friend.Rabbit));    // 200 + Perfect 2회
+            Assert.AreEqual(200, ScoreOf(scores, Rr02Friend.Capybara)); // R1 값에서 변화 없음
             Assert.AreEqual(0, ScoreOf(scores, Rr02Friend.Fox));
             Assert.AreEqual(0, ScoreOf(scores, Rr02Friend.Squirrel));
             Assert.AreEqual(0, run.Result.NormalCleared); // R1 통과(1) 뒤 R2 실패로 전구 1→0
