@@ -83,6 +83,8 @@ namespace Mallang.RR02.Screens
         // 결과(게임오버/클리어) 화면 — 전체화면(screen-result-final 수렴)
         GameObject _resultRoot;
         Text _resultScoreBig, _resultGain;
+        Image _centerBrain; // 결과 중앙 뇌(선이 도착하면 팝)
+        int _resultTotalTarget; // 큰 점수 롤업 목표
         // 경로 B와 같은 안전 여백 프레임(레터박스) 패턴: 고정 16:9 프레임 안에 배경·오버레이를 묶고 FitFrame으로 스케일.
         RectTransform _resultFrame;
 
@@ -247,7 +249,8 @@ namespace Mallang.RR02.Screens
                 crt.anchorMin = crt.anchorMax = new Vector2(0.5f, 0.5f); crt.pivot = new Vector2(0.5f, 0.5f);
                 crt.anchoredPosition = Vector2.zero; crt.sizeDelta = new Vector2(1280, 720);
                 curve.color = lineCol[i]; curve.width = 12f; curve.glowWidth = 28f;
-                curve.SetEndpoints(brainPt, new Vector2(fx[i], -15), bow[i]);
+                // 친구 뇌(progress 0)에서 출발해 중앙 큰 뇌(progress 1)로 이어지는 흐름.
+                curve.SetEndpoints(new Vector2(fx[i], -15), brainPt, bow[i]);
                 curve.progress = 0f;
                 curve.raycastTarget = false;
                 _curves[i] = curve;
@@ -265,8 +268,8 @@ namespace Mallang.RR02.Screens
             _resultGain = MakeText(_resultFrame, font, 32, new Vector2(0, 150), new Vector2(400, 60));
             _resultGain.color = new Color(0.95f, 0.45f, 0.6f, 1f); AddOutline(_resultGain.gameObject, 1f, 1f, 1f, 1f);
 
-            var centerBrain = NewImage("CenterBrain", _resultFrame, LoadSprite("brain-stage0"), true);
-            var cbrt = centerBrain.rectTransform; cbrt.anchoredPosition = new Vector2(0, 60); cbrt.sizeDelta = new Vector2(190, 190);
+            _centerBrain = NewImage("CenterBrain", _resultFrame, LoadSprite("brain-stage0"), true);
+            var cbrt = _centerBrain.rectTransform; cbrt.anchoredPosition = new Vector2(0, 60); cbrt.sizeDelta = new Vector2(190, 190);
 
             // 네 친구 + 머리 위 뇌 + 점수판(+NEW 배지)
             for (int i = 0; i < 4; i++)
@@ -295,6 +298,7 @@ namespace Mallang.RR02.Screens
             var brt2 = bi.rectTransform; brt2.anchorMin = brt2.anchorMax = new Vector2(0.5f, 0.5f); brt2.pivot = new Vector2(0.5f, 0.5f);
             brt2.anchoredPosition = new Vector2(0, -320); brt2.sizeDelta = new Vector2(300, 96);
             var bt = btnGo.GetComponent<Button>(); bt.transition = Selectable.Transition.None; bt.onClick.AddListener(OnNext);
+            btnGo.AddComponent<Rr02ButtonPunch>(); // 눌림 쫀득 피드백
             var bl = MakeText(btnGo.transform, font, 38, Vector2.zero, new Vector2(280, 90));
             bl.text = "다음"; bl.color = new Color(0.33f, 0.22f, 0.13f, 1f); bl.raycastTarget = false;
 
@@ -342,8 +346,10 @@ namespace Mallang.RR02.Screens
         void ShowResult()
         {
             var res = _run.Result;
-            if (_resultScoreBig != null) _resultScoreBig.text = Comma(res.TotalScore);
-            if (_resultGain != null) _resultGain.text = "+" + Comma(res.TotalScore);
+            _resultTotalTarget = res.TotalScore;
+            // 큰 점수·증가분은 0에서 시작해 시퀀스에서 롤업. 친구 점수판은 바로 표시.
+            if (_resultScoreBig != null) _resultScoreBig.text = "0";
+            if (_resultGain != null) _resultGain.text = "+0";
             for (int i = 0; i < 4; i++)
             {
                 int sc = res.AnimalScores != null && res.AnimalScores.ContainsKey(_friendOrder[i]) ? res.AnimalScores[_friendOrder[i]] : 0;
@@ -353,26 +359,31 @@ namespace Mallang.RR02.Screens
             if (_resultRoot != null) _resultRoot.SetActive(true);
             FitFrame(_resultFrame, 1280f, 720f, 0.07f); // 활성 후 실제 캔버스 크기로 안전 여백 두고 맞춤
             _state = State.Result;
-            // 연결선: 진행도 0에서 시작해 뇌 -> 친구로 뻗는 애니메이션
             for (int i = 0; i < 4; i++)
             {
                 if (_curves[i] == null) continue;
                 _curves[i].progress = 0f; _curves[i].SetVerticesDirty();
             }
+            if (_centerBrain != null) _centerBrain.rectTransform.localScale = Vector3.one;
             if (_lineAnim != null) StopCoroutine(_lineAnim);
-            if (isActiveAndEnabled) _lineAnim = StartCoroutine(LinesGrow());
+            if (isActiveAndEnabled) _lineAnim = StartCoroutine(ResultSequence());
         }
 
-        IEnumerator LinesGrow()
+        // 네 친구 뇌에서 중앙 큰 뇌로 선이 흐르고 -> 중앙 뇌 팝 + 큰 점수 0->목표 롤업.
+        IEnumerator ResultSequence()
         {
-            yield return new WaitForSeconds(0.25f); // 점수 팝 뒤에 선이 뻗음
+            yield return new WaitForSeconds(0.3f);
             float dur = 0.5f;
             for (int i = 0; i < 4; i++)
             {
                 if (_curves[i] == null) continue;
-                StartCoroutine(OneCurveGrow(_curves[i], dur));
-                yield return new WaitForSeconds(0.08f); // 친구마다 살짝 스태거
+                StartCoroutine(OneCurveGrow(_curves[i], dur)); // progress 0(친구)->1(중앙)
+                yield return new WaitForSeconds(0.12f);
             }
+            yield return new WaitForSeconds(dur * 0.6f); // 선이 중앙에 거의 도착할 즈음
+            if (_centerBrain != null) StartCoroutine(BrainPop(_centerBrain.rectTransform));
+            StartCoroutine(CountUp(_resultScoreBig, _resultTotalTarget, 0.8f, ""));
+            StartCoroutine(CountUp(_resultGain, _resultTotalTarget, 0.8f, "+"));
         }
 
         IEnumerator OneCurveGrow(Rr02CurveLine curve, float dur)
@@ -386,6 +397,35 @@ namespace Mallang.RR02.Screens
                 yield return null;
             }
             curve.progress = 1f; curve.SetVerticesDirty();
+        }
+
+        // 숫자 0 -> target 롤업(ease-out), 천단위 콤마.
+        IEnumerator CountUp(Text label, int target, float dur, string prefix)
+        {
+            if (label == null) yield break;
+            float t = 0f;
+            while (t < dur)
+            {
+                t += Time.deltaTime; float u = Mathf.Clamp01(t / dur);
+                float e = 1f - (1f - u) * (1f - u);
+                label.text = prefix + Comma(Mathf.RoundToInt(target * e));
+                yield return null;
+            }
+            label.text = prefix + Comma(target);
+        }
+
+        // 중앙 뇌가 크게 떴다가 제자리로(선 도착 임팩트).
+        IEnumerator BrainPop(RectTransform rt)
+        {
+            float t = 0f, dur = 0.45f;
+            while (t < dur)
+            {
+                t += Time.deltaTime; float u = Mathf.Clamp01(t / dur);
+                float e = 1f - (1f - u) * (1f - u);
+                rt.localScale = Vector3.one * Mathf.Lerp(1.35f, 1f, e);
+                yield return null;
+            }
+            rt.localScale = Vector3.one;
         }
 
         static string Comma(int n) { return n.ToString("N0", System.Globalization.CultureInfo.InvariantCulture); }
@@ -763,7 +803,9 @@ namespace Mallang.RR02.Screens
             if (_baselineClip == null || _audio == null) { return; }
             if (_state != State.Intro && _state != State.Listen && _state != State.Repeat) { _lastBeat = -1; return; }
             int beat = (int)(_clock / _beatSec);
-            if (beat != _lastBeat && beat < 8)
+            // 인트로는 introBeats까지만 친다(그 뒤 introRestBeats 쉼은 무음). 듣기/따라치기는 8박.
+            int maxBeat = (_state == State.Intro) ? introBeats : 8;
+            if (beat != _lastBeat && beat < maxBeat)
             {
                 _lastBeat = beat;
                 _audio.PlayOneShot(_baselineClip, 0.55f);
