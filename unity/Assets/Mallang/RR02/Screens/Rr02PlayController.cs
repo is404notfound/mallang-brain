@@ -48,6 +48,8 @@ namespace Mallang.RR02.Screens
         public int introBeats = 4; // 시작 전 둠칫둠칫 카운트인 박 수
         public float inputOffsetMs = 0f;   // 입력 지연 보정(전역). 0=끔. 체계적 밀림이 확인되면만 소폭 사용.
         public float repeatPrerollMs = 180f; // 따라치기 전환 직후 프리롤: 노트는 드럼 그대로, 입력만 이만큼 일찍 허용(첫 노트 조기 입력)
+        public float tempoScale = 1.15f;   // 재생 템포 배율(>1 = 느리게). 차트/판정 그대로, 재생만 느려짐. 1.15 ≈ 150->130BPM
+        [Range(0f, 1f)] public float baselineVolume = 0.35f; // 하이햇(베이스라인) 볼륨. 악기 소리(1.0)보다 작게.
         public float introRestBeats = 0.18f; // 카운트인 끝나고 '잘 들어요' 전 짧은 쉼(박)
 
         Rr02Chart _chart;
@@ -792,11 +794,11 @@ namespace Mallang.RR02.Screens
 
         IEnumerator IntroRoutine()
         {
-            float bs = _beatSec > 0.05f ? _beatSec : 0.4f;
+            float bs = (_beatSec > 0.05f ? _beatSec : 0.4f) * Mathf.Max(0.1f, tempoScale); // 인트로도 같은 템포로
             yield return null; // 활성화 프레임에 첫 박을 치지 않음(오디오 준비 여유 → 첫판 첫 박 묻힘 방지)
             for (int i = 0; i < introBeats; i++)
             {
-                if (_audio != null && _baselineClip != null) _audio.PlayOneShot(_baselineClip, 0.55f);
+                if (_audio != null && _baselineClip != null) _audio.PlayOneShot(_baselineClip, baselineVolume);
                 yield return new WaitForSeconds(bs);
             }
             if (introRestBeats > 0f) yield return new WaitForSeconds(introRestBeats * bs); // 쉼(무음)
@@ -847,7 +849,7 @@ namespace Mallang.RR02.Screens
         {
             FitPlayUIToScreen(); // 매 프레임 화면에 맞춤(해상도·폴드·회전 변화 대응). 비용 미미.
             if (_run == null) return;
-            _clock += Time.deltaTime;
+            _clock += Time.deltaTime / Mathf.Max(0.1f, tempoScale); // 템포 배율만큼 느리게(차트·판정은 그대로)
             // 인트로 전환은 IntroRoutine 코루틴이 담당(프레임 폴링 스킵 방지). 여기선 _clock만 올려 그루브에 씀.
             if (_state == State.Listen) TickListen();
             else if (_state == State.Repeat) TickRepeat();
@@ -870,7 +872,7 @@ namespace Mallang.RR02.Screens
             if (beat != _lastBeat && beat < 8 && _clock >= 0.0)
             {
                 _lastBeat = beat;
-                _audio.PlayOneShot(_baselineClip, 0.55f);
+                _audio.PlayOneShot(_baselineClip, baselineVolume);
             }
         }
 
