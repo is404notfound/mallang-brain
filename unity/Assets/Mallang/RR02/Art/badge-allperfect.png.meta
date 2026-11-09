@@ -1,0 +1,585 @@
+fileFormatVersion: 2
+guid: 0460bd490956a47b7b759ea47b65c3e5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7654123146778035520
+    second: badge-allperfect_0
+  - first:
+      213: 7611363546929744165
+    second: badge-allperfect_1
+  - first:
+      213: -7612070449031691400
+    second: badge-allperfect_2
+  - first:
+      213: 2270776193579957728
+    second: badge-allperfect_3
+  - first:
+      213: -5203358768320426688
+    second: badge-allperfect_4
+  - first:
+      213: -4962304637770312536
+    second: badge-allperfect_5
+  - first:
+      213: -3751900340022301318
+    second: badge-allperfect_6
+  - first:
+      213: 1934364655087347070
+    second: badge-allperfect_7
+  - first:
+      213: 1456301522791685229
+    second: badge-allperfect_8
+  - first:
+      213: 7860140050362379815
+    second: badge-allperfect_9
+  - first:
+      213: -6201153035777376782
+    second: badge-allperfect_10
+  - first:
+      213: 2502795089095351641
+    second: badge-allperfect_11
+  - first:
+      213: -1627154462219888615
+    second: badge-allperfect_12
+  - first:
+      213: -2670140484328100583
+    second: badge-allperfect_13
+  - first:
+      213: -3285923901727098170
+    second: badge-allperfect_14
+  - first:
+      213: -4390037633826089637
+    second: badge-allperfect_15
+  - first:
+      213: -292950035070403467
+    second: badge-allperfect_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: badge-allperfect_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 45
+        width: 1219
+        height: 1185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ca33312d8717c590800000000000000
+      internalID: -7654123146778035520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: badge-allperfect_1
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 1223
+        width: 36
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 529ca17b1def0a960800000000000000
+      internalID: 7611363546929744165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: badge-allperfect_2
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 1213
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 873c730d14e7c5690800000000000000
+      internalID: -7612070449031691400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: badge-allperfect_3
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 1200
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ed3fbebaea638f10800000000000000
+      internalID: 2270776193579957728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: badge-allperfect_4
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 1227
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04dc85fc4c4f9c7b0800000000000000
+      internalID: -5203358768320426688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: badge-allperfect_5
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 1211
+        width: 33
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a45d6e293a522bb0800000000000000
+      internalID: -4962304637770312536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: badge-allperfect_6
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 1189
+        width: 34
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7dad48e4829eebc0800000000000000
+      internalID: -3751900340022301318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: badge-allperfect_7
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 1205
+        width: 41
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e756d84b76e38da10800000000000000
+      internalID: 1934364655087347070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: badge-allperfect_8
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 1213
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6cdbd7e482d53410800000000000000
+      internalID: 1456301522791685229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: badge-allperfect_9
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 1195
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72eaba22bb3d41d60800000000000000
+      internalID: 7860140050362379815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: badge-allperfect_10
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 1187
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fd77a84b2411f9a0800000000000000
+      internalID: -6201153035777376782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: badge-allperfect_11
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 1195
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95dde178fd6bbb220800000000000000
+      internalID: 2502795089095351641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: badge-allperfect_12
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 1199
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91811bc33af2b69e0800000000000000
+      internalID: -1627154462219888615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: badge-allperfect_13
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 1189
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91deb336061c1fad0800000000000000
+      internalID: -2670140484328100583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: badge-allperfect_14
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 1060
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ca3796fe9d0662d0800000000000000
+      internalID: -3285923901727098170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: badge-allperfect_15
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 1067
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b55133d08047313c0800000000000000
+      internalID: -4390037633826089637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: badge-allperfect_16
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 63
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57cb0b6ce7b3febf0800000000000000
+      internalID: -292950035070403467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      badge-allperfect_0: -7654123146778035520
+      badge-allperfect_1: 7611363546929744165
+      badge-allperfect_10: -6201153035777376782
+      badge-allperfect_11: 2502795089095351641
+      badge-allperfect_12: -1627154462219888615
+      badge-allperfect_13: -2670140484328100583
+      badge-allperfect_14: -3285923901727098170
+      badge-allperfect_15: -4390037633826089637
+      badge-allperfect_16: -292950035070403467
+      badge-allperfect_2: -7612070449031691400
+      badge-allperfect_3: 2270776193579957728
+      badge-allperfect_4: -5203358768320426688
+      badge-allperfect_5: -4962304637770312536
+      badge-allperfect_6: -3751900340022301318
+      badge-allperfect_7: 1934364655087347070
+      badge-allperfect_8: 1456301522791685229
+      badge-allperfect_9: 7860140050362379815
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

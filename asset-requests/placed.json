@@ -95,9 +95,58 @@
     {
       "id": "AST-024",
       "slot": "unity/Assets/Mallang/RR02/Art/bulb-off.png"
+    },
+    {
+      "id": "AST-025",
+      "slot": "unity/Assets/Mallang/RR02/Art/button-primary.png"
+    },
+    {
+      "id": "AST-026",
+      "slot": "unity/Assets/Mallang/RR02/Art/button-secondary.png"
+    },
+    {
+      "id": "AST-027",
+      "slot": "unity/Assets/Mallang/RR02/Art/score-bubble.png"
+    },
+    {
+      "id": "AST-028",
+      "slot": "unity/Assets/Mallang/RR02/Art/score-plate.png"
+    },
+    {
+      "id": "AST-029",
+      "slot": "unity/Assets/Mallang/RR02/Art/badge-new.png"
+    },
+    {
+      "id": "AST-030",
+      "slot": "unity/Assets/Mallang/RR02/Art/connector-glow.png"
+    },
+    {
+      "id": "AST-031",
+      "slot": "unity/Assets/Mallang/RR02/Art/badge-allclear.png"
+    },
+    {
+      "id": "AST-032",
+      "slot": "unity/Assets/Mallang/RR02/Art/badge-allperfect.png"
+    },
+    {
+      "id": "AST-033",
+      "slot": "unity/Assets/Mallang/RR02/Art/badge-loop.png"
+    },
+    {
+      "id": "AST-034",
+      "slot": "unity/Assets/Mallang/RR02/Art/grade-emblem.png"
+    },
+    {
+      "id": "AST-035",
+      "slot": "unity/Assets/Mallang/RR02/Art/button-share.png"
     }
   ],
-  "unmatchedAssets": [],
+  "unmatchedAssets": [
+    "SCR-001",
+    "SCR-002",
+    "SCR-005",
+    "SCR-006"
+  ],
   "unmatchedFiles": [],
   "skipped": []
 }

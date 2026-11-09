@@ -1,0 +1,3705 @@
+fileFormatVersion: 2
+guid: 98f6e1f08145d4bc58cffae1c563b27b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1221723157540635998
+    second: connector-glow_0
+  - first:
+      213: -6759541005217373581
+    second: connector-glow_1
+  - first:
+      213: 1600130411698872960
+    second: connector-glow_2
+  - first:
+      213: 4571249609818381369
+    second: connector-glow_3
+  - first:
+      213: -2330551849429459809
+    second: connector-glow_4
+  - first:
+      213: 6501468360396488407
+    second: connector-glow_5
+  - first:
+      213: 3139862951058491871
+    second: connector-glow_6
+  - first:
+      213: 1904765532381613336
+    second: connector-glow_7
+  - first:
+      213: -1467496886835882036
+    second: connector-glow_8
+  - first:
+      213: -73385303662952016
+    second: connector-glow_9
+  - first:
+      213: 3606856988041903300
+    second: connector-glow_10
+  - first:
+      213: 1141282581900625142
+    second: connector-glow_11
+  - first:
+      213: 5495219659974881030
+    second: connector-glow_12
+  - first:
+      213: 2904579459620561508
+    second: connector-glow_13
+  - first:
+      213: -2491044937989936076
+    second: connector-glow_14
+  - first:
+      213: -1960892693466611450
+    second: connector-glow_15
+  - first:
+      213: -8714313008763716735
+    second: connector-glow_16
+  - first:
+      213: 4228779907859853618
+    second: connector-glow_17
+  - first:
+      213: -5197609319007079623
+    second: connector-glow_18
+  - first:
+      213: 8950824229370058632
+    second: connector-glow_19
+  - first:
+      213: 607120023332645222
+    second: connector-glow_20
+  - first:
+      213: -4605967665324590958
+    second: connector-glow_21
+  - first:
+      213: 5416409909286393130
+    second: connector-glow_22
+  - first:
+      213: -781691737663248544
+    second: connector-glow_23
+  - first:
+      213: -4109184530238921897
+    second: connector-glow_24
+  - first:
+      213: -2711507340608036688
+    second: connector-glow_25
+  - first:
+      213: -7276253639999261022
+    second: connector-glow_26
+  - first:
+      213: 1243339030374089975
+    second: connector-glow_27
+  - first:
+      213: -4519956759105540541
+    second: connector-glow_28
+  - first:
+      213: -2181212466245845326
+    second: connector-glow_29
+  - first:
+      213: 2382407982607604705
+    second: connector-glow_30
+  - first:
+      213: 8932110832802650657
+    second: connector-glow_31
+  - first:
+      213: -1074850580654226376
+    second: connector-glow_32
+  - first:
+      213: 4891859436467933586
+    second: connector-glow_33
+  - first:
+      213: 4736354059604358697
+    second: connector-glow_34
+  - first:
+      213: -6104366996919155760
+    second: connector-glow_35
+  - first:
+      213: -3122340134889502562
+    second: connector-glow_36
+  - first:
+      213: -6809108088422374998
+    second: connector-glow_37
+  - first:
+      213: 124874949464905297
+    second: connector-glow_38
+  - first:
+      213: -4312050783230384698
+    second: connector-glow_39
+  - first:
+      213: -6521774453765078762
+    second: connector-glow_40
+  - first:
+      213: -8796931252835247370
+    second: connector-glow_41
+  - first:
+      213: -703774188569950158
+    second: connector-glow_42
+  - first:
+      213: 1272609646039161709
+    second: connector-glow_43
+  - first:
+      213: -1247814773778594911
+    second: connector-glow_44
+  - first:
+      213: 849278812882537259
+    second: connector-glow_45
+  - first:
+      213: 3192240074414505537
+    second: connector-glow_46
+  - first:
+      213: 5112904982022197066
+    second: connector-glow_47
+  - first:
+      213: 8926868031496305252
+    second: connector-glow_48
+  - first:
+      213: 7247081182563119814
+    second: connector-glow_49
+  - first:
+      213: -1721951716993889378
+    second: connector-glow_50
+  - first:
+      213: 9009494894891104354
+    second: connector-glow_51
+  - first:
+      213: 6381622291922161610
+    second: connector-glow_52
+  - first:
+      213: 7430210452842692141
+    second: connector-glow_53
+  - first:
+      213: -493776649330188741
+    second: connector-glow_54
+  - first:
+      213: -3723689146449604112
+    second: connector-glow_55
+  - first:
+      213: -640934562339319770
+    second: connector-glow_56
+  - first:
+      213: 8416625517333186912
+    second: connector-glow_57
+  - first:
+      213: 3967241255015229802
+    second: connector-glow_58
+  - first:
+      213: -518817180472678343
+    second: connector-glow_59
+  - first:
+      213: -6744881782938462850
+    second: connector-glow_60
+  - first:
+      213: 4666981104086179771
+    second: connector-glow_61
+  - first:
+      213: 3075283421912961782
+    second: connector-glow_62
+  - first:
+      213: -1033464379142157495
+    second: connector-glow_63
+  - first:
+      213: 3373613376523814889
+    second: connector-glow_64
+  - first:
+      213: 8368300343219300023
+    second: connector-glow_65
+  - first:
+      213: 2656658265379908550
+    second: connector-glow_66
+  - first:
+      213: 5243854955012950204
+    second: connector-glow_67
+  - first:
+      213: -3178414441786006864
+    second: connector-glow_68
+  - first:
+      213: -2960843340651810784
+    second: connector-glow_69
+  - first:
+      213: 3726638202064106192
+    second: connector-glow_70
+  - first:
+      213: -4985933022574737382
+    second: connector-glow_71
+  - first:
+      213: -2679191988529640917
+    second: connector-glow_72
+  - first:
+      213: -1112654502797192621
+    second: connector-glow_73
+  - first:
+      213: 7845997204532636394
+    second: connector-glow_74
+  - first:
+      213: 1020111595419828589
+    second: connector-glow_75
+  - first:
+      213: 8744224942534357282
+    second: connector-glow_76
+  - first:
+      213: 249322193637435694
+    second: connector-glow_77
+  - first:
+      213: 2258514139622144902
+    second: connector-glow_78
+  - first:
+      213: -4586801815241172793
+    second: connector-glow_79
+  - first:
+      213: -3022910205926686372
+    second: connector-glow_80
+  - first:
+      213: 8321939102050437344
+    second: connector-glow_81
+  - first:
+      213: -4914071970750807869
+    second: connector-glow_82
+  - first:
+      213: 1995950526985047827
+    second: connector-glow_83
+  - first:
+      213: -7619202211453117603
+    second: connector-glow_84
+  - first:
+      213: 7255101592054367342
+    second: connector-glow_85
+  - first:
+      213: -7180253770396606134
+    second: connector-glow_86
+  - first:
+      213: -7480058823529761897
+    second: connector-glow_87
+  - first:
+      213: -3249270474555365782
+    second: connector-glow_88
+  - first:
+      213: -5659075017895631891
+    second: connector-glow_89
+  - first:
+      213: -814906795613220430
+    second: connector-glow_90
+  - first:
+      213: -6186195251735581030
+    second: connector-glow_91
+  - first:
+      213: -1231692618595108731
+    second: connector-glow_92
+  - first:
+      213: -3574229194251332068
+    second: connector-glow_93
+  - first:
+      213: 3277197842197326747
+    second: connector-glow_94
+  - first:
+      213: -5902333570700685380
+    second: connector-glow_95
+  - first:
+      213: 5321743246269151662
+    second: connector-glow_96
+  - first:
+      213: -3375645484323355456
+    second: connector-glow_97
+  - first:
+      213: -3010901844476623870
+    second: connector-glow_98
+  - first:
+      213: 3581443750894333928
+    second: connector-glow_99
+  - first:
+      213: -3812720319135841754
+    second: connector-glow_100
+  - first:
+      213: -3654410624506890068
+    second: connector-glow_101
+  - first:
+      213: 3423598996476570095
+    second: connector-glow_102
+  - first:
+      213: 369850526819523373
+    second: connector-glow_103
+  - first:
+      213: -1445746769316804091
+    second: connector-glow_104
+  - first:
+      213: 6979812467242396918
+    second: connector-glow_105
+  - first:
+      213: 5569809064081736561
+    second: connector-glow_106
+  - first:
+      213: -5077683330287672688
+    second: connector-glow_107
+  - first:
+      213: 605833745820537453
+    second: connector-glow_108
+  - first:
+      213: 9153980314611295491
+    second: connector-glow_109
+  - first:
+      213: -9140527701815987577
+    second: connector-glow_110
+  - first:
+      213: -4729588266700465066
+    second: connector-glow_111
+  - first:
+      213: 7087866903682119027
+    second: connector-glow_112
+  - first:
+      213: -5105330960298997163
+    second: connector-glow_113
+  - first:
+      213: 6917066051013656068
+    second: connector-glow_114
+  - first:
+      213: 6908328004399380501
+    second: connector-glow_115
+  - first:
+      213: 7655467320556440020
+    second: connector-glow_116
+  - first:
+      213: 3361478583843560937
+    second: connector-glow_117
+  - first:
+      213: -3009252062881813963
+    second: connector-glow_118
+  - first:
+      213: -2851427791429829050
+    second: connector-glow_119
+  - first:
+      213: 1328533544569802458
+    second: connector-glow_120
+  - first:
+      213: -3131410014100888839
+    second: connector-glow_121
+  - first:
+      213: -6997776255309495510
+    second: connector-glow_122
+  - first:
+      213: -6964076121503409505
+    second: connector-glow_123
+  - first:
+      213: 2726575561463331564
+    second: connector-glow_124
+  - first:
+      213: 2754666497860738280
+    second: connector-glow_125
+  - first:
+      213: -5601728253092328054
+    second: connector-glow_126
+  - first:
+      213: -3380641921056285569
+    second: connector-glow_127
+  - first:
+      213: 9040439368591126484
+    second: connector-glow_128
+  - first:
+      213: -5434737893034534438
+    second: connector-glow_129
+  - first:
+      213: -1044652204995722189
+    second: connector-glow_130
+  - first:
+      213: 3045877819916730943
+    second: connector-glow_131
+  - first:
+      213: 2258553682973392488
+    second: connector-glow_132
+  - first:
+      213: 5375357722394987032
+    second: connector-glow_133
+  - first:
+      213: 1853350091379073862
+    second: connector-glow_134
+  - first:
+      213: -5688197639272849637
+    second: connector-glow_135
+  - first:
+      213: -4772907321677065951
+    second: connector-glow_136
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: connector-glow_0
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 683
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5504132dbe64f010800000000000000
+      internalID: 1221723157540635998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_1
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 572
+        width: 109
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 372e453f4494132a0800000000000000
+      internalID: -6759541005217373581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_2
+      rect:
+        serializedVersion: 2
+        x: 1164
+        y: 628
+        width: 54
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0826c9fa12ec43610800000000000000
+      internalID: 1600130411698872960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_3
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 642
+        width: 68
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93c1ed4fc47507f30800000000000000
+      internalID: 4571249609818381369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_4
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 570
+        width: 75
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9c9024d07738afd0800000000000000
+      internalID: -2330551849429459809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_5
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 628
+        width: 40
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7debfdb070bd93a50800000000000000
+      internalID: 6501468360396488407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_6
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 628
+        width: 21
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd94041e7b8039b20800000000000000
+      internalID: 3139862951058491871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_7
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 640
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81d830ae8261f6a10800000000000000
+      internalID: 1904765532381613336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_8
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 627
+        width: 80
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc7d7274b5762abe0800000000000000
+      internalID: -1467496886835882036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_9
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 632
+        width: 46
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b18f6384784bfef0800000000000000
+      internalID: -73385303662952016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_10
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 659
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cc7fd712512e0230800000000000000
+      internalID: 3606856988041903300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_11
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 626
+        width: 55
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f407822676a6df00800000000000000
+      internalID: 1141282581900625142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_12
+      rect:
+        serializedVersion: 2
+        x: 1456
+        y: 640
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60fab837a21f24c40800000000000000
+      internalID: 5495219659974881030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_13
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 628
+        width: 21
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 462649021a32f4820800000000000000
+      internalID: 2904579459620561508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_14
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 645
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43c2397b3d70e6dd0800000000000000
+      internalID: -2491044937989936076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_15
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 649
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 601834b0c7289c4e0800000000000000
+      internalID: -1960892693466611450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_16
+      rect:
+        serializedVersion: 2
+        x: 1591
+        y: 627
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18bb21b2d7a801780800000000000000
+      internalID: -8714313008763716735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_17
+      rect:
+        serializedVersion: 2
+        x: 1607
+        y: 649
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 231bb41dbe4afaa30800000000000000
+      internalID: 4228779907859853618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_18
+      rect:
+        serializedVersion: 2
+        x: 1719
+        y: 644
+        width: 54
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 933b25bccd16ed7b0800000000000000
+      internalID: -5197609319007079623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_19
+      rect:
+        serializedVersion: 2
+        x: 1832
+        y: 568
+        width: 53
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 887df8e8637b73c70800000000000000
+      internalID: 8950824229370058632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_20
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 642
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 669e4cec17cec6800800000000000000
+      internalID: 607120023332645222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_21
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 648
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2987465dfc05410c0800000000000000
+      internalID: -4605967665324590958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_22
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 626
+        width: 60
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a25dbe87d14fa2b40800000000000000
+      internalID: 5416409909286393130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_23
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 618
+        width: 17
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06769b4918fd625f0800000000000000
+      internalID: -781691737663248544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_24
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 626
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 753249ee07e39f6c0800000000000000
+      internalID: -4109184530238921897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_25
+      rect:
+        serializedVersion: 2
+        x: 1092
+        y: 628
+        width: 17
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b0a13d907ace5ad0800000000000000
+      internalID: -2711507340608036688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_26
+      rect:
+        serializedVersion: 2
+        x: 1255
+        y: 626
+        width: 51
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a6733c9ddd850b90800000000000000
+      internalID: -7276253639999261022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_27
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 644
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f483d8b24a314110800000000000000
+      internalID: 1243339030374089975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_28
+      rect:
+        serializedVersion: 2
+        x: 1544
+        y: 624
+        width: 42
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34e636d7643e541c0800000000000000
+      internalID: -4519956759105540541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 15
+        width: 2172
+        height: 617
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2be33c981d6cab1e0800000000000000
+      internalID: -2181212466245845326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_30
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 609
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eb91690073001120800000000000000
+      internalID: 2382407982607604705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_31
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 626
+        width: 30
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12ade936a7b35fb70800000000000000
+      internalID: 8932110832802650657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_32
+      rect:
+        serializedVersion: 2
+        x: 1335
+        y: 628
+        width: 26
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8348b79771d5511f0800000000000000
+      internalID: -1074850580654226376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_33
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 628
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29150d14d3063e340800000000000000
+      internalID: 4891859436467933586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_34
+      rect:
+        serializedVersion: 2
+        x: 1649
+        y: 594
+        width: 23
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92672354ce8eab140800000000000000
+      internalID: 4736354059604358697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_35
+      rect:
+        serializedVersion: 2
+        x: 1735
+        y: 618
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d304020f8ee84ba0800000000000000
+      internalID: -6104366996919155760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_36
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 608
+        width: 39
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9847ffa0383ba4d0800000000000000
+      internalID: -3122340134889502562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_37
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 618
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa1685015403181a0800000000000000
+      internalID: -6809108088422374998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_38
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 614
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 156533cda15abb100800000000000000
+      internalID: 124874949464905297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_39
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 610
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c5ab1ca8a48824c0800000000000000
+      internalID: -4312050783230384698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_40
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 616
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6118d1a20b00e75a0800000000000000
+      internalID: -6521774453765078762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_41
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 614
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fa193932a50be580800000000000000
+      internalID: -8796931252835247370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_42
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 610
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2380330ba11bb36f0800000000000000
+      internalID: -703774188569950158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_43
+      rect:
+        serializedVersion: 2
+        x: 1522
+        y: 614
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6b56e10bb739a110800000000000000
+      internalID: 1272609646039161709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_44
+      rect:
+        serializedVersion: 2
+        x: 1832
+        y: 611
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a3417f031fdeaee0800000000000000
+      internalID: -1247814773778594911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_45
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 586
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2b0125a49e39cb00800000000000000
+      internalID: 849278812882537259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_46
+      rect:
+        serializedVersion: 2
+        x: 1502
+        y: 600
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14e3e393f6d1d4c20800000000000000
+      internalID: 3192240074414505537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_47
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 610
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4f02c7edffa4f640800000000000000
+      internalID: 5112904982022197066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_48
+      rect:
+        serializedVersion: 2
+        x: 1711
+        y: 600
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46ab0269d2b92eb70800000000000000
+      internalID: 8926868031496305252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_49
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 594
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c2b71950fdc29460800000000000000
+      internalID: 7247081182563119814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_50
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 584
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9b843469066a18e0800000000000000
+      internalID: -1721951716993889378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_51
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 588
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 268fdaf5fd7280d70800000000000000
+      internalID: 9009494894891104354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_52
+      rect:
+        serializedVersion: 2
+        x: 1223
+        y: 594
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acf0cb8c9a3109850800000000000000
+      internalID: 6381622291922161610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_53
+      rect:
+        serializedVersion: 2
+        x: 1526
+        y: 592
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2e35183a096d1760800000000000000
+      internalID: 7430210452842692141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_54
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 594
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3e9a4ae0c0c529f0800000000000000
+      internalID: -493776649330188741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_55
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 558
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f1d4e3437cc25cc0800000000000000
+      internalID: -3723689146449604112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_56
+      rect:
+        serializedVersion: 2
+        x: 1804
+        y: 582
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6209e7f4961fa17f0800000000000000
+      internalID: -640934562339319770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_57
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 561
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0690228905cddc470800000000000000
+      internalID: 8416625517333186912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_58
+      rect:
+        serializedVersion: 2
+        x: 1810
+        y: 578
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a69257fe6e87e0730800000000000000
+      internalID: 3967241255015229802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_59
+      rect:
+        serializedVersion: 2
+        x: 1884
+        y: 577
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9386e8ee58accc8f0800000000000000
+      internalID: -518817180472678343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_60
+      rect:
+        serializedVersion: 2
+        x: 1921
+        y: 577
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7513fb11cd5562a0800000000000000
+      internalID: -6744881782938462850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_61
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 562
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbf5482669274c040800000000000000
+      internalID: 4666981104086179771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_62
+      rect:
+        serializedVersion: 2
+        x: 1705
+        y: 562
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f215ca8af99daa20800000000000000
+      internalID: 3075283421912961782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_63
+      rect:
+        serializedVersion: 2
+        x: 1858
+        y: 564
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94b46396f9568a1f0800000000000000
+      internalID: -1033464379142157495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_64
+      rect:
+        serializedVersion: 2
+        x: 1898
+        y: 552
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e74535ed7b71de20800000000000000
+      internalID: 3373613376523814889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_65
+      rect:
+        serializedVersion: 2
+        x: 1907
+        y: 549
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b6ad5333dc222470800000000000000
+      internalID: 8368300343219300023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_66
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 554
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cb2395ed985ed420800000000000000
+      internalID: 2656658265379908550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_67
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 554
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb808376c4ae5c840800000000000000
+      internalID: 5243854955012950204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_68
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 554
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b2af58b7e004e3d0800000000000000
+      internalID: -3178414441786006864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_69
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 553
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0203edc3ba8f8e6d0800000000000000
+      internalID: -2960843340651810784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_70
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 553
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d27e6043bda7b330800000000000000
+      internalID: 3726638202064106192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_71
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 538
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a180b8325586ecab0800000000000000
+      internalID: -4985933022574737382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_72
+      rect:
+        serializedVersion: 2
+        x: 1639
+        y: 538
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2a4e96d41991dad0800000000000000
+      internalID: -2679191988529640917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_73
+      rect:
+        serializedVersion: 2
+        x: 1647
+        y: 538
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 352d803ff9e0f80f0800000000000000
+      internalID: -1112654502797192621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_74
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 516
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aea20ec33e492ec60800000000000000
+      internalID: 7845997204532636394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_75
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 518
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d61814c571a282e00800000000000000
+      internalID: 1020111595419828589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_76
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 521
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 221fedf914ab95970800000000000000
+      internalID: 8744224942534357282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_77
+      rect:
+        serializedVersion: 2
+        x: 1850
+        y: 524
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e296162d635c57300800000000000000
+      internalID: 249322193637435694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_78
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 192
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68bff54d4aad75f10800000000000000
+      internalID: 2258514139622144902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_79
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 146
+        width: 13
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c8de6b0d086850c0800000000000000
+      internalID: -4586801815241172793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_80
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 142
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5146db0f277c06d0800000000000000
+      internalID: -3022910205926686372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_81
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 142
+        width: 11
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e8462495877d7370800000000000000
+      internalID: 8321939102050437344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_82
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 142
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c0c1b61495bdcbb0800000000000000
+      internalID: -4914071970750807869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_83
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 138
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31f8236ed6a03bb10800000000000000
+      internalID: 1995950526985047827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_84
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 126
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5b577af4f7234690800000000000000
+      internalID: -7619202211453117603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_85
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 126
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6485c3757c4fa460800000000000000
+      internalID: 7255101592054367342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_86
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 110
+        width: 14
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a41e95a0d3d9a5c90800000000000000
+      internalID: -7180253770396606134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_87
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 128
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7937b7c812e713890800000000000000
+      internalID: -7480058823529761897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_88
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 126
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6666f008b548e2d0800000000000000
+      internalID: -3249270474555365782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_89
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 114
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de32b09114de671b0800000000000000
+      internalID: -5659075017895631891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_90
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 112
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b11c62469ed0b4f0800000000000000
+      internalID: -814906795613220430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_91
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 112
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9ea715c138362aa0800000000000000
+      internalID: -6186195251735581030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_92
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 112
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 588fa24d61628eee0800000000000000
+      internalID: -1231692618595108731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_93
+      rect:
+        serializedVersion: 2
+        x: 1207
+        y: 104
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1691d22c79c56ec0800000000000000
+      internalID: -3574229194251332068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_94
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 97
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9b29daf212fa7d20800000000000000
+      internalID: 3277197842197326747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_95
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 98
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbfc58ca3e2b61ea0800000000000000
+      internalID: -5902333570700685380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_96
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 87
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea9f4b36941aad940800000000000000
+      internalID: 5321743246269151662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_97
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 95
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c44143215c4721d0800000000000000
+      internalID: -3375645484323355456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_98
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 95
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 204076299b02736d0800000000000000
+      internalID: -3010901844476623870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_99
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 78
+        width: 45
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ef691bbd18d3b130800000000000000
+      internalID: 3581443750894333928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_100
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 98
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6228ef5021f761bc0800000000000000
+      internalID: -3812720319135841754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_101
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 95
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca87ade16ece84dc0800000000000000
+      internalID: -3654410624506890068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_102
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 94
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe9ae56f521138f20800000000000000
+      internalID: 3423598996476570095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_103
+      rect:
+        serializedVersion: 2
+        x: 1888
+        y: 101
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2b91173819f12500800000000000000
+      internalID: 369850526819523373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_104
+      rect:
+        serializedVersion: 2
+        x: 2051
+        y: 95
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50a04b329fcafebe0800000000000000
+      internalID: -1445746769316804091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_105
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 85
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fc63d455764dd060800000000000000
+      internalID: 6979812467242396918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_106
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 79
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 173c75b65dfeb4d40800000000000000
+      internalID: 5569809064081736561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_107
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 71
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 092e740f9e17889b0800000000000000
+      internalID: -5077683330287672688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_108
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 69
+        width: 7
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d62d39cf49a586800800000000000000
+      internalID: 605833745820537453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_109
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 85
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3052355a898790f70800000000000000
+      internalID: 9153980314611295491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_110
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 81
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 782f3a9db72562180800000000000000
+      internalID: -9140527701815987577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_111
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 73
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65c9675a7802d5eb0800000000000000
+      internalID: -4729588266700465066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_112
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 80
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 375783155692d5260800000000000000
+      internalID: 7087866903682119027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_113
+      rect:
+        serializedVersion: 2
+        x: 1295
+        y: 87
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55a03927a883629b0800000000000000
+      internalID: -5105330960298997163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_114
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 85
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40e359adcea5eff50800000000000000
+      internalID: 6917066051013656068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_115
+      rect:
+        serializedVersion: 2
+        x: 1971
+        y: 81
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 518bb16d7bf4fdf50800000000000000
+      internalID: 6908328004399380501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_116
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 77
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d9c067b7fead3a60800000000000000
+      internalID: 7655467320556440020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_117
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 69
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ed141e46fe56ae20800000000000000
+      internalID: 3361478583843560937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_118
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 63
+        width: 31
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53a6158413dfc36d0800000000000000
+      internalID: -3009252062881813963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_119
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 71
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64ef52df781bd68d0800000000000000
+      internalID: -2851427791429829050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_120
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 71
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ade064c4836ef6210800000000000000
+      internalID: 1328533544569802458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_121
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 77
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f26a6fde2ffa84d0800000000000000
+      internalID: -3131410014100888839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_122
+      rect:
+        serializedVersion: 2
+        x: 1263
+        y: 65
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a234d945297e2ee90800000000000000
+      internalID: -6997776255309495510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_123
+      rect:
+        serializedVersion: 2
+        x: 1317
+        y: 70
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9a520d2aa1aa5f90800000000000000
+      internalID: -6964076121503409505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_124
+      rect:
+        serializedVersion: 2
+        x: 1480
+        y: 62
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cea7842f60eb6d520800000000000000
+      internalID: 2726575561463331564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_125
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 47
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ec98afb59a8a3620800000000000000
+      internalID: 2754666497860738280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_126
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 65
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8d892245d9a242b0800000000000000
+      internalID: -5601728253092328054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_127
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 53
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7c55ae851c8511d0800000000000000
+      internalID: -3380641921056285569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_128
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 63
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dfa45a15b7167d70800000000000000
+      internalID: 9040439368591126484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_129
+      rect:
+        serializedVersion: 2
+        x: 1705
+        y: 63
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad952564eaee394b0800000000000000
+      internalID: -5434737893034534438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_130
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 47
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 334c667ba56a081f0800000000000000
+      internalID: -1044652204995722189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_131
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 49
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f32c06d4db1254a20800000000000000
+      internalID: 3045877819916730943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_132
+      rect:
+        serializedVersion: 2
+        x: 1295
+        y: 55
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86e77cbbb9ef75f10800000000000000
+      internalID: 2258553682973392488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_133
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 48
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81a81006e5b199a40800000000000000
+      internalID: 5375357722394987032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_134
+      rect:
+        serializedVersion: 2
+        x: 1585
+        y: 55
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6436611b61c68b910800000000000000
+      internalID: 1853350091379073862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_135
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 47
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1f1dea62667f01b0800000000000000
+      internalID: -5688197639272849637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: connector-glow_136
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 20
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 121d391341a33cdb0800000000000000
+      internalID: -4772907321677065951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      connector-glow_0: 1221723157540635998
+      connector-glow_1: -6759541005217373581
+      connector-glow_10: 3606856988041903300
+      connector-glow_100: -3812720319135841754
+      connector-glow_101: -3654410624506890068
+      connector-glow_102: 3423598996476570095
+      connector-glow_103: 369850526819523373
+      connector-glow_104: -1445746769316804091
+      connector-glow_105: 6979812467242396918
+      connector-glow_106: 5569809064081736561
+      connector-glow_107: -5077683330287672688
+      connector-glow_108: 605833745820537453
+      connector-glow_109: 9153980314611295491
+      connector-glow_11: 1141282581900625142
+      connector-glow_110: -9140527701815987577
+      connector-glow_111: -4729588266700465066
+      connector-glow_112: 7087866903682119027
+      connector-glow_113: -5105330960298997163
+      connector-glow_114: 6917066051013656068
+      connector-glow_115: 6908328004399380501
+      connector-glow_116: 7655467320556440020
+      connector-glow_117: 3361478583843560937
+      connector-glow_118: -3009252062881813963
+      connector-glow_119: -2851427791429829050
+      connector-glow_12: 5495219659974881030
+      connector-glow_120: 1328533544569802458
+      connector-glow_121: -3131410014100888839
+      connector-glow_122: -6997776255309495510
+      connector-glow_123: -6964076121503409505
+      connector-glow_124: 2726575561463331564
+      connector-glow_125: 2754666497860738280
+      connector-glow_126: -5601728253092328054
+      connector-glow_127: -3380641921056285569
+      connector-glow_128: 9040439368591126484
+      connector-glow_129: -5434737893034534438
+      connector-glow_13: 2904579459620561508
+      connector-glow_130: -1044652204995722189
+      connector-glow_131: 3045877819916730943
+      connector-glow_132: 2258553682973392488
+      connector-glow_133: 5375357722394987032
+      connector-glow_134: 1853350091379073862
+      connector-glow_135: -5688197639272849637
+      connector-glow_136: -4772907321677065951
+      connector-glow_14: -2491044937989936076
+      connector-glow_15: -1960892693466611450
+      connector-glow_16: -8714313008763716735
+      connector-glow_17: 4228779907859853618
+      connector-glow_18: -5197609319007079623
+      connector-glow_19: 8950824229370058632
+      connector-glow_2: 1600130411698872960
+      connector-glow_20: 607120023332645222
+      connector-glow_21: -4605967665324590958
+      connector-glow_22: 5416409909286393130
+      connector-glow_23: -781691737663248544
+      connector-glow_24: -4109184530238921897
+      connector-glow_25: -2711507340608036688
+      connector-glow_26: -7276253639999261022
+      connector-glow_27: 1243339030374089975
+      connector-glow_28: -4519956759105540541
+      connector-glow_29: -2181212466245845326
+      connector-glow_3: 4571249609818381369
+      connector-glow_30: 2382407982607604705
+      connector-glow_31: 8932110832802650657
+      connector-glow_32: -1074850580654226376
+      connector-glow_33: 4891859436467933586
+      connector-glow_34: 4736354059604358697
+      connector-glow_35: -6104366996919155760
+      connector-glow_36: -3122340134889502562
+      connector-glow_37: -6809108088422374998
+      connector-glow_38: 124874949464905297
+      connector-glow_39: -4312050783230384698
+      connector-glow_4: -2330551849429459809
+      connector-glow_40: -6521774453765078762
+      connector-glow_41: -8796931252835247370
+      connector-glow_42: -703774188569950158
+      connector-glow_43: 1272609646039161709
+      connector-glow_44: -1247814773778594911
+      connector-glow_45: 849278812882537259
+      connector-glow_46: 3192240074414505537
+      connector-glow_47: 5112904982022197066
+      connector-glow_48: 8926868031496305252
+      connector-glow_49: 7247081182563119814
+      connector-glow_5: 6501468360396488407
+      connector-glow_50: -1721951716993889378
+      connector-glow_51: 9009494894891104354
+      connector-glow_52: 6381622291922161610
+      connector-glow_53: 7430210452842692141
+      connector-glow_54: -493776649330188741
+      connector-glow_55: -3723689146449604112
+      connector-glow_56: -640934562339319770
+      connector-glow_57: 8416625517333186912
+      connector-glow_58: 3967241255015229802
+      connector-glow_59: -518817180472678343
+      connector-glow_6: 3139862951058491871
+      connector-glow_60: -6744881782938462850
+      connector-glow_61: 4666981104086179771
+      connector-glow_62: 3075283421912961782
+      connector-glow_63: -1033464379142157495
+      connector-glow_64: 3373613376523814889
+      connector-glow_65: 8368300343219300023
+      connector-glow_66: 2656658265379908550
+      connector-glow_67: 5243854955012950204
+      connector-glow_68: -3178414441786006864
+      connector-glow_69: -2960843340651810784
+      connector-glow_7: 1904765532381613336
+      connector-glow_70: 3726638202064106192
+      connector-glow_71: -4985933022574737382
+      connector-glow_72: -2679191988529640917
+      connector-glow_73: -1112654502797192621
+      connector-glow_74: 7845997204532636394
+      connector-glow_75: 1020111595419828589
+      connector-glow_76: 8744224942534357282
+      connector-glow_77: 249322193637435694
+      connector-glow_78: 2258514139622144902
+      connector-glow_79: -4586801815241172793
+      connector-glow_8: -1467496886835882036
+      connector-glow_80: -3022910205926686372
+      connector-glow_81: 8321939102050437344
+      connector-glow_82: -4914071970750807869
+      connector-glow_83: 1995950526985047827
+      connector-glow_84: -7619202211453117603
+      connector-glow_85: 7255101592054367342
+      connector-glow_86: -7180253770396606134
+      connector-glow_87: -7480058823529761897
+      connector-glow_88: -3249270474555365782
+      connector-glow_89: -5659075017895631891
+      connector-glow_9: -73385303662952016
+      connector-glow_90: -814906795613220430
+      connector-glow_91: -6186195251735581030
+      connector-glow_92: -1231692618595108731
+      connector-glow_93: -3574229194251332068
+      connector-glow_94: 3277197842197326747
+      connector-glow_95: -5902333570700685380
+      connector-glow_96: 5321743246269151662
+      connector-glow_97: -3375645484323355456
+      connector-glow_98: -3010901844476623870
+      connector-glow_99: 3581443750894333928
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
