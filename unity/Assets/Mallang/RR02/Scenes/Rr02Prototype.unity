@@ -3484,6 +3484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Mallang.RR02.Screens::Mallang.RR02.Screens.Rr02PlayController
   chartJson: {fileID: 4900000, guid: 7072bb8a9ad2242b481167d4be976666, type: 3}
+  benchmarkJson: {fileID: 4900000, guid: aba459ba8b2ff4360805b8b66a5784ff, type: 3}
   lampRow: {fileID: 1581544543}
   bubbleRabbit: {fileID: 1899517966}
   bubbleCapybara: {fileID: 1056919777}

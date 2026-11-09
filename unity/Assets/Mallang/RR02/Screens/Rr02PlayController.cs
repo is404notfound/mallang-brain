@@ -16,6 +16,7 @@ namespace Mallang.RR02.Screens
     public class Rr02PlayController : MonoBehaviour
     {
         public TextAsset chartJson;
+        public TextAsset benchmarkJson; // Data/ranking-benchmark.json
         public StageLampRow lampRow;
 
         [Header("모서리 친구")]
@@ -81,6 +82,12 @@ namespace Mallang.RR02.Screens
         // 결과(게임오버/클리어) 화면 — 전체화면(screen-result-final 수렴)
         GameObject _resultRoot;
         Text _resultScoreBig, _resultGain;
+
+        // 랭킹(기준표 비교) 화면
+        GameObject _rankingRoot;
+        Text _rkScore, _rkReach, _rkGrade;
+        GameObject[] _rkRows = new GameObject[5];
+        BenchmarkTable _benchTable;
         Text[] _friendScore = new Text[4];
         Image[] _friendBrainHead = new Image[4];
         static readonly Rr02Friend[] _friendOrder = { Rr02Friend.Rabbit, Rr02Friend.Capybara, Rr02Friend.Fox, Rr02Friend.Squirrel };
@@ -174,8 +181,10 @@ namespace Mallang.RR02.Screens
             InitRefs();
             if (chartJson == null) { Debug.LogError("Rr02PlayController: chartJson 미설정"); enabled = false; return; }
             _chart = Rr02Chart.LoadFromJson(chartJson.text);
+            if (benchmarkJson != null) _benchTable = RankingRules.ParseBenchmark(benchmarkJson.text);
             BuildGrid();
             BuildResult();
+            BuildRanking();
             StartRun();
         }
 
@@ -288,11 +297,139 @@ namespace Mallang.RR02.Screens
 
         static string Comma(int n) { return n.ToString("N0", System.Globalization.CultureInfo.InvariantCulture); }
 
-        // 다음: (예정) 랭킹 화면으로. 랭킹 미구현이라 지금은 다시 시작(임시).
+        // 결과 -> 랭킹 화면으로.
         void OnNext()
         {
             if (_resultRoot != null) _resultRoot.SetActive(false);
+            ShowRanking();
+        }
+
+        // 랭킹(기준표 비교) 화면 구성: 제목 + 요약 3카드 + 기준표 + 다시연주/타이틀. 기본 숨김.
+        void BuildRanking()
+        {
+            if (_rankingRoot != null) return;
+            var canvas = GameObject.Find("PlayUI");
+            if (canvas == null) return;
+            var font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            var rounded = UnityEditor_RoundedSprite();
+            Color cream = new Color(1f, 0.97f, 0.9f, 0.96f);
+            Color brown = new Color(0.33f, 0.22f, 0.13f, 1f);
+            Color highlight = new Color(0.8f, 0.9f, 0.68f, 1f);
+
+            _rankingRoot = new GameObject("RankingRoot", typeof(RectTransform));
+            _rankingRoot.transform.SetParent(canvas.transform, false);
+            var rr = (RectTransform)_rankingRoot.transform;
+            rr.anchorMin = Vector2.zero; rr.anchorMax = Vector2.one; rr.offsetMin = rr.offsetMax = Vector2.zero;
+
+            var bg = NewImage("Bg", _rankingRoot.transform, LoadSprite("stage-background"), false);
+            var bgrt = bg.rectTransform; bgrt.anchorMin = Vector2.zero; bgrt.anchorMax = Vector2.one; bgrt.offsetMin = bgrt.offsetMax = Vector2.zero;
+            var dim = NewImage("Dim", _rankingRoot.transform, null, false); dim.color = new Color(0.1f, 0.08f, 0.16f, 0.35f);
+            var drt = dim.rectTransform; drt.anchorMin = Vector2.zero; drt.anchorMax = Vector2.one; drt.offsetMin = drt.offsetMax = Vector2.zero;
+
+            // 제목
+            var title = MakeText(_rankingRoot.transform, font, 48, new Vector2(0, 300), new Vector2(1000, 70));
+            title.text = "내 합주는 어디까지 왔을까?"; title.color = Color.white; AddOutline(title.gameObject, 0.2f, 0.25f, 0.4f);
+            var sub = MakeText(_rankingRoot.transform, font, 24, new Vector2(0, 258), new Vector2(1000, 40));
+            sub.text = "공식 집계가 없어 단계 기준으로 비교해요 · 실제 참여자 분포 아님"; sub.fontStyle = FontStyle.Normal; sub.color = new Color(1f, 1f, 1f, 0.85f); AddOutline(sub.gameObject, 0.2f, 0.25f, 0.4f);
+
+            // 요약 3카드
+            string[] heads = { "내 리듬 최고", "최고 도달", "기준표 등급" };
+            float[] cx = { -360, 0, 360 };
+            Text[] vals = new Text[3];
+            for (int i = 0; i < 3; i++)
+            {
+                var ccard = NewImage("Sum" + i, _rankingRoot.transform, rounded, false); ccard.type = Image.Type.Sliced; ccard.color = cream;
+                var ccrt = ccard.rectTransform; ccrt.anchoredPosition = new Vector2(cx[i], 170); ccrt.sizeDelta = new Vector2(330, 110);
+                var h = MakeText(ccard.transform, font, 24, new Vector2(0, 28), new Vector2(300, 40)); h.text = heads[i]; h.fontStyle = FontStyle.Normal; h.color = new Color(0.5f, 0.42f, 0.3f, 1f);
+                vals[i] = MakeText(ccard.transform, font, 40, new Vector2(0, -18), new Vector2(300, 60)); vals[i].color = brown;
+            }
+            _rkScore = vals[0]; _rkReach = vals[1]; _rkGrade = vals[2];
+
+            // 기준표(헤더 + 5행)
+            var tablePanel = NewImage("Table", _rankingRoot.transform, rounded, false); tablePanel.type = Image.Type.Sliced; tablePanel.color = new Color(1f, 0.99f, 0.94f, 0.96f);
+            var tprt = tablePanel.rectTransform; tprt.anchoredPosition = new Vector2(0, -60); tprt.sizeDelta = new Vector2(1080, 300);
+            string[] hcol = { "도달", "등급", "입력에서 숨긴 수" };
+            float[] colx = { -380, 0, 380 };
+            for (int c = 0; c < 3; c++) { var hc = MakeText(tablePanel.transform, font, 26, new Vector2(colx[c], 118), new Vector2(360, 40)); hc.text = hcol[c]; hc.color = brown; }
+            string[][] rows = new string[][] {
+                new[]{"0라운드","첫 합주 도전","완료 구절 없음"},
+                new[]{"1~2라운드","악보 합주","0~1개"},
+                new[]{"3~5라운드","기억 합주","2~4개"},
+                new[]{"6~8라운드","암보 합주","5~7개"},
+                new[]{"All·All+N","All 마스터","8개 / 무한 N회"},
+            };
+            for (int r = 0; r < 5; r++)
+            {
+                float y = 70 - r * 46;
+                var rowBg = NewImage("Row" + r, tablePanel.transform, null, false); rowBg.color = new Color(1f, 1f, 1f, 0f);
+                var rbrt = rowBg.rectTransform; rbrt.anchoredPosition = new Vector2(0, y); rbrt.sizeDelta = new Vector2(1040, 44);
+                _rkRows[r] = rowBg.gameObject;
+                for (int c = 0; c < 3; c++)
+                {
+                    var cell = MakeText(rowBg.transform, font, 24, new Vector2(colx[c], 0), new Vector2(360, 40));
+                    cell.text = rows[r][c]; cell.fontStyle = FontStyle.Normal; cell.color = new Color(0.4f, 0.33f, 0.24f, 1f);
+                }
+            }
+
+            // 버튼 2개
+            MakeRibbonButton(_rankingRoot.transform, font, "다시 연주", new Vector2(-230, -330), OnRetry);
+            MakeRibbonButton(_rankingRoot.transform, font, "타이틀", new Vector2(230, -330), OnTitle);
+
+            _rankingRoot.SetActive(false);
+        }
+
+        void MakeRibbonButton(Transform parent, Font font, string label, Vector2 pos, UnityEngine.Events.UnityAction cb)
+        {
+            var go = new GameObject("Btn_" + label, typeof(RectTransform), typeof(Image), typeof(Button));
+            go.transform.SetParent(parent, false);
+            var bi = go.GetComponent<Image>(); bi.sprite = LoadSprite("banner-ribbon"); bi.preserveAspect = false;
+            var rt = bi.rectTransform; rt.anchorMin = rt.anchorMax = new Vector2(0.5f, 0.5f); rt.pivot = new Vector2(0.5f, 0.5f);
+            rt.anchoredPosition = pos; rt.sizeDelta = new Vector2(340, 100);
+            var bt = go.GetComponent<Button>(); bt.transition = Selectable.Transition.None; bt.onClick.AddListener(cb);
+            var tl = MakeText(go.transform, font, 36, Vector2.zero, new Vector2(280, 70)); tl.text = label; tl.color = new Color(0.33f, 0.22f, 0.13f, 1f); tl.raycastTarget = false;
+        }
+
+        void ShowRanking()
+        {
+            var res = _run.Result;
+            var mine = new ReachKey(res.NormalCleared, res.Loops, res.TotalScore);
+            string grade = _benchTable != null ? RankingRules.BenchmarkGrade(_benchTable, mine) : "-";
+            if (_rkScore != null) _rkScore.text = Comma(res.TotalScore);
+            if (_rkReach != null) _rkReach.text = (res.NormalCleared >= 9 ? "All" : res.NormalCleared + "라운드");
+            if (_rkGrade != null) _rkGrade.text = grade;
+            // 내 등급 행 강조
+            int band = res.NormalCleared <= 0 ? 0 : res.NormalCleared <= 2 ? 1 : res.NormalCleared <= 5 ? 2 : res.NormalCleared <= 8 ? 3 : 4;
+            for (int r = 0; r < _rkRows.Length; r++)
+            {
+                if (_rkRows[r] == null) continue;
+                var img = _rkRows[r].GetComponent<Image>();
+                if (img != null) img.color = (r == band) ? new Color(0.8f, 0.9f, 0.62f, 0.9f) : new Color(1f, 1f, 1f, 0f);
+            }
+            if (_rankingRoot != null) _rankingRoot.SetActive(true);
+            _state = State.Result;
+        }
+
+        void OnRetry()
+        {
+            if (_resultRoot != null) _resultRoot.SetActive(false);
+            if (_rankingRoot != null) _rankingRoot.SetActive(false);
             StartRun();
+        }
+
+        void OnTitle()
+        {
+            // 타이틀 화면 미구현 — 지금은 다시 시작(임시).
+            if (_rankingRoot != null) _rankingRoot.SetActive(false);
+            StartRun();
+        }
+
+        static Sprite UnityEditor_RoundedSprite()
+        {
+#if UNITY_EDITOR
+            return UnityEditor.AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/UISprite.psd");
+#else
+            return null;
+#endif
         }
 
         // 각 친구의 머리 위(중앙)에 뇌 Image를 만든다. 위치·크기는 조정 가능.
