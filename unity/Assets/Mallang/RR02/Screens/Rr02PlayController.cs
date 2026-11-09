@@ -41,7 +41,7 @@ namespace Mallang.RR02.Screens
         public float clearHoldSeconds = 0.9f;
         public float popDuration = 0.34f;
 
-        enum State { Intro, Listen, Repeat, Clear, Failed }
+        enum State { Intro, Listen, Repeat, Clear, Result }
 
         [Header("인트로")]
         public int introBeats = 8; // 시작 전 둠칫둠칫 카운트인 박 수
@@ -77,6 +77,10 @@ namespace Mallang.RR02.Screens
         Dictionary<Rr02Friend, AudioClip> _tone = new Dictionary<Rr02Friend, AudioClip>();
         AudioClip _clearClip, _failClip, _baselineClip;
         int _lastBeat = -1; // 8박 베이스라인 메트로놈
+
+        // 결과(게임오버/클리어) 화면
+        GameObject _resultRoot;
+        Text _resultTitle, _resultScore;
 
         // 머리 위 뇌(친구별). 맞출 때마다 pop + 임시 점수로 단계 성장(단계 계산은 BrainScore.Stage).
         Dictionary<Rr02Friend, Image> _brain = new Dictionary<Rr02Friend, Image>();
@@ -167,6 +171,94 @@ namespace Mallang.RR02.Screens
             if (chartJson == null) { Debug.LogError("Rr02PlayController: chartJson 미설정"); enabled = false; return; }
             _chart = Rr02Chart.LoadFromJson(chartJson.text);
             BuildGrid();
+            BuildResult();
+            StartRun();
+        }
+
+        // 결과 화면(런타임 구성): 어둑한 오버레이 + 양피지 카드 + 제목·점수 + 다시하기. 기본 숨김.
+        void BuildResult()
+        {
+            if (_resultRoot != null) return;
+            var canvas = GameObject.Find("PlayUI");
+            if (canvas == null) return;
+            var font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+
+            _resultRoot = new GameObject("ResultRoot", typeof(RectTransform));
+            _resultRoot.transform.SetParent(canvas.transform, false);
+            var rr = (RectTransform)_resultRoot.transform;
+            rr.anchorMin = Vector2.zero; rr.anchorMax = Vector2.one; rr.offsetMin = rr.offsetMax = Vector2.zero;
+
+            // 어둑 오버레이(뒤 입력 차단)
+            var dim = new GameObject("Dim", typeof(RectTransform), typeof(Image));
+            dim.transform.SetParent(_resultRoot.transform, false);
+            var di = dim.GetComponent<Image>(); di.color = new Color(0.05f, 0.04f, 0.1f, 0.55f);
+            var drt = di.rectTransform; drt.anchorMin = Vector2.zero; drt.anchorMax = Vector2.one; drt.offsetMin = drt.offsetMax = Vector2.zero;
+
+            // 양피지 카드
+            var card = new GameObject("Card", typeof(RectTransform), typeof(Image));
+            card.transform.SetParent(_resultRoot.transform, false);
+            var ci = card.GetComponent<Image>(); ci.sprite = LoadSprite("panel-score"); ci.preserveAspect = false; ci.type = Image.Type.Simple;
+            var crt = ci.rectTransform; crt.anchorMin = crt.anchorMax = new Vector2(0.5f, 0.5f); crt.pivot = new Vector2(0.5f, 0.5f);
+            crt.anchoredPosition = new Vector2(0, 20); crt.sizeDelta = new Vector2(720, 420);
+
+            _resultTitle = MakeText(card.transform, font, 52, new Vector2(0, 95), new Vector2(620, 120));
+            _resultTitle.color = new Color(0.33f, 0.22f, 0.13f, 1f);
+            _resultScore = MakeText(card.transform, font, 40, new Vector2(0, -5), new Vector2(620, 100));
+            _resultScore.color = new Color(0.35f, 0.3f, 0.2f, 1f);
+
+            // 다시하기 버튼(배너 리본 배경)
+            var btnGo = new GameObject("RetryButton", typeof(RectTransform), typeof(Image), typeof(Button));
+            btnGo.transform.SetParent(card.transform, false);
+            var bi = btnGo.GetComponent<Image>(); bi.sprite = LoadSprite("banner-ribbon"); bi.preserveAspect = false;
+            var brt = bi.rectTransform; brt.anchorMin = brt.anchorMax = new Vector2(0.5f, 0.5f); brt.pivot = new Vector2(0.5f, 0.5f);
+            brt.anchoredPosition = new Vector2(0, -130); brt.sizeDelta = new Vector2(360, 110);
+            var bt = btnGo.GetComponent<Button>(); bt.transition = Selectable.Transition.None; bt.onClick.AddListener(OnRetry);
+            var bl = MakeText(btnGo.transform, font, 38, Vector2.zero, new Vector2(300, 80));
+            bl.text = "다시하기"; bl.color = new Color(0.33f, 0.22f, 0.13f, 1f); bl.raycastTarget = false;
+
+            _resultRoot.SetActive(false);
+        }
+
+        Text MakeText(Transform parent, Font font, int size, Vector2 pos, Vector2 sz)
+        {
+            var go = new GameObject("Text", typeof(RectTransform), typeof(Text));
+            go.transform.SetParent(parent, false);
+            var t = go.GetComponent<Text>(); t.font = font; t.fontSize = size; t.fontStyle = FontStyle.Bold;
+            t.alignment = TextAnchor.MiddleCenter; t.raycastTarget = false;
+            var rt = t.rectTransform; rt.anchorMin = rt.anchorMax = new Vector2(0.5f, 0.5f); rt.pivot = new Vector2(0.5f, 0.5f);
+            rt.anchoredPosition = pos; rt.sizeDelta = sz;
+            return t;
+        }
+
+        Sprite LoadSprite(string n) { return UnityEditor_LoadOrNull("Assets/Mallang/RR02/Art/" + n + ".png"); }
+
+        // 에디터에선 AssetDatabase, 빌드에선 이미 씬에 들어간 스프라이트를 재사용(여기선 간단히 에디터 로드).
+        static Sprite UnityEditor_LoadOrNull(string path)
+        {
+#if UNITY_EDITOR
+            return UnityEditor.AssetDatabase.LoadAssetAtPath<Sprite>(path);
+#else
+            return null;
+#endif
+        }
+
+        void ShowResult()
+        {
+            var res = _run.Result;
+            if (_resultTitle != null)
+                _resultTitle.text = res.NormalCleared >= 9 ? "올클리어!" : res.NormalCleared + "번째 무대 도달!";
+            if (_resultScore != null)
+            {
+                string loops = res.Loops > 0 ? "  ·  무한 " + res.Loops + "회" : "";
+                _resultScore.text = "내 리듬점수 " + res.TotalScore + loops;
+            }
+            if (_resultRoot != null) _resultRoot.SetActive(true);
+            _state = State.Result;
+        }
+
+        void OnRetry()
+        {
+            if (_resultRoot != null) _resultRoot.SetActive(false);
             StartRun();
         }
 
@@ -351,7 +443,7 @@ namespace Mallang.RR02.Screens
             else if (_state == State.Listen) TickListen();
             else if (_state == State.Repeat) TickRepeat();
             else if (_state == State.Clear) { if (_clock >= clearHoldSeconds) EnterListen(); }
-            else if (_state == State.Failed) { if (_clock >= clearHoldSeconds) StartRun(); }
+            // State.Result: 입력(다시하기 버튼) 대기, 자동 진행 없음
 
             UpdateCursor();
             GrooveUpdate();
@@ -410,7 +502,8 @@ namespace Mallang.RR02.Screens
             else if (_run.Phase == Rr02Phase.Ended)
             {
                 if (_audio != null && _failClip != null) _audio.PlayOneShot(_failClip);
-                SetFeedback("다시 해봐요"); _state = State.Failed; _clock = 0;
+                SetFeedback("");
+                ShowResult();
             }
         }
 
