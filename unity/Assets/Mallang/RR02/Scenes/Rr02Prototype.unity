@@ -3505,13 +3505,14 @@ MonoBehaviour:
   clipCapybara: {fileID: 8300000, guid: 3df652bea5fa547ec81b479b2fc5a80d, type: 3}
   clipFox: {fileID: 8300000, guid: fdef35977f99c4fbf97d55b4ce1bfdc3, type: 3}
   clipSquirrel: {fileID: 8300000, guid: a31d6dca373d2458a938a8b6fb716e6c, type: 3}
-  clipBaseline: {fileID: 8300000, guid: 582f2e07215004b4cb4a1db8b02cc05a, type: 3}
+  clipBaseline: {fileID: 8300000, guid: 0fbd3c6ac6fb848d187adb342c4803e5, type: 3}
   roundText: {fileID: 1666115445}
   instructionText: {fileID: 681517719}
   feedbackText: {fileID: 1783538802}
   listenTailSeconds: 0.7
   clearHoldSeconds: 0.9
   popDuration: 0.34
+  introBeats: 8
 --- !u!4 &1733537670
 Transform:
   m_ObjectHideFlags: 0
