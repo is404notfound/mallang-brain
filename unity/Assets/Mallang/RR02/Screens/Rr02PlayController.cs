@@ -46,6 +46,7 @@ namespace Mallang.RR02.Screens
 
         [Header("인트로")]
         public int introBeats = 4; // 시작 전 둠칫둠칫 카운트인 박 수
+        public float introRestBeats = 0.5f; // 카운트인 끝나고 '잘 들어요' 전 짧은 쉼(박)
 
         Rr02Chart _chart;
         Rr02Run _run;
@@ -82,6 +83,8 @@ namespace Mallang.RR02.Screens
         // 결과(게임오버/클리어) 화면 — 전체화면(screen-result-final 수렴)
         GameObject _resultRoot;
         Text _resultScoreBig, _resultGain;
+        // 경로 B와 같은 안전 여백 프레임(레터박스) 패턴: 고정 16:9 프레임 안에 배경·오버레이를 묶고 FitFrame으로 스케일.
+        RectTransform _resultFrame;
 
         // 랭킹(온라인 리더보드) 화면
         GameObject _rankingRoot;
@@ -93,8 +96,7 @@ namespace Mallang.RR02.Screens
         Text _myRowRank, _myRowScore;
         Text[] _friendScore = new Text[4];
         Image[] _friendBrainHead = new Image[4];
-        Image[] _lines = new Image[4];       // 뇌 -> 친구 연결선
-        float[] _lineLen = new float[4];      // 각 선의 완성 길이
+        Rr02CurveLine[] _curves = new Rr02CurveLine[4]; // 뇌 -> 친구 곡선 연결선(글로우 리본)
         Coroutine _lineAnim;
         static readonly Rr02Friend[] _friendOrder = { Rr02Friend.Rabbit, Rr02Friend.Capybara, Rr02Friend.Fox, Rr02Friend.Squirrel };
         static readonly string[] _friendSpriteName = { "friend-rabbit", "friend-capybara", "friend-fox", "friend-squirrel" };
@@ -194,71 +196,106 @@ namespace Mallang.RR02.Screens
             StartRun();
         }
 
-        // 결과 화면(런타임 구성, 전체화면): 배경 + 상단 "내 리듬점수"+뇌 + 네 친구별 점수 + 다음. 기본 숨김.
+        // 결과 화면(런타임 구성, 전체화면): 축제 광장 배경 위로 "내 리듬 점수" -> 큰 점수 방울 -> +증가 ->
+        // 중앙 뇌 -> (뇌에서 각 친구로 뻗는 곡선 글로우 선) -> 네 친구(머리 위 뇌 + 점수판 + NEW 배지) -> 다음 버튼.
+        // 랭킹 화면과 같은 안전 여백 프레임(레터박스) 패턴을 그대로 따른다(FitFrame으로 화면 크기에 맞춰 스케일).
         void BuildResult()
         {
             if (_resultRoot != null) return;
             var canvas = GameObject.Find("PlayUI");
             if (canvas == null) return;
-            var font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            var font = LoadDisplayFont();
 
             _resultRoot = new GameObject("ResultRoot", typeof(RectTransform));
             _resultRoot.transform.SetParent(canvas.transform, false);
             var rr = (RectTransform)_resultRoot.transform;
             rr.anchorMin = Vector2.zero; rr.anchorMax = Vector2.one; rr.offsetMin = rr.offsetMax = Vector2.zero;
 
-            // 전체화면 배경
-            var bg = NewImage("Bg", _resultRoot.transform, LoadSprite("stage-background"), false);
+            // 레터박스 바(프레임 밖 여백)를 어둡게 채움.
+            var backdrop = NewImage("Backdrop", _resultRoot.transform, null, false);
+            backdrop.color = new Color(0.12f, 0.1f, 0.18f, 1f);
+            var bdrt = backdrop.rectTransform; bdrt.anchorMin = Vector2.zero; bdrt.anchorMax = Vector2.one; bdrt.offsetMin = bdrt.offsetMax = Vector2.zero;
+
+            // 고정 16:9 프레임(1280x720). 배경·오버레이를 모두 이 프레임 자식으로 둬 한 덩어리로 스케일.
+            // ShowResult에서 현재 화면 크기에 맞춰 안전 여백 두고 축소(어떤 화면비에서도 레터박스·모서리 안 붙음).
+            var frameGo = new GameObject("Frame", typeof(RectTransform));
+            frameGo.transform.SetParent(_resultRoot.transform, false);
+            _resultFrame = (RectTransform)frameGo.transform;
+            _resultFrame.anchorMin = _resultFrame.anchorMax = new Vector2(0.5f, 0.5f);
+            _resultFrame.pivot = new Vector2(0.5f, 0.5f);
+            _resultFrame.sizeDelta = new Vector2(1280, 720);
+            _resultFrame.anchoredPosition = Vector2.zero;
+
+            // 배경(축제 광장)
+            var bg = NewImage("Bg", _resultFrame, LoadSprite("stage-background"), false);
             var bgrt = bg.rectTransform; bgrt.anchorMin = Vector2.zero; bgrt.anchorMax = Vector2.one; bgrt.offsetMin = bgrt.offsetMax = Vector2.zero;
 
-            // 상단: 라벨 + 큰 점수 + +증가 + 중앙 뇌
-            var lbl = MakeText(_resultRoot.transform, font, 40, new Vector2(0, 300), new Vector2(520, 70));
-            lbl.text = "내 리듬점수"; lbl.color = new Color(1f, 1f, 1f, 1f); AddOutline(lbl.gameObject, 0.2f, 0.25f, 0.4f);
-            _resultScoreBig = MakeText(_resultRoot.transform, font, 92, new Vector2(0, 225), new Vector2(760, 130));
-            _resultScoreBig.color = new Color(0.95f, 0.35f, 0.45f, 1f); AddOutline(_resultScoreBig.gameObject, 1f, 1f, 1f, 1f, 4f);
-            _resultGain = MakeText(_resultRoot.transform, font, 34, new Vector2(0, 150), new Vector2(400, 60));
-            _resultGain.color = new Color(0.95f, 0.45f, 0.6f, 1f); AddOutline(_resultGain.gameObject, 1f, 1f, 1f, 1f);
-            var centerBrain = NewImage("CenterBrain", _resultRoot.transform, LoadSprite("brain-stage1"), true);
-            var cbrt = centerBrain.rectTransform; cbrt.anchoredPosition = new Vector2(0, 60); cbrt.sizeDelta = new Vector2(190, 190);
-
-            // 네 친구 + 머리 뇌 + 점수
+            // 뇌 -> 각 친구로 흐르는 곡선 연결선(진행도 0에서 시작, ShowResult에서 자람).
+            // 배경 바로 뒤에 만들어 그 뒤 생성되는 뇌·친구가 형제 순서상 위(앞)에 그려지게 한다.
             float[] fx = { -440, -150, 150, 440 };
-            for (int i = 0; i < 4; i++)
-            {
-                var f = NewImage("Friend" + i, _resultRoot.transform, LoadSprite(_friendSpriteName[i]), true);
-                var frt = f.rectTransform; frt.anchoredPosition = new Vector2(fx[i], -120); frt.sizeDelta = new Vector2(220, 220);
-                var hb = NewImage("Brain" + i, _resultRoot.transform, LoadSprite("brain-stage0"), true);
-                var hbrt = hb.rectTransform; hbrt.anchoredPosition = new Vector2(fx[i], -15); hbrt.sizeDelta = new Vector2(62, 62);
-                _friendBrainHead[i] = hb;
-                var st = MakeText(_resultRoot.transform, font, 44, new Vector2(fx[i], -250), new Vector2(230, 70));
-                st.color = new Color(0.33f, 0.22f, 0.13f, 1f); AddOutline(st.gameObject, 1f, 1f, 1f, 1f);
-                _friendScore[i] = st;
-            }
-
-            // 뇌 -> 각 친구 연결선(처음 길이 0, ShowResult에서 뻗음). 친구·뇌 뒤(배경 위)로.
             Vector2 brainPt = new Vector2(0, 60);
             Color[] lineCol = {
-                new Color(1f, 0.6f, 0.78f, 0.9f), new Color(0.6f, 0.9f, 0.62f, 0.9f),
-                new Color(0.6f, 0.8f, 1f, 0.9f), new Color(1f, 0.85f, 0.5f, 0.9f) };
+                new Color(1f, 0.6f, 0.78f, 1f), new Color(0.6f, 0.9f, 0.62f, 1f),
+                new Color(0.6f, 0.8f, 1f, 1f), new Color(1f, 0.85f, 0.5f, 1f) };
+            float[] bow = { 30f, 15f, 15f, 30f };
             for (int i = 0; i < 4; i++)
             {
-                Vector2 fp = new Vector2(fx[i], -15);
-                Vector2 d = fp - brainPt; float len = d.magnitude; float ang = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
-                var ln = NewImage("Line" + i, _resultRoot.transform, null, false); ln.color = lineCol[i];
-                var lrt = ln.rectTransform; lrt.pivot = new Vector2(0f, 0.5f); lrt.anchoredPosition = brainPt;
-                lrt.sizeDelta = new Vector2(0f, 7f); lrt.localEulerAngles = new Vector3(0, 0, ang);
-                ln.transform.SetSiblingIndex(1); // 배경(0) 바로 위 = 뇌·친구 뒤
-                _lines[i] = ln; _lineLen[i] = len;
+                var go = new GameObject("Curve" + i, typeof(RectTransform), typeof(CanvasRenderer), typeof(Rr02CurveLine));
+                go.transform.SetParent(_resultFrame, false);
+                var curve = go.GetComponent<Rr02CurveLine>();
+                var crt = (RectTransform)curve.transform;
+                crt.anchorMin = crt.anchorMax = new Vector2(0.5f, 0.5f); crt.pivot = new Vector2(0.5f, 0.5f);
+                crt.anchoredPosition = Vector2.zero; crt.sizeDelta = new Vector2(1280, 720);
+                curve.color = lineCol[i]; curve.width = 12f; curve.glowWidth = 28f;
+                curve.SetEndpoints(brainPt, new Vector2(fx[i], -15), bow[i]);
+                curve.progress = 0f;
+                curve.raycastTarget = false;
+                _curves[i] = curve;
             }
 
-            // 다음 버튼(배너 리본) — 맨 아래
+            // 상단: 라벨 + 큰 점수(방울판) + +증가 + 중앙 뇌(연결선 위에 그려짐)
+            var lbl = MakeText(_resultFrame, font, 38, new Vector2(0, 320), new Vector2(520, 70));
+            lbl.text = "내 리듬 점수"; lbl.color = Color.white; AddOutline(lbl.gameObject, 0.2f, 0.25f, 0.4f);
+
+            var scoreBubble = NewImage("ScoreBubble", _resultFrame, LoadSprite("score-bubble"), false);
+            var sbrt = scoreBubble.rectTransform; sbrt.anchoredPosition = new Vector2(0, 208); sbrt.sizeDelta = new Vector2(420, 150);
+            _resultScoreBig = MakeText(_resultFrame, font, 84, new Vector2(0, 208), new Vector2(380, 130));
+            _resultScoreBig.color = new Color(0.95f, 0.35f, 0.45f, 1f); AddOutline(_resultScoreBig.gameObject, 1f, 1f, 1f, 1f, 4f);
+
+            _resultGain = MakeText(_resultFrame, font, 32, new Vector2(0, 150), new Vector2(400, 60));
+            _resultGain.color = new Color(0.95f, 0.45f, 0.6f, 1f); AddOutline(_resultGain.gameObject, 1f, 1f, 1f, 1f);
+
+            var centerBrain = NewImage("CenterBrain", _resultFrame, LoadSprite("brain-stage0"), true);
+            var cbrt = centerBrain.rectTransform; cbrt.anchoredPosition = new Vector2(0, 60); cbrt.sizeDelta = new Vector2(190, 190);
+
+            // 네 친구 + 머리 위 뇌 + 점수판(+NEW 배지)
+            for (int i = 0; i < 4; i++)
+            {
+                var f = NewImage(_friendSpriteName[i], _resultFrame, LoadSprite(_friendSpriteName[i]), true);
+                var frt = f.rectTransform; frt.anchoredPosition = new Vector2(fx[i], -120); frt.sizeDelta = new Vector2(220, 220);
+
+                var hb = NewImage("Brain" + i, _resultFrame, LoadSprite("brain-stage0"), true);
+                var hbrt = hb.rectTransform; hbrt.anchoredPosition = new Vector2(fx[i], -15); hbrt.sizeDelta = new Vector2(62, 62);
+                _friendBrainHead[i] = hb;
+
+                var plate = NewImage("ScorePlate" + i, _resultFrame, LoadSprite("score-plate"), false);
+                var plrt = plate.rectTransform; plrt.anchoredPosition = new Vector2(fx[i], -250); plrt.sizeDelta = new Vector2(210, 74);
+                var st = MakeText(_resultFrame, font, 40, new Vector2(fx[i], -250), new Vector2(190, 60));
+                st.color = new Color(0.33f, 0.22f, 0.13f, 1f); AddOutline(st.gameObject, 1f, 1f, 1f, 1f);
+                _friendScore[i] = st;
+
+                var badge = NewImage("BadgeNew" + i, _resultFrame, LoadSprite("badge-new"), false);
+                var badrt = badge.rectTransform; badrt.anchoredPosition = new Vector2(fx[i] + 95, -230); badrt.sizeDelta = new Vector2(56, 34);
+            }
+
+            // 다음 버튼 — 맨 아래. 프레임(720 높이) 안쪽 y=-320이라 안전 여백 안에서도 안 잘림.
             var btnGo = new GameObject("NextButton", typeof(RectTransform), typeof(Image), typeof(Button));
-            btnGo.transform.SetParent(_resultRoot.transform, false);
-            var bi = btnGo.GetComponent<Image>(); bi.sprite = LoadSprite("banner-ribbon"); bi.preserveAspect = false;
+            btnGo.transform.SetParent(_resultFrame, false);
+            var bi = btnGo.GetComponent<Image>(); bi.sprite = LoadSprite("button-primary"); bi.preserveAspect = false;
             var brt2 = bi.rectTransform; brt2.anchorMin = brt2.anchorMax = new Vector2(0.5f, 0.5f); brt2.pivot = new Vector2(0.5f, 0.5f);
-            brt2.anchoredPosition = new Vector2(0, -335); brt2.sizeDelta = new Vector2(320, 90);
+            brt2.anchoredPosition = new Vector2(0, -320); brt2.sizeDelta = new Vector2(300, 96);
             var bt = btnGo.GetComponent<Button>(); bt.transition = Selectable.Transition.None; bt.onClick.AddListener(OnNext);
-            var bl = MakeText(btnGo.transform, font, 40, Vector2.zero, new Vector2(300, 80));
+            var bl = MakeText(btnGo.transform, font, 38, Vector2.zero, new Vector2(280, 90));
             bl.text = "다음"; bl.color = new Color(0.33f, 0.22f, 0.13f, 1f); bl.raycastTarget = false;
 
             _resultRoot.SetActive(false);
@@ -311,12 +348,17 @@ namespace Mallang.RR02.Screens
             {
                 int sc = res.AnimalScores != null && res.AnimalScores.ContainsKey(_friendOrder[i]) ? res.AnimalScores[_friendOrder[i]] : 0;
                 if (_friendScore[i] != null) _friendScore[i].text = Comma(sc);
-                if (_friendBrainHead[i] != null) _friendBrainHead[i].sprite = LoadSprite("brain-stage" + Mathf.Clamp(BrainScore.Stage(sc), 0, 3));
+                if (_friendBrainHead[i] != null) _friendBrainHead[i].sprite = LoadSprite("brain-stage0");
             }
             if (_resultRoot != null) _resultRoot.SetActive(true);
+            FitFrame(_resultFrame, 1280f, 720f, 0.07f); // 활성 후 실제 캔버스 크기로 안전 여백 두고 맞춤
             _state = State.Result;
-            // 연결선: 길이 0에서 시작해 뇌 -> 친구로 뻗는 애니메이션
-            for (int i = 0; i < 4; i++) if (_lines[i] != null) _lines[i].rectTransform.sizeDelta = new Vector2(0f, 7f);
+            // 연결선: 진행도 0에서 시작해 뇌 -> 친구로 뻗는 애니메이션
+            for (int i = 0; i < 4; i++)
+            {
+                if (_curves[i] == null) continue;
+                _curves[i].progress = 0f; _curves[i].SetVerticesDirty();
+            }
             if (_lineAnim != null) StopCoroutine(_lineAnim);
             if (isActiveAndEnabled) _lineAnim = StartCoroutine(LinesGrow());
         }
@@ -324,26 +366,26 @@ namespace Mallang.RR02.Screens
         IEnumerator LinesGrow()
         {
             yield return new WaitForSeconds(0.25f); // 점수 팝 뒤에 선이 뻗음
-            float dur = 0.45f;
+            float dur = 0.5f;
             for (int i = 0; i < 4; i++)
             {
-                if (_lines[i] == null) continue;
-                StartCoroutine(OneLineGrow(_lines[i].rectTransform, _lineLen[i], dur));
+                if (_curves[i] == null) continue;
+                StartCoroutine(OneCurveGrow(_curves[i], dur));
                 yield return new WaitForSeconds(0.08f); // 친구마다 살짝 스태거
             }
         }
 
-        IEnumerator OneLineGrow(RectTransform rt, float target, float dur)
+        IEnumerator OneCurveGrow(Rr02CurveLine curve, float dur)
         {
             float t = 0f;
             while (t < dur)
             {
                 t += Time.deltaTime; float u = Mathf.Clamp01(t / dur);
                 float e = 1f - (1f - u) * (1f - u); // ease-out
-                rt.sizeDelta = new Vector2(target * e, rt.sizeDelta.y);
+                curve.progress = e; curve.SetVerticesDirty();
                 yield return null;
             }
-            rt.sizeDelta = new Vector2(target, rt.sizeDelta.y);
+            curve.progress = 1f; curve.SetVerticesDirty();
         }
 
         static string Comma(int n) { return n.ToString("N0", System.Globalization.CultureInfo.InvariantCulture); }
@@ -704,7 +746,7 @@ namespace Mallang.RR02.Screens
         {
             if (_run == null) return;
             _clock += Time.deltaTime;
-            if (_state == State.Intro) { if (_clock >= introBeats * _beatSec) EnterListen(); }
+            if (_state == State.Intro) { if (_clock >= (introBeats + introRestBeats) * _beatSec) EnterListen(); }
             else if (_state == State.Listen) TickListen();
             else if (_state == State.Repeat) TickRepeat();
             else if (_state == State.Clear) { if (_clock >= clearHoldSeconds) EnterListen(); }
