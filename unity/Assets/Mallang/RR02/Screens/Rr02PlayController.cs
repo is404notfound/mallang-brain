@@ -87,6 +87,8 @@ namespace Mallang.RR02.Screens
         GameObject _rankingRoot;
         BenchmarkTable _benchTable;
         // 경로 B: 승인 캔버스(screen-ranking)를 배경 한 장으로 쓰고, 상태로 변하는 숫자만 폰트로 오버레이.
+        // 배경·오버레이를 고정 16:9 프레임의 자식으로 묶고, 화면 크기에 맞춰 안전 여백 두고 스케일(레터박스).
+        RectTransform _rankingFrame;
         Text _heroScore, _heroReach, _heroGradeLabel, _heroNextChip;
         Text _myRowRank, _myRowScore;
         Text[] _friendScore = new Text[4];
@@ -369,25 +371,52 @@ namespace Mallang.RR02.Screens
             var rr = (RectTransform)_rankingRoot.transform;
             rr.anchorMin = Vector2.zero; rr.anchorMax = Vector2.one; rr.offsetMin = rr.offsetMax = Vector2.zero;
 
-            // 배경: 승인 캔버스 한 장(고정 구성). 상위 10행·메달·배지·버튼 아트가 전부 베이크됨.
-            // 목 리더보드가 캔버스와 동일하므로 코드가 그릴 건 '상태로 변하는 숫자'뿐이다(원칙 6: 변하는가로 분해).
-            var bg = NewImage("Bg", _rankingRoot.transform, LoadSprite("screen-ranking"), false);
-            bg.preserveAspect = true;
+            // 레터박스 바(프레임 밖 여백)를 어둡게 채움.
+            var backdrop = NewImage("Backdrop", _rankingRoot.transform, null, false);
+            backdrop.color = new Color(0.12f, 0.1f, 0.18f, 1f);
+            var bdrt = backdrop.rectTransform; bdrt.anchorMin = Vector2.zero; bdrt.anchorMax = Vector2.one; bdrt.offsetMin = bdrt.offsetMax = Vector2.zero;
+
+            // 고정 16:9 프레임(1280x720). 배경·오버레이를 모두 이 프레임 자식으로 둬 한 덩어리로 스케일.
+            // ShowRanking에서 현재 화면 크기에 맞춰 안전 여백 두고 축소(어떤 화면비에서도 레터박스·모서리 안 붙음).
+            var frameGo = new GameObject("Frame", typeof(RectTransform));
+            frameGo.transform.SetParent(_rankingRoot.transform, false);
+            _rankingFrame = (RectTransform)frameGo.transform;
+            _rankingFrame.anchorMin = _rankingFrame.anchorMax = new Vector2(0.5f, 0.5f);
+            _rankingFrame.pivot = new Vector2(0.5f, 0.5f);
+            _rankingFrame.sizeDelta = new Vector2(1280, 720);
+            _rankingFrame.anchoredPosition = Vector2.zero;
+
+            // 배경: 승인 캔버스 한 장(고정 구성). 프레임(16:9)에 꽉 채움 — 비율 일치라 왜곡 없음.
+            // 상위 10행·메달·배지·버튼 아트가 전부 베이크됨. 코드가 그릴 건 '상태로 변하는 숫자'뿐(원칙 6).
+            var bg = NewImage("Bg", _rankingFrame, LoadSprite("screen-ranking"), false);
             var bgrt = bg.rectTransform; bgrt.anchorMin = Vector2.zero; bgrt.anchorMax = Vector2.one; bgrt.offsetMin = bgrt.offsetMax = Vector2.zero;
 
-            // 상태로 변하는 값만 오버레이: 가리개 플레이트(베이크 샘플 숫자를 덮음) + 폰트 텍스트.
+            // 변하는 숫자만 오버레이(프레임 자식 = 1280x720 좌표, 프레임과 함께 스케일).
             // 등급 리본·다음 칩은 삽화라 베이크 유지(프로토타입: 대부분 암보 합주). 숫자만 라이브.
-            _heroScore = CoverText(_rankingRoot.transform, font, 44, new Vector2(-44, 276), new Vector2(230, 64), cream, brown, TextAnchor.MiddleCenter);
-            _heroReach = CoverText(_rankingRoot.transform, font, 44, new Vector2(204, 276), new Vector2(210, 64), cream, brown, TextAnchor.MiddleCenter);
-            _myRowRank = CoverText(_rankingRoot.transform, font, 26, new Vector2(-312, -161), new Vector2(150, 38), green, brown, TextAnchor.MiddleCenter);
-            _myRowScore = CoverText(_rankingRoot.transform, font, 26, new Vector2(304, -161), new Vector2(170, 38), green, brown, TextAnchor.MiddleRight);
+            _heroScore = CoverText(_rankingFrame, font, 40, new Vector2(-44, 276), new Vector2(210, 58), cream, brown, TextAnchor.MiddleCenter);
+            _heroReach = CoverText(_rankingFrame, font, 40, new Vector2(196, 276), new Vector2(224, 58), cream, brown, TextAnchor.MiddleCenter);
+            _myRowRank = CoverText(_rankingFrame, font, 24, new Vector2(-312, -161), new Vector2(145, 36), green, brown, TextAnchor.MiddleCenter);
+            _myRowScore = CoverText(_rankingFrame, font, 24, new Vector2(304, -161), new Vector2(165, 36), green, brown, TextAnchor.MiddleRight);
 
             // 베이크된 버튼 아트 위에 투명 클릭 영역.
-            InvisibleButton(_rankingRoot.transform, new Vector2(-360, -305), new Vector2(360, 110), OnRetry);
-            InvisibleButton(_rankingRoot.transform, new Vector2(0, -305), new Vector2(360, 110), OnShare);
-            InvisibleButton(_rankingRoot.transform, new Vector2(360, -305), new Vector2(360, 110), OnTitle);
+            InvisibleButton(_rankingFrame, new Vector2(-360, -305), new Vector2(360, 108), OnRetry);
+            InvisibleButton(_rankingFrame, new Vector2(0, -305), new Vector2(360, 108), OnShare);
+            InvisibleButton(_rankingFrame, new Vector2(360, -305), new Vector2(360, 108), OnTitle);
 
             _rankingRoot.SetActive(false);
+        }
+
+        // 고정 디자인 프레임을 현재 부모(캔버스) 크기에 맞춰 안전 여백 두고 축소. 어떤 화면비에서도 레터박스.
+        void FitFrame(RectTransform frame, float designW, float designH, float margin)
+        {
+            if (frame == null) return;
+            var parent = frame.parent as RectTransform;
+            if (parent == null) return;
+            Canvas.ForceUpdateCanvases();
+            float cw = parent.rect.width, ch = parent.rect.height;
+            if (cw < 1f || ch < 1f) return;
+            float s = Mathf.Min(cw * (1f - margin) / designW, ch * (1f - margin) / designH);
+            frame.localScale = new Vector3(s, s, 1f);
         }
 
         // 디스플레이 폰트(BMJUA 주아체). 없으면 기본 폰트 폴백.
@@ -466,6 +495,7 @@ namespace Mallang.RR02.Screens
             if (_myRowScore != null) _myRowScore.text = Comma(board.Me.Score);
 
             if (_rankingRoot != null) _rankingRoot.SetActive(true);
+            FitFrame(_rankingFrame, 1280f, 720f, 0.07f); // 활성 후 실제 캔버스 크기로 여백 두고 맞춤
             _state = State.Result;
         }
 
