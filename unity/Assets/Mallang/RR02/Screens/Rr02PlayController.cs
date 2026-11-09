@@ -42,7 +42,7 @@ namespace Mallang.RR02.Screens
         public float clearHoldSeconds = 0.9f;
         public float popDuration = 0.34f;
 
-        enum State { Intro, Listen, Repeat, Clear, Result }
+        enum State { Intro, Listen, CountIn, Repeat, Clear, Result }
 
         [Header("인트로")]
         public int introBeats = 4; // 시작 전 둠칫둠칫 카운트인 박 수
@@ -917,17 +917,41 @@ namespace Mallang.RR02.Screens
             }
             if (_listenIndex >= _phrase.Count)
             {
-                double lastSec = _phrase.Count > 0 ? _phrase[_phrase.Count - 1].TargetUs / 1000000.0 : 0;
-                if (_clock >= lastSec + listenTailSeconds)
-                {
-                    _run.BeginRepeat();
-                    ResetBubbleScales();
-                    ShowSequence(false); // 따라치기: 숨긴 칸 '?'
-                    // 프리롤: _clock을 음수로 시작해 전환 직후부터 입력(판정) 허용. 노트/드럼은 _clock>=0에 그대로.
-                    _state = State.Repeat; _clock = -repeatPrerollMs / 1000.0; _lastBeat = -1;
-                    if (instructionText != null) instructionText.text = "따라 쳐요";
-                }
+                // 들어보세요는 정확히 '노트 수'만큼의 박(4노트=4박). 4박째 경계(_clock >= Count*_beatSec)에서
+                // 바로 따라하기 전 '4박 하이햇 카운트인'으로 넘어간다(옛 5박 꼬리 제거 → 첫 따라치기 박이 안 밀림).
+                if (_clock >= _phrase.Count * _beatSec)
+                    StartRepeatCountIn();
             }
+        }
+
+        // 따라하기 직전 4박 하이햇 카운트인. 숨긴 칸을 '?'로 바꿔 보여주고, 끝나면 따라치기로 진입한다.
+        void StartRepeatCountIn()
+        {
+            _state = State.CountIn; _lastBeat = -1;
+            ShowSequence(false); // 숨긴 칸 '?'
+            if (instructionText != null) instructionText.text = "준비!";
+            if (_introRoutine != null) StopCoroutine(_introRoutine);
+            if (isActiveAndEnabled) _introRoutine = StartCoroutine(RepeatCountInRoutine());
+        }
+
+        IEnumerator RepeatCountInRoutine()
+        {
+            float bs = (_beatSec > 0.05f ? _beatSec : 0.4f) * Mathf.Max(0.1f, tempoScale); // 인트로와 같은 템포로 정확히 4박
+            for (int i = 0; i < introBeats; i++)
+            {
+                if (_audio != null && _baselineClip != null) _audio.PlayOneShot(_baselineClip, baselineVolume);
+                yield return new WaitForSeconds(bs);
+            }
+            EnterRepeat();
+        }
+
+        void EnterRepeat()
+        {
+            _run.BeginRepeat();
+            ResetBubbleScales();
+            // 프리롤: _clock을 음수로 시작해 전환 직후부터 입력(판정) 허용. 노트/드럼은 _clock>=0에 그대로.
+            _state = State.Repeat; _clock = -repeatPrerollMs / 1000.0; _lastBeat = -1;
+            if (instructionText != null) instructionText.text = "따라 쳐요";
         }
 
         void TickRepeat()
