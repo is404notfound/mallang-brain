@@ -101,6 +101,7 @@ namespace Mallang.RR02.Screens
         Rr02CurveLine[] _curves = new Rr02CurveLine[4]; // 뇌 -> 친구 곡선 연결선(글로우 리본)
         Coroutine _lineAnim;
         Coroutine _introRoutine; // 카운트인(정확히 introBeats박)
+        bool _audioPrimed; // 오디오 콜드스타트 워밍업 1회
         static readonly Rr02Friend[] _friendOrder = { Rr02Friend.Rabbit, Rr02Friend.Capybara, Rr02Friend.Fox, Rr02Friend.Squirrel };
         static readonly string[] _friendSpriteName = { "friend-rabbit", "friend-capybara", "friend-fox", "friend-squirrel" };
 
@@ -165,6 +166,13 @@ namespace Mallang.RR02.Screens
                 _baselineClip = clipBaseline;
                 _clearClip = MakeTone(880f, 0.5f);
                 _failClip = MakeTone(196f, 0.45f);
+            }
+            // 오디오 콜드스타트 워밍업: 첫 플레이에서 첫 PlayOneShot이 묻혀 카운트인 첫 박이
+            // 안 들리는 문제(첫판 3박, 재시도 4박)를 막는다. 무음(volume 0)으로 경로를 미리 깨움.
+            if (!_audioPrimed && _audio != null && _baselineClip != null)
+            {
+                _audio.PlayOneShot(_baselineClip, 0f);
+                _audioPrimed = true;
             }
         }
 
@@ -749,6 +757,7 @@ namespace Mallang.RR02.Screens
         IEnumerator IntroRoutine()
         {
             float bs = _beatSec > 0.05f ? _beatSec : 0.4f;
+            yield return null; // 활성화 프레임에 첫 박을 치지 않음(오디오 준비 여유 → 첫판 첫 박 묻힘 방지)
             for (int i = 0; i < introBeats; i++)
             {
                 if (_audio != null && _baselineClip != null) _audio.PlayOneShot(_baselineClip, 0.55f);
