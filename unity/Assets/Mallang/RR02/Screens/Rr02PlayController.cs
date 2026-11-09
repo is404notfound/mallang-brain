@@ -46,6 +46,7 @@ namespace Mallang.RR02.Screens
 
         [Header("인트로")]
         public int introBeats = 4; // 시작 전 둠칫둠칫 카운트인 박 수
+        public float inputOffsetMs = 110f; // 입력 지연 보정: 모바일 오디오 출력 지연만큼 입력 시각을 당겨 판정(체감 밀림 완화)
         public float introRestBeats = 0.18f; // 카운트인 끝나고 '잘 들어요' 전 짧은 쉼(박)
 
         Rr02Chart _chart;
@@ -927,7 +928,8 @@ namespace Mallang.RR02.Screens
         public void Press(Rr02Friend friend)
         {
             if (_state != State.Repeat || _run == null) return;
-            long us = (long)(_clock * 1000000.0);
+            // 입력 지연 보정: 들리는 비트에 맞춰 누르면 오디오 출력 지연만큼 늦으므로, 그만큼 당겨 판정.
+            long us = (long)(_clock * 1000000.0) - (long)(inputOffsetMs * 1000.0);
             var r = _run.ProcessPress(friend, us);
             PlayTone(friend); // 누를 때 소리
             float intensity = r.Kind == Rr02InputKind.Judged && r.Judgement == Rr02Judgement.Perfect ? 1.25f : 1.0f;
