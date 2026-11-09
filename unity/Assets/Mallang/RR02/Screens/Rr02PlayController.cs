@@ -102,6 +102,8 @@ namespace Mallang.RR02.Screens
         Coroutine _lineAnim;
         Coroutine _introRoutine; // 카운트인(정확히 introBeats박)
         bool _audioPrimed; // 오디오 콜드스타트 워밍업 1회
+        RectTransform _playUiRt; // 고정 1280x720 디자인 컨테이너(화면에 맞춰 레터박스 스케일)
+        GameObject _letterbox;   // PlayUI 밖 여백을 채우는 어두운 배경
         static readonly Rr02Friend[] _friendOrder = { Rr02Friend.Rabbit, Rr02Friend.Capybara, Rr02Friend.Fox, Rr02Friend.Squirrel };
         static readonly string[] _friendSpriteName = { "friend-rabbit", "friend-capybara", "friend-fox", "friend-squirrel" };
 
@@ -138,14 +140,41 @@ namespace Mallang.RR02.Screens
                 foreach (var im in imgs) im.raycastTarget = (im == target);
                 if (target != null)
                 {
-                    var btn = target.gameObject.GetComponent<Button>() ?? target.gameObject.AddComponent<Button>();
-                    btn.transition = Selectable.Transition.None;
-                    btn.onClick.RemoveAllListeners();
                     var captured = friend;
-                    btn.onClick.AddListener(() => Press(captured));
+                    // 리듬 입력은 누르는 순간 발동(pointer down). 기존 Button onClick(=손 뗄 때)은 지운다.
+                    var existing = target.gameObject.GetComponent<Button>();
+                    if (existing != null) existing.onClick.RemoveAllListeners();
+                    var relay = target.gameObject.GetComponent<Rr02PressRelay>() ?? target.gameObject.AddComponent<Rr02PressRelay>();
+                    relay.onDown = () => Press(captured);
                 }
             }
             SetupAudio();
+
+            // 레터박스: PlayUI(고정 1280x720)를 화면에 맞춰 축소하고, 그 밖 여백을 어둡게 채운다.
+            _playUiRt = GameObject.Find("PlayUI") != null ? GameObject.Find("PlayUI").transform as RectTransform : null;
+            if (_playUiRt != null && _letterbox == null)
+            {
+                var canvasT = _playUiRt.parent;
+                var bd = new GameObject("LetterboxBackdrop", typeof(RectTransform), typeof(Image));
+                bd.transform.SetParent(canvasT, false);
+                bd.transform.SetAsFirstSibling(); // PlayUI 뒤로
+                var im = bd.GetComponent<Image>(); im.color = new Color(0.08f, 0.07f, 0.12f, 1f); im.raycastTarget = false;
+                var rt = im.rectTransform; rt.anchorMin = Vector2.zero; rt.anchorMax = Vector2.one; rt.offsetMin = rt.offsetMax = Vector2.zero;
+                _letterbox = bd;
+            }
+            FitPlayUIToScreen();
+        }
+
+        // 고정 1280x720 PlayUI를 캔버스에 '전부 들어오게'(contain/letterbox) 균일 축소. 어떤 해상도·화면비에서도 안 잘림.
+        void FitPlayUIToScreen()
+        {
+            if (_playUiRt == null) return;
+            var parent = _playUiRt.parent as RectTransform;
+            if (parent == null) return;
+            float cw = parent.rect.width, ch = parent.rect.height;
+            if (cw < 1f || ch < 1f) return;
+            float s = Mathf.Min(cw / 1280f, ch / 720f) * 0.98f; // 살짝 여백
+            _playUiRt.localScale = new Vector3(s, s, 1f);
         }
 
         // 플레이스홀더 음 생성(친구마다 다른 음정, 펜타토닉). 실제 악기 소리는 에셋으로 교체.
@@ -366,7 +395,7 @@ namespace Mallang.RR02.Screens
                 if (_friendBrainHead[i] != null) _friendBrainHead[i].sprite = LoadSprite("brain-stage0");
             }
             if (_resultRoot != null) _resultRoot.SetActive(true);
-            FitFrame(_resultFrame, 1280f, 720f, 0.07f); // 활성 후 실제 캔버스 크기로 안전 여백 두고 맞춤
+            // 화면 맞춤은 PlayUI 전체 레터박스(FitPlayUIToScreen)가 담당.
             _state = State.Result;
             for (int i = 0; i < 4; i++)
             {
@@ -584,7 +613,7 @@ namespace Mallang.RR02.Screens
             if (_myRowScore != null) _myRowScore.text = Comma(board.Me.Score);
 
             if (_rankingRoot != null) _rankingRoot.SetActive(true);
-            FitFrame(_rankingFrame, 1280f, 720f, 0.07f); // 활성 후 실제 캔버스 크기로 여백 두고 맞춤
+            // 화면 맞춤은 PlayUI 전체 레터박스(FitPlayUIToScreen)가 담당 — 개별 프레임은 1280x720을 채움.
             _state = State.Result;
         }
 
@@ -808,6 +837,7 @@ namespace Mallang.RR02.Screens
 
         void Update()
         {
+            FitPlayUIToScreen(); // 매 프레임 화면에 맞춤(해상도·폴드·회전 변화 대응). 비용 미미.
             if (_run == null) return;
             _clock += Time.deltaTime;
             // 인트로 전환은 IntroRoutine 코루틴이 담당(프레임 폴링 스킵 방지). 여기선 _clock만 올려 그루브에 씀.
