@@ -912,13 +912,26 @@ namespace Mallang.RR02.Screens
             _run.AdvanceTime(us);
             if (_run.Phase == Rr02Phase.Listen)
             {
-                if (_run.NormalCleared > _lastNormalCleared)
+                // 통과(전구+1·다음 라운드)와 실패-재도전(전구-1·같은 라운드)은 둘 다 Listen으로 끝납니다.
+                // 전구 수가 늘었는지 줄었는지로 구분하고, 전구 UI는 늘든 줄든 항상 현재 값으로 갱신합니다.
+                int nc = _run.NormalCleared;
+                bool failed = nc < _lastNormalCleared;
+                if (nc != _lastNormalCleared)
                 {
-                    if (lampRow != null) lampRow.SetCleared(_run.NormalCleared);
-                    _lastNormalCleared = _run.NormalCleared;
+                    if (lampRow != null) lampRow.SetCleared(nc); // 감소 시 꺼진 전구도 반영
+                    _lastNormalCleared = nc;
                 }
-                if (_audio != null && _clearClip != null) _audio.PlayOneShot(_clearClip);
-                SetFeedback("좋아요!"); _state = State.Clear; _clock = 0;
+                if (failed)
+                {
+                    if (_audio != null && _failClip != null) _audio.PlayOneShot(_failClip);
+                    SetFeedback("아깝다!");
+                }
+                else
+                {
+                    if (_audio != null && _clearClip != null) _audio.PlayOneShot(_clearClip);
+                    SetFeedback("좋아요!");
+                }
+                _state = State.Clear; _clock = 0;
             }
             else if (_run.Phase == Rr02Phase.Ended)
             {
