@@ -272,6 +272,46 @@
       "expectedFile": "AST-030-connector-glow.png",
       "variations": 1,
       "chosen": null
+    },
+    {
+      "id": "AST-031",
+      "name": "badge-allclear",
+      "slot": "unity/Assets/Mallang/RR02/Art/badge-allclear.png",
+      "expectedFile": "AST-031-badge-allclear.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-032",
+      "name": "badge-allperfect",
+      "slot": "unity/Assets/Mallang/RR02/Art/badge-allperfect.png",
+      "expectedFile": "AST-032-badge-allperfect.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-033",
+      "name": "badge-loop",
+      "slot": "unity/Assets/Mallang/RR02/Art/badge-loop.png",
+      "expectedFile": "AST-033-badge-loop.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-034",
+      "name": "grade-emblem",
+      "slot": "unity/Assets/Mallang/RR02/Art/grade-emblem.png",
+      "expectedFile": "AST-034-grade-emblem.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "AST-035",
+      "name": "button-share",
+      "slot": "unity/Assets/Mallang/RR02/Art/button-share.png",
+      "expectedFile": "AST-035-button-share.png",
+      "variations": 1,
+      "chosen": null
     }
   ]
 }

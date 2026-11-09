@@ -303,5 +303,50 @@
     "changeFrequency": "low",
     "sceneType": "ui-icon",
     "referenceImage": "art-direction/references/screen-result-final.png"
+  },
+  {
+    "id": "AST-031",
+    "name": "badge-allclear",
+    "slot": "unity/Assets/Mallang/RR02/Art/badge-allclear.png",
+    "purpose": "올클리어 배지",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "art-direction/references/screen-result-final.png"
+  },
+  {
+    "id": "AST-032",
+    "name": "badge-allperfect",
+    "slot": "unity/Assets/Mallang/RR02/Art/badge-allperfect.png",
+    "purpose": "올퍼펙트 배지",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "art-direction/references/screen-result-final.png"
+  },
+  {
+    "id": "AST-033",
+    "name": "badge-loop",
+    "slot": "unity/Assets/Mallang/RR02/Art/badge-loop.png",
+    "purpose": "무한 루프 배지",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "art-direction/references/screen-result-final.png"
+  },
+  {
+    "id": "AST-034",
+    "name": "grade-emblem",
+    "slot": "unity/Assets/Mallang/RR02/Art/grade-emblem.png",
+    "purpose": "등급 엠블럼(tint)",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "art-direction/references/screen-result-final.png"
+  },
+  {
+    "id": "AST-035",
+    "name": "button-share",
+    "slot": "unity/Assets/Mallang/RR02/Art/button-share.png",
+    "purpose": "공유 버튼",
+    "changeFrequency": "low",
+    "sceneType": "ui-icon",
+    "referenceImage": "art-direction/references/screen-result-final.png"
   }
 ]
