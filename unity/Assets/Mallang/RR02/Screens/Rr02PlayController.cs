@@ -46,7 +46,7 @@ namespace Mallang.RR02.Screens
 
         [Header("인트로")]
         public int introBeats = 4; // 시작 전 둠칫둠칫 카운트인 박 수
-        public float introRestBeats = 0.5f; // 카운트인 끝나고 '잘 들어요' 전 짧은 쉼(박)
+        public float introRestBeats = 0.3f; // 카운트인 끝나고 '잘 들어요' 전 짧은 쉼(박)
 
         Rr02Chart _chart;
         Rr02Run _run;
@@ -85,6 +85,7 @@ namespace Mallang.RR02.Screens
         Text _resultScoreBig, _resultGain;
         Image _centerBrain; // 결과 중앙 뇌(선이 도착하면 팝)
         int _resultTotalTarget; // 큰 점수 롤업 목표
+        RectTransform _nextBtnRt; // 다음 버튼(누르면 바운스 후 전환)
         // 경로 B와 같은 안전 여백 프레임(레터박스) 패턴: 고정 16:9 프레임 안에 배경·오버레이를 묶고 FitFrame으로 스케일.
         RectTransform _resultFrame;
 
@@ -297,8 +298,8 @@ namespace Mallang.RR02.Screens
             var bi = btnGo.GetComponent<Image>(); bi.sprite = LoadSprite("button-primary"); bi.preserveAspect = false;
             var brt2 = bi.rectTransform; brt2.anchorMin = brt2.anchorMax = new Vector2(0.5f, 0.5f); brt2.pivot = new Vector2(0.5f, 0.5f);
             brt2.anchoredPosition = new Vector2(0, -320); brt2.sizeDelta = new Vector2(300, 96);
-            var bt = btnGo.GetComponent<Button>(); bt.transition = Selectable.Transition.None; bt.onClick.AddListener(OnNext);
-            btnGo.AddComponent<Rr02ButtonPunch>(); // 눌림 쫀득 피드백
+            _nextBtnRt = brt2;
+            var bt = btnGo.GetComponent<Button>(); bt.transition = Selectable.Transition.None; bt.onClick.AddListener(OnNextPressed);
             var bl = MakeText(btnGo.transform, font, 38, Vector2.zero, new Vector2(280, 90));
             bl.text = "다음"; bl.color = new Color(0.33f, 0.22f, 0.13f, 1f); bl.raycastTarget = false;
 
@@ -429,6 +430,29 @@ namespace Mallang.RR02.Screens
         }
 
         static string Comma(int n) { return n.ToString("N0", System.Globalization.CultureInfo.InvariantCulture); }
+
+        // 다음 버튼 클릭: 바운스(쫀득)를 먼저 보여주고, 끝나면 화면 전환. 바로 OnNext를 부르면
+        // 결과 루트가 숨겨져 바운스가 안 보이므로 컨트롤러 코루틴에서 연출 뒤 전환한다.
+        void OnNextPressed()
+        {
+            if (_nextBtnRt != null && isActiveAndEnabled) StartCoroutine(PunchThen(_nextBtnRt, OnNext));
+            else OnNext();
+        }
+
+        IEnumerator PunchThen(RectTransform rt, System.Action done)
+        {
+            float t = 0f, dur = 0.22f;
+            const float c1 = 1.70158f, c3 = c1 + 1f;
+            while (t < dur)
+            {
+                t += Time.unscaledDeltaTime; float u = Mathf.Clamp01(t / dur);
+                float e = 1f + c3 * Mathf.Pow(u - 1f, 3f) + c1 * Mathf.Pow(u - 1f, 2f); // ease-out-back(오버슈트)
+                rt.localScale = Vector3.one * Mathf.LerpUnclamped(0.86f, 1f, e); // 0.86 쏙 -> 1.1쯤 튀고 -> 1
+                yield return null;
+            }
+            rt.localScale = Vector3.one;
+            if (done != null) done();
+        }
 
         // 결과 -> 랭킹 화면으로.
         void OnNext()
