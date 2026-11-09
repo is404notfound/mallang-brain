@@ -47,7 +47,7 @@ namespace Mallang.RR02.Screens
         [Header("인트로")]
         public int introBeats = 4; // 시작 전 둠칫둠칫 카운트인 박 수
         public float inputOffsetMs = 0f;   // 입력 지연 보정(전역). 0=끔. 체계적 밀림이 확인되면만 소폭 사용.
-        public int repeatLeadBeats = 2;    // 따라치기 앞 리드인(준비 그루브) 박 수 — 첫 노트를 예측 가능하게
+        public float repeatPrerollMs = 180f; // 따라치기 전환 직후 프리롤: 노트는 드럼 그대로, 입력만 이만큼 일찍 허용(첫 노트 조기 입력)
         public float introRestBeats = 0.18f; // 카운트인 끝나고 '잘 들어요' 전 짧은 쉼(박)
 
         Rr02Chart _chart;
@@ -60,7 +60,6 @@ namespace Mallang.RR02.Screens
         HashSet<int> _hidden = new HashSet<int>();
         int _lastNormalCleared;
         float _beatSec = 0.4f;
-        float _repeatLeadSec; // 따라치기 리드인 길이(초) = repeatLeadBeats * _beatSec
 
         Dictionary<Rr02Friend, RectTransform> _bubbles;
         Dictionary<Rr02Friend, Image> _charImg = new Dictionary<Rr02Friend, Image>();
@@ -867,8 +866,8 @@ namespace Mallang.RR02.Screens
             // 인트로 카운트인은 IntroRoutine이 친다. 여기선 듣기/따라치기의 8박 베이스만.
             if (_state != State.Listen && _state != State.Repeat) { _lastBeat = -1; return; }
             int beat = (int)(_clock / _beatSec);
-            int maxBeat = (_state == State.Repeat) ? repeatLeadBeats + 8 : 8; // 따라치기는 리드인 박 포함
-            if (beat != _lastBeat && beat < maxBeat)
+            // 프리롤(_clock<0) 동안은 드럼을 치지 않음(노트와 어긋나지 않게). 첫 드럼은 _clock=0에.
+            if (beat != _lastBeat && beat < 8 && _clock >= 0.0)
             {
                 _lastBeat = beat;
                 _audio.PlayOneShot(_baselineClip, 0.55f);
@@ -890,8 +889,8 @@ namespace Mallang.RR02.Screens
                     _run.BeginRepeat();
                     ResetBubbleScales();
                     ShowSequence(false); // 따라치기: 숨긴 칸 '?'
-                    _state = State.Repeat; _clock = 0; _lastBeat = -1;
-                    _repeatLeadSec = repeatLeadBeats * _beatSec; // 노트 전에 리드인 그루브
+                    // 프리롤: _clock을 음수로 시작해 전환 직후부터 입력(판정) 허용. 노트/드럼은 _clock>=0에 그대로.
+                    _state = State.Repeat; _clock = -repeatPrerollMs / 1000.0; _lastBeat = -1;
                     if (instructionText != null) instructionText.text = "따라 쳐요";
                 }
             }
@@ -900,7 +899,7 @@ namespace Mallang.RR02.Screens
         void TickRepeat()
         {
             ReadInput();
-            long us = (long)((_clock - _repeatLeadSec) * 1000000.0); // 리드인 뒤부터 노트 시간 진행
+            long us = (long)(_clock * 1000000.0); // 프리롤(음수) 동안은 AdvanceTime이 무해(노트 안 닫힘)
             _run.AdvanceTime(us);
             if (_run.Phase == Rr02Phase.Listen)
             {
@@ -932,8 +931,8 @@ namespace Mallang.RR02.Screens
         public void Press(Rr02Friend friend)
         {
             if (_state != State.Repeat || _run == null) return;
-            // 리드인 뒤부터 노트 시간. inputOffsetMs(기본 0)로 전역 미세 보정 가능.
-            long us = (long)((_clock - _repeatLeadSec) * 1000000.0) - (long)(inputOffsetMs * 1000.0);
+            // 프리롤(_clock 음수)이면 첫 노트의 조기 입력창이 열려 있음. inputOffsetMs(기본 0)로 전역 미세 보정 가능.
+            long us = (long)(_clock * 1000000.0) - (long)(inputOffsetMs * 1000.0);
             var r = _run.ProcessPress(friend, us);
             PlayTone(friend); // 누를 때 소리
             float intensity = r.Kind == Rr02InputKind.Judged && r.Judgement == Rr02Judgement.Perfect ? 1.25f : 1.0f;
@@ -1004,8 +1003,7 @@ namespace Mallang.RR02.Screens
             if (_cursor.gameObject.activeSelf != active) _cursor.gameObject.SetActive(active);
             if (!active) { _cursorIdx = -1; return; }
 
-            double nowSec = (_state == State.Repeat) ? (_clock - _repeatLeadSec) : _clock; // 따라치기는 리드인 뒤부터
-            long nowUs = (long)(nowSec * 1000000.0);
+            long nowUs = (long)(_clock * 1000000.0);
             int idx = Mathf.Clamp(Mathf.FloorToInt(BeatCursor.FloatIndex(nowUs, _targetsUs)), 0, _cardPos.Length - 1);
             if (idx != _cursorIdx)
             {
