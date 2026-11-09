@@ -192,6 +192,38 @@
       "expectedFile": "AST-024-bulb-off.png",
       "variations": 1,
       "chosen": null
+    },
+    {
+      "id": "SCR-001",
+      "name": "screen-title",
+      "slot": "art-direction/references/screen-title-final.png",
+      "expectedFile": "screen-title-final.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "SCR-002",
+      "name": "screen-play",
+      "slot": "art-direction/references/screen-play-final.png",
+      "expectedFile": "screen-play-final.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "SCR-005",
+      "name": "screen-result",
+      "slot": "art-direction/references/screen-result-final.png",
+      "expectedFile": "screen-result-final.png",
+      "variations": 1,
+      "chosen": null
+    },
+    {
+      "id": "SCR-006",
+      "name": "screen-ranking",
+      "slot": "art-direction/references/screen-ranking-final.png",
+      "expectedFile": "screen-ranking-final.png",
+      "variations": 1,
+      "chosen": null
     }
   ]
 }
