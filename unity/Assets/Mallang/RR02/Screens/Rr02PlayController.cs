@@ -1104,6 +1104,15 @@ namespace Mallang.RR02.Screens
             GrooveUpdate();
             BeatMetronome();
             ComboUpdate();
+            HideOXUnlessRepeat(); // O/X는 따라치기(피드백) 중에만 보임 — 듣기·카운트인·결과엔 빈 노트
+        }
+
+        // 따라치기(Repeat)가 아니면 O/X 오버레이를 항상 숨긴다(듣기 때 X가 미리 보이는 것 방지).
+        void HideOXUnlessRepeat()
+        {
+            if (_state == State.Repeat || _oxMark == null) return;
+            for (int i = 0; i < _oxMark.Length; i++)
+                if (_oxMark[i] != null && _oxMark[i].enabled) { _oxMark[i].enabled = false; _oxMark[i].text = ""; }
         }
 
         // 기본 8박으로 깔리는 베이스라인(상시 반주 비트). 듣기/따라치기 내내 매 박.
@@ -1117,7 +1126,9 @@ namespace Mallang.RR02.Screens
             if (beat != _lastBeat && beat < 8 && _clock >= 0.0)
             {
                 _lastBeat = beat;
-                _audio.PlayOneShot(_baselineClip, baselineVolume);
+                // 4/4 느낌: 매 마디 첫 박(다운비트)을 강하게 — "하나-둘-셋-넷".
+                float vol = (beat % 4 == 0) ? Mathf.Min(1f, baselineVolume * 1.7f) : baselineVolume;
+                _audio.PlayOneShot(_baselineClip, vol);
             }
         }
 

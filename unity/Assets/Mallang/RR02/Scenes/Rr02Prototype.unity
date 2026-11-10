@@ -3516,10 +3516,11 @@ MonoBehaviour:
   introBeats: 4
   inputOffsetMs: 0
   repeatPrerollMs: 180
-  tempoScale: 1.07
+  tempoScale: 1.25
   baselineVolume: 0.35
   rabbitVolume: 0.7
   introRestBeats: 0.18
+  comboFlameThreshold: 4
 --- !u!4 &1733537670
 Transform:
   m_ObjectHideFlags: 0
