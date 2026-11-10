@@ -79,6 +79,16 @@ namespace Mallang.RR02.Screens
         int _cursorIdx = -1;
         Coroutine _cursorPop;
 
+        // O/X 즉각 피드백(임시 색 글자 — 나중에 OX 에셋으로 교체 예정)과 콤보 불꽃/연기.
+        Text[] _oxMark;          // 카드별 O/X 오버레이
+        bool[] _cardResolved;    // 카드별 이번 구절 판정 확정 여부
+        Image _comboBrain;       // 상단 뇌 에셋
+        Image _comboFlame;       // 콤보 지속 시 반투명 분홍 불꽃(코드 글로우)
+        int _combo;              // 연속으로 맞힌 노트 수
+        float _flameShow;        // 불꽃 표시 강도(0~1, 부드럽게 추종)
+        Sprite _glowSprite;      // 코드로 만든 소프트 원형 글로우(불꽃·연기 공용)
+        public int comboFlameThreshold = 4; // 이 콤보 이상이면 불꽃 점화
+
         // 소리(플레이스홀더 — 코드 생성 음. 실제 악기 소리는 에셋으로 교체 예정).
         AudioSource _audio;
         Dictionary<Rr02Friend, AudioClip> _tone = new Dictionary<Rr02Friend, AudioClip>();
@@ -691,10 +701,10 @@ namespace Mallang.RR02.Screens
             foreach (Transform c in panel.transform)
                 if (c.name.StartsWith("Face") || c.name.StartsWith("Q")) c.gameObject.SetActive(false);
 
-            // 멜로디 4노트: 카드 4개를 세로 정가운데(y=0) 한 줄로. 악보(panel-score 680폭) 양옆에 여백이
-            // 남도록 바깥 카드가 가장자리에서 ~53px 안쪽에 오게 폭·크기를 잡는다. 나머지 카드는 숨긴다.
+            // 멜로디 4노트: 카드 4개를 악보(panel-score 680x440) '아랫줄'(y=-83)에 한 줄로. 양옆에 여백이
+            // 남도록 바깥 카드가 가장자리에서 ~53px 안쪽에 오게 폭·크기를 잡는다. 윗줄(상단)은 뇌 에셋 자리.
             const int cardCount = 4;
-            const float cardSize = 130f, cardStep = 148f;
+            const float cardSize = 130f, cardStep = 148f, cardRowY = -83f;
             float startX = -cardStep * (cardCount - 1) / 2f;
             for (int i = 4; i < 8; i++)
             {
@@ -702,13 +712,14 @@ namespace Mallang.RR02.Screens
                 if (extra != null) extra.gameObject.SetActive(false);
             }
 
+            var marks = new List<Text>();
             for (int i = 0; i < cardCount; i++)
             {
                 var card = panel.transform.Find("Card" + i);
                 if (card == null) continue;
                 var crt = (RectTransform)card;
                 crt.gameObject.SetActive(true);
-                crt.anchoredPosition = new Vector2(startX + i * cardStep, 0f);
+                crt.anchoredPosition = new Vector2(startX + i * cardStep, cardRowY);
                 crt.sizeDelta = new Vector2(cardSize, cardSize);
                 pos.Add(crt.anchoredPosition);
 
@@ -726,16 +737,145 @@ namespace Mallang.RR02.Screens
                 var qrt = q.rectTransform; qrt.anchorMin = qrt.anchorMax = new Vector2(0.5f, 0.5f); qrt.pivot = new Vector2(0.5f, 0.5f);
                 qrt.anchoredPosition = Vector2.zero; qrt.sizeDelta = crt.sizeDelta;
                 qs.Add(q);
+
+                // O/X 즉각 피드백 오버레이(칩 위에 덮어씀). 맞으면 파란 O, 틀리면(Miss) 분홍 X. 임시 색 글자.
+                var mgo = new GameObject("OX" + i, typeof(RectTransform), typeof(Text));
+                mgo.transform.SetParent(card, false);
+                var m = mgo.GetComponent<Text>(); m.font = font; m.text = ""; m.fontSize = 96; m.fontStyle = FontStyle.Bold;
+                m.alignment = TextAnchor.MiddleCenter; m.raycastTarget = false; m.enabled = false;
+                var mrt = m.rectTransform; mrt.anchorMin = mrt.anchorMax = new Vector2(0.5f, 0.5f); mrt.pivot = new Vector2(0.5f, 0.5f);
+                mrt.anchoredPosition = Vector2.zero; mrt.sizeDelta = crt.sizeDelta;
+                AddOutline(mgo, 1f, 1f, 1f, 1f, 3f);
+                marks.Add(m);
             }
             _cardPos = pos.ToArray(); _liveFace = faces.ToArray(); _liveQ = qs.ToArray();
+            _oxMark = marks.ToArray();
+            _cardResolved = new bool[_oxMark.Length];
 
             var sel = panel.transform.Find("Select");
             if (sel != null)
             {
                 _cursor = (RectTransform)sel;
                 _cursor.sizeDelta = new Vector2(cardSize + 16f, cardSize + 16f); // 작아진 카드에 맞춰 하이라이트도 축소
+                _cursor.anchoredPosition = new Vector2(_cursor.anchoredPosition.x, cardRowY); // 아랫줄로
                 _cursor.SetAsFirstSibling();
             } // 카드 뒤 = 테두리 하이라이트
+
+            BuildComboArea(panel.transform); // 상단 뇌 + 콤보 불꽃
+        }
+
+        // 악보 윗줄(상단)에 뇌 에셋을 카드와 겹치지 않는 크기로 놓고, 그 뒤에 콤보 불꽃(글로우)을 깐다.
+        void BuildComboArea(Transform panel)
+        {
+            if (_comboBrain != null) return;
+            const float brainY = 95f, brainSize = 172f; // 카드 윗변(-18)과 안 겹치게(바닥 ~9)
+            // 불꽃: 뇌 뒤에 깔리는 분홍 글로우(코드 생성). 콤보 지속 시 알파·스케일이 일렁인다.
+            _comboFlame = NewImage("ComboFlame", panel, GlowSprite(), false);
+            _comboFlame.rectTransform.anchoredPosition = new Vector2(0f, brainY);
+            _comboFlame.rectTransform.sizeDelta = new Vector2(brainSize * 1.7f, brainSize * 1.9f);
+            _comboFlame.color = new Color(1f, 0.35f, 0.55f, 0f); // 처음엔 투명
+            // 뇌: 불꽃 위에.
+            _comboBrain = NewImage("ComboBrain", panel, LoadSprite("brain-stage3"), true);
+            _comboBrain.rectTransform.anchoredPosition = new Vector2(0f, brainY);
+            _comboBrain.rectTransform.sizeDelta = new Vector2(brainSize, brainSize);
+        }
+
+        // 코드로 만든 소프트 원형 글로우 스프라이트(불꽃·연기 공용). 흰색이라 color로 색을 입힌다.
+        Sprite GlowSprite()
+        {
+            if (_glowSprite != null) return _glowSprite;
+            int n = 64; var tex = new Texture2D(n, n, TextureFormat.RGBA32, false); tex.wrapMode = TextureWrapMode.Clamp;
+            var px = new Color[n * n]; float c = (n - 1) / 2f;
+            for (int y = 0; y < n; y++)
+                for (int x = 0; x < n; x++)
+                {
+                    float d = Mathf.Sqrt((x - c) * (x - c) + (y - c) * (y - c)) / c;
+                    float a = Mathf.Clamp01(1f - d); a = a * a; // 중심이 진하고 가장자리로 부드럽게
+                    px[y * n + x] = new Color(1f, 1f, 1f, a);
+                }
+            tex.SetPixels(px); tex.Apply();
+            _glowSprite = Sprite.Create(tex, new Rect(0, 0, n, n), new Vector2(0.5f, 0.5f), 100f);
+            return _glowSprite;
+        }
+
+        int CardIndexForNote(int noteId)
+        {
+            for (int i = 0; i < _phrase.Count; i++) if (_phrase[i].NoteId == noteId) return i;
+            return -1;
+        }
+
+        // 카드 i에 O(맞음, 파랑)/X(틀림, 분홍)를 덮어씌운다. 임시 색 글자 — 나중에 OX 에셋으로 교체.
+        void MarkOX(int cardIdx, bool hit)
+        {
+            if (_oxMark == null || cardIdx < 0 || cardIdx >= _oxMark.Length) return;
+            var m = _oxMark[cardIdx]; if (m == null) return;
+            m.text = hit ? "O" : "X";
+            m.color = hit ? new Color(0.20f, 0.60f, 1f, 1f) : new Color(1f, 0.30f, 0.55f, 1f);
+            m.enabled = true;
+            StartCoroutine(OXPop(m.rectTransform));
+        }
+
+        IEnumerator OXPop(RectTransform rt)
+        {
+            float t = 0f, dur = 0.22f;
+            while (t < dur) { t += Time.deltaTime; float u = Mathf.Clamp01(t / dur); float s = Mathf.LerpUnclamped(1.5f, 1f, EaseOutBack(u)); rt.localScale = new Vector3(s, s, 1f); yield return null; }
+            rt.localScale = Vector3.one;
+        }
+
+        void ClearOXMarks()
+        {
+            if (_oxMark == null) return;
+            for (int i = 0; i < _oxMark.Length; i++)
+            {
+                if (_oxMark[i] != null) { _oxMark[i].text = ""; _oxMark[i].enabled = false; }
+                if (_cardResolved != null && i < _cardResolved.Length) _cardResolved[i] = false;
+            }
+        }
+
+        // 콤보 끊김: 불꽃이 타오르던 중이면 꺼지고 회색 연기 한 줄이 피어오른다.
+        void BreakCombo()
+        {
+            bool wasBurning = _combo >= comboFlameThreshold;
+            _combo = 0;
+            if (wasBurning) SpawnSmoke();
+        }
+
+        void SpawnSmoke()
+        {
+            if (_comboBrain == null) return;
+            var img = NewImage("ComboSmoke", _comboBrain.transform.parent, GlowSprite(), true);
+            var rt = img.rectTransform;
+            rt.sizeDelta = new Vector2(54f, 72f);
+            rt.anchoredPosition = _comboBrain.rectTransform.anchoredPosition + new Vector2(0f, 20f);
+            StartCoroutine(SmokeRise(rt, img));
+        }
+
+        IEnumerator SmokeRise(RectTransform rt, Image img)
+        {
+            float t = 0f, dur = 1.3f; Vector2 start = rt.anchoredPosition;
+            while (t < dur)
+            {
+                t += Time.deltaTime; float u = Mathf.Clamp01(t / dur);
+                rt.anchoredPosition = start + new Vector2(Mathf.Sin(u * 6.2831f) * 10f, u * 95f);
+                float a = Mathf.Sin(u * Mathf.PI) * 0.5f; // 떠오르며 생겼다 사라짐
+                img.color = new Color(0.62f, 0.62f, 0.66f, a);
+                float s = 0.5f + u * 1.0f;
+                rt.localScale = new Vector3(s * 0.8f, s * 1.2f, 1f);
+                yield return null;
+            }
+            if (img != null) Destroy(img.gameObject);
+        }
+
+        // 콤보 불꽃 일렁임. combo가 임계 이상이면 반투명 분홍 불꽃이 타오른다(매 프레임 호출).
+        void ComboUpdate()
+        {
+            if (_comboFlame == null) return;
+            float target = _combo >= comboFlameThreshold ? Mathf.Clamp01((_combo - comboFlameThreshold + 2) / 8f) : 0f;
+            _flameShow = Mathf.MoveTowards(_flameShow, target, Time.deltaTime * 2.5f);
+            float flick = 0.72f + 0.28f * Mathf.PerlinNoise(Time.time * 9f, 0.3f);
+            _comboFlame.color = new Color(1f, 0.35f, 0.55f, _flameShow * 0.5f * flick);
+            float sc = (0.92f + 0.12f * flick) * (0.85f + 0.2f * _flameShow);
+            _comboFlame.rectTransform.localScale = new Vector3(sc, sc * (1.02f + 0.12f * flick), 1f);
         }
 
         int _runCount;
@@ -746,6 +886,7 @@ namespace Mallang.RR02.Screens
             _chart = Rr02Chart.Generate(seed);
             _run = new Rr02Run(_chart);
             _lastNormalCleared = 0;
+            _combo = 0; _flameShow = 0f; // 새 판: 콤보·불꽃 초기화
             if (lampRow != null) lampRow.SetClearedInstant(0);
             EnterIntro();
         }
@@ -841,6 +982,7 @@ namespace Mallang.RR02.Screens
         {
             SetupRound();
             _state = State.Listen; _clock = 0; _listenIndex = 0; _cursorIdx = -1; _lastBeat = -1;
+            ClearOXMarks(); // 새 구절: O/X 지우기
             ShowSequence(true); // 듣기: 전부 공개
             if (instructionText != null) instructionText.text = "잘 들어요";
             SetFeedback("");
@@ -891,6 +1033,7 @@ namespace Mallang.RR02.Screens
             UpdateCursor();
             GrooveUpdate();
             BeatMetronome();
+            ComboUpdate();
         }
 
         // 기본 8박으로 깔리는 베이스라인(상시 반주 비트). 듣기/따라치기 내내 매 박.
@@ -959,6 +1102,11 @@ namespace Mallang.RR02.Screens
             ReadInput();
             long us = (long)(_clock * 1000000.0); // 프리롤(음수) 동안은 AdvanceTime이 무해(노트 안 닫힘)
             _run.AdvanceTime(us);
+            // 지나간(Good 창이 닫힌) 미입력 노트는 즉시 분홍 X로 표시하고 콤보를 끊는다.
+            if (_cardResolved != null)
+                for (int i = 0; i < _cardResolved.Length && i < _phrase.Count; i++)
+                    if (!_cardResolved[i] && us > _phrase[i].TargetUs + Rr02Rules.GoodWindowUs)
+                    { _cardResolved[i] = true; MarkOX(i, false); BreakCombo(); }
             if (_run.Phase == Rr02Phase.Listen)
             {
                 // 통과(전구+1·다음 라운드)와 실패-재도전(전구-1·같은 라운드)은 둘 다 Listen으로 끝납니다.
@@ -1011,6 +1159,13 @@ namespace Mallang.RR02.Screens
             if (r.Kind == Rr02InputKind.Judged)
             {
                 SetFeedback(r.Judgement == Rr02Judgement.Perfect ? "Perfect!" : r.Judgement == Rr02Judgement.Good ? "Good" : "Miss");
+                int ci = CardIndexForNote(r.NoteId);
+                if (ci >= 0 && _cardResolved != null && ci < _cardResolved.Length && !_cardResolved[ci])
+                {
+                    _cardResolved[ci] = true;
+                    if (r.Judgement != Rr02Judgement.Miss) { MarkOX(ci, true); _combo++; }  // 맞음: 파란 O, 콤보 +1
+                    else { MarkOX(ci, false); BreakCombo(); }                                 // 틀림: 분홍 X, 콤보 끊김
+                }
             }
             else if (r.Kind == Rr02InputKind.Ghost) SetFeedback("!");
         }

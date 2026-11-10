@@ -118,11 +118,13 @@ namespace Mallang.RR02
             var outcomes = _judge.Outcomes;
             bool phraseAllPerfect = true;
             bool anyMiss = false;
+            int hitCount = 0; // Miss가 아닌 노트 수(Perfect+Good)
 
             for (int i = 0; i < outcomes.Count; i++)
             {
                 var judgement = outcomes[i];
                 if (judgement == Rr02Judgement.Miss) anyMiss = true;
+                else hitCount++;
                 if (judgement != Rr02Judgement.Perfect) phraseAllPerfect = false;
 
                 // 콤보 배율 없음: Perfect 100 / Good 70 / Miss 0. 노트의 친구에게 가산합니다.
@@ -142,10 +144,10 @@ namespace Mallang.RR02
             }
             else
             {
-                // 일반 라운드(라이프 모델): 통과 기준은 100%. 모든 노트를 맞혀야(Miss 0) 통과합니다.
-                // 하나라도 틀리면(Miss) 전구-1·같은 라운드 재도전, 전구 0에서 실패=게임오버.
-                // (ghost 같은 여분 입력은 0점일 뿐 Miss가 아니므로 통과를 막지 않습니다.)
-                bool pass = !anyMiss;
+                // 일반 라운드(라이프 모델): 통과 기준은 75%. 노트의 75% 이상을 맞히면(4노트 중 3개↑) 통과합니다.
+                // 75% 미만이면 전구-1·같은 라운드 재도전, 전구 0에서 실패=게임오버.
+                // (ghost 같은 여분 입력은 0점일 뿐 맞힌 수에 포함되지 않습니다.)
+                bool pass = hitCount * 100 >= outcomes.Count * 75;
                 if (pass)
                 {
                     _allPerfect = _allPerfect && phraseAllPerfect;

@@ -190,14 +190,13 @@ namespace Mallang.RR02.Tests.EditMode
             run.ProcessPress(Rr02Friend.Rabbit, 0L);                 // Perfect 100
             run.ProcessPress(Rr02Friend.Rabbit, 400000L + 100000L);  // Good 70
             run.ProcessPress(Rr02Friend.Rabbit, 800000L);            // Perfect 100
-            run.AdvanceTime(1200000L + PadUs);                       // 마지막 노트 Miss → 100% 아님 → 실패
+            run.AdvanceTime(1200000L + PadUs);                       // 마지막 노트 Miss, 3/4=75% >= 75% → 통과
 
-            // 통과 기준은 100%: Miss가 하나라도 있으면 실패. 전구 0에서 실패 → 게임오버.
-            // 점수는 실패해도 그대로 합산됩니다(Perfect 100+Good 70+Perfect 100+Miss 0 = 270).
-            Assert.AreEqual(Rr02Phase.Ended, run.Phase);
+            // 통과 기준은 75%: 4노트 중 3개 맞음(1개 미스)은 통과. 점수는 그대로 합산(100+70+100+0 = 270).
+            Assert.AreEqual(Rr02Phase.Listen, run.Phase);
             Assert.AreEqual(270, ScoreOf(run.Result.AnimalScores, Rr02Friend.Rabbit)); // 점수 합산(콤보 배율 없음)
             Assert.AreEqual(270, run.Result.TotalScore);
-            Assert.AreEqual(0, run.Result.NormalCleared);
+            Assert.AreEqual(1, run.Result.NormalCleared); // 75% 통과 → 전구 +1
         }
 
         [Test]
@@ -231,7 +230,7 @@ namespace Mallang.RR02.Tests.EditMode
         [Test]
         public void MidPhraseMissKeepsMusicRunningAndFinalizesOnceAtPhraseEnd()
         {
-            // 길이 3 중 2번째 Miss — 음악은 계속, 마지막 목표 +180ms에 확정 1회. 통과 기준 100%라 Miss로 실패.
+            // 길이 3 중 2번째 Miss — 음악은 계속, 마지막 목표 +180ms에 확정 1회. 2/3=66.7% < 75% → 실패.
             var round1 = MakeRound(1, new int[0],
                 (Rr02Friend.Rabbit, 0L),
                 (Rr02Friend.Rabbit, 400000L),
@@ -252,7 +251,7 @@ namespace Mallang.RR02.Tests.EditMode
             Assert.AreEqual(Rr02Phase.Repeat, run.Phase);
 
             run.AdvanceTime(800000L + PadUs); // 확정은 마지막 목표 +180ms에 1회
-            Assert.AreEqual(Rr02Phase.Ended, run.Phase);  // Miss 1개 → 100% 실패, 전구 0에서 게임오버
+            Assert.AreEqual(Rr02Phase.Ended, run.Phase);  // 2/3 < 75% 실패, 전구 0에서 게임오버
             Assert.AreEqual(0, run.Result.NormalCleared);
             Assert.AreEqual(200, run.Result.TotalScore);  // 올바른 입력 점수는 그대로 포함
 
@@ -335,39 +334,37 @@ namespace Mallang.RR02.Tests.EditMode
         }
 
         [Test]
-        public void FailsWhenHiddenNotesWrongEvenIfShownAreRight()
+        public void FailsWhenMoreThanAQuarterMissed()
         {
-            // 통과 기준 100%: 4노트 중 index 3만 숨김. 보이는 3개(토끼)를 다 맞혀도 숨김 1개를 틀리면
-            // 그 노트가 Miss → 전체 100% 아님 → 실패(보이는 노트만 쳐서 넘어가지 못함).
-            var round1 = MakeRound(1, new[] { 3 },
-                (Rr02Friend.Rabbit, 0L), (Rr02Friend.Rabbit, 400000L), (Rr02Friend.Rabbit, 800000L),
-                (Rr02Friend.Fox, 1200000L)); // 숨김 3 = 여우
+            // 통과 기준 75%: 4노트 중 2개를 틀리면 2/4=50% < 75% → 실패(전구 0에서 게임오버).
+            var round1 = MakeRound(1, new int[0],
+                (Rr02Friend.Rabbit, 0L), (Rr02Friend.Rabbit, 400000L),
+                (Rr02Friend.Rabbit, 800000L), (Rr02Friend.Rabbit, 1200000L));
             var round2 = MakeRound(2, new int[0], (Rr02Friend.Rabbit, 0L));
             var run = new Rr02Run(MakeChart(round1, round2));
 
             run.BeginRepeat();
-            for (int i = 0; i < 3; i++) { run.AdvanceTime((long)i * 400000L); run.ProcessPress(Rr02Friend.Rabbit, (long)i * 400000L); }
-            run.AdvanceTime(1200000L); run.ProcessPress(Rr02Friend.Rabbit, 1200000L); // 숨김3 실제 여우 → Miss
-            run.AdvanceTime(1200000L + PadUs);
+            run.AdvanceTime(0L); run.ProcessPress(Rr02Friend.Rabbit, 0L);          // hit
+            run.AdvanceTime(400000L); run.ProcessPress(Rr02Friend.Rabbit, 400000L); // hit
+            run.AdvanceTime(1200000L + PadUs); // index 2,3 무입력 → Miss 2개, 2/4=50%
 
-            Assert.AreEqual(Rr02Phase.Ended, run.Phase);     // 전구 0에서 실패 → 게임오버
+            Assert.AreEqual(Rr02Phase.Ended, run.Phase);
             Assert.AreEqual(0, run.Result.NormalCleared);
         }
 
         [Test]
-        public void PassesWhenHiddenNotesRecalledCorrectly()
+        public void PassesWhenAtMostOneMissed()
         {
-            // 같은 구성에서 숨김 1개까지 올바르게 쳐서 모든 노트 100% 맞히면 통과(전구+1, 다음 라운드).
-            var round1 = MakeRound(1, new[] { 3 },
-                (Rr02Friend.Rabbit, 0L), (Rr02Friend.Rabbit, 400000L), (Rr02Friend.Rabbit, 800000L),
-                (Rr02Friend.Fox, 1200000L));
+            // 4노트 중 1개만 틀리면 3/4=75% >= 75% → 통과(전구+1, 다음 라운드).
+            var round1 = MakeRound(1, new int[0],
+                (Rr02Friend.Rabbit, 0L), (Rr02Friend.Rabbit, 400000L),
+                (Rr02Friend.Rabbit, 800000L), (Rr02Friend.Rabbit, 1200000L));
             var round2 = MakeRound(2, new int[0], (Rr02Friend.Rabbit, 0L));
             var run = new Rr02Run(MakeChart(round1, round2));
 
             run.BeginRepeat();
             for (int i = 0; i < 3; i++) { run.AdvanceTime((long)i * 400000L); run.ProcessPress(Rr02Friend.Rabbit, (long)i * 400000L); }
-            run.AdvanceTime(1200000L); run.ProcessPress(Rr02Friend.Fox, 1200000L); // 숨김3 정답
-            run.AdvanceTime(1200000L + PadUs);
+            run.AdvanceTime(1200000L + PadUs); // index 3 무입력 → Miss 1개, 3/4=75%
 
             Assert.AreEqual(Rr02Phase.Listen, run.Phase);
             Assert.AreEqual(1, run.Result.NormalCleared);
