@@ -82,12 +82,14 @@ namespace Mallang.RR02.Screens
         // O/X 즉각 피드백(임시 색 글자 — 나중에 OX 에셋으로 교체 예정)과 콤보 불꽃/연기.
         Text[] _oxMark;          // 카드별 O/X 오버레이
         bool[] _cardResolved;    // 카드별 이번 구절 판정 확정 여부
-        Image _comboBrain;       // 상단 뇌 에셋
-        Image _comboFlame;       // 콤보 지속 시 반투명 분홍 불꽃(코드 글로우)
+        Image _comboBrain;       // 상단 뇌 에셋(brain-stage0, 불꽃 없는 깔끔한 뇌)
+        Image _comboFlame;       // 뇌 뒤 분홍 underglow(은은한 바닥광)
+        Image[] _flameTongues;   // 뇌 주변에서 일렁이는 분홍 불꽃 혓바닥(코드 생성)
         int _combo;              // 연속으로 맞힌 노트 수
-        float _flameShow;        // 불꽃 표시 강도(0~1, 부드럽게 추종)
-        Sprite _glowSprite;      // 코드로 만든 소프트 원형 글로우(불꽃·연기 공용)
-        public int comboFlameThreshold = 4; // 이 콤보 이상이면 불꽃 점화
+        float _flameShow;        // 불꽃 강도(0~1, 부드럽게 추종). 바닥값 항상 + 콤보로 더 타오름
+        Sprite _glowSprite;      // 코드로 만든 소프트 원형 글로우(underglow·연기 공용)
+        Sprite _flameSprite;     // 코드로 만든 불꽃 혓바닥(세로 물방울) 스프라이트
+        public int comboFlameThreshold = 4; // 이 콤보 이상이면 불꽃이 확 타오름(바닥 불은 항상 있음)
 
         // 소리(플레이스홀더 — 코드 생성 음. 실제 악기 소리는 에셋으로 교체 예정).
         AudioSource _audio;
@@ -764,20 +766,66 @@ namespace Mallang.RR02.Screens
             BuildComboArea(panel.transform); // 상단 뇌 + 콤보 불꽃
         }
 
-        // 악보 윗줄(상단)에 뇌 에셋을 카드와 겹치지 않는 크기로 놓고, 그 뒤에 콤보 불꽃(글로우)을 깐다.
+        // 악보 윗줄(상단)에 뇌(brain-stage0, 불꽃 없는 깔끔한 뇌)를 놓고, 그 '뒤'에 코드로 그린 분홍 불꽃을 깐다.
+        // 불꽃 = 은은한 underglow(원형) + 뇌 윗동을 따라 솟는 불꽃 혓바닥 여러 개가 일렁인다. 바닥 불은 항상, 콤보면 확 타오름.
         void BuildComboArea(Transform panel)
         {
             if (_comboBrain != null) return;
-            const float brainY = 95f, brainSize = 172f; // 카드 윗변(-18)과 안 겹치게(바닥 ~9)
-            // 불꽃: 뇌 뒤에 깔리는 분홍 글로우(코드 생성). 콤보 지속 시 알파·스케일이 일렁인다.
+            const float brainY = 95f, brainSize = 172f, r = brainSize * 0.5f;
+
+            // 1) underglow(바닥광): 뇌 뒤 분홍 원형 글로우.
             _comboFlame = NewImage("ComboFlame", panel, GlowSprite(), false);
-            _comboFlame.rectTransform.anchoredPosition = new Vector2(0f, brainY);
-            _comboFlame.rectTransform.sizeDelta = new Vector2(brainSize * 1.7f, brainSize * 1.9f);
-            _comboFlame.color = new Color(1f, 0.35f, 0.55f, 0f); // 처음엔 투명
-            // 뇌: 불꽃 위에.
-            _comboBrain = NewImage("ComboBrain", panel, LoadSprite("brain-stage3"), true);
+            _comboFlame.rectTransform.anchoredPosition = new Vector2(0f, brainY + 6f);
+            _comboFlame.rectTransform.sizeDelta = new Vector2(brainSize * 1.5f, brainSize * 1.5f);
+            _comboFlame.color = new Color(1f, 0.40f, 0.62f, 0f);
+
+            // 2) 불꽃 혓바닥: 뇌 윗동(상단 반원)을 따라 7개. 밑동은 뇌 뒤에 숨고 끝이 뇌 위로 솟는다.
+            const int tongues = 7;
+            _flameTongues = new Image[tongues];
+            for (int i = 0; i < tongues; i++)
+            {
+                float t = tongues == 1 ? 0.5f : (float)i / (tongues - 1); // 0..1
+                float ang = Mathf.Lerp(150f, 30f, t) * Mathf.Deg2Rad;      // 상단 반원(왼→오)
+                float px = Mathf.Cos(ang) * r * 0.62f;
+                float py = brainY + Mathf.Sin(ang) * r * 0.35f + 18f;      // 뇌 윗동 근처
+                var fl = NewImage("FlameTongue" + i, panel, FlameSprite(), false);
+                bool mid = Mathf.Abs(t - 0.5f) < 0.2f;
+                float w = mid ? 54f : 40f, h = mid ? 150f : 110f;          // 가운데가 더 큼
+                fl.rectTransform.sizeDelta = new Vector2(w, h);
+                fl.rectTransform.pivot = new Vector2(0.5f, 0f);            // 밑동 기준으로 위로 자람
+                fl.rectTransform.anchoredPosition = new Vector2(px, py);
+                fl.color = new Color(1f, 0.42f, 0.66f, 0f);
+                _flameTongues[i] = fl;
+            }
+
+            // 3) 뇌: 불꽃보다 위에(마지막 형제).
+            _comboBrain = NewImage("ComboBrain", panel, LoadSprite("brain-stage0"), true);
             _comboBrain.rectTransform.anchoredPosition = new Vector2(0f, brainY);
             _comboBrain.rectTransform.sizeDelta = new Vector2(brainSize, brainSize);
+        }
+
+        // 코드로 만든 불꽃 혓바닥(세로 물방울): 밑동은 둥글고 위로 뾰족, 가장자리는 부드럽게. 흰색이라 color로 분홍 입힘.
+        Sprite FlameSprite()
+        {
+            if (_flameSprite != null) return _flameSprite;
+            int w = 48, h = 96; var tex = new Texture2D(w, h, TextureFormat.RGBA32, false); tex.wrapMode = TextureWrapMode.Clamp;
+            var px = new Color[w * h]; float cx = (w - 1) * 0.5f;
+            for (int y = 0; y < h; y++)
+            {
+                float ty = (float)y / (h - 1); // 0 밑동 → 1 끝
+                float taper = ty < 0.15f ? Mathf.Lerp(0.55f, 1f, ty / 0.15f) : Mathf.Pow(1f - ty, 0.75f);
+                float halfW = taper * (w * 0.5f) * 0.92f;
+                float vfade = Mathf.Clamp01(ty / 0.12f) * Mathf.Clamp01((1f - ty) / 0.12f + 0.25f); // 밑·끝 페이드
+                for (int x = 0; x < w; x++)
+                {
+                    float edge = halfW > 0.001f ? Mathf.Clamp01(1f - Mathf.Abs(x - cx) / halfW) : 0f;
+                    edge = edge * edge;
+                    px[y * w + x] = new Color(1f, 1f, 1f, edge * vfade);
+                }
+            }
+            tex.SetPixels(px); tex.Apply();
+            _flameSprite = Sprite.Create(tex, new Rect(0, 0, w, h), new Vector2(0.5f, 0.5f), 100f);
+            return _flameSprite;
         }
 
         // 코드로 만든 소프트 원형 글로우 스프라이트(불꽃·연기 공용). 흰색이라 color로 색을 입힌다.
@@ -866,16 +914,38 @@ namespace Mallang.RR02.Screens
             if (img != null) Destroy(img.gameObject);
         }
 
-        // 콤보 불꽃 일렁임. combo가 임계 이상이면 반투명 분홍 불꽃이 타오른다(매 프레임 호출).
+        // 분홍 불꽃 일렁임(매 프레임). 바닥 불은 항상 은은하게, 콤보가 쌓이면 확 타오른다.
         void ComboUpdate()
         {
             if (_comboFlame == null) return;
-            float target = _combo >= comboFlameThreshold ? Mathf.Clamp01((_combo - comboFlameThreshold + 2) / 8f) : 0f;
-            _flameShow = Mathf.MoveTowards(_flameShow, target, Time.deltaTime * 2.5f);
-            float flick = 0.72f + 0.28f * Mathf.PerlinNoise(Time.time * 9f, 0.3f);
-            _comboFlame.color = new Color(1f, 0.35f, 0.55f, _flameShow * 0.5f * flick);
-            float sc = (0.92f + 0.12f * flick) * (0.85f + 0.2f * _flameShow);
-            _comboFlame.rectTransform.localScale = new Vector3(sc, sc * (1.02f + 0.12f * flick), 1f);
+            // 강도: 바닥값 0.38 + 콤보로 1.0까지. 콤보가 끊겨도 0으로 안 꺼지고 바닥 불은 남는다.
+            float target = Mathf.Lerp(0.38f, 1f, Mathf.Clamp01(_combo / 10f));
+            _flameShow = Mathf.MoveTowards(_flameShow, target, Time.deltaTime * 2.2f);
+
+            // underglow: 뇌 뒤 분홍 바닥광이 숨 쉬듯.
+            float breathe = 0.85f + 0.15f * Mathf.Sin(Time.time * 3f);
+            _comboFlame.color = new Color(1f, 0.40f, 0.62f, _flameShow * 0.32f * breathe);
+            float gs = 0.92f + 0.10f * breathe;
+            _comboFlame.rectTransform.localScale = new Vector3(gs, gs, 1f);
+
+            // 불꽃 혓바닥: 각자 다른 위상으로 높이·알파·좌우가 흔들린다(진짜 불처럼).
+            if (_flameTongues == null) return;
+            for (int i = 0; i < _flameTongues.Length; i++)
+            {
+                var fl = _flameTongues[i]; if (fl == null) continue;
+                float n1 = Mathf.PerlinNoise(Time.time * 6.5f + i * 11.7f, 0.3f);      // 높이·알파
+                float n2 = Mathf.PerlinNoise(0.7f, Time.time * 5.0f + i * 4.3f) - 0.5f; // 좌우 흔들림
+                float flick = 0.55f + 0.45f * n1;
+                float a = _flameShow * flick * 0.85f;
+                // 분홍 핫→연분홍: 강할수록 밝고 흰기. 끝으로 갈수록 연해지는 건 스프라이트 vfade가 담당.
+                fl.color = new Color(1f, 0.38f + 0.18f * flick, 0.60f + 0.22f * flick, a);
+                float hy = (0.72f + 0.55f * n1) * (0.7f + 0.5f * _flameShow); // 세로로 춤추듯
+                float hx = 0.9f + 0.12f * n1;
+                fl.rectTransform.localScale = new Vector3(hx, hy, 1f);
+                var p = fl.rectTransform.anchoredPosition;
+                fl.rectTransform.anchoredPosition = new Vector2(p.x, p.y); // 위치 고정(흔들림은 회전으로)
+                fl.rectTransform.localRotation = Quaternion.Euler(0f, 0f, n2 * 14f); // 좌우로 날름
+            }
         }
 
         int _runCount;
