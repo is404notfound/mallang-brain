@@ -3515,7 +3515,7 @@ MonoBehaviour:
   popDuration: 0.34
   introBeats: 4
   inputOffsetMs: 0
-  repeatPrerollMs: 180
+  repeatPrerollMs: 0
   tempoScale: 1.25
   baselineVolume: 0.8
   rabbitVolume: 0.7

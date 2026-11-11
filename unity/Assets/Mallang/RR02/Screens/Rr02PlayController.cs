@@ -252,6 +252,8 @@ namespace Mallang.RR02.Screens
             _audio.PlayOneShot(_tone[f], vol);
         }
 
+        GameObject _titleRoot;   // 타이틀 화면(시작 전). 시작 버튼 영역 누르면 StartRun.
+
         void OnEnable()
         {
             InitRefs();
@@ -260,6 +262,51 @@ namespace Mallang.RR02.Screens
             BuildGrid();
             BuildResult();
             BuildRanking();
+            BuildTitle();  // 타이틀 먼저 — 시작 버튼 누르면 StartRun (자동 시작 안 함)
+        }
+
+        // 타이틀 화면(런타임 구성, 전체화면): 승인 타이틀 이미지를 통째로 깔고(phase 1: 안 움직이는 정적 배경),
+        // 좌하단 '시작하기' 버튼 영역에 투명 버튼을 정규화 앵커로 올려 누르면 게임을 시작한다.
+        void BuildTitle()
+        {
+            if (_titleRoot != null) return;
+            var canvas = GameObject.Find("PlayUI");
+            if (canvas == null) return;
+
+            _titleRoot = new GameObject("TitleRoot", typeof(RectTransform));
+            _titleRoot.transform.SetParent(canvas.transform, false);
+            var rr = (RectTransform)_titleRoot.transform;
+            rr.anchorMin = Vector2.zero; rr.anchorMax = Vector2.one; rr.offsetMin = rr.offsetMax = Vector2.zero;
+
+            var backdrop = NewImage("Backdrop", _titleRoot.transform, null, false);
+            backdrop.color = new Color(0.12f, 0.1f, 0.18f, 1f);
+            var bdrt = backdrop.rectTransform; bdrt.anchorMin = Vector2.zero; bdrt.anchorMax = Vector2.one; bdrt.offsetMin = bdrt.offsetMax = Vector2.zero;
+
+            var frameGo = new GameObject("Frame", typeof(RectTransform));
+            frameGo.transform.SetParent(_titleRoot.transform, false);
+            var frame = (RectTransform)frameGo.transform;
+            frame.anchorMin = frame.anchorMax = new Vector2(0.5f, 0.5f);
+            frame.pivot = new Vector2(0.5f, 0.5f);
+            frame.sizeDelta = new Vector2(1280, 720);
+            frame.anchoredPosition = Vector2.zero;
+
+            var bg = NewImage("TitleBg", frame, LoadSprite("screen-title"), false);
+            var bgrt = bg.rectTransform; bgrt.anchorMin = Vector2.zero; bgrt.anchorMax = Vector2.one; bgrt.offsetMin = bgrt.offsetMax = Vector2.zero;
+
+            // '시작하기' 버튼 영역(좌하단)에 투명 버튼. 이미지에 정규화 앵커로 붙여 어떤 화면비에서도 따라감.
+            var btnGo = new GameObject("StartButton", typeof(RectTransform), typeof(Image), typeof(Button));
+            btnGo.transform.SetParent(frame, false);
+            var bi = btnGo.GetComponent<Image>(); bi.color = new Color(1f, 1f, 1f, 0f); // 투명(터치 영역만)
+            var brt = bi.rectTransform; brt.anchorMin = new Vector2(0.02f, 0.12f); brt.anchorMax = new Vector2(0.28f, 0.32f);
+            brt.offsetMin = brt.offsetMax = Vector2.zero;
+            var bt = btnGo.GetComponent<Button>(); bt.transition = Selectable.Transition.None; bt.onClick.AddListener(OnStartPressed);
+
+            _titleRoot.SetActive(true);
+        }
+
+        void OnStartPressed()
+        {
+            if (_titleRoot != null) _titleRoot.SetActive(false);
             StartRun();
         }
 
@@ -1157,8 +1204,10 @@ namespace Mallang.RR02.Screens
             for (int i = 0; i < introBeats; i++)
             {
                 if (_audio != null && _baselineClip != null) _audio.PlayOneShot(_baselineClip, baselineVolume);
+                SetFeedback((introBeats - i).ToString()); // 4·3·2·1 카운트다운(하이햇에 맞춰) — 언제 들어갈지 안내
                 yield return new WaitForSeconds(bs);
             }
+            SetFeedback("");
             EnterRepeat();
         }
 
