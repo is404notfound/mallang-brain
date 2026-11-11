@@ -703,16 +703,11 @@ namespace Mallang.RR02.Screens
             foreach (Transform c in panel.transform)
                 if (c.name.StartsWith("Face") || c.name.StartsWith("Q")) c.gameObject.SetActive(false);
 
-            // 멜로디 4노트: 카드 4개를 악보(panel-score 680x440) '아랫줄'(y=-83)에 한 줄로. 양옆에 여백이
-            // 남도록 바깥 카드가 가장자리에서 ~53px 안쪽에 오게 폭·크기를 잡는다. 윗줄(상단)은 뇌 에셋 자리.
-            const int cardCount = 4;
-            const float cardSize = 130f, cardStep = 148f, cardRowY = -83f;
-            float startX = -cardStep * (cardCount - 1) / 2f;
-            for (int i = 4; i < 8; i++)
-            {
-                var extra = panel.transform.Find("Card" + i);
-                if (extra != null) extra.gameObject.SetActive(false);
-            }
+            // 멜로디 8노트(4분의 8박자): 카드 8개를 악보(panel-score 680x440)에 2×4 그리드로. 뇌 영역은 제거.
+            const int cardCount = 8;
+            const float cardSize = 150f;
+            float[] colX = { -237f, -79f, 79f, 237f };
+            float[] rowY = { 80f, -80f };
 
             var marks = new List<Text>();
             for (int i = 0; i < cardCount; i++)
@@ -721,7 +716,7 @@ namespace Mallang.RR02.Screens
                 if (card == null) continue;
                 var crt = (RectTransform)card;
                 crt.gameObject.SetActive(true);
-                crt.anchoredPosition = new Vector2(startX + i * cardStep, cardRowY);
+                crt.anchoredPosition = new Vector2(colX[i % 4], rowY[i / 4]);
                 crt.sizeDelta = new Vector2(cardSize, cardSize);
                 pos.Add(crt.anchoredPosition);
 
@@ -758,12 +753,10 @@ namespace Mallang.RR02.Screens
             if (sel != null)
             {
                 _cursor = (RectTransform)sel;
-                _cursor.sizeDelta = new Vector2(cardSize + 16f, cardSize + 16f); // 작아진 카드에 맞춰 하이라이트도 축소
-                _cursor.anchoredPosition = new Vector2(_cursor.anchoredPosition.x, cardRowY); // 아랫줄로
+                _cursor.sizeDelta = new Vector2(cardSize + 14f, cardSize + 14f);
                 _cursor.SetAsFirstSibling();
             } // 카드 뒤 = 테두리 하이라이트
-
-            BuildComboArea(panel.transform); // 상단 뇌 + 콤보 불꽃
+            // 뇌 영역(BuildComboArea)은 제거됨 — 플레이 화면에서 뇌·불꽃 표시 안 함.
         }
 
         // 악보 윗줄(상단)에 뇌(brain-stage0, 불꽃 없는 깔끔한 뇌)를 놓고, 그 '뒤'에 코드로 그린 분홍 불꽃을 깐다.

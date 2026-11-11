@@ -3517,7 +3517,7 @@ MonoBehaviour:
   inputOffsetMs: 0
   repeatPrerollMs: 180
   tempoScale: 1.25
-  baselineVolume: 0.35
+  baselineVolume: 0.8
   rabbitVolume: 0.7
   introRestBeats: 0.18
   comboFlameThreshold: 4

@@ -85,15 +85,15 @@ namespace Mallang.RR02.Tests.EditMode
         }
 
         [Test]
-        public void EachRoundHasFourNotesWithFixedTargetTimes()
+        public void EachRoundHasEightNotesWithFixedTargetTimes()
         {
             var chart = Rr02Chart.Generate(7);
-            var expectedTargets = new long[] { 0L, 400000L, 800000L, 1200000L };
+            var expectedTargets = new long[] { 0L, 400000L, 800000L, 1200000L, 1600000L, 2000000L, 2400000L, 2800000L };
 
             foreach (var round in chart.Rounds)
             {
-                Assert.AreEqual(4, round.Notes.Count);
-                for (int i = 0; i < 4; i++)
+                Assert.AreEqual(8, round.Notes.Count);
+                for (int i = 0; i < 8; i++)
                     Assert.AreEqual(expectedTargets[i], round.Notes[i].TargetUs, $"round {round.Number} note {i}");
             }
         }
@@ -114,7 +114,7 @@ namespace Mallang.RR02.Tests.EditMode
                 Assert.AreEqual(hidden.Count, distinct.Count, $"round {r} hidden indices must be distinct");
 
                 for (int i = 0; i < hidden.Count; i++)
-                    Assert.That(hidden[i], Is.InRange(0, 3), $"round {r} hidden index {i} out of range");
+                    Assert.That(hidden[i], Is.InRange(0, 7), $"round {r} hidden index {i} out of range");
 
                 for (int i = 1; i < hidden.Count; i++)
                     Assert.Less(hidden[i - 1], hidden[i], $"round {r} hidden indices must be sorted ascending");
