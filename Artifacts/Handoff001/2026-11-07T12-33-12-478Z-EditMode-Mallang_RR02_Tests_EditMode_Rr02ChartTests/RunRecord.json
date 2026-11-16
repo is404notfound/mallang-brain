@@ -1,0 +1,39 @@
+{
+  "id": "2026-11-07T12-33-12-478Z-EditMode-Mallang_RR02_Tests_EditMode_Rr02ChartTests",
+  "platform": "EditMode",
+  "filter": "Mallang.RR02.Tests.EditMode.Rr02ChartTests",
+  "startedUtc": "2026-11-07T12:33:12.479Z",
+  "scope": "Unity automated tests only; logic-lane check for specs/001-listen-and-repeat-core",
+  "source": "0a593aa3e1b2b980cf959e406345dfb0082567aa",
+  "dirty": true,
+  "command": [
+    "/Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/MacOS/Unity",
+    "-batchmode",
+    "-projectPath",
+    "/Users/easyoon/orca/workspaces/mallang-brain/palolo/unity",
+    "-runTests",
+    "-testPlatform",
+    "EditMode",
+    "-testResults",
+    "/Users/easyoon/orca/workspaces/mallang-brain/palolo/Artifacts/Handoff001/2026-11-07T12-33-12-478Z-EditMode-Mallang_RR02_Tests_EditMode_Rr02ChartTests/TestResults.xml",
+    "-logFile",
+    "/Users/easyoon/orca/workspaces/mallang-brain/palolo/Artifacts/Handoff001/2026-11-07T12-33-12-478Z-EditMode-Mallang_RR02_Tests_EditMode_Rr02ChartTests/Unity.log",
+    "-testFilter",
+    "Mallang.RR02.Tests.EditMode.Rr02ChartTests"
+  ],
+  "unityExit": 2,
+  "totalTests": 9,
+  "result": "failed",
+  "failedSample": [
+    "- HiddenIndicesFollowTailRoundMinusOneRule: System.NotImplementedException : The method or operation is not implemented.",
+    "- InfinitePhraseCyclesRoundTwoThroughNineFullyHidden: System.NotImplementedException : The method or operation is not implemented.",
+    "- InfinitePhraseNeverReusesTwoSoundIntroPattern: System.NotImplementedException : The method or operation is not implemented.",
+    "- LoadFromJsonRejectsMalformedChart: Expected: <System.ArgumentException>",
+    "- LoadsNineNormalRounds: System.NotImplementedException : The method or operation is not implemented.",
+    "- NotesAreSingleInstantTapsWithoutHoldsOrChords: System.NotImplementedException : The method or operation is not implemented.",
+    "- RoundOneUsesOnlyRabbitAndCapybaraEightBeats: System.NotImplementedException : The method or operation is not implemented.",
+    "- ScheduleMatchesChallengeTimingArithmetic: System.NotImplementedException : The method or operation is not implemented.",
+    "- TargetTicksConvertToMicrosecondsAtOneBeatPer400000Us: System.NotImplementedException : The method or operation is not implemented."
+  ],
+  "completedUtc": "2026-11-07T12:33:25.576Z"
+}

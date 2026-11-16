@@ -1,0 +1,9 @@
+{
+  "name": "Mallang.RR02.Screens",
+  "rootNamespace": "Mallang.RR02.Screens",
+  "references": [
+    "Mallang.RR02.Runtime",
+    "Mallang.Gate0.Runtime",
+    "Unity.InputSystem"
+  ]
+}

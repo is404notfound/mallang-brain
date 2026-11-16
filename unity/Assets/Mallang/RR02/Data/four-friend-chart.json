@@ -1,0 +1,518 @@
+{
+  "id": "RR02",
+  "rulesVersion": "RR02-v1-draft",
+  "status": "2026-11-07 사용자 추천안 채택 · 실제 플레이 미검증",
+  "bpm": 150,
+  "ticksPerBeat": 480,
+  "stepLengths": [
+    8
+  ],
+  "cueBeatsPerStep": 0,
+  "roundClearBeats": 4,
+  "normalRounds": 9,
+  "notesPerRound": 8,
+  "normalJudgedNotes": 72,
+  "normalMaxBrainScore": 7200,
+  "roundSecondsIncludingClear": 8.0,
+  "normalSecondsExcludingIntro": 72.0,
+  "characters": [
+    {
+      "id": "rabbit",
+      "name": "토끼",
+      "instrumentCandidate": "실로폰",
+      "mnemonicOnly": "톡",
+      "personality": "장난기"
+    },
+    {
+      "id": "capybara",
+      "name": "카피바라",
+      "instrumentCandidate": "큰북",
+      "mnemonicOnly": "둠",
+      "personality": "초롱초롱함"
+    },
+    {
+      "id": "fox",
+      "name": "사막여우",
+      "instrumentCandidate": "트럼펫",
+      "mnemonicOnly": "팟",
+      "personality": "까칠하고 삐쭉함"
+    },
+    {
+      "id": "squirrel",
+      "name": "다람쥐",
+      "instrumentCandidate": "플루트",
+      "mnemonicOnly": "후",
+      "personality": "소심하고 망설임"
+    }
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "hiddenCount": 0,
+      "sequence": [
+        "rabbit",
+        "rabbit",
+        "capybara",
+        "capybara",
+        "rabbit",
+        "capybara",
+        "rabbit",
+        "capybara"
+      ],
+      "steps": [
+        {
+          "length": 8,
+          "sequence": [
+            "rabbit",
+            "rabbit",
+            "capybara",
+            "capybara",
+            "rabbit",
+            "capybara",
+            "rabbit",
+            "capybara"
+          ],
+          "hiddenIndices": [],
+          "targetTicks": [
+            0,
+            480,
+            960,
+            1440,
+            1920,
+            2400,
+            2880,
+            3360
+          ]
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "hiddenCount": 1,
+      "sequence": [
+        "capybara",
+        "fox",
+        "squirrel",
+        "rabbit",
+        "fox",
+        "capybara",
+        "squirrel",
+        "rabbit"
+      ],
+      "steps": [
+        {
+          "length": 8,
+          "sequence": [
+            "capybara",
+            "fox",
+            "squirrel",
+            "rabbit",
+            "fox",
+            "capybara",
+            "squirrel",
+            "rabbit"
+          ],
+          "hiddenIndices": [
+            7
+          ],
+          "targetTicks": [
+            0,
+            480,
+            960,
+            1440,
+            1920,
+            2400,
+            2880,
+            3360
+          ]
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "hiddenCount": 2,
+      "sequence": [
+        "fox",
+        "squirrel",
+        "rabbit",
+        "fox",
+        "capybara",
+        "squirrel",
+        "rabbit",
+        "capybara"
+      ],
+      "steps": [
+        {
+          "length": 8,
+          "sequence": [
+            "fox",
+            "squirrel",
+            "rabbit",
+            "fox",
+            "capybara",
+            "squirrel",
+            "rabbit",
+            "capybara"
+          ],
+          "hiddenIndices": [
+            6,
+            7
+          ],
+          "targetTicks": [
+            0,
+            480,
+            960,
+            1440,
+            1920,
+            2400,
+            2880,
+            3360
+          ]
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "hiddenCount": 3,
+      "sequence": [
+        "squirrel",
+        "rabbit",
+        "fox",
+        "capybara",
+        "squirrel",
+        "rabbit",
+        "capybara",
+        "fox"
+      ],
+      "steps": [
+        {
+          "length": 8,
+          "sequence": [
+            "squirrel",
+            "rabbit",
+            "fox",
+            "capybara",
+            "squirrel",
+            "rabbit",
+            "capybara",
+            "fox"
+          ],
+          "hiddenIndices": [
+            5,
+            6,
+            7
+          ],
+          "targetTicks": [
+            0,
+            480,
+            960,
+            1440,
+            1920,
+            2400,
+            2880,
+            3360
+          ]
+        }
+      ]
+    },
+    {
+      "round": 5,
+      "hiddenCount": 4,
+      "sequence": [
+        "rabbit",
+        "fox",
+        "capybara",
+        "squirrel",
+        "rabbit",
+        "capybara",
+        "fox",
+        "squirrel"
+      ],
+      "steps": [
+        {
+          "length": 8,
+          "sequence": [
+            "rabbit",
+            "fox",
+            "capybara",
+            "squirrel",
+            "rabbit",
+            "capybara",
+            "fox",
+            "squirrel"
+          ],
+          "hiddenIndices": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "targetTicks": [
+            0,
+            480,
+            960,
+            1440,
+            1920,
+            2400,
+            2880,
+            3360
+          ]
+        }
+      ]
+    },
+    {
+      "round": 6,
+      "hiddenCount": 5,
+      "sequence": [
+        "fox",
+        "capybara",
+        "squirrel",
+        "rabbit",
+        "capybara",
+        "fox",
+        "squirrel",
+        "rabbit"
+      ],
+      "steps": [
+        {
+          "length": 8,
+          "sequence": [
+            "fox",
+            "capybara",
+            "squirrel",
+            "rabbit",
+            "capybara",
+            "fox",
+            "squirrel",
+            "rabbit"
+          ],
+          "hiddenIndices": [
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "targetTicks": [
+            0,
+            480,
+            960,
+            1440,
+            1920,
+            2400,
+            2880,
+            3360
+          ]
+        }
+      ]
+    },
+    {
+      "round": 7,
+      "hiddenCount": 6,
+      "sequence": [
+        "fox",
+        "fox",
+        "rabbit",
+        "fox",
+        "capybara",
+        "fox",
+        "squirrel",
+        "squirrel"
+      ],
+      "steps": [
+        {
+          "length": 8,
+          "sequence": [
+            "fox",
+            "fox",
+            "rabbit",
+            "fox",
+            "capybara",
+            "fox",
+            "squirrel",
+            "squirrel"
+          ],
+          "hiddenIndices": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "targetTicks": [
+            0,
+            480,
+            960,
+            1440,
+            1920,
+            2400,
+            2880,
+            3360
+          ]
+        }
+      ]
+    },
+    {
+      "round": 8,
+      "hiddenCount": 7,
+      "sequence": [
+        "squirrel",
+        "rabbit",
+        "capybara",
+        "fox",
+        "squirrel",
+        "rabbit",
+        "fox",
+        "capybara"
+      ],
+      "steps": [
+        {
+          "length": 8,
+          "sequence": [
+            "squirrel",
+            "rabbit",
+            "capybara",
+            "fox",
+            "squirrel",
+            "rabbit",
+            "fox",
+            "capybara"
+          ],
+          "hiddenIndices": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "targetTicks": [
+            0,
+            480,
+            960,
+            1440,
+            1920,
+            2400,
+            2880,
+            3360
+          ]
+        }
+      ]
+    },
+    {
+      "round": 9,
+      "hiddenCount": 8,
+      "sequence": [
+        "rabbit",
+        "capybara",
+        "fox",
+        "squirrel",
+        "rabbit",
+        "fox",
+        "capybara",
+        "squirrel"
+      ],
+      "steps": [
+        {
+          "length": 8,
+          "sequence": [
+            "rabbit",
+            "capybara",
+            "fox",
+            "squirrel",
+            "rabbit",
+            "fox",
+            "capybara",
+            "squirrel"
+          ],
+          "hiddenIndices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "targetTicks": [
+            0,
+            480,
+            960,
+            1440,
+            1920,
+            2400,
+            2880,
+            3360
+          ]
+        }
+      ]
+    }
+  ],
+  "infinite": {
+    "hiddenCount": 8,
+    "lengths": [
+      8
+    ],
+    "loopIncrementAfterSteps": 1,
+    "bpm": 150,
+    "sequenceSource": "1-based loop k uses rounds[1 + ((k-1) modulo 8)] (R2→R9 cyclically); always full listening and eight hidden input notes"
+  },
+  "exampleScores": {
+    "old": [
+      1200,
+      1100,
+      900,
+      800
+    ],
+    "run": [
+      1400,
+      980,
+      1100,
+      850
+    ],
+    "new": [
+      1400,
+      1100,
+      1100,
+      850
+    ],
+    "runTotal": 4330,
+    "myBrainTotal": 4450,
+    "progress": {
+      "normalCleared": 6,
+      "loops": 0,
+      "completedSteps": 0,
+      "failedLength": 8
+    },
+    "judgeFixture": {
+      "completedFriendCounts": [
+        14,
+        14,
+        10,
+        10
+      ],
+      "totalPerfect": [
+        14,
+        0,
+        4,
+        5
+      ],
+      "totalGood": [
+        0,
+        14,
+        10,
+        5
+      ],
+      "totalMiss": 4,
+      "failedStepCorrectFriends": [
+        "fox",
+        "fox",
+        "fox",
+        "fox"
+      ]
+    }
+  }
+}

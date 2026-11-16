@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="21" result="Failed(Child)" total="21" passed="0" failed="21" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.045998">
+  <test-suite type="TestSuite" id="1000" name="Mallang Brain · Gate 1" fullname="Mallang Brain · Gate 1" runstate="Runnable" testcasecount="217" result="Failed" site="Child" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.045998" total="21" passed="0" failed="21" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1263" name="Mallang.RR02.Tests.EditMode.dll" fullname="/Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Library/ScriptAssemblies/Mallang.RR02.Tests.EditMode.dll" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.036681" total="21" passed="0" failed="21" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="32166" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1264" name="Mallang" fullname="Mallang" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.035916" total="21" passed="0" failed="21" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1265" name="RR02" fullname="Mallang.RR02" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.035405" total="21" passed="0" failed="21" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestSuite" id="1266" name="Tests" fullname="Mallang.RR02.Tests" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.034860" total="21" passed="0" failed="21" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="TestSuite" id="1267" name="EditMode" fullname="Mallang.RR02.Tests.EditMode" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.034195" total="21" passed="0" failed="21" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-suite type="TestFixture" id="1161" name="RankingRulesTests" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" testcasecount="21" result="Failed" site="Child" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.031307" total="21" passed="0" failed="21" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[One or more child tests had errors]]></message>
+                </failure>
+                <test-suite type="ParameterizedMethod" id="1184" name="BenchmarkGradeMapsCompletedRoundsToRubricLabel" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.017170" total="8" passed="0" failed="8" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <failure>
+                    <message><![CDATA[One or more child tests had errors]]></message>
+                  </failure>
+                  <test-case id="1176" name="BenchmarkGradeMapsCompletedRoundsToRubricLabel(0,&quot;첫 합주 도전&quot;)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel(0,&quot;첫 합주 도전&quot;)" methodname="BenchmarkGradeMapsCompletedRoundsToRubricLabel" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="1208600438" result="Failed" label="Error" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.008212" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel (System.Int32 normalCleared, System.String expectedLabel) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs:111 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1177" name="BenchmarkGradeMapsCompletedRoundsToRubricLabel(1,&quot;악보 합주&quot;)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel(1,&quot;악보 합주&quot;)" methodname="BenchmarkGradeMapsCompletedRoundsToRubricLabel" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="183525615" result="Failed" label="Error" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.000384" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel (System.Int32 normalCleared, System.String expectedLabel) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs:111 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1178" name="BenchmarkGradeMapsCompletedRoundsToRubricLabel(2,&quot;악보 합주&quot;)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel(2,&quot;악보 합주&quot;)" methodname="BenchmarkGradeMapsCompletedRoundsToRubricLabel" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="546538056" result="Failed" label="Error" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.000344" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel (System.Int32 normalCleared, System.String expectedLabel) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs:111 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1179" name="BenchmarkGradeMapsCompletedRoundsToRubricLabel(3,&quot;기억 합주&quot;)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel(3,&quot;기억 합주&quot;)" methodname="BenchmarkGradeMapsCompletedRoundsToRubricLabel" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="2022457194" result="Failed" label="Error" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.000341" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel (System.Int32 normalCleared, System.String expectedLabel) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs:111 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1180" name="BenchmarkGradeMapsCompletedRoundsToRubricLabel(5,&quot;기억 합주&quot;)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel(5,&quot;기억 합주&quot;)" methodname="BenchmarkGradeMapsCompletedRoundsToRubricLabel" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="675080621" result="Failed" label="Error" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.000313" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel (System.Int32 normalCleared, System.String expectedLabel) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs:111 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1181" name="BenchmarkGradeMapsCompletedRoundsToRubricLabel(6,&quot;암보 합주&quot;)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel(6,&quot;암보 합주&quot;)" methodname="BenchmarkGradeMapsCompletedRoundsToRubricLabel" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="518733814" result="Failed" label="Error" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.000293" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel (System.Int32 normalCleared, System.String expectedLabel) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs:111 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1182" name="BenchmarkGradeMapsCompletedRoundsToRubricLabel(8,&quot;암보 합주&quot;)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel(8,&quot;암보 합주&quot;)" methodname="BenchmarkGradeMapsCompletedRoundsToRubricLabel" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="685979435" result="Failed" label="Error" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.000292" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel (System.Int32 normalCleared, System.String expectedLabel) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs:111 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1183" name="BenchmarkGradeMapsCompletedRoundsToRubricLabel(9,&quot;All 마스터&quot;)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel(9,&quot;All 마스터&quot;)" methodname="BenchmarkGradeMapsCompletedRoundsToRubricLabel" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="12502239" result="Failed" label="Error" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.000289" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel (System.Int32 normalCleared, System.String expectedLabel) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs:111 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                </test-suite>
+                <test-case id="1185" name="BenchmarkGradeShowsAllPlusCompletedLoops" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeShowsAllPlusCompletedLoops" methodname="BenchmarkGradeShowsAllPlusCompletedLoops" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="234380043" result="Failed" label="Error" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.000374" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeShowsAllPlusCompletedLoops () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs:121 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1162" name="CompareOrdersByClearedThenLoopsThenRunScoreDescending" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.CompareOrdersByClearedThenLoopsThenRunScoreDescending" methodname="CompareOrdersByClearedThenLoopsThenRunScoreDescending" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="122597243" result="Failed" label="Error" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.000262" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingRulesTests.CompareOrdersByClearedThenLoopsThenRunScoreDescending () [0x0002c] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs:28 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1163" name="ExactTieSharesRankAndNextRankSkips" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.ExactTieSharesRankAndNextRankSkips" methodname="ExactTieSharesRankAndNextRankSkips" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="1889481891" result="Failed" label="Error" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.001122" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingRulesTests.ExactTieSharesRankAndNextRankSkips () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs:38 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-suite type="ParameterizedMethod" id="1174" name="ModeSwitchesAtPopulationBoundaries" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.ModeSwitchesAtPopulationBoundaries" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" testcasecount="5" result="Failed" site="Child" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.002000" total="5" passed="0" failed="5" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <failure>
+                    <message><![CDATA[One or more child tests had errors]]></message>
+                  </failure>
+                  <test-case id="1169" name="ModeSwitchesAtPopulationBoundaries(0,BenchmarkOnly)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.ModeSwitchesAtPopulationBoundaries(0,BenchmarkOnly)" methodname="ModeSwitchesAtPopulationBoundaries" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="471156295" result="Failed" label="Error" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.000274" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingRulesTests.ModeSwitchesAtPopulationBoundaries (System.Int32 population, Mallang.RR02.RankingMode expected) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs:86 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1170" name="ModeSwitchesAtPopulationBoundaries(1,RankWithBenchmark)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.ModeSwitchesAtPopulationBoundaries(1,RankWithBenchmark)" methodname="ModeSwitchesAtPopulationBoundaries" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="476499123" result="Failed" label="Error" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.000139" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingRulesTests.ModeSwitchesAtPopulationBoundaries (System.Int32 population, Mallang.RR02.RankingMode expected) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs:86 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1171" name="ModeSwitchesAtPopulationBoundaries(19,RankWithBenchmark)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.ModeSwitchesAtPopulationBoundaries(19,RankWithBenchmark)" methodname="ModeSwitchesAtPopulationBoundaries" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="124013595" result="Failed" label="Error" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.000129" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingRulesTests.ModeSwitchesAtPopulationBoundaries (System.Int32 population, Mallang.RR02.RankingMode expected) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs:86 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1172" name="ModeSwitchesAtPopulationBoundaries(20,Official)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.ModeSwitchesAtPopulationBoundaries(20,Official)" methodname="ModeSwitchesAtPopulationBoundaries" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="1391683060" result="Failed" label="Error" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.000129" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingRulesTests.ModeSwitchesAtPopulationBoundaries (System.Int32 population, Mallang.RR02.RankingMode expected) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs:86 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1173" name="ModeSwitchesAtPopulationBoundaries(21,Official)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.ModeSwitchesAtPopulationBoundaries(21,Official)" methodname="ModeSwitchesAtPopulationBoundaries" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="329217892" result="Failed" label="Error" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.000140" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingRulesTests.ModeSwitchesAtPopulationBoundaries (System.Int32 population, Mallang.RR02.RankingMode expected) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs:86 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                </test-suite>
+                <test-case id="1175" name="ParseBenchmarkReadsRubricMetadata" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.ParseBenchmarkReadsRubricMetadata" methodname="ParseBenchmarkReadsRubricMetadata" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="376761172" result="Failed" label="Error" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.000399" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingRulesTests.ParseBenchmarkReadsRubricMetadata () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs:92 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-suite type="ParameterizedMethod" id="1168" name="PercentileUsesCeilToOneDecimal" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.PercentileUsesCeilToOneDecimal" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" testcasecount="3" result="Failed" site="Child" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.001081" total="3" passed="0" failed="3" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <failure>
+                    <message><![CDATA[One or more child tests had errors]]></message>
+                  </failure>
+                  <test-case id="1165" name="PercentileUsesCeilToOneDecimal(1,20,5.0d)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.PercentileUsesCeilToOneDecimal(1,20,5.0d)" methodname="PercentileUsesCeilToOneDecimal" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="93512880" result="Failed" label="Error" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.000240" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingRulesTests.PercentileUsesCeilToOneDecimal (System.Int32 rank, System.Int32 n, System.Double expected) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs:75 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1166" name="PercentileUsesCeilToOneDecimal(20,20,100.0d)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.PercentileUsesCeilToOneDecimal(20,20,100.0d)" methodname="PercentileUsesCeilToOneDecimal" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="1952135608" result="Failed" label="Error" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.000106" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingRulesTests.PercentileUsesCeilToOneDecimal (System.Int32 rank, System.Int32 n, System.Double expected) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs:75 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1167" name="PercentileUsesCeilToOneDecimal(7,23,30.5d)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.PercentileUsesCeilToOneDecimal(7,23,30.5d)" methodname="PercentileUsesCeilToOneDecimal" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="1148907114" result="Failed" label="Error" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.000126" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingRulesTests.PercentileUsesCeilToOneDecimal (System.Int32 rank, System.Int32 n, System.Double expected) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs:75 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                </test-suite>
+                <test-case id="1164" name="RankAggregatesOnlyProvidedRealEntries" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.RankAggregatesOnlyProvidedRealEntries" methodname="RankAggregatesOnlyProvidedRealEntries" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="316789762" result="Failed" label="Error" start-time="2026-11-07 15:17:42Z" end-time="2026-11-07 15:17:42Z" duration="0.000502" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingRulesTests.RankAggregatesOnlyProvidedRealEntries () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingRulesTests.cs:56 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                  <output><![CDATA[Saving results to: /Users/easyoon/Library/Application Support/is404notfound/Mallang Brain · Gate 1/TestResults.xml
+]]></output>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

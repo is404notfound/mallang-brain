@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="15" result="Passed" total="15" passed="15" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.0567038">
+  <test-suite type="TestSuite" id="1000" name="Mallang Brain · Gate 1" fullname="Mallang Brain · Gate 1" runstate="Runnable" testcasecount="217" result="Passed" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.056704" total="15" passed="15" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1263" name="Mallang.RR02.Tests.EditMode.dll" fullname="/Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Library/ScriptAssemblies/Mallang.RR02.Tests.EditMode.dll" runstate="Runnable" testcasecount="104" result="Passed" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.045665" total="15" passed="15" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="92679" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1264" name="Mallang" fullname="Mallang" runstate="Runnable" testcasecount="104" result="Passed" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.045168" total="15" passed="15" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1265" name="RR02" fullname="Mallang.RR02" runstate="Runnable" testcasecount="104" result="Passed" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.044736" total="15" passed="15" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1266" name="Tests" fullname="Mallang.RR02.Tests" runstate="Runnable" testcasecount="104" result="Passed" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.044408" total="15" passed="15" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="1267" name="EditMode" fullname="Mallang.RR02.Tests.EditMode" runstate="Runnable" testcasecount="104" result="Passed" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.043990" total="15" passed="15" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestFixture" id="1144" name="BrainScoreTests" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" testcasecount="15" result="Passed" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.041050" total="15" passed="15" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1157" name="AllClearBadgeRequiresNineNormalRounds" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.AllClearBadgeRequiresNineNormalRounds" methodname="AllClearBadgeRequiresNineNormalRounds" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="19442968" result="Passed" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.016171" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1158" name="AllPerfectBadgeRequiresAllPerfectRun" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.AllPerfectBadgeRequiresAllPerfectRun" methodname="AllPerfectBadgeRequiresAllPerfectRun" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="787174509" result="Passed" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.000447" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1156" name="IneligibleRunDoesNotChangeBests" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.IneligibleRunDoesNotChangeBests" methodname="IneligibleRunDoesNotChangeBests" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="369269179" result="Passed" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.003311" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1160" name="IneligibleRunEarnsNoBadges" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.IneligibleRunEarnsNoBadges" methodname="IneligibleRunEarnsNoBadges" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="379362943" result="Passed" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.000126" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1159" name="LoopBestBadgeRequiresStrictlyHigherLoops" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.LoopBestBadgeRequiresStrictlyHigherLoops" methodname="LoopBestBadgeRequiresStrictlyHigherLoops" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="732357345" result="Passed" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.000137" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1154" name="MergeBestTakesPerAnimalMaxWhenEligible" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.MergeBestTakesPerAnimalMaxWhenEligible" methodname="MergeBestTakesPerAnimalMaxWhenEligible" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="862741810" result="Passed" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.000161" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1155" name="MyBrainTotalSumsFourBestsDistinctFromRunTotal" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.MyBrainTotalSumsFourBestsDistinctFromRunTotal" methodname="MyBrainTotalSumsFourBestsDistinctFromRunTotal" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="1565679042" result="Passed" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.000850" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-suite type="ParameterizedMethod" id="1153" name="StageBoundariesFollowFirstBaseline" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.006212" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="1145" name="StageBoundariesFollowFirstBaseline(0,0)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(0,0)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="1033502739" result="Passed" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.000268" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1146" name="StageBoundariesFollowFirstBaseline(199,0)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(199,0)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="51872734" result="Passed" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.000062" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1147" name="StageBoundariesFollowFirstBaseline(200,1)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(200,1)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="222340199" result="Passed" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.000057" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1148" name="StageBoundariesFollowFirstBaseline(399,1)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(399,1)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="595499734" result="Passed" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.000050" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1149" name="StageBoundariesFollowFirstBaseline(400,2)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(400,2)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="610595319" result="Passed" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.000054" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1150" name="StageBoundariesFollowFirstBaseline(699,2)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(699,2)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="659416903" result="Passed" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.000051" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1151" name="StageBoundariesFollowFirstBaseline(700,3)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(700,3)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="1400891049" result="Passed" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.000051" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1152" name="StageBoundariesFollowFirstBaseline(7200,3)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(7200,3)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="404087397" result="Passed" start-time="2026-11-07 13:15:41Z" end-time="2026-11-07 13:15:41Z" duration="0.000048" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <output><![CDATA[Saving results to: /Users/easyoon/Library/Application Support/is404notfound/Mallang Brain · Gate 1/TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

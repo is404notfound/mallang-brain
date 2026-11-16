@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="15" result="Failed(Child)" total="15" passed="0" failed="15" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.0374136">
+  <test-suite type="TestSuite" id="1000" name="Mallang Brain · Gate 1" fullname="Mallang Brain · Gate 1" runstate="Runnable" testcasecount="217" result="Failed" site="Child" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.037414" total="15" passed="0" failed="15" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1263" name="Mallang.RR02.Tests.EditMode.dll" fullname="/Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Library/ScriptAssemblies/Mallang.RR02.Tests.EditMode.dll" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.028902" total="15" passed="0" failed="15" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="28950" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1264" name="Mallang" fullname="Mallang" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.028356" total="15" passed="0" failed="15" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1265" name="RR02" fullname="Mallang.RR02" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.027956" total="15" passed="0" failed="15" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestSuite" id="1266" name="Tests" fullname="Mallang.RR02.Tests" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.027656" total="15" passed="0" failed="15" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="TestSuite" id="1267" name="EditMode" fullname="Mallang.RR02.Tests.EditMode" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.027267" total="15" passed="0" failed="15" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-suite type="TestFixture" id="1144" name="BrainScoreTests" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" testcasecount="15" result="Failed" site="Child" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.024712" total="15" passed="0" failed="15" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[One or more child tests had errors]]></message>
+                </failure>
+                <test-case id="1157" name="AllClearBadgeRequiresNineNormalRounds" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.AllClearBadgeRequiresNineNormalRounds" methodname="AllClearBadgeRequiresNineNormalRounds" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="1871628671" result="Failed" label="Error" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.008416" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.BrainScoreTests.AllClearBadgeRequiresNineNormalRounds () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/BrainScoreTests.cs:100 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1158" name="AllPerfectBadgeRequiresAllPerfectRun" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.AllPerfectBadgeRequiresAllPerfectRun" methodname="AllPerfectBadgeRequiresAllPerfectRun" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="156256101" result="Failed" label="Error" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.000227" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.BrainScoreTests.AllPerfectBadgeRequiresAllPerfectRun () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/BrainScoreTests.cs:111 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1156" name="IneligibleRunDoesNotChangeBests" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.IneligibleRunDoesNotChangeBests" methodname="IneligibleRunDoesNotChangeBests" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="362752552" result="Failed" label="Error" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.000265" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.BrainScoreTests.IneligibleRunDoesNotChangeBests () [0x00019] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/BrainScoreTests.cs:85 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1160" name="IneligibleRunEarnsNoBadges" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.IneligibleRunEarnsNoBadges" methodname="IneligibleRunEarnsNoBadges" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="1796517769" result="Failed" label="Error" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.000158" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.BrainScoreTests.IneligibleRunEarnsNoBadges () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/BrainScoreTests.cs:133 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1159" name="LoopBestBadgeRequiresStrictlyHigherLoops" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.LoopBestBadgeRequiresStrictlyHigherLoops" methodname="LoopBestBadgeRequiresStrictlyHigherLoops" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="2009447373" result="Failed" label="Error" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.000154" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.BrainScoreTests.LoopBestBadgeRequiresStrictlyHigherLoops () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/BrainScoreTests.cs:122 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1154" name="MergeBestTakesPerAnimalMaxWhenEligible" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.MergeBestTakesPerAnimalMaxWhenEligible" methodname="MergeBestTakesPerAnimalMaxWhenEligible" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="1641594109" result="Failed" label="Error" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.000201" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.BrainScoreTests.MergeBestTakesPerAnimalMaxWhenEligible () [0x00019] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/BrainScoreTests.cs:55 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1155" name="MyBrainTotalSumsFourBestsDistinctFromRunTotal" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.MyBrainTotalSumsFourBestsDistinctFromRunTotal" methodname="MyBrainTotalSumsFourBestsDistinctFromRunTotal" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="987184488" result="Failed" label="Error" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.000229" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.BrainScoreTests.MyBrainTotalSumsFourBestsDistinctFromRunTotal () [0x00034] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/BrainScoreTests.cs:72 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-suite type="ParameterizedMethod" id="1153" name="StageBoundariesFollowFirstBaseline" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.003718" total="8" passed="0" failed="8" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <failure>
+                    <message><![CDATA[One or more child tests had errors]]></message>
+                  </failure>
+                  <test-case id="1145" name="StageBoundariesFollowFirstBaseline(0,0)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(0,0)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="1483654599" result="Failed" label="Error" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.000251" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline (System.Int32 score, System.Int32 expectedStage) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/BrainScoreTests.cs:48 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1146" name="StageBoundariesFollowFirstBaseline(199,0)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(199,0)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="1030147730" result="Failed" label="Error" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.000116" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline (System.Int32 score, System.Int32 expectedStage) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/BrainScoreTests.cs:48 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1147" name="StageBoundariesFollowFirstBaseline(200,1)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(200,1)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="1215921044" result="Failed" label="Error" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.000105" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline (System.Int32 score, System.Int32 expectedStage) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/BrainScoreTests.cs:48 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1148" name="StageBoundariesFollowFirstBaseline(399,1)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(399,1)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="1026513123" result="Failed" label="Error" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.000108" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline (System.Int32 score, System.Int32 expectedStage) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/BrainScoreTests.cs:48 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1149" name="StageBoundariesFollowFirstBaseline(400,2)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(400,2)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="1323980184" result="Failed" label="Error" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.000108" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline (System.Int32 score, System.Int32 expectedStage) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/BrainScoreTests.cs:48 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1150" name="StageBoundariesFollowFirstBaseline(699,2)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(699,2)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="1457318315" result="Failed" label="Error" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.000107" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline (System.Int32 score, System.Int32 expectedStage) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/BrainScoreTests.cs:48 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1151" name="StageBoundariesFollowFirstBaseline(700,3)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(700,3)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="992044671" result="Failed" label="Error" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.000111" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline (System.Int32 score, System.Int32 expectedStage) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/BrainScoreTests.cs:48 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="1152" name="StageBoundariesFollowFirstBaseline(7200,3)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(7200,3)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="1749165866" result="Failed" label="Error" start-time="2026-11-07 12:25:53Z" end-time="2026-11-07 12:25:53Z" duration="0.000113" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline (System.Int32 score, System.Int32 expectedStage) [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/BrainScoreTests.cs:48 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                    </failure>
+                    <output><![CDATA[Saving results to: /Users/easyoon/Library/Application Support/is404notfound/Mallang Brain · Gate 1/TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

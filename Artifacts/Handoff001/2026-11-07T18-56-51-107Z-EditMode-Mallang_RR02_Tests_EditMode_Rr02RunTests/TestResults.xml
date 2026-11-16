@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="10" result="Passed" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-07 18:57:10Z" end-time="2026-11-07 18:57:10Z" duration="0.0980839">
+  <test-suite type="TestSuite" id="1000" name="Mallang Brain · Gate 1" fullname="Mallang Brain · Gate 1" runstate="Runnable" testcasecount="217" result="Passed" start-time="2026-11-07 18:57:10Z" end-time="2026-11-07 18:57:10Z" duration="0.098084" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1263" name="Mallang.RR02.Tests.EditMode.dll" fullname="/Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Library/ScriptAssemblies/Mallang.RR02.Tests.EditMode.dll" runstate="Runnable" testcasecount="104" result="Passed" start-time="2026-11-07 18:57:10Z" end-time="2026-11-07 18:57:10Z" duration="0.084309" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="35718" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1264" name="Mallang" fullname="Mallang" runstate="Runnable" testcasecount="104" result="Passed" start-time="2026-11-07 18:57:10Z" end-time="2026-11-07 18:57:10Z" duration="0.081570" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1265" name="RR02" fullname="Mallang.RR02" runstate="Runnable" testcasecount="104" result="Passed" start-time="2026-11-07 18:57:10Z" end-time="2026-11-07 18:57:10Z" duration="0.079195" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1266" name="Tests" fullname="Mallang.RR02.Tests" runstate="Runnable" testcasecount="104" result="Passed" start-time="2026-11-07 18:57:10Z" end-time="2026-11-07 18:57:10Z" duration="0.076013" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="1267" name="EditMode" fullname="Mallang.RR02.Tests.EditMode" runstate="Runnable" testcasecount="104" result="Passed" start-time="2026-11-07 18:57:10Z" end-time="2026-11-07 18:57:10Z" duration="0.073580" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestFixture" id="1238" name="Rr02RunTests" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" testcasecount="10" result="Passed" start-time="2026-11-07 18:57:10Z" end-time="2026-11-07 18:57:10Z" duration="0.068732" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1243" name="AllPerfectIsFalseWhenAnyNormalJudgementIsGood" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.AllPerfectIsFalseWhenAnyNormalJudgementIsGood" methodname="AllPerfectIsFalseWhenAnyNormalJudgementIsGood" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="1433413704" result="Passed" start-time="2026-11-07 18:57:10Z" end-time="2026-11-07 18:57:10Z" duration="0.036286" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1240" name="ClearingPhraseAdvancesToNextRoundListen" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.ClearingPhraseAdvancesToNextRoundListen" methodname="ClearingPhraseAdvancesToNextRoundListen" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="1813719021" result="Passed" start-time="2026-11-07 18:57:10Z" end-time="2026-11-07 18:57:10Z" duration="0.001126" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1242" name="ClearingRoundNineEntersInfiniteLoopCounting" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.ClearingRoundNineEntersInfiniteLoopCounting" methodname="ClearingRoundNineEntersInfiniteLoopCounting" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="672333296" result="Passed" start-time="2026-11-07 18:57:10Z" end-time="2026-11-07 18:57:10Z" duration="0.001390" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1245" name="GhostInputScoresZeroAndFailsThePhrase" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.GhostInputScoresZeroAndFailsThePhrase" methodname="GhostInputScoresZeroAndFailsThePhrase" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="701881518" result="Passed" start-time="2026-11-07 18:57:10Z" end-time="2026-11-07 18:57:10Z" duration="0.001252" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1247" name="InvalidateOfficialKeepsProgressAndRestartsSameListen" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.InvalidateOfficialKeepsProgressAndRestartsSameListen" methodname="InvalidateOfficialKeepsProgressAndRestartsSameListen" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="956456090" result="Passed" start-time="2026-11-07 18:57:10Z" end-time="2026-11-07 18:57:10Z" duration="0.002567" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1246" name="MidPhraseMissKeepsMusicRunningAndEndsOnceAtPhraseEnd" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.MidPhraseMissKeepsMusicRunningAndEndsOnceAtPhraseEnd" methodname="MidPhraseMissKeepsMusicRunningAndEndsOnceAtPhraseEnd" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="1379315429" result="Passed" start-time="2026-11-07 18:57:10Z" end-time="2026-11-07 18:57:10Z" duration="0.000992" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1248" name="OnlyCorrectlyPressedFriendGainsAnimalScore" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.OnlyCorrectlyPressedFriendGainsAnimalScore" methodname="OnlyCorrectlyPressedFriendGainsAnimalScore" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="1514392589" result="Passed" start-time="2026-11-07 18:57:10Z" end-time="2026-11-07 18:57:10Z" duration="0.001436" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1241" name="PhraseConfirmsExactlyAtLastTargetPlus180Ms" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.PhraseConfirmsExactlyAtLastTargetPlus180Ms" methodname="PhraseConfirmsExactlyAtLastTargetPlus180Ms" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="1593732121" result="Passed" start-time="2026-11-07 18:57:10Z" end-time="2026-11-07 18:57:10Z" duration="0.004655" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1244" name="ScoreSumsPerfectGoodMissWithoutComboMultiplier" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.ScoreSumsPerfectGoodMissWithoutComboMultiplier" methodname="ScoreSumsPerfectGoodMissWithoutComboMultiplier" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="1161576640" result="Passed" start-time="2026-11-07 18:57:10Z" end-time="2026-11-07 18:57:10Z" duration="0.000704" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1239" name="StartsListeningAtRoundOneWithOfficialEligibility" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.StartsListeningAtRoundOneWithOfficialEligibility" methodname="StartsListeningAtRoundOneWithOfficialEligibility" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="1309335161" result="Passed" start-time="2026-11-07 18:57:10Z" end-time="2026-11-07 18:57:10Z" duration="0.001661" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[Saving results to: /Users/easyoon/Library/Application Support/is404notfound/Mallang Brain · Gate 1/TestResults.xml
+]]></output>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

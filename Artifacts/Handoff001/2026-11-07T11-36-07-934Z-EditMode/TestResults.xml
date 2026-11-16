@@ -1,0 +1,788 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="113" result="Passed" total="113" passed="113" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:38Z" duration="0.2361036">
+  <test-suite type="TestSuite" id="1000" name="Mallang Brain · Gate 1" fullname="Mallang Brain · Gate 1" runstate="Runnable" testcasecount="113" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:38Z" duration="0.236104" total="113" passed="113" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1072" name="Mallang.Gate0.Tests.EditMode.dll" fullname="/Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Library/ScriptAssemblies/Mallang.Gate0.Tests.EditMode.dll" runstate="Runnable" testcasecount="58" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:38Z" duration="0.182923" total="58" passed="58" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="68205" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1073" name="Mallang" fullname="Mallang" runstate="Runnable" testcasecount="58" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:38Z" duration="0.182421" total="58" passed="58" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1074" name="Gate0" fullname="Mallang.Gate0" runstate="Runnable" testcasecount="58" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:38Z" duration="0.182044" total="58" passed="58" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1075" name="Tests" fullname="Mallang.Gate0.Tests" runstate="Runnable" testcasecount="58" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:38Z" duration="0.181735" total="58" passed="58" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="1076" name="EditMode" fullname="Mallang.Gate0.Tests.EditMode" runstate="Runnable" testcasecount="58" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:38Z" duration="0.181338" total="58" passed="58" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestFixture" id="1027" name="AutoPhaseRunnerTests" fullname="Mallang.Gate0.Tests.EditMode.AutoPhaseRunnerTests" classname="Mallang.Gate0.Tests.EditMode.AutoPhaseRunnerTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.044578" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1029" name="CancelStopsAnInProgressRun" fullname="Mallang.Gate0.Tests.EditMode.AutoPhaseRunnerTests.CancelStopsAnInProgressRun" methodname="CancelStopsAnInProgressRun" classname="Mallang.Gate0.Tests.EditMode.AutoPhaseRunnerTests" runstate="Runnable" seed="733208738" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.018434" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1028" name="StepsThroughAllPhasesThenStops" fullname="Mallang.Gate0.Tests.EditMode.AutoPhaseRunnerTests.StepsThroughAllPhasesThenStops" methodname="StepsThroughAllPhasesThenStops" classname="Mallang.Gate0.Tests.EditMode.AutoPhaseRunnerTests" runstate="Runnable" seed="1446002731" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.005995" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="TestFixture" id="1030" name="BeatSchedulerTests" fullname="Mallang.Gate0.Tests.EditMode.BeatSchedulerTests" classname="Mallang.Gate0.Tests.EditMode.BeatSchedulerTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.005130" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1031" name="ConsumesOneBeatPerCrossingAndCatchesUpAfterAGap" fullname="Mallang.Gate0.Tests.EditMode.BeatSchedulerTests.ConsumesOneBeatPerCrossingAndCatchesUpAfterAGap" methodname="ConsumesOneBeatPerCrossingAndCatchesUpAfterAGap" classname="Mallang.Gate0.Tests.EditMode.BeatSchedulerTests" runstate="Runnable" seed="2010511737" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.003615" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="TestFixture" id="1023" name="CalibrationStateTests" fullname="Mallang.Gate0.Tests.EditMode.CalibrationStateTests" classname="Mallang.Gate0.Tests.EditMode.CalibrationStateTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.007329" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1024" name="ApplyAlwaysReplacesCurrentRegardlessOfValidity" fullname="Mallang.Gate0.Tests.EditMode.CalibrationStateTests.ApplyAlwaysReplacesCurrentRegardlessOfValidity" methodname="ApplyAlwaysReplacesCurrentRegardlessOfValidity" classname="Mallang.Gate0.Tests.EditMode.CalibrationStateTests" runstate="Runnable" seed="1199143669" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.006309" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="TestFixture" id="1001" name="EnvironmentSmokeTests" fullname="Mallang.Gate0.Tests.EditMode.EnvironmentSmokeTests" classname="Mallang.Gate0.Tests.EditMode.EnvironmentSmokeTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.002673" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1002" name="EditorUsesPinnedUnityVersion" fullname="Mallang.Gate0.Tests.EditMode.EnvironmentSmokeTests.EditorUsesPinnedUnityVersion" methodname="EditorUsesPinnedUnityVersion" classname="Mallang.Gate0.Tests.EditMode.EnvironmentSmokeTests" runstate="Runnable" seed="947793382" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.000671" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1003" name="ProjectLivesInExpectedUnityDirectory" fullname="Mallang.Gate0.Tests.EditMode.EnvironmentSmokeTests.ProjectLivesInExpectedUnityDirectory" methodname="ProjectLivesInExpectedUnityDirectory" classname="Mallang.Gate0.Tests.EditMode.EnvironmentSmokeTests" runstate="Runnable" seed="26801080" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.000785" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="TestFixture" id="1004" name="Gate0ContractTests" fullname="Mallang.Gate0.Tests.EditMode.Gate0ContractTests" classname="Mallang.Gate0.Tests.EditMode.Gate0ContractTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.044473" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1010" name="CompletePolicyAcceptsThenRejectsChangedDevice" fullname="Mallang.Gate0.Tests.EditMode.Gate0ContractTests.CompletePolicyAcceptsThenRejectsChangedDevice" methodname="CompletePolicyAcceptsThenRejectsChangedDevice" classname="Mallang.Gate0.Tests.EditMode.Gate0ContractTests" runstate="Runnable" seed="443425023" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.017642" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1008" name="DuplicateOrOutOfBoundsInputRejected" fullname="Mallang.Gate0.Tests.EditMode.Gate0ContractTests.DuplicateOrOutOfBoundsInputRejected" methodname="DuplicateOrOutOfBoundsInputRejected" classname="Mallang.Gate0.Tests.EditMode.Gate0ContractTests" runstate="Runnable" seed="21210259" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.001865" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1009" name="MissingAssetsAndDraftDevicesCannotStartMeasurement" fullname="Mallang.Gate0.Tests.EditMode.Gate0ContractTests.MissingAssetsAndDraftDevicesCannotStartMeasurement" methodname="MissingAssetsAndDraftDevicesCannotStartMeasurement" classname="Mallang.Gate0.Tests.EditMode.Gate0ContractTests" runstate="Runnable" seed="480442235" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.001730" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1011" name="RelaxedThresholdAndSampleCountCannotBeFrozen" fullname="Mallang.Gate0.Tests.EditMode.Gate0ContractTests.RelaxedThresholdAndSampleCountCannotBeFrozen" methodname="RelaxedThresholdAndSampleCountCannotBeFrozen" classname="Mallang.Gate0.Tests.EditMode.Gate0ContractTests" runstate="Runnable" seed="2030109177" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.001549" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1005" name="SameSeedAndSerializationProduceSameHash" fullname="Mallang.Gate0.Tests.EditMode.Gate0ContractTests.SameSeedAndSerializationProduceSameHash" methodname="SameSeedAndSerializationProduceSameHash" classname="Mallang.Gate0.Tests.EditMode.Gate0ContractTests" runstate="Runnable" seed="920299359" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.011268" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1006" name="ScenarioMutationRejectsOldHash" fullname="Mallang.Gate0.Tests.EditMode.Gate0ContractTests.ScenarioMutationRejectsOldHash" methodname="ScenarioMutationRejectsOldHash" classname="Mallang.Gate0.Tests.EditMode.Gate0ContractTests" runstate="Runnable" seed="1661315954" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.002876" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1007" name="ScenarioSchemaAndMissingPhaseFailClosed" fullname="Mallang.Gate0.Tests.EditMode.Gate0ContractTests.ScenarioSchemaAndMissingPhaseFailClosed" methodname="ScenarioSchemaAndMissingPhaseFailClosed" classname="Mallang.Gate0.Tests.EditMode.Gate0ContractTests" runstate="Runnable" seed="106900393" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.002767" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1012" name="WrongTossNetworkAndDuplicateRoleRejected" fullname="Mallang.Gate0.Tests.EditMode.Gate0ContractTests.WrongTossNetworkAndDuplicateRoleRejected" methodname="WrongTossNetworkAndDuplicateRoleRejected" classname="Mallang.Gate0.Tests.EditMode.Gate0ContractTests" runstate="Runnable" seed="1692571289" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.001603" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="TestFixture" id="1032" name="JudgementTallyTests" fullname="Mallang.Gate0.Tests.EditMode.JudgementTallyTests" classname="Mallang.Gate0.Tests.EditMode.JudgementTallyTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.002927" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1033" name="TalliesEachBandAndDuplicatesSeparately" fullname="Mallang.Gate0.Tests.EditMode.JudgementTallyTests.TalliesEachBandAndDuplicatesSeparately" methodname="TalliesEachBandAndDuplicatesSeparately" classname="Mallang.Gate0.Tests.EditMode.JudgementTallyTests" runstate="Runnable" seed="1217783415" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.001895" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="TestFixture" id="1013" name="LifecycleTests" fullname="Mallang.Gate0.Tests.EditMode.LifecycleTests" classname="Mallang.Gate0.Tests.EditMode.LifecycleTests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.010406" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1019" name="AudioFailureHoldsErrorThenRetryRecovers" fullname="Mallang.Gate0.Tests.EditMode.LifecycleTests.AudioFailureHoldsErrorThenRetryRecovers" methodname="AudioFailureHoldsErrorThenRetryRecovers" classname="Mallang.Gate0.Tests.EditMode.LifecycleTests" runstate="Runnable" seed="993281397" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.005274" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1014" name="BootFlowReachesPlayingAfterFourBeats" fullname="Mallang.Gate0.Tests.EditMode.LifecycleTests.BootFlowReachesPlayingAfterFourBeats" methodname="BootFlowReachesPlayingAfterFourBeats" classname="Mallang.Gate0.Tests.EditMode.LifecycleTests" runstate="Runnable" seed="312466490" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.000378" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1022" name="CoalescerCollapsesOverlappingSignals" fullname="Mallang.Gate0.Tests.EditMode.LifecycleTests.CoalescerCollapsesOverlappingSignals" methodname="CoalescerCollapsesOverlappingSignals" classname="Mallang.Gate0.Tests.EditMode.LifecycleTests" runstate="Runnable" seed="823096837" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.000288" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1015" name="CountInDoesNotAcceptGameInput" fullname="Mallang.Gate0.Tests.EditMode.LifecycleTests.CountInDoesNotAcceptGameInput" methodname="CountInDoesNotAcceptGameInput" classname="Mallang.Gate0.Tests.EditMode.LifecycleTests" runstate="Runnable" seed="958127569" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.000185" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1021" name="DriverResumeWithoutAudioGoesToErrorThenRetry" fullname="Mallang.Gate0.Tests.EditMode.LifecycleTests.DriverResumeWithoutAudioGoesToErrorThenRetry" methodname="DriverResumeWithoutAudioGoesToErrorThenRetry" classname="Mallang.Gate0.Tests.EditMode.LifecycleTests" runstate="Runnable" seed="1025821060" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.000636" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1016" name="InterruptFlushesExcludesAndRecountsOnResume" fullname="Mallang.Gate0.Tests.EditMode.LifecycleTests.InterruptFlushesExcludesAndRecountsOnResume" methodname="InterruptFlushesExcludesAndRecountsOnResume" classname="Mallang.Gate0.Tests.EditMode.LifecycleTests" runstate="Runnable" seed="2059245845" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.000516" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1018" name="ReInterruptDuringRecalibratingReturnsToInterrupted" fullname="Mallang.Gate0.Tests.EditMode.LifecycleTests.ReInterruptDuringRecalibratingReturnsToInterrupted" methodname="ReInterruptDuringRecalibratingReturnsToInterrupted" classname="Mallang.Gate0.Tests.EditMode.LifecycleTests" runstate="Runnable" seed="399787524" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.000184" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1017" name="RepeatedInterruptDoesNotDoubleCount" fullname="Mallang.Gate0.Tests.EditMode.LifecycleTests.RepeatedInterruptDoesNotDoubleCount" methodname="RepeatedInterruptDoesNotDoubleCount" classname="Mallang.Gate0.Tests.EditMode.LifecycleTests" runstate="Runnable" seed="2112078511" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.000255" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1020" name="UndefinedTransitionThrows" fullname="Mallang.Gate0.Tests.EditMode.LifecycleTests.UndefinedTransitionThrows" methodname="UndefinedTransitionThrows" classname="Mallang.Gate0.Tests.EditMode.LifecycleTests" runstate="Runnable" seed="1931727664" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.000427" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="TestFixture" id="1034" name="PhaseSessionTests" fullname="Mallang.Gate0.Tests.EditMode.PhaseSessionTests" classname="Mallang.Gate0.Tests.EditMode.PhaseSessionTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.004654" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1035" name="BeatsAndCompletionFollowThePhaseDuration" fullname="Mallang.Gate0.Tests.EditMode.PhaseSessionTests.BeatsAndCompletionFollowThePhaseDuration" methodname="BeatsAndCompletionFollowThePhaseDuration" classname="Mallang.Gate0.Tests.EditMode.PhaseSessionTests" runstate="Runnable" seed="919170573" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.001060" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1038" name="InvalidateStopsJudgingAndRecordsTheReason" fullname="Mallang.Gate0.Tests.EditMode.PhaseSessionTests.InvalidateStopsJudgingAndRecordsTheReason" methodname="InvalidateStopsJudgingAndRecordsTheReason" classname="Mallang.Gate0.Tests.EditMode.PhaseSessionTests" runstate="Runnable" seed="1346740589" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.000553" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1036" name="JudgeTapFeedsTheTally" fullname="Mallang.Gate0.Tests.EditMode.PhaseSessionTests.JudgeTapFeedsTheTally" methodname="JudgeTapFeedsTheTally" classname="Mallang.Gate0.Tests.EditMode.PhaseSessionTests" runstate="Runnable" seed="630380279" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.000230" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1037" name="RecordFrameFeedsFrameStats" fullname="Mallang.Gate0.Tests.EditMode.PhaseSessionTests.RecordFrameFeedsFrameStats" methodname="RecordFrameFeedsFrameStats" classname="Mallang.Gate0.Tests.EditMode.PhaseSessionTests" runstate="Runnable" seed="197948676" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.000370" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1039" name="SyntheticInputsAutoReplayAsElapsedTimeAdvances" fullname="Mallang.Gate0.Tests.EditMode.PhaseSessionTests.SyntheticInputsAutoReplayAsElapsedTimeAdvances" methodname="SyntheticInputsAutoReplayAsElapsedTimeAdvances" classname="Mallang.Gate0.Tests.EditMode.PhaseSessionTests" runstate="Runnable" seed="2049545015" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.000415" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1040" name="SyntheticInputsStopReplayingOnceInvalidated" fullname="Mallang.Gate0.Tests.EditMode.PhaseSessionTests.SyntheticInputsStopReplayingOnceInvalidated" methodname="SyntheticInputsStopReplayingOnceInvalidated" classname="Mallang.Gate0.Tests.EditMode.PhaseSessionTests" runstate="Runnable" seed="1482199346" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.000169" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="TestFixture" id="1025" name="RawMeasurementTraceTests" fullname="Mallang.Gate0.Tests.EditMode.RawMeasurementTraceTests" classname="Mallang.Gate0.Tests.EditMode.RawMeasurementTraceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.006228" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1026" name="CapturesRealObservationsNotJustASummaryCopy" fullname="Mallang.Gate0.Tests.EditMode.RawMeasurementTraceTests.CapturesRealObservationsNotJustASummaryCopy" methodname="CapturesRealObservationsNotJustASummaryCopy" classname="Mallang.Gate0.Tests.EditMode.RawMeasurementTraceTests" runstate="Runnable" seed="2020896044" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.005392" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="TestFixture" id="1041" name="RecordsTests" fullname="Mallang.Gate0.Tests.EditMode.RecordsTests" classname="Mallang.Gate0.Tests.EditMode.RecordsTests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:38Z" duration="0.034153" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1048" name="BuildManifestEligibilityRules" fullname="Mallang.Gate0.Tests.EditMode.RecordsTests.BuildManifestEligibilityRules" methodname="BuildManifestEligibilityRules" classname="Mallang.Gate0.Tests.EditMode.RecordsTests" runstate="Runnable" seed="1297828089" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.005647" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1047" name="MeasurementBatchMakesStorageFailureVisibleAndKeepsRawEvidenceInMemory" fullname="Mallang.Gate0.Tests.EditMode.RecordsTests.MeasurementBatchMakesStorageFailureVisibleAndKeepsRawEvidenceInMemory" methodname="MeasurementBatchMakesStorageFailureVisibleAndKeepsRawEvidenceInMemory" classname="Mallang.Gate0.Tests.EditMode.RecordsTests" runstate="Runnable" seed="1087998975" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.010299" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1043" name="MetricFieldsDefaultToZeroAndRoundTripThroughJson" fullname="Mallang.Gate0.Tests.EditMode.RecordsTests.MetricFieldsDefaultToZeroAndRoundTripThroughJson" methodname="MetricFieldsDefaultToZeroAndRoundTripThroughJson" classname="Mallang.Gate0.Tests.EditMode.RecordsTests" runstate="Runnable" seed="1830053901" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:37Z" duration="0.001354" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1042" name="RunRecordMissingFieldIsNotComparable" fullname="Mallang.Gate0.Tests.EditMode.RecordsTests.RunRecordMissingFieldIsNotComparable" methodname="RunRecordMissingFieldIsNotComparable" classname="Mallang.Gate0.Tests.EditMode.RecordsTests" runstate="Runnable" seed="1821344459" result="Passed" start-time="2026-11-07 11:36:37Z" end-time="2026-11-07 11:36:38Z" duration="0.003047" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1046" name="WriterDoesNotWriteIncompleteRecord" fullname="Mallang.Gate0.Tests.EditMode.RecordsTests.WriterDoesNotWriteIncompleteRecord" methodname="WriterDoesNotWriteIncompleteRecord" classname="Mallang.Gate0.Tests.EditMode.RecordsTests" runstate="Runnable" seed="915613617" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.001367" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1045" name="WriterRefusesToOverwriteExistingRecord" fullname="Mallang.Gate0.Tests.EditMode.RecordsTests.WriterRefusesToOverwriteExistingRecord" methodname="WriterRefusesToOverwriteExistingRecord" classname="Mallang.Gate0.Tests.EditMode.RecordsTests" runstate="Runnable" seed="1795468843" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.006322" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1044" name="WriterStampsChecksumAndValidatesBeforeWriting" fullname="Mallang.Gate0.Tests.EditMode.RecordsTests.WriterStampsChecksumAndValidatesBeforeWriting" methodname="WriterStampsChecksumAndValidatesBeforeWriting" classname="Mallang.Gate0.Tests.EditMode.RecordsTests" runstate="Runnable" seed="1353156546" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.003897" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="TestFixture" id="1049" name="TimingTests" fullname="Mallang.Gate0.Tests.EditMode.TimingTests" classname="Mallang.Gate0.Tests.EditMode.TimingTests" runstate="Runnable" testcasecount="16" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.007741" total="16" passed="16" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1054" name="CalibrationErrorAboveFiveMillisecondsIsRejected" fullname="Mallang.Gate0.Tests.EditMode.TimingTests.CalibrationErrorAboveFiveMillisecondsIsRejected" methodname="CalibrationErrorAboveFiveMillisecondsIsRejected" classname="Mallang.Gate0.Tests.EditMode.TimingTests" runstate="Runnable" seed="1709649389" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000225" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1050" name="CalibrationTakesMedianOffsetFromCleanSamples" fullname="Mallang.Gate0.Tests.EditMode.TimingTests.CalibrationTakesMedianOffsetFromCleanSamples" methodname="CalibrationTakesMedianOffsetFromCleanSamples" classname="Mallang.Gate0.Tests.EditMode.TimingTests" runstate="Runnable" seed="179637137" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000538" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1053" name="ClockJumpInvalidatesSegment" fullname="Mallang.Gate0.Tests.EditMode.TimingTests.ClockJumpInvalidatesSegment" methodname="ClockJumpInvalidatesSegment" classname="Mallang.Gate0.Tests.EditMode.TimingTests" runstate="Runnable" seed="2060721229" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000158" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1066" name="DuplicateSameHandInputIsRejected" fullname="Mallang.Gate0.Tests.EditMode.TimingTests.DuplicateSameHandInputIsRejected" methodname="DuplicateSameHandInputIsRejected" classname="Mallang.Gate0.Tests.EditMode.TimingTests" runstate="Runnable" seed="1744283385" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000208" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1065" name="FixedTimestampArrayProducesDeterministicBands" fullname="Mallang.Gate0.Tests.EditMode.TimingTests.FixedTimestampArrayProducesDeterministicBands" methodname="FixedTimestampArrayProducesDeterministicBands" classname="Mallang.Gate0.Tests.EditMode.TimingTests" runstate="Runnable" seed="1824465875" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000380" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-suite type="ParameterizedMethod" id="1064" name="JudgementBandsRespectExactBoundaries" fullname="Mallang.Gate0.Tests.EditMode.TimingTests.JudgementBandsRespectExactBoundaries" classname="Mallang.Gate0.Tests.EditMode.TimingTests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.002118" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="1057" name="JudgementBandsRespectExactBoundaries(-121000,Miss)" fullname="Mallang.Gate0.Tests.EditMode.TimingTests.JudgementBandsRespectExactBoundaries(-121000,Miss)" methodname="JudgementBandsRespectExactBoundaries" classname="Mallang.Gate0.Tests.EditMode.TimingTests" runstate="Runnable" seed="738339036" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000325" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1058" name="JudgementBandsRespectExactBoundaries(-120000,Good)" fullname="Mallang.Gate0.Tests.EditMode.TimingTests.JudgementBandsRespectExactBoundaries(-120000,Good)" methodname="JudgementBandsRespectExactBoundaries" classname="Mallang.Gate0.Tests.EditMode.TimingTests" runstate="Runnable" seed="43770629" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000096" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1059" name="JudgementBandsRespectExactBoundaries(-60000,Perfect)" fullname="Mallang.Gate0.Tests.EditMode.TimingTests.JudgementBandsRespectExactBoundaries(-60000,Perfect)" methodname="JudgementBandsRespectExactBoundaries" classname="Mallang.Gate0.Tests.EditMode.TimingTests" runstate="Runnable" seed="2128542443" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000093" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1060" name="JudgementBandsRespectExactBoundaries(0,Perfect)" fullname="Mallang.Gate0.Tests.EditMode.TimingTests.JudgementBandsRespectExactBoundaries(0,Perfect)" methodname="JudgementBandsRespectExactBoundaries" classname="Mallang.Gate0.Tests.EditMode.TimingTests" runstate="Runnable" seed="1083039363" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000091" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1061" name="JudgementBandsRespectExactBoundaries(60000,Perfect)" fullname="Mallang.Gate0.Tests.EditMode.TimingTests.JudgementBandsRespectExactBoundaries(60000,Perfect)" methodname="JudgementBandsRespectExactBoundaries" classname="Mallang.Gate0.Tests.EditMode.TimingTests" runstate="Runnable" seed="1512623753" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000094" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1062" name="JudgementBandsRespectExactBoundaries(120000,Good)" fullname="Mallang.Gate0.Tests.EditMode.TimingTests.JudgementBandsRespectExactBoundaries(120000,Good)" methodname="JudgementBandsRespectExactBoundaries" classname="Mallang.Gate0.Tests.EditMode.TimingTests" runstate="Runnable" seed="1998086402" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000090" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1063" name="JudgementBandsRespectExactBoundaries(121000,Miss)" fullname="Mallang.Gate0.Tests.EditMode.TimingTests.JudgementBandsRespectExactBoundaries(121000,Miss)" methodname="JudgementBandsRespectExactBoundaries" classname="Mallang.Gate0.Tests.EditMode.TimingTests" runstate="Runnable" seed="380451789" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000098" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                </test-suite>
+                <test-case id="1055" name="OnlyTheMostRecentSamplesAreEvaluated" fullname="Mallang.Gate0.Tests.EditMode.TimingTests.OnlyTheMostRecentSamplesAreEvaluated" methodname="OnlyTheMostRecentSamplesAreEvaluated" classname="Mallang.Gate0.Tests.EditMode.TimingTests" runstate="Runnable" seed="775172400" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000294" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1056" name="PerSampleQuantizationJitterDoesNotFailCalibrationButARealShiftDoes" fullname="Mallang.Gate0.Tests.EditMode.TimingTests.PerSampleQuantizationJitterDoesNotFailCalibrationButARealShiftDoes" methodname="PerSampleQuantizationJitterDoesNotFailCalibrationButARealShiftDoes" classname="Mallang.Gate0.Tests.EditMode.TimingTests" runstate="Runnable" seed="1978359144" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.001151" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1052" name="RewoundClockInvalidatesSegment" fullname="Mallang.Gate0.Tests.EditMode.TimingTests.RewoundClockInvalidatesSegment" methodname="RewoundClockInvalidatesSegment" classname="Mallang.Gate0.Tests.EditMode.TimingTests" runstate="Runnable" seed="396981213" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000154" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1051" name="TooFewSamplesIsInsufficientNotValid" fullname="Mallang.Gate0.Tests.EditMode.TimingTests.TooFewSamplesIsInsufficientNotValid" methodname="TooFewSamplesIsInsufficientNotValid" classname="Mallang.Gate0.Tests.EditMode.TimingTests" runstate="Runnable" seed="1135442056" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000137" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="TestFixture" id="1067" name="WorkloadTests" fullname="Mallang.Gate0.Tests.EditMode.WorkloadTests" classname="Mallang.Gate0.Tests.EditMode.WorkloadTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.007803" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1068" name="CrowdCountsFollowThreeByThreeMatrix" fullname="Mallang.Gate0.Tests.EditMode.WorkloadTests.CrowdCountsFollowThreeByThreeMatrix" methodname="CrowdCountsFollowThreeByThreeMatrix" classname="Mallang.Gate0.Tests.EditMode.WorkloadTests" runstate="Runnable" seed="872791060" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.001877" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1070" name="FrameStatsComputeExpectedMetrics" fullname="Mallang.Gate0.Tests.EditMode.WorkloadTests.FrameStatsComputeExpectedMetrics" methodname="FrameStatsComputeExpectedMetrics" classname="Mallang.Gate0.Tests.EditMode.WorkloadTests" runstate="Runnable" seed="1515740363" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.002166" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1071" name="FrameStatsIgnoreInvalidDeltasAndEmptyIsZero" fullname="Mallang.Gate0.Tests.EditMode.WorkloadTests.FrameStatsIgnoreInvalidDeltasAndEmptyIsZero" methodname="FrameStatsIgnoreInvalidDeltasAndEmptyIsZero" classname="Mallang.Gate0.Tests.EditMode.WorkloadTests" runstate="Runnable" seed="1781935673" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.001308" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1069" name="ScheduleIsDeterministicAndBoundedToPhase" fullname="Mallang.Gate0.Tests.EditMode.WorkloadTests.ScheduleIsDeterministicAndBoundedToPhase" methodname="ScheduleIsDeterministicAndBoundedToPhase" classname="Mallang.Gate0.Tests.EditMode.WorkloadTests" runstate="Runnable" seed="1329545838" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.001381" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+    <test-suite type="Assembly" id="1139" name="Mallang.RhythmCore.Tests.EditMode.dll" fullname="/Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Library/ScriptAssemblies/Mallang.RhythmCore.Tests.EditMode.dll" runstate="Runnable" testcasecount="55" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.043579" total="55" passed="55" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="68205" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1140" name="Mallang" fullname="Mallang" runstate="Runnable" testcasecount="55" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.043223" total="55" passed="55" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1141" name="RhythmCore" fullname="Mallang.RhythmCore" runstate="Runnable" testcasecount="55" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.042941" total="55" passed="55" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1142" name="Tests" fullname="Mallang.RhythmCore.Tests" runstate="Runnable" testcasecount="55" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.042701" total="55" passed="55" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="1143" name="EditMode" fullname="Mallang.RhythmCore.Tests.EditMode" runstate="Runnable" testcasecount="55" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.042407" total="55" passed="55" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestFixture" id="1077" name="RhythmCoreTests" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" testcasecount="55" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.041792" total="55" passed="55" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1106" name="AdvanceTimeClosesAnOverdueCueImmediatelyAndOnlyOnce" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.AdvanceTimeClosesAnOverdueCueImmediatelyAndOnlyOnce" methodname="AdvanceTimeClosesAnOverdueCueImmediatelyAndOnlyOnce" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="2081149741" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.004726" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1107" name="AdvanceTimeClosesAnOverdueHoldImmediately" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.AdvanceTimeClosesAnOverdueHoldImmediately" methodname="AdvanceTimeClosesAnOverdueHoldImmediately" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="285514514" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000863" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1133" name="AllListenAndRepeatPatternsCompileToValidCharts" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.AllListenAndRepeatPatternsCompileToValidCharts" methodname="AllListenAndRepeatPatternsCompileToValidCharts" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="2086315476" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.004465" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1116" name="CancelClosesHoldOnlyOnce" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.CancelClosesHoldOnlyOnce" methodname="CancelClosesHoldOnlyOnce" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="144039002" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000567" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-suite type="ParameterizedMethod" id="1125" name="ComboMultiplierChangesAtEverySpecifiedBoundary" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.ComboMultiplierChangesAtEverySpecifiedBoundary" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.002265" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="1119" name="ComboMultiplierChangesAtEverySpecifiedBoundary(9,900)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.ComboMultiplierChangesAtEverySpecifiedBoundary(9,900)" methodname="ComboMultiplierChangesAtEverySpecifiedBoundary" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="472798459" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000682" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1120" name="ComboMultiplierChangesAtEverySpecifiedBoundary(10,1010)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.ComboMultiplierChangesAtEverySpecifiedBoundary(10,1010)" methodname="ComboMultiplierChangesAtEverySpecifiedBoundary" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1449174849" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000084" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1121" name="ComboMultiplierChangesAtEverySpecifiedBoundary(19,2000)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.ComboMultiplierChangesAtEverySpecifiedBoundary(19,2000)" methodname="ComboMultiplierChangesAtEverySpecifiedBoundary" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1519262617" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000076" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1122" name="ComboMultiplierChangesAtEverySpecifiedBoundary(20,2125)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.ComboMultiplierChangesAtEverySpecifiedBoundary(20,2125)" methodname="ComboMultiplierChangesAtEverySpecifiedBoundary" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1314751704" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000072" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1123" name="ComboMultiplierChangesAtEverySpecifiedBoundary(39,4500)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.ComboMultiplierChangesAtEverySpecifiedBoundary(39,4500)" methodname="ComboMultiplierChangesAtEverySpecifiedBoundary" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1442835999" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000099" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1124" name="ComboMultiplierChangesAtEverySpecifiedBoundary(40,4650)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.ComboMultiplierChangesAtEverySpecifiedBoundary(40,4650)" methodname="ComboMultiplierChangesAtEverySpecifiedBoundary" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="863876649" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000086" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                </test-suite>
+                <test-case id="1118" name="ComboThresholdsAffectRankScoreButNotAccuracy" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.ComboThresholdsAffectRankScoreButNotAccuracy" methodname="ComboThresholdsAffectRankScoreButNotAccuracy" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1184301044" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000733" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1103" name="EqualDistanceChoosesTheEarlierCueBeforeNoteId" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.EqualDistanceChoosesTheEarlierCueBeforeNoteId" methodname="EqualDistanceChoosesTheEarlierCueBeforeNoteId" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="134130694" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000345" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1127" name="ExactPassThresholdPassesAndOneBasisPointBelowFails" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.ExactPassThresholdPassesAndOneBasisPointBelowFails" methodname="ExactPassThresholdPassesAndOneBasisPointBelowFails" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1912523120" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000616" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1078" name="Gate1FactoryCreatesAValidTwentyStageChart" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.Gate1FactoryCreatesAValidTwentyStageChart" methodname="Gate1FactoryCreatesAValidTwentyStageChart" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1159197059" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.003873" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1126" name="GhostMissPenaltyCannotMakeAccuracyNegative" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.GhostMissPenaltyCannotMakeAccuracyNegative" methodname="GhostMissPenaltyCannotMakeAccuracyNegative" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="39077223" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000326" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-suite type="ParameterizedMethod" id="1114" name="HoldReleaseUsesTheSpecifiedAsymmetricWindow" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.HoldReleaseUsesTheSpecifiedAsymmetricWindow" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.002740" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="1108" name="HoldReleaseUsesTheSpecifiedAsymmetricWindow(-120000,Miss,50)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.HoldReleaseUsesTheSpecifiedAsymmetricWindow(-120000,Miss,50)" methodname="HoldReleaseUsesTheSpecifiedAsymmetricWindow" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="2089756253" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000798" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1109" name="HoldReleaseUsesTheSpecifiedAsymmetricWindow(-60000,Perfect,100)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.HoldReleaseUsesTheSpecifiedAsymmetricWindow(-60000,Perfect,100)" methodname="HoldReleaseUsesTheSpecifiedAsymmetricWindow" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="637530044" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000111" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1110" name="HoldReleaseUsesTheSpecifiedAsymmetricWindow(0,Perfect,100)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.HoldReleaseUsesTheSpecifiedAsymmetricWindow(0,Perfect,100)" methodname="HoldReleaseUsesTheSpecifiedAsymmetricWindow" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1868071453" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000103" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1111" name="HoldReleaseUsesTheSpecifiedAsymmetricWindow(60000,Perfect,100)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.HoldReleaseUsesTheSpecifiedAsymmetricWindow(60000,Perfect,100)" methodname="HoldReleaseUsesTheSpecifiedAsymmetricWindow" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1975894779" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000096" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1112" name="HoldReleaseUsesTheSpecifiedAsymmetricWindow(180000,Good,85)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.HoldReleaseUsesTheSpecifiedAsymmetricWindow(180000,Good,85)" methodname="HoldReleaseUsesTheSpecifiedAsymmetricWindow" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1840333134" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000096" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1113" name="HoldReleaseUsesTheSpecifiedAsymmetricWindow(181000,Miss,50)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.HoldReleaseUsesTheSpecifiedAsymmetricWindow(181000,Miss,50)" methodname="HoldReleaseUsesTheSpecifiedAsymmetricWindow" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="469299056" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000101" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                </test-suite>
+                <test-case id="1117" name="MissedHoldStartCannotEarnAReleaseScore" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.MissedHoldStartCannotEarnAReleaseScore" methodname="MissedHoldStartCannotEarnAReleaseScore" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="846879963" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000304" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1129" name="NextStageDoesNotReduceAccuracyBeforeItHasStarted" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.NextStageDoesNotReduceAccuracyBeforeItHasStarted" methodname="NextStageDoesNotReduceAccuracyBeforeItHasStarted" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1367569498" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000259" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1128" name="PassingStageAdvancesToTheNextStage" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.PassingStageAdvancesToTheNextStage" methodname="PassingStageAdvancesToTheNextStage" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1076346532" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000326" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-suite type="ParameterizedMethod" id="1137" name="PatternCompilerUsesTheSameRoundingRuleAsGate1Factory" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.PatternCompilerUsesTheSameRoundingRuleAsGate1Factory" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.001231" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="1134" name="PatternCompilerUsesTheSameRoundingRuleAsGate1Factory(0,90,0)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.PatternCompilerUsesTheSameRoundingRuleAsGate1Factory(0,90,0)" methodname="PatternCompilerUsesTheSameRoundingRuleAsGate1Factory" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="419920590" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000419" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1135" name="PatternCompilerUsesTheSameRoundingRuleAsGate1Factory(480,90,666667)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.PatternCompilerUsesTheSameRoundingRuleAsGate1Factory(480,90,666667)" methodname="PatternCompilerUsesTheSameRoundingRuleAsGate1Factory" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1758632192" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000064" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1136" name="PatternCompilerUsesTheSameRoundingRuleAsGate1Factory(1920,90,2666667)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.PatternCompilerUsesTheSameRoundingRuleAsGate1Factory(1920,90,2666667)" methodname="PatternCompilerUsesTheSameRoundingRuleAsGate1Factory" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="2036109773" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000056" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                </test-suite>
+                <test-case id="1132" name="PerfectReplayCompletesAllTwentyStagesAndEmitsTheStageTwentySentinel" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.PerfectReplayCompletesAllTwentyStagesAndEmitsTheStageTwentySentinel" methodname="PerfectReplayCompletesAllTwentyStagesAndEmitsTheStageTwentySentinel" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1397130045" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.003042" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1138" name="PerfectReplayOfEachListenAndRepeatPatternCompletesTheBar" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.PerfectReplayOfEachListenAndRepeatPatternCompletesTheBar" methodname="PerfectReplayOfEachListenAndRepeatPatternCompletesTheBar" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1880939839" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000576" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1102" name="PressChoosesTheNearestMatchingCue" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.PressChoosesTheNearestMatchingCue" methodname="PressChoosesTheNearestMatchingCue" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1604812756" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000261" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1130" name="RewoundTimestampInvalidatesTheRun" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.RewoundTimestampInvalidatesTheRun" methodname="RewoundTimestampInvalidatesTheRun" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="391149907" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000195" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-suite type="ParameterizedMethod" id="1088" name="RoundingMovesHalfValuesAwayFromZero" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.RoundingMovesHalfValuesAwayFromZero" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.001237" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="1084" name="RoundingMovesHalfValuesAwayFromZero(-5,-1)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.RoundingMovesHalfValuesAwayFromZero(-5,-1)" methodname="RoundingMovesHalfValuesAwayFromZero" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="164352867" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000243" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1085" name="RoundingMovesHalfValuesAwayFromZero(5,1)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.RoundingMovesHalfValuesAwayFromZero(5,1)" methodname="RoundingMovesHalfValuesAwayFromZero" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1617914069" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000066" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1086" name="RoundingMovesHalfValuesAwayFromZero(-15,-2)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.RoundingMovesHalfValuesAwayFromZero(-15,-2)" methodname="RoundingMovesHalfValuesAwayFromZero" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1476509606" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000058" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1087" name="RoundingMovesHalfValuesAwayFromZero(15,2)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.RoundingMovesHalfValuesAwayFromZero(15,2)" methodname="RoundingMovesHalfValuesAwayFromZero" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="307162563" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000060" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                </test-suite>
+                <test-case id="1131" name="SameInputSequenceProducesTheSameSnapshotAndEvents" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.SameInputSequenceProducesTheSameSnapshotAndEvents" methodname="SameInputSequenceProducesTheSameSnapshotAndEvents" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="444998616" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000998" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1104" name="StageOneWrongHandShowsGuidanceWithoutConsumingTheCue" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.StageOneWrongHandShowsGuidanceWithoutConsumingTheCue" methodname="StageOneWrongHandShowsGuidanceWithoutConsumingTheCue" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1176888474" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000307" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1105" name="StageTwoWrongHandClosesTheCueAsMiss" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.StageTwoWrongHandClosesTheCueAsMiss" methodname="StageTwoWrongHandClosesTheCueAsMiss" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="807195251" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000368" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-suite type="ParameterizedMethod" id="1101" name="TapWindowsConsumeOnlyInputsInsideTheGoodWindow" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.TapWindowsConsumeOnlyInputsInsideTheGoodWindow" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.002692" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="1094" name="TapWindowsConsumeOnlyInputsInsideTheGoodWindow(-121000,GhostMiss,Miss)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.TapWindowsConsumeOnlyInputsInsideTheGoodWindow(-121000,GhostMiss,Miss)" methodname="TapWindowsConsumeOnlyInputsInsideTheGoodWindow" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="927249873" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000375" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1095" name="TapWindowsConsumeOnlyInputsInsideTheGoodWindow(-120000,Note,Good)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.TapWindowsConsumeOnlyInputsInsideTheGoodWindow(-120000,Note,Good)" methodname="TapWindowsConsumeOnlyInputsInsideTheGoodWindow" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="648169080" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000135" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1096" name="TapWindowsConsumeOnlyInputsInsideTheGoodWindow(-60000,Note,Perfect)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.TapWindowsConsumeOnlyInputsInsideTheGoodWindow(-60000,Note,Perfect)" methodname="TapWindowsConsumeOnlyInputsInsideTheGoodWindow" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="583144381" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000131" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1097" name="TapWindowsConsumeOnlyInputsInsideTheGoodWindow(0,Note,Perfect)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.TapWindowsConsumeOnlyInputsInsideTheGoodWindow(0,Note,Perfect)" methodname="TapWindowsConsumeOnlyInputsInsideTheGoodWindow" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1836305899" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000141" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1098" name="TapWindowsConsumeOnlyInputsInsideTheGoodWindow(60000,Note,Perfect)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.TapWindowsConsumeOnlyInputsInsideTheGoodWindow(60000,Note,Perfect)" methodname="TapWindowsConsumeOnlyInputsInsideTheGoodWindow" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1776194614" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000125" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1099" name="TapWindowsConsumeOnlyInputsInsideTheGoodWindow(120000,Note,Good)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.TapWindowsConsumeOnlyInputsInsideTheGoodWindow(120000,Note,Good)" methodname="TapWindowsConsumeOnlyInputsInsideTheGoodWindow" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="10942531" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000127" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1100" name="TapWindowsConsumeOnlyInputsInsideTheGoodWindow(121000,Note,Miss)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.TapWindowsConsumeOnlyInputsInsideTheGoodWindow(121000,Note,Miss)" methodname="TapWindowsConsumeOnlyInputsInsideTheGoodWindow" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="450352661" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000129" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                </test-suite>
+                <test-suite type="ParameterizedMethod" id="1083" name="TickCompilerUsesDeterministicHalfAwayRounding" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.TickCompilerUsesDeterministicHalfAwayRounding" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.001035" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="1079" name="TickCompilerUsesDeterministicHalfAwayRounding(0,80,0)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.TickCompilerUsesDeterministicHalfAwayRounding(0,80,0)" methodname="TickCompilerUsesDeterministicHalfAwayRounding" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="844831599" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000143" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1080" name="TickCompilerUsesDeterministicHalfAwayRounding(480,80,750000)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.TickCompilerUsesDeterministicHalfAwayRounding(480,80,750000)" methodname="TickCompilerUsesDeterministicHalfAwayRounding" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="273960428" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000062" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1081" name="TickCompilerUsesDeterministicHalfAwayRounding(480,90,666667)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.TickCompilerUsesDeterministicHalfAwayRounding(480,90,666667)" methodname="TickCompilerUsesDeterministicHalfAwayRounding" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="2049275409" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000055" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1082" name="TickCompilerUsesDeterministicHalfAwayRounding(240,120,250000)" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.TickCompilerUsesDeterministicHalfAwayRounding(240,120,250000)" methodname="TickCompilerUsesDeterministicHalfAwayRounding" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1622230373" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000056" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                </test-suite>
+                <test-case id="1115" name="UnmatchedReleaseDoesNotChangeScoreOrCombo" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.UnmatchedReleaseDoesNotChangeScoreOrCombo" methodname="UnmatchedReleaseDoesNotChangeScoreOrCombo" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1871685340" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000309" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1089" name="ValidatorRejectsDuplicateIdsAndUnsortedNotes" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.ValidatorRejectsDuplicateIdsAndUnsortedNotes" methodname="ValidatorRejectsDuplicateIdsAndUnsortedNotes" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1064468313" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000517" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1092" name="ValidatorRejectsEmptyChartAndNegativeTime" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.ValidatorRejectsEmptyChartAndNegativeTime" methodname="ValidatorRejectsEmptyChartAndNegativeTime" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1126894546" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000279" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1091" name="ValidatorRejectsInvalidHandKindAndStageNumber" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.ValidatorRejectsInvalidHandKindAndStageNumber" methodname="ValidatorRejectsInvalidHandKindAndStageNumber" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1309231973" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000291" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1090" name="ValidatorRejectsInvalidHoldAndStageBoundary" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.ValidatorRejectsInvalidHoldAndStageBoundary" methodname="ValidatorRejectsInvalidHoldAndStageBoundary" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="323032325" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000211" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1093" name="ValidatorRejectsOverlappingSameHandHolds" fullname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests.ValidatorRejectsOverlappingSameHandHolds" methodname="ValidatorRejectsOverlappingSameHandHolds" classname="Mallang.RhythmCore.Tests.EditMode.RhythmCoreTests" runstate="Runnable" seed="1557226353" result="Passed" start-time="2026-11-07 11:36:38Z" end-time="2026-11-07 11:36:38Z" duration="0.000170" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[Saving results to: /Users/easyoon/Library/Application Support/is404notfound/Mallang Brain · Gate 1/TestResults.xml
+]]></output>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

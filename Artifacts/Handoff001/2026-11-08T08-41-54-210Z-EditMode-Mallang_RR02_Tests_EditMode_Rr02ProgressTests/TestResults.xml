@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="11" result="Failed(Child)" total="11" passed="0" failed="11" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-08 08:42:12Z" end-time="2026-11-08 08:42:12Z" duration="0.0461284">
+  <test-suite type="TestSuite" id="1000" name="Mallang Brain · Gate 1" fullname="Mallang Brain · Gate 1" runstate="Runnable" testcasecount="228" result="Failed" site="Child" start-time="2026-11-08 08:42:12Z" end-time="2026-11-08 08:42:12Z" duration="0.046128" total="11" passed="0" failed="11" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1275" name="Mallang.RR02.Tests.EditMode.dll" fullname="/Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Library/ScriptAssemblies/Mallang.RR02.Tests.EditMode.dll" runstate="Runnable" testcasecount="115" result="Failed" site="Child" start-time="2026-11-08 08:42:12Z" end-time="2026-11-08 08:42:12Z" duration="0.035017" total="11" passed="0" failed="11" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="77003" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1276" name="Mallang" fullname="Mallang" runstate="Runnable" testcasecount="115" result="Failed" site="Child" start-time="2026-11-08 08:42:12Z" end-time="2026-11-08 08:42:12Z" duration="0.032931" total="11" passed="0" failed="11" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1277" name="RR02" fullname="Mallang.RR02" runstate="Runnable" testcasecount="115" result="Failed" site="Child" start-time="2026-11-08 08:42:12Z" end-time="2026-11-08 08:42:12Z" duration="0.031250" total="11" passed="0" failed="11" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestSuite" id="1278" name="Tests" fullname="Mallang.RR02.Tests" runstate="Runnable" testcasecount="115" result="Failed" site="Child" start-time="2026-11-08 08:42:12Z" end-time="2026-11-08 08:42:12Z" duration="0.029596" total="11" passed="0" failed="11" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="TestSuite" id="1279" name="EditMode" fullname="Mallang.RR02.Tests.EditMode" runstate="Runnable" testcasecount="115" result="Failed" site="Child" start-time="2026-11-08 08:42:12Z" end-time="2026-11-08 08:42:12Z" duration="0.027787" total="11" passed="0" failed="11" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-suite type="TestFixture" id="1238" name="Rr02ProgressTests" fullname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests" classname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests" runstate="Runnable" testcasecount="11" result="Failed" site="Child" start-time="2026-11-08 08:42:12Z" end-time="2026-11-08 08:42:12Z" duration="0.024141" total="11" passed="0" failed="11" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[One or more child tests had errors]]></message>
+                </failure>
+                <test-case id="1241" name="Compute_full_all_on" fullname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests.Compute_full_all_on" methodname="Compute_full_all_on" classname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests" runstate="Runnable" seed="1053716118" result="Failed" label="Error" start-time="2026-11-08 08:42:12Z" end-time="2026-11-08 08:42:12Z" duration="0.008289" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02ProgressTests.Compute_full_all_on () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ProgressTests.cs:30 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1243" name="Compute_negative_clamps_to_zero" fullname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests.Compute_negative_clamps_to_zero" methodname="Compute_negative_clamps_to_zero" classname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests" runstate="Runnable" seed="691369407" result="Failed" label="Error" start-time="2026-11-08 08:42:12Z" end-time="2026-11-08 08:42:12Z" duration="0.000272" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02ProgressTests.Compute_negative_clamps_to_zero () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ProgressTests.cs:46 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1239" name="Compute_none_all_off" fullname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests.Compute_none_all_off" methodname="Compute_none_all_off" classname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests" runstate="Runnable" seed="1736590863" result="Failed" label="Error" start-time="2026-11-08 08:42:12Z" end-time="2026-11-08 08:42:12Z" duration="0.000190" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02ProgressTests.Compute_none_all_off () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ProgressTests.cs:13 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1242" name="Compute_overflow_clamps_to_total" fullname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests.Compute_overflow_clamps_to_total" methodname="Compute_overflow_clamps_to_total" classname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests" runstate="Runnable" seed="1964740396" result="Failed" label="Error" start-time="2026-11-08 08:42:12Z" end-time="2026-11-08 08:42:12Z" duration="0.000177" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02ProgressTests.Compute_overflow_clamps_to_total () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ProgressTests.cs:38 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1240" name="Compute_partial_lights_left_to_right" fullname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests.Compute_partial_lights_left_to_right" methodname="Compute_partial_lights_left_to_right" classname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests" runstate="Runnable" seed="1766680028" result="Failed" label="Error" start-time="2026-11-08 08:42:12Z" end-time="2026-11-08 08:42:12Z" duration="0.000160" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02ProgressTests.Compute_partial_lights_left_to_right () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ProgressTests.cs:21 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1244" name="Compute_zero_total_is_empty" fullname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests.Compute_zero_total_is_empty" methodname="Compute_zero_total_is_empty" classname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests" runstate="Runnable" seed="1680358476" result="Failed" label="Error" start-time="2026-11-08 08:42:12Z" end-time="2026-11-08 08:42:12Z" duration="0.000155" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02ProgressTests.Compute_zero_total_is_empty () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ProgressTests.cs:54 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1248" name="JustLit_clamps_to_total" fullname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests.JustLit_clamps_to_total" methodname="JustLit_clamps_to_total" classname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests" runstate="Runnable" seed="856078246" result="Failed" label="Error" start-time="2026-11-08 08:42:12Z" end-time="2026-11-08 08:42:12Z" duration="0.000149" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02ProgressTests.JustLit_clamps_to_total () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ProgressTests.cs:78 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1247" name="JustLit_jump_returns_latest_index" fullname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests.JustLit_jump_returns_latest_index" methodname="JustLit_jump_returns_latest_index" classname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests" runstate="Runnable" seed="266227078" result="Failed" label="Error" start-time="2026-11-08 08:42:12Z" end-time="2026-11-08 08:42:12Z" duration="0.000144" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02ProgressTests.JustLit_jump_returns_latest_index () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ProgressTests.cs:72 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1249" name="JustLit_none_when_already_full" fullname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests.JustLit_none_when_already_full" methodname="JustLit_none_when_already_full" classname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests" runstate="Runnable" seed="7963929" result="Failed" label="Error" start-time="2026-11-08 08:42:12Z" end-time="2026-11-08 08:42:12Z" duration="0.000141" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02ProgressTests.JustLit_none_when_already_full () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ProgressTests.cs:84 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1246" name="JustLit_none_when_no_progress" fullname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests.JustLit_none_when_no_progress" methodname="JustLit_none_when_no_progress" classname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests" runstate="Runnable" seed="434711311" result="Failed" label="Error" start-time="2026-11-08 08:42:12Z" end-time="2026-11-08 08:42:12Z" duration="0.000145" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02ProgressTests.JustLit_none_when_no_progress () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ProgressTests.cs:66 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1245" name="JustLit_returns_newly_lit_index" fullname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests.JustLit_returns_newly_lit_index" methodname="JustLit_returns_newly_lit_index" classname="Mallang.RR02.Tests.EditMode.Rr02ProgressTests" runstate="Runnable" seed="1673579914" result="Failed" label="Error" start-time="2026-11-08 08:42:12Z" end-time="2026-11-08 08:42:12Z" duration="0.000140" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02ProgressTests.JustLit_returns_newly_lit_index () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ProgressTests.cs:60 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                  <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: /Users/easyoon/Library/Application Support/is404notfound/Mallang Brain · Gate 1/TestResults.xml
+]]></output>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

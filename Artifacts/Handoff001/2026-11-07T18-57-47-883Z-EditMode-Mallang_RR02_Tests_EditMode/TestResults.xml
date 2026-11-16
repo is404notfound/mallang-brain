@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="104" result="Passed" total="104" passed="104" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.1182201">
+  <test-suite type="TestSuite" id="1000" name="Mallang Brain · Gate 1" fullname="Mallang Brain · Gate 1" runstate="Runnable" testcasecount="217" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.118220" total="104" passed="104" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1263" name="Mallang.RR02.Tests.EditMode.dll" fullname="/Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Library/ScriptAssemblies/Mallang.RR02.Tests.EditMode.dll" runstate="Runnable" testcasecount="104" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.108792" total="104" passed="104" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="36773" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1264" name="Mallang" fullname="Mallang" runstate="Runnable" testcasecount="104" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.108196" total="104" passed="104" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1265" name="RR02" fullname="Mallang.RR02" runstate="Runnable" testcasecount="104" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.107890" total="104" passed="104" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1266" name="Tests" fullname="Mallang.RR02.Tests" runstate="Runnable" testcasecount="104" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.107574" total="104" passed="104" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="1267" name="EditMode" fullname="Mallang.RR02.Tests.EditMode" runstate="Runnable" testcasecount="104" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.107270" total="104" passed="104" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestFixture" id="1144" name="BrainScoreTests" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" testcasecount="15" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.035524" total="15" passed="15" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1157" name="AllClearBadgeRequiresNineNormalRounds" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.AllClearBadgeRequiresNineNormalRounds" methodname="AllClearBadgeRequiresNineNormalRounds" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="872444878" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.014837" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1158" name="AllPerfectBadgeRequiresAllPerfectRun" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.AllPerfectBadgeRequiresAllPerfectRun" methodname="AllPerfectBadgeRequiresAllPerfectRun" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="147507966" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000442" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1156" name="IneligibleRunDoesNotChangeBests" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.IneligibleRunDoesNotChangeBests" methodname="IneligibleRunDoesNotChangeBests" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="832472212" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.003372" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1160" name="IneligibleRunEarnsNoBadges" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.IneligibleRunEarnsNoBadges" methodname="IneligibleRunEarnsNoBadges" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="674802765" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000175" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1159" name="LoopBestBadgeRequiresStrictlyHigherLoops" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.LoopBestBadgeRequiresStrictlyHigherLoops" methodname="LoopBestBadgeRequiresStrictlyHigherLoops" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="625440247" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000141" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1154" name="MergeBestTakesPerAnimalMaxWhenEligible" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.MergeBestTakesPerAnimalMaxWhenEligible" methodname="MergeBestTakesPerAnimalMaxWhenEligible" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="181067148" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000149" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1155" name="MyBrainTotalSumsFourBestsDistinctFromRunTotal" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.MyBrainTotalSumsFourBestsDistinctFromRunTotal" methodname="MyBrainTotalSumsFourBestsDistinctFromRunTotal" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="2102940166" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000764" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-suite type="ParameterizedMethod" id="1153" name="StageBoundariesFollowFirstBaseline" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.002999" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="1145" name="StageBoundariesFollowFirstBaseline(0,0)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(0,0)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="1677539232" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000207" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1146" name="StageBoundariesFollowFirstBaseline(199,0)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(199,0)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="1413169406" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000050" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1147" name="StageBoundariesFollowFirstBaseline(200,1)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(200,1)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="614263228" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000045" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1148" name="StageBoundariesFollowFirstBaseline(399,1)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(399,1)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="2080100456" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000045" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1149" name="StageBoundariesFollowFirstBaseline(400,2)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(400,2)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="1343799729" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000048" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1150" name="StageBoundariesFollowFirstBaseline(699,2)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(699,2)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="534004661" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000043" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1151" name="StageBoundariesFollowFirstBaseline(700,3)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(700,3)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="1893864494" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000046" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1152" name="StageBoundariesFollowFirstBaseline(7200,3)" fullname="Mallang.RR02.Tests.EditMode.BrainScoreTests.StageBoundariesFollowFirstBaseline(7200,3)" methodname="StageBoundariesFollowFirstBaseline" classname="Mallang.RR02.Tests.EditMode.BrainScoreTests" runstate="Runnable" seed="541223851" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000044" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+              <test-suite type="TestFixture" id="1161" name="RankingRulesTests" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" testcasecount="21" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.018935" total="21" passed="21" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-suite type="ParameterizedMethod" id="1184" name="BenchmarkGradeMapsCompletedRoundsToRubricLabel" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.005225" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="1176" name="BenchmarkGradeMapsCompletedRoundsToRubricLabel(0,&quot;첫 합주 도전&quot;)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel(0,&quot;첫 합주 도전&quot;)" methodname="BenchmarkGradeMapsCompletedRoundsToRubricLabel" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="51897330" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.002309" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1177" name="BenchmarkGradeMapsCompletedRoundsToRubricLabel(1,&quot;악보 합주&quot;)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel(1,&quot;악보 합주&quot;)" methodname="BenchmarkGradeMapsCompletedRoundsToRubricLabel" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="253546714" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000401" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1178" name="BenchmarkGradeMapsCompletedRoundsToRubricLabel(2,&quot;악보 합주&quot;)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel(2,&quot;악보 합주&quot;)" methodname="BenchmarkGradeMapsCompletedRoundsToRubricLabel" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="382811224" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000252" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1179" name="BenchmarkGradeMapsCompletedRoundsToRubricLabel(3,&quot;기억 합주&quot;)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel(3,&quot;기억 합주&quot;)" methodname="BenchmarkGradeMapsCompletedRoundsToRubricLabel" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="1534596002" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000240" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1180" name="BenchmarkGradeMapsCompletedRoundsToRubricLabel(5,&quot;기억 합주&quot;)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel(5,&quot;기억 합주&quot;)" methodname="BenchmarkGradeMapsCompletedRoundsToRubricLabel" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="371670782" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000208" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1181" name="BenchmarkGradeMapsCompletedRoundsToRubricLabel(6,&quot;암보 합주&quot;)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel(6,&quot;암보 합주&quot;)" methodname="BenchmarkGradeMapsCompletedRoundsToRubricLabel" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="1866926795" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000209" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1182" name="BenchmarkGradeMapsCompletedRoundsToRubricLabel(8,&quot;암보 합주&quot;)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel(8,&quot;암보 합주&quot;)" methodname="BenchmarkGradeMapsCompletedRoundsToRubricLabel" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="1431722870" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000203" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1183" name="BenchmarkGradeMapsCompletedRoundsToRubricLabel(9,&quot;All 마스터&quot;)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeMapsCompletedRoundsToRubricLabel(9,&quot;All 마스터&quot;)" methodname="BenchmarkGradeMapsCompletedRoundsToRubricLabel" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="958901289" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000200" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                </test-suite>
+                <test-case id="1185" name="BenchmarkGradeShowsAllPlusCompletedLoops" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.BenchmarkGradeShowsAllPlusCompletedLoops" methodname="BenchmarkGradeShowsAllPlusCompletedLoops" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="16159270" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000299" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1162" name="CompareOrdersByClearedThenLoopsThenRunScoreDescending" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.CompareOrdersByClearedThenLoopsThenRunScoreDescending" methodname="CompareOrdersByClearedThenLoopsThenRunScoreDescending" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="1747815410" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.002552" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1163" name="ExactTieSharesRankAndNextRankSkips" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.ExactTieSharesRankAndNextRankSkips" methodname="ExactTieSharesRankAndNextRankSkips" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="671861693" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.002792" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-suite type="ParameterizedMethod" id="1174" name="ModeSwitchesAtPopulationBoundaries" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.ModeSwitchesAtPopulationBoundaries" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.002198" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="1169" name="ModeSwitchesAtPopulationBoundaries(0,BenchmarkOnly)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.ModeSwitchesAtPopulationBoundaries(0,BenchmarkOnly)" methodname="ModeSwitchesAtPopulationBoundaries" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="1246506208" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000907" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1170" name="ModeSwitchesAtPopulationBoundaries(1,RankWithBenchmark)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.ModeSwitchesAtPopulationBoundaries(1,RankWithBenchmark)" methodname="ModeSwitchesAtPopulationBoundaries" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="217206253" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000071" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1171" name="ModeSwitchesAtPopulationBoundaries(19,RankWithBenchmark)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.ModeSwitchesAtPopulationBoundaries(19,RankWithBenchmark)" methodname="ModeSwitchesAtPopulationBoundaries" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="1550718707" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000064" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1172" name="ModeSwitchesAtPopulationBoundaries(20,Official)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.ModeSwitchesAtPopulationBoundaries(20,Official)" methodname="ModeSwitchesAtPopulationBoundaries" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="2071865187" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000064" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1173" name="ModeSwitchesAtPopulationBoundaries(21,Official)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.ModeSwitchesAtPopulationBoundaries(21,Official)" methodname="ModeSwitchesAtPopulationBoundaries" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="1799201962" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000059" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                </test-suite>
+                <test-case id="1175" name="ParseBenchmarkReadsRubricMetadata" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.ParseBenchmarkReadsRubricMetadata" methodname="ParseBenchmarkReadsRubricMetadata" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="323737281" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000642" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-suite type="ParameterizedMethod" id="1168" name="PercentileUsesCeilToOneDecimal" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.PercentileUsesCeilToOneDecimal" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.001706" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="1165" name="PercentileUsesCeilToOneDecimal(1,20,5.0d)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.PercentileUsesCeilToOneDecimal(1,20,5.0d)" methodname="PercentileUsesCeilToOneDecimal" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="157743114" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000862" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1166" name="PercentileUsesCeilToOneDecimal(20,20,100.0d)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.PercentileUsesCeilToOneDecimal(20,20,100.0d)" methodname="PercentileUsesCeilToOneDecimal" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="502043734" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000046" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1167" name="PercentileUsesCeilToOneDecimal(7,23,30.5d)" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.PercentileUsesCeilToOneDecimal(7,23,30.5d)" methodname="PercentileUsesCeilToOneDecimal" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="641657240" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000046" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                </test-suite>
+                <test-case id="1164" name="RankAggregatesOnlyProvidedRealEntries" fullname="Mallang.RR02.Tests.EditMode.RankingRulesTests.RankAggregatesOnlyProvidedRealEntries" methodname="RankAggregatesOnlyProvidedRealEntries" classname="Mallang.RR02.Tests.EditMode.RankingRulesTests" runstate="Runnable" seed="293054440" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.001900" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="TestFixture" id="1186" name="RankingSubmissionTests" fullname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests" classname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.004552" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1187" name="DuplicateRunIdGetsSameResponseAndSingleAggregation" fullname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests.DuplicateRunIdGetsSameResponseAndSingleAggregation" methodname="DuplicateRunIdGetsSameResponseAndSingleAggregation" classname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests" runstate="Runnable" seed="244313359" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.001857" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1193" name="FakeServerIsIdempotentForSameRunId" fullname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests.FakeServerIsIdempotentForSameRunId" methodname="FakeServerIsIdempotentForSameRunId" classname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests" runstate="Runnable" seed="126631971" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000345" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1191" name="FakeServerRejectsIneligibleRun" fullname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests.FakeServerRejectsIneligibleRun" methodname="FakeServerRejectsIneligibleRun" classname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests" runstate="Runnable" seed="261497888" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000117" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1192" name="FakeServerRejectsMismatchedRulesVersion" fullname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests.FakeServerRejectsMismatchedRulesVersion" methodname="FakeServerRejectsMismatchedRulesVersion" classname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests" runstate="Runnable" seed="1825640581" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000143" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1188" name="IneligibleRunIsRejectedAndNotAggregated" fullname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests.IneligibleRunIsRejectedAndNotAggregated" methodname="IneligibleRunIsRejectedAndNotAggregated" classname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests" runstate="Runnable" seed="1540535714" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000153" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1190" name="TimeoutMovesToHeldAndKeepsPriorConfirmedRecord" fullname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests.TimeoutMovesToHeldAndKeepsPriorConfirmedRecord" methodname="TimeoutMovesToHeldAndKeepsPriorConfirmedRecord" classname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests" runstate="Runnable" seed="1996321831" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000192" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1189" name="VerifyingStateIsNotTreatedAsConfirmed" fullname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests.VerifyingStateIsNotTreatedAsConfirmed" methodname="VerifyingStateIsNotTreatedAsConfirmed" classname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests" runstate="Runnable" seed="1178034443" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000132" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="TestFixture" id="1194" name="Rr02ChartTests" fullname="Mallang.RR02.Tests.EditMode.Rr02ChartTests" classname="Mallang.RR02.Tests.EditMode.Rr02ChartTests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.016731" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1197" name="HiddenIndicesFollowTailRoundMinusOneRule" fullname="Mallang.RR02.Tests.EditMode.Rr02ChartTests.HiddenIndicesFollowTailRoundMinusOneRule" methodname="HiddenIndicesFollowTailRoundMinusOneRule" classname="Mallang.RR02.Tests.EditMode.Rr02ChartTests" runstate="Runnable" seed="1787548856" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.003602" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1200" name="InfinitePhraseCyclesRoundTwoThroughNineFullyHidden" fullname="Mallang.RR02.Tests.EditMode.Rr02ChartTests.InfinitePhraseCyclesRoundTwoThroughNineFullyHidden" methodname="InfinitePhraseCyclesRoundTwoThroughNineFullyHidden" classname="Mallang.RR02.Tests.EditMode.Rr02ChartTests" runstate="Runnable" seed="1652324247" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.001871" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1201" name="InfinitePhraseNeverReusesTwoSoundIntroPattern" fullname="Mallang.RR02.Tests.EditMode.Rr02ChartTests.InfinitePhraseNeverReusesTwoSoundIntroPattern" methodname="InfinitePhraseNeverReusesTwoSoundIntroPattern" classname="Mallang.RR02.Tests.EditMode.Rr02ChartTests" runstate="Runnable" seed="629012482" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.001875" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1203" name="LoadFromJsonRejectsMalformedChart" fullname="Mallang.RR02.Tests.EditMode.Rr02ChartTests.LoadFromJsonRejectsMalformedChart" methodname="LoadFromJsonRejectsMalformedChart" classname="Mallang.RR02.Tests.EditMode.Rr02ChartTests" runstate="Runnable" seed="680967207" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000968" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1195" name="LoadsNineNormalRounds" fullname="Mallang.RR02.Tests.EditMode.Rr02ChartTests.LoadsNineNormalRounds" methodname="LoadsNineNormalRounds" classname="Mallang.RR02.Tests.EditMode.Rr02ChartTests" runstate="Runnable" seed="37609869" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000472" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1199" name="NotesAreSingleInstantTapsWithoutHoldsOrChords" fullname="Mallang.RR02.Tests.EditMode.Rr02ChartTests.NotesAreSingleInstantTapsWithoutHoldsOrChords" methodname="NotesAreSingleInstantTapsWithoutHoldsOrChords" classname="Mallang.RR02.Tests.EditMode.Rr02ChartTests" runstate="Runnable" seed="1592979399" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.003407" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1196" name="RoundOneUsesOnlyRabbitAndCapybaraEightBeats" fullname="Mallang.RR02.Tests.EditMode.Rr02ChartTests.RoundOneUsesOnlyRabbitAndCapybaraEightBeats" methodname="RoundOneUsesOnlyRabbitAndCapybaraEightBeats" classname="Mallang.RR02.Tests.EditMode.Rr02ChartTests" runstate="Runnable" seed="446614827" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000770" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1202" name="ScheduleMatchesChallengeTimingArithmetic" fullname="Mallang.RR02.Tests.EditMode.Rr02ChartTests.ScheduleMatchesChallengeTimingArithmetic" methodname="ScheduleMatchesChallengeTimingArithmetic" classname="Mallang.RR02.Tests.EditMode.Rr02ChartTests" runstate="Runnable" seed="508106987" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000661" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1198" name="TargetTicksConvertToMicrosecondsAtOneBeatPer400000Us" fullname="Mallang.RR02.Tests.EditMode.Rr02ChartTests.TargetTicksConvertToMicrosecondsAtOneBeatPer400000Us" methodname="TargetTicksConvertToMicrosecondsAtOneBeatPer400000Us" classname="Mallang.RR02.Tests.EditMode.Rr02ChartTests" runstate="Runnable" seed="1012659347" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.001152" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="TestFixture" id="1204" name="Rr02JudgeTests" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" testcasecount="29" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.012310" total="29" passed="29" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1222" name="AdvanceTimeAtExactGoodBoundaryKeepsNoteOpen" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.AdvanceTimeAtExactGoodBoundaryKeepsNoteOpen" methodname="AdvanceTimeAtExactGoodBoundaryKeepsNoteOpen" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1579688904" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.001860" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1236" name="CompletedBecomesTrueAtLastTargetPlus180Ms" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.CompletedBecomesTrueAtLastTargetPlus180Ms" methodname="CompletedBecomesTrueAtLastTargetPlus180Ms" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1960812812" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000691" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1227" name="CrossFriendSelectionClosesNearestOpenTargetAsMiss" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.CrossFriendSelectionClosesNearestOpenTargetAsMiss" methodname="CrossFriendSelectionClosesNearestOpenTargetAsMiss" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="521240717" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000313" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1226" name="GhostIsCountedWhenNoOpenTargetIsInWindow" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.GhostIsCountedWhenNoOpenTargetIsInWindow" methodname="GhostIsCountedWhenNoOpenTargetIsInWindow" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1070404506" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000178" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-suite type="ParameterizedMethod" id="1215" name="GoodWindowIsInclusiveAtOneHundredTwentyMs" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.GoodWindowIsInclusiveAtOneHundredTwentyMs" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.001506" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="1209" name="GoodWindowIsInclusiveAtOneHundredTwentyMs(-120000L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.GoodWindowIsInclusiveAtOneHundredTwentyMs(-120000L)" methodname="GoodWindowIsInclusiveAtOneHundredTwentyMs" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1357169057" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000266" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1210" name="GoodWindowIsInclusiveAtOneHundredTwentyMs(-61000L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.GoodWindowIsInclusiveAtOneHundredTwentyMs(-61000L)" methodname="GoodWindowIsInclusiveAtOneHundredTwentyMs" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="33544578" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000055" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1211" name="GoodWindowIsInclusiveAtOneHundredTwentyMs(-60001L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.GoodWindowIsInclusiveAtOneHundredTwentyMs(-60001L)" methodname="GoodWindowIsInclusiveAtOneHundredTwentyMs" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="2044930007" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000051" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1212" name="GoodWindowIsInclusiveAtOneHundredTwentyMs(60001L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.GoodWindowIsInclusiveAtOneHundredTwentyMs(60001L)" methodname="GoodWindowIsInclusiveAtOneHundredTwentyMs" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1263893515" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000052" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1213" name="GoodWindowIsInclusiveAtOneHundredTwentyMs(61000L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.GoodWindowIsInclusiveAtOneHundredTwentyMs(61000L)" methodname="GoodWindowIsInclusiveAtOneHundredTwentyMs" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="882391736" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000050" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1214" name="GoodWindowIsInclusiveAtOneHundredTwentyMs(120000L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.GoodWindowIsInclusiveAtOneHundredTwentyMs(120000L)" methodname="GoodWindowIsInclusiveAtOneHundredTwentyMs" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="225093133" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000049" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                </test-suite>
+                <test-case id="1223" name="NearSimultaneousSecondInputDoesNotReviveConsumedTarget" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.NearSimultaneousSecondInputDoesNotReviveConsumedTarget" methodname="NearSimultaneousSecondInputDoesNotReviveConsumedTarget" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="319225876" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000563" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-suite type="ParameterizedMethod" id="1220" name="OffsetsBeyondGoodWindowDoNotConsumeTarget" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OffsetsBeyondGoodWindowDoNotConsumeTarget" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000880" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="1216" name="OffsetsBeyondGoodWindowDoNotConsumeTarget(-121000L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OffsetsBeyondGoodWindowDoNotConsumeTarget(-121000L)" methodname="OffsetsBeyondGoodWindowDoNotConsumeTarget" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="537571567" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000149" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1217" name="OffsetsBeyondGoodWindowDoNotConsumeTarget(-120001L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OffsetsBeyondGoodWindowDoNotConsumeTarget(-120001L)" methodname="OffsetsBeyondGoodWindowDoNotConsumeTarget" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1918833732" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000057" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1218" name="OffsetsBeyondGoodWindowDoNotConsumeTarget(120001L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OffsetsBeyondGoodWindowDoNotConsumeTarget(120001L)" methodname="OffsetsBeyondGoodWindowDoNotConsumeTarget" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="93248118" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000048" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1219" name="OffsetsBeyondGoodWindowDoNotConsumeTarget(121000L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OffsetsBeyondGoodWindowDoNotConsumeTarget(121000L)" methodname="OffsetsBeyondGoodWindowDoNotConsumeTarget" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1104911591" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000046" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                </test-suite>
+                <test-case id="1237" name="OutcomesReportFinalJudgementsInNoteIdOrder" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OutcomesReportFinalJudgementsInNoteIdOrder" methodname="OutcomesReportFinalJudgementsInNoteIdOrder" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1417757344" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000737" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-suite type="ParameterizedMethod" id="1235" name="OwnershipSpanIsInclusiveAt180MsPads" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OwnershipSpanIsInclusiveAt180MsPads" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.001091" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="1231" name="OwnershipSpanIsInclusiveAt180MsPads(820000L,False)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OwnershipSpanIsInclusiveAt180MsPads(820000L,False)" methodname="OwnershipSpanIsInclusiveAt180MsPads" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="765374820" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000258" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1232" name="OwnershipSpanIsInclusiveAt180MsPads(819999L,True)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OwnershipSpanIsInclusiveAt180MsPads(819999L,True)" methodname="OwnershipSpanIsInclusiveAt180MsPads" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="814883033" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000063" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1233" name="OwnershipSpanIsInclusiveAt180MsPads(2180000L,False)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OwnershipSpanIsInclusiveAt180MsPads(2180000L,False)" methodname="OwnershipSpanIsInclusiveAt180MsPads" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1307017077" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000051" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1234" name="OwnershipSpanIsInclusiveAt180MsPads(2180001L,True)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.OwnershipSpanIsInclusiveAt180MsPads(2180001L,True)" methodname="OwnershipSpanIsInclusiveAt180MsPads" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1111325908" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000047" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                </test-suite>
+                <test-suite type="ParameterizedMethod" id="1208" name="PerfectWindowIsInclusiveAtSixtyMs" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.PerfectWindowIsInclusiveAtSixtyMs" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000784" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="1205" name="PerfectWindowIsInclusiveAtSixtyMs(-60000L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.PerfectWindowIsInclusiveAtSixtyMs(-60000L)" methodname="PerfectWindowIsInclusiveAtSixtyMs" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1881259407" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000138" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1206" name="PerfectWindowIsInclusiveAtSixtyMs(0L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.PerfectWindowIsInclusiveAtSixtyMs(0L)" methodname="PerfectWindowIsInclusiveAtSixtyMs" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="961818903" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000052" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1207" name="PerfectWindowIsInclusiveAtSixtyMs(60000L)" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.PerfectWindowIsInclusiveAtSixtyMs(60000L)" methodname="PerfectWindowIsInclusiveAtSixtyMs" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="826478814" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000056" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                </test-suite>
+                <test-case id="1225" name="SecondInputDoesNotReviveTargetClosedByWrongFriend" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SecondInputDoesNotReviveTargetClosedByWrongFriend" methodname="SecondInputDoesNotReviveTargetClosedByWrongFriend" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="452756038" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000149" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1228" name="SelectionPicksSmallestAbsoluteOffsetFirst" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SelectionPicksSmallestAbsoluteOffsetFirst" methodname="SelectionPicksSmallestAbsoluteOffsetFirst" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1287334804" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000164" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1229" name="SelectionTieOnAbsoluteOffsetPrefersEarlierTarget" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SelectionTieOnAbsoluteOffsetPrefersEarlierTarget" methodname="SelectionTieOnAbsoluteOffsetPrefersEarlierTarget" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="431815013" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000159" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1230" name="SelectionTieOnTargetTimePrefersLowerNoteId" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.SelectionTieOnTargetTimePrefersLowerNoteId" methodname="SelectionTieOnTargetTimePrefersLowerNoteId" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1829183532" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000131" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1221" name="UnansweredNoteClosesAsMissAfterGoodWindow" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.UnansweredNoteClosesAsMissAfterGoodWindow" methodname="UnansweredNoteClosesAsMissAfterGoodWindow" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1274053918" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000110" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1224" name="WrongFriendPressClosesTargetAsMissWithoutGhost" fullname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests.WrongFriendPressClosesTargetAsMissWithoutGhost" methodname="WrongFriendPressClosesTargetAsMissWithoutGhost" classname="Mallang.RR02.Tests.EditMode.Rr02JudgeTests" runstate="Runnable" seed="1048242812" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000175" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="TestFixture" id="1238" name="Rr02RunTests" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" testcasecount="10" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.010452" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1243" name="AllPerfectIsFalseWhenAnyNormalJudgementIsGood" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.AllPerfectIsFalseWhenAnyNormalJudgementIsGood" methodname="AllPerfectIsFalseWhenAnyNormalJudgementIsGood" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="1372578904" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.002587" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1240" name="ClearingPhraseAdvancesToNextRoundListen" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.ClearingPhraseAdvancesToNextRoundListen" methodname="ClearingPhraseAdvancesToNextRoundListen" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="13856238" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000487" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1242" name="ClearingRoundNineEntersInfiniteLoopCounting" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.ClearingRoundNineEntersInfiniteLoopCounting" methodname="ClearingRoundNineEntersInfiniteLoopCounting" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="624009627" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000696" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1245" name="GhostInputScoresZeroAndFailsThePhrase" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.GhostInputScoresZeroAndFailsThePhrase" methodname="GhostInputScoresZeroAndFailsThePhrase" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="330192880" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000772" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1247" name="InvalidateOfficialKeepsProgressAndRestartsSameListen" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.InvalidateOfficialKeepsProgressAndRestartsSameListen" methodname="InvalidateOfficialKeepsProgressAndRestartsSameListen" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="2025678747" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000587" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1246" name="MidPhraseMissKeepsMusicRunningAndEndsOnceAtPhraseEnd" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.MidPhraseMissKeepsMusicRunningAndEndsOnceAtPhraseEnd" methodname="MidPhraseMissKeepsMusicRunningAndEndsOnceAtPhraseEnd" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="1043309127" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000504" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1248" name="OnlyCorrectlyPressedFriendGainsAnimalScore" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.OnlyCorrectlyPressedFriendGainsAnimalScore" methodname="OnlyCorrectlyPressedFriendGainsAnimalScore" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="1506071963" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000640" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1241" name="PhraseConfirmsExactlyAtLastTargetPlus180Ms" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.PhraseConfirmsExactlyAtLastTargetPlus180Ms" methodname="PhraseConfirmsExactlyAtLastTargetPlus180Ms" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="1843452069" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.001146" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1244" name="ScoreSumsPerfectGoodMissWithoutComboMultiplier" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.ScoreSumsPerfectGoodMissWithoutComboMultiplier" methodname="ScoreSumsPerfectGoodMissWithoutComboMultiplier" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="674714232" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000422" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1239" name="StartsListeningAtRoundOneWithOfficialEligibility" fullname="Mallang.RR02.Tests.EditMode.Rr02RunTests.StartsListeningAtRoundOneWithOfficialEligibility" methodname="StartsListeningAtRoundOneWithOfficialEligibility" classname="Mallang.RR02.Tests.EditMode.Rr02RunTests" runstate="Runnable" seed="444899195" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000524" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="TestFixture" id="1249" name="Rr02StoreTests" fullname="Mallang.RR02.Tests.EditMode.Rr02StoreTests" classname="Mallang.RR02.Tests.EditMode.Rr02StoreTests" runstate="Runnable" testcasecount="13" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.007008" total="13" passed="13" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1251" name="BrainKeysUseExactPerFriendFormat" fullname="Mallang.RR02.Tests.EditMode.Rr02StoreTests.BrainKeysUseExactPerFriendFormat" methodname="BrainKeysUseExactPerFriendFormat" classname="Mallang.RR02.Tests.EditMode.Rr02StoreTests" runstate="Runnable" seed="951441386" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.002106" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1254" name="CorruptedPayloadIsUnverifiedAndNotOverwritten" fullname="Mallang.RR02.Tests.EditMode.Rr02StoreTests.CorruptedPayloadIsUnverifiedAndNotOverwritten" methodname="CorruptedPayloadIsUnverifiedAndNotOverwritten" classname="Mallang.RR02.Tests.EditMode.Rr02StoreTests" runstate="Runnable" seed="286078213" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000316" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1258" name="DuplicateRevisionRedeliveryDoesNotChangeConfirmedState" fullname="Mallang.RR02.Tests.EditMode.Rr02StoreTests.DuplicateRevisionRedeliveryDoesNotChangeConfirmedState" methodname="DuplicateRevisionRedeliveryDoesNotChangeConfirmedState" classname="Mallang.RR02.Tests.EditMode.Rr02StoreTests" runstate="Runnable" seed="1420326892" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000200" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1250" name="EmptyStoreReadsAsVerifiedZero" fullname="Mallang.RR02.Tests.EditMode.Rr02StoreTests.EmptyStoreReadsAsVerifiedZero" methodname="EmptyStoreReadsAsVerifiedZero" classname="Mallang.RR02.Tests.EditMode.Rr02StoreTests" runstate="Runnable" seed="594008348" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000110" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1259" name="LegacyRr01KeysAreNeverConverted" fullname="Mallang.RR02.Tests.EditMode.Rr02StoreTests.LegacyRr01KeysAreNeverConverted" methodname="LegacyRr01KeysAreNeverConverted" classname="Mallang.RR02.Tests.EditMode.Rr02StoreTests" runstate="Runnable" seed="278933975" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000166" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1255" name="MaxMergeKeepsHigherConfirmedValue" fullname="Mallang.RR02.Tests.EditMode.Rr02StoreTests.MaxMergeKeepsHigherConfirmedValue" methodname="MaxMergeKeepsHigherConfirmedValue" classname="Mallang.RR02.Tests.EditMode.Rr02StoreTests" runstate="Runnable" seed="237246079" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000115" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1253" name="ReadFailureMarksUnverifiedAndBlocksOverwrite" fullname="Mallang.RR02.Tests.EditMode.Rr02StoreTests.ReadFailureMarksUnverifiedAndBlocksOverwrite" methodname="ReadFailureMarksUnverifiedAndBlocksOverwrite" classname="Mallang.RR02.Tests.EditMode.Rr02StoreTests" runstate="Runnable" seed="1603861409" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000135" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1256" name="RevisionIncrementsSeriallyPerConfirmedWrite" fullname="Mallang.RR02.Tests.EditMode.Rr02StoreTests.RevisionIncrementsSeriallyPerConfirmedWrite" methodname="RevisionIncrementsSeriallyPerConfirmedWrite" classname="Mallang.RR02.Tests.EditMode.Rr02StoreTests" runstate="Runnable" seed="1739374700" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000232" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1257" name="StaleLowerRevisionRedeliveryDoesNotOverrideConfirmed" fullname="Mallang.RR02.Tests.EditMode.Rr02StoreTests.StaleLowerRevisionRedeliveryDoesNotOverrideConfirmed" methodname="StaleLowerRevisionRedeliveryDoesNotOverrideConfirmed" classname="Mallang.RR02.Tests.EditMode.Rr02StoreTests" runstate="Runnable" seed="2022410499" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000160" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1262" name="WriteBadgeIsFirstWriteOnlyWithExactKey" fullname="Mallang.RR02.Tests.EditMode.Rr02StoreTests.WriteBadgeIsFirstWriteOnlyWithExactKey" methodname="WriteBadgeIsFirstWriteOnlyWithExactKey" classname="Mallang.RR02.Tests.EditMode.Rr02StoreTests" runstate="Runnable" seed="1905759239" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000301" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1252" name="WriteBrainMaxReturnsFalseWhenWriteIsNotConfirmed" fullname="Mallang.RR02.Tests.EditMode.Rr02StoreTests.WriteBrainMaxReturnsFalseWhenWriteIsNotConfirmed" methodname="WriteBrainMaxReturnsFalseWhenWriteIsNotConfirmed" classname="Mallang.RR02.Tests.EditMode.Rr02StoreTests" runstate="Runnable" seed="1245726284" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000120" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1261" name="WriteReachMaxIgnoresExactTie" fullname="Mallang.RR02.Tests.EditMode.Rr02StoreTests.WriteReachMaxIgnoresExactTie" methodname="WriteReachMaxIgnoresExactTie" classname="Mallang.RR02.Tests.EditMode.Rr02StoreTests" runstate="Runnable" seed="909451899" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000644" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1260" name="WriteReachMaxUpdatesOnlyOnStrictlyHigherKey" fullname="Mallang.RR02.Tests.EditMode.Rr02StoreTests.WriteReachMaxUpdatesOnlyOnStrictlyHigherKey" methodname="WriteReachMaxUpdatesOnlyOnStrictlyHigherKey" classname="Mallang.RR02.Tests.EditMode.Rr02StoreTests" runstate="Runnable" seed="864681596" result="Passed" start-time="2026-11-07 18:58:00Z" end-time="2026-11-07 18:58:00Z" duration="0.000249" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[Saving results to: /Users/easyoon/Library/Application Support/is404notfound/Mallang Brain · Gate 1/TestResults.xml
+]]></output>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

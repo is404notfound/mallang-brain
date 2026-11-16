@@ -1,0 +1,7 @@
+{
+  "name": "Mallang.RR02.Runtime",
+  "rootNamespace": "Mallang.RR02",
+  "references": [
+    "Mallang.RhythmCore.Runtime"
+  ]
+}

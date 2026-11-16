@@ -1,0 +1,2015 @@
+fileFormatVersion: 2
+guid: 06004b52e4e8142a68b92bd3b7edbd80
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2730546916054925827
+    second: garland-lights_0
+  - first:
+      213: 996038284005583191
+    second: garland-lights_1
+  - first:
+      213: 4513181397182080403
+    second: garland-lights_2
+  - first:
+      213: -371107602619823835
+    second: garland-lights_3
+  - first:
+      213: -4128684792560852780
+    second: garland-lights_4
+  - first:
+      213: -6790765954223476377
+    second: garland-lights_5
+  - first:
+      213: 6432044135965578744
+    second: garland-lights_6
+  - first:
+      213: 5228526536610625041
+    second: garland-lights_7
+  - first:
+      213: 1008892428547185136
+    second: garland-lights_8
+  - first:
+      213: 4565130494465030078
+    second: garland-lights_9
+  - first:
+      213: -7176979961908573964
+    second: garland-lights_10
+  - first:
+      213: -5909410213351146345
+    second: garland-lights_11
+  - first:
+      213: 8491406581737951681
+    second: garland-lights_12
+  - first:
+      213: 1890003383666892530
+    second: garland-lights_13
+  - first:
+      213: -8491845067859423549
+    second: garland-lights_14
+  - first:
+      213: -3720591187305517302
+    second: garland-lights_15
+  - first:
+      213: 5807110043148014427
+    second: garland-lights_16
+  - first:
+      213: -3124312570225048494
+    second: garland-lights_17
+  - first:
+      213: -5857205973362104059
+    second: garland-lights_18
+  - first:
+      213: 5221876724981748363
+    second: garland-lights_19
+  - first:
+      213: 7512710832642920379
+    second: garland-lights_20
+  - first:
+      213: -1495176232759825888
+    second: garland-lights_21
+  - first:
+      213: -2388431659660794588
+    second: garland-lights_22
+  - first:
+      213: -8198176579964134542
+    second: garland-lights_23
+  - first:
+      213: 2842578483073545659
+    second: garland-lights_24
+  - first:
+      213: -6324791293071199064
+    second: garland-lights_25
+  - first:
+      213: 4451310010164233633
+    second: garland-lights_26
+  - first:
+      213: -3416839053599793347
+    second: garland-lights_27
+  - first:
+      213: 1449858254148278329
+    second: garland-lights_28
+  - first:
+      213: -8065440678129595483
+    second: garland-lights_29
+  - first:
+      213: -1809550375931410435
+    second: garland-lights_30
+  - first:
+      213: 6558943276268752622
+    second: garland-lights_31
+  - first:
+      213: -817787510296269497
+    second: garland-lights_32
+  - first:
+      213: -2244402429528039114
+    second: garland-lights_33
+  - first:
+      213: 8678412370492938384
+    second: garland-lights_34
+  - first:
+      213: -6396683813149774802
+    second: garland-lights_35
+  - first:
+      213: 3174756236050138346
+    second: garland-lights_36
+  - first:
+      213: 7749549664618039670
+    second: garland-lights_37
+  - first:
+      213: 3170591899418356237
+    second: garland-lights_38
+  - first:
+      213: 163405717479852515
+    second: garland-lights_39
+  - first:
+      213: -1022289703039714091
+    second: garland-lights_40
+  - first:
+      213: -463596124921274402
+    second: garland-lights_41
+  - first:
+      213: 3199883390369157693
+    second: garland-lights_42
+  - first:
+      213: -3116622769536345323
+    second: garland-lights_43
+  - first:
+      213: 9217415376670670254
+    second: garland-lights_44
+  - first:
+      213: 8716590241049162150
+    second: garland-lights_45
+  - first:
+      213: -6122723144835711517
+    second: garland-lights_46
+  - first:
+      213: 3966842140359359330
+    second: garland-lights_47
+  - first:
+      213: -4362796686324811711
+    second: garland-lights_48
+  - first:
+      213: 1251944793154901564
+    second: garland-lights_49
+  - first:
+      213: 4857002797545279613
+    second: garland-lights_50
+  - first:
+      213: -5001954861012550786
+    second: garland-lights_51
+  - first:
+      213: -8545558167860875322
+    second: garland-lights_52
+  - first:
+      213: -2835842003980229583
+    second: garland-lights_53
+  - first:
+      213: 1549109409871398955
+    second: garland-lights_54
+  - first:
+      213: -2643208998387107649
+    second: garland-lights_55
+  - first:
+      213: 4141348314593655451
+    second: garland-lights_56
+  - first:
+      213: -4197100643961742697
+    second: garland-lights_57
+  - first:
+      213: -2620801952868834954
+    second: garland-lights_58
+  - first:
+      213: -9199215652235620552
+    second: garland-lights_59
+  - first:
+      213: 6463532713497547315
+    second: garland-lights_60
+  - first:
+      213: 7495808817645677661
+    second: garland-lights_61
+  - first:
+      213: -4750096138496246428
+    second: garland-lights_62
+  - first:
+      213: -7645461366368498712
+    second: garland-lights_63
+  - first:
+      213: 191243776857003630
+    second: garland-lights_64
+  - first:
+      213: -372398842250975725
+    second: garland-lights_65
+  - first:
+      213: -5475265179741471400
+    second: garland-lights_66
+  - first:
+      213: -4185113759161276720
+    second: garland-lights_67
+  - first:
+      213: 660664621369985298
+    second: garland-lights_68
+  - first:
+      213: 7935627859365040296
+    second: garland-lights_69
+  - first:
+      213: 5755073637276048828
+    second: garland-lights_70
+  - first:
+      213: -8336733361255148754
+    second: garland-lights_71
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: garland-lights_0
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 656
+        width: 271
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3020efdf3f9d4e520800000000000000
+      internalID: 2730546916054925827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_1
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 600
+        width: 176
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 759a7d4ca83a2dd00800000000000000
+      internalID: 996038284005583191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_2
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 600
+        width: 177
+        height: 278
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39560f1a19a02ae30800000000000000
+      internalID: 4513181397182080403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_3
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 622
+        width: 128
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52906640a9f89daf0800000000000000
+      internalID: -371107602619823835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_4
+      rect:
+        serializedVersion: 2
+        x: 1623
+        y: 824
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d06add4e07f3b6c0800000000000000
+      internalID: -4128684792560852780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_5
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 830
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76171b9f75a52c1a0800000000000000
+      internalID: -6790765954223476377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_6
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 610
+        width: 115
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f5dcdf2016334950800000000000000
+      internalID: 6432044135965578744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_7
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 624
+        width: 222
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1163161ee257f8840800000000000000
+      internalID: 5228526536610625041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_8
+      rect:
+        serializedVersion: 2
+        x: 1575
+        y: 672
+        width: 166
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f9d224815e400e00800000000000000
+      internalID: 1008892428547185136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_9
+      rect:
+        serializedVersion: 2
+        x: 1597
+        y: 752
+        width: 68
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb734e36ff99a5f30800000000000000
+      internalID: 4565130494465030078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_10
+      rect:
+        serializedVersion: 2
+        x: 1653
+        y: 762
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f8c75affbe366c90800000000000000
+      internalID: -7176979961908573964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_11
+      rect:
+        serializedVersion: 2
+        x: 1655
+        y: 768
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79cb32968be8dfda0800000000000000
+      internalID: -5909410213351146345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_12
+      rect:
+        serializedVersion: 2
+        x: 1203
+        y: 694
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c197e3fb4987d570800000000000000
+      internalID: 8491406581737951681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_13
+      rect:
+        serializedVersion: 2
+        x: 1535
+        y: 704
+        width: 7
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fe50c35014aa3a10800000000000000
+      internalID: 1890003383666892530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_14
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 662
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ce069a07e7e62a80800000000000000
+      internalID: -8491845067859423549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_15
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 663
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0fa436170ecd5cc0800000000000000
+      internalID: -3720591187305517302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_16
+      rect:
+        serializedVersion: 2
+        x: 1197
+        y: 672
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b53d07d11dff69050800000000000000
+      internalID: 5807110043148014427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_17
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 656
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 254c27c454634a4d0800000000000000
+      internalID: -3124312570225048494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_18
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 642
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 509a475333607bea0800000000000000
+      internalID: -5857205973362104059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_19
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 656
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b82da65f635d77840800000000000000
+      internalID: 5221876724981748363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_20
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 658
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbf09efb2b2824860800000000000000
+      internalID: 7512710832642920379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_21
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 604
+        width: 59
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02a6eb95321104be0800000000000000
+      internalID: -1495176232759825888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_22
+      rect:
+        serializedVersion: 2
+        x: 1107
+        y: 648
+        width: 35
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4252f9b5f069aded0800000000000000
+      internalID: -2388431659660794588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_23
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 610
+        width: 39
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27b9f4916d93a3e80800000000000000
+      internalID: -8198176579964134542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_24
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 637
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb574c9d11ed27720800000000000000
+      internalID: 2842578483073545659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_25
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 574
+        width: 72
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a4f10244d3d938a0800000000000000
+      internalID: -6324791293071199064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_26
+      rect:
+        serializedVersion: 2
+        x: 1268
+        y: 614
+        width: 21
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a5caf4ceda36cd30800000000000000
+      internalID: 4451310010164233633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_27
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 600
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3f9083ebf2f490d0800000000000000
+      internalID: -3416839053599793347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_28
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 608
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9381d25866eee1410800000000000000
+      internalID: 1449858254148278329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_29
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 608
+        width: 38
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ab891f8f6cc11090800000000000000
+      internalID: -8065440678129595483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_30
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 595
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df70f6f358f23e6e0800000000000000
+      internalID: -1809550375931410435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_31
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 607
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eee8fe3b82c060b50800000000000000
+      internalID: 6558943276268752622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_32
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 602
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74d2a0b9792a6a4f0800000000000000
+      internalID: -817787510296269497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_33
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 599
+        width: 21
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63125f6b1e74ad0e0800000000000000
+      internalID: -2244402429528039114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_34
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 616
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 098569d121aef6870800000000000000
+      internalID: 8678412370492938384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_35
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 616
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2c67b886f96a37a0800000000000000
+      internalID: -6396683813149774802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_36
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 610
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae48932e9fffe0c20800000000000000
+      internalID: 3174756236050138346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_37
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 605
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6794ec07c5eeb8b60800000000000000
+      internalID: 7749549664618039670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_38
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 591
+        width: 41
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0aef84b884300c20800000000000000
+      internalID: 3170591899418356237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9
+        width: 1752
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e987a062a8844200800000000000000
+      internalID: 163405717479852515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_40
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 602
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dc37c07ee810d1f0800000000000000
+      internalID: -1022289703039714091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_41
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 600
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edfd1d6d7c9f099f0800000000000000
+      internalID: -463596124921274402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_42
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 592
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3250a56df4486c20800000000000000
+      internalID: 3199883390369157693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_43
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 594
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51b54ea8a188fb4d0800000000000000
+      internalID: -3116622769536345323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_44
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 595
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eadbda9f276daef70800000000000000
+      internalID: 9217415376670670254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_45
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 596
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a13f5a44ac87f870800000000000000
+      internalID: 8716590241049162150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_46
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 600
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ed31064db7b70ba0800000000000000
+      internalID: -6122723144835711517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_47
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 591
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26b7b20d8ed0d0730800000000000000
+      internalID: 3966842140359359330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_48
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 594
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 148bb54678b3473c0800000000000000
+      internalID: -4362796686324811711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_49
+      rect:
+        serializedVersion: 2
+        x: 1021
+        y: 600
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c36d562082dcf5110800000000000000
+      internalID: 1251944793154901564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_50
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 583
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d70d3c49f4a876340800000000000000
+      internalID: 4857002797545279613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_51
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 575
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7bfece2e8c759ab0800000000000000
+      internalID: -5001954861012550786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_52
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 207
+        width: 13
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cfe6356f14186980800000000000000
+      internalID: -8545558167860875322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_53
+      rect:
+        serializedVersion: 2
+        x: 1641
+        y: 193
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13460a9e8b015a8d0800000000000000
+      internalID: -2835842003980229583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_54
+      rect:
+        serializedVersion: 2
+        x: 1645
+        y: 209
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b28899dfcca8f7510800000000000000
+      internalID: 1549109409871398955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_55
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 207
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb835089b6f615bd0800000000000000
+      internalID: -2643208998387107649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_56
+      rect:
+        serializedVersion: 2
+        x: 1694
+        y: 207
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9a748ea956097930800000000000000
+      internalID: 4141348314593655451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_57
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 191
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79ad8169337e0c5c0800000000000000
+      internalID: -4197100643961742697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_58
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 173
+        width: 37
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6716a9c628a01abd0800000000000000
+      internalID: -2620801952868834954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_59
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 159
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83f48449a12d55080800000000000000
+      internalID: -9199215652235620552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_60
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 162
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3325326f1c413b950800000000000000
+      internalID: 6463532713497547315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_61
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 158
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5ce208b766760860800000000000000
+      internalID: 7495808817645677661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_62
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 161
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46df9f7aab4441eb0800000000000000
+      internalID: -4750096138496246428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_63
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 157
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8eb02a9056dd5e590800000000000000
+      internalID: -7645461366368498712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_64
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 119
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e66d019a33f67a200800000000000000
+      internalID: 191243776857003630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_65
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 125
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3162ddcd939f4daf0800000000000000
+      internalID: -372398842250975725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_66
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 135
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85db1760453f304b0800000000000000
+      internalID: -5475265179741471400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_67
+      rect:
+        serializedVersion: 2
+        x: 1069
+        y: 127
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d6a790b53d7be5c0800000000000000
+      internalID: -4185113759161276720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_68
+      rect:
+        serializedVersion: 2
+        x: 1207
+        y: 127
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2190d6809f62b2900800000000000000
+      internalID: 660664621369985298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_69
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 111
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a0952b4e73012e60800000000000000
+      internalID: 7935627859365040296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_70
+      rect:
+        serializedVersion: 2
+        x: 1213
+        y: 113
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbddd0e3bf02edf40800000000000000
+      internalID: 5755073637276048828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garland-lights_71
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 93
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e231d378d29fd4c80800000000000000
+      internalID: -8336733361255148754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      garland-lights_0: 2730546916054925827
+      garland-lights_1: 996038284005583191
+      garland-lights_10: -7176979961908573964
+      garland-lights_11: -5909410213351146345
+      garland-lights_12: 8491406581737951681
+      garland-lights_13: 1890003383666892530
+      garland-lights_14: -8491845067859423549
+      garland-lights_15: -3720591187305517302
+      garland-lights_16: 5807110043148014427
+      garland-lights_17: -3124312570225048494
+      garland-lights_18: -5857205973362104059
+      garland-lights_19: 5221876724981748363
+      garland-lights_2: 4513181397182080403
+      garland-lights_20: 7512710832642920379
+      garland-lights_21: -1495176232759825888
+      garland-lights_22: -2388431659660794588
+      garland-lights_23: -8198176579964134542
+      garland-lights_24: 2842578483073545659
+      garland-lights_25: -6324791293071199064
+      garland-lights_26: 4451310010164233633
+      garland-lights_27: -3416839053599793347
+      garland-lights_28: 1449858254148278329
+      garland-lights_29: -8065440678129595483
+      garland-lights_3: -371107602619823835
+      garland-lights_30: -1809550375931410435
+      garland-lights_31: 6558943276268752622
+      garland-lights_32: -817787510296269497
+      garland-lights_33: -2244402429528039114
+      garland-lights_34: 8678412370492938384
+      garland-lights_35: -6396683813149774802
+      garland-lights_36: 3174756236050138346
+      garland-lights_37: 7749549664618039670
+      garland-lights_38: 3170591899418356237
+      garland-lights_39: 163405717479852515
+      garland-lights_4: -4128684792560852780
+      garland-lights_40: -1022289703039714091
+      garland-lights_41: -463596124921274402
+      garland-lights_42: 3199883390369157693
+      garland-lights_43: -3116622769536345323
+      garland-lights_44: 9217415376670670254
+      garland-lights_45: 8716590241049162150
+      garland-lights_46: -6122723144835711517
+      garland-lights_47: 3966842140359359330
+      garland-lights_48: -4362796686324811711
+      garland-lights_49: 1251944793154901564
+      garland-lights_5: -6790765954223476377
+      garland-lights_50: 4857002797545279613
+      garland-lights_51: -5001954861012550786
+      garland-lights_52: -8545558167860875322
+      garland-lights_53: -2835842003980229583
+      garland-lights_54: 1549109409871398955
+      garland-lights_55: -2643208998387107649
+      garland-lights_56: 4141348314593655451
+      garland-lights_57: -4197100643961742697
+      garland-lights_58: -2620801952868834954
+      garland-lights_59: -9199215652235620552
+      garland-lights_6: 6432044135965578744
+      garland-lights_60: 6463532713497547315
+      garland-lights_61: 7495808817645677661
+      garland-lights_62: -4750096138496246428
+      garland-lights_63: -7645461366368498712
+      garland-lights_64: 191243776857003630
+      garland-lights_65: -372398842250975725
+      garland-lights_66: -5475265179741471400
+      garland-lights_67: -4185113759161276720
+      garland-lights_68: 660664621369985298
+      garland-lights_69: 7935627859365040296
+      garland-lights_7: 5228526536610625041
+      garland-lights_70: 5755073637276048828
+      garland-lights_71: -8336733361255148754
+      garland-lights_8: 1008892428547185136
+      garland-lights_9: 4565130494465030078
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

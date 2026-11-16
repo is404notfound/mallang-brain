@@ -1,0 +1,34 @@
+{
+  "id": "RR02-rubric-v1",
+  "source": "기획 기준표 · 실제 참여자 분포 아님",
+  "empirical": false,
+  "percentileAvailable": false,
+  "rows": [
+    {
+      "label": "첫 합주 도전",
+      "minRound": 0,
+      "maxRound": 0
+    },
+    {
+      "label": "악보 합주",
+      "minRound": 1,
+      "maxRound": 2
+    },
+    {
+      "label": "기억 합주",
+      "minRound": 3,
+      "maxRound": 5
+    },
+    {
+      "label": "암보 합주",
+      "minRound": 6,
+      "maxRound": 8
+    },
+    {
+      "label": "All 마스터",
+      "minRound": 9,
+      "maxRound": 9
+    }
+  ],
+  "infinite": "All + completedLoops"
+}

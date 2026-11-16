@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="9" result="Failed(Child)" total="9" passed="0" failed="9" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-07 11:52:29Z" end-time="2026-11-07 11:52:30Z" duration="0.5745539">
+  <test-suite type="TestSuite" id="1000" name="Mallang Brain · Gate 1" fullname="Mallang Brain · Gate 1" runstate="Runnable" testcasecount="217" result="Failed" site="Child" start-time="2026-11-07 11:52:29Z" end-time="2026-11-07 11:52:30Z" duration="0.574554" total="9" passed="0" failed="9" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1263" name="Mallang.RR02.Tests.EditMode.dll" fullname="/Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Library/ScriptAssemblies/Mallang.RR02.Tests.EditMode.dll" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 11:52:29Z" end-time="2026-11-07 11:52:30Z" duration="0.539613" total="9" passed="0" failed="9" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="88365" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1264" name="Mallang" fullname="Mallang" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 11:52:29Z" end-time="2026-11-07 11:52:30Z" duration="0.529639" total="9" passed="0" failed="9" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1265" name="RR02" fullname="Mallang.RR02" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 11:52:29Z" end-time="2026-11-07 11:52:30Z" duration="0.519236" total="9" passed="0" failed="9" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestSuite" id="1266" name="Tests" fullname="Mallang.RR02.Tests" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 11:52:29Z" end-time="2026-11-07 11:52:30Z" duration="0.509317" total="9" passed="0" failed="9" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="TestSuite" id="1267" name="EditMode" fullname="Mallang.RR02.Tests.EditMode" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 11:52:29Z" end-time="2026-11-07 11:52:30Z" duration="0.481806" total="9" passed="0" failed="9" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-suite type="TestFixture" id="1194" name="Rr02ChartTests" fullname="Mallang.RR02.Tests.EditMode.Rr02ChartTests" classname="Mallang.RR02.Tests.EditMode.Rr02ChartTests" runstate="Runnable" testcasecount="9" result="Failed" site="Child" start-time="2026-11-07 11:52:29Z" end-time="2026-11-07 11:52:30Z" duration="0.455807" total="9" passed="0" failed="9" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[One or more child tests had errors]]></message>
+                </failure>
+                <test-case id="1197" name="HiddenIndicesFollowTailRoundMinusOneRule" fullname="Mallang.RR02.Tests.EditMode.Rr02ChartTests.HiddenIndicesFollowTailRoundMinusOneRule" methodname="HiddenIndicesFollowTailRoundMinusOneRule" classname="Mallang.RR02.Tests.EditMode.Rr02ChartTests" runstate="Runnable" seed="2126633418" result="Failed" label="Error" start-time="2026-11-07 11:52:29Z" end-time="2026-11-07 11:52:29Z" duration="0.035411" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02ChartTests.LoadChart () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ChartTests.cs:20 
+  at Mallang.RR02.Tests.EditMode.Rr02ChartTests.HiddenIndicesFollowTailRoundMinusOneRule () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ChartTests.cs:67 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1200" name="InfinitePhraseCyclesRoundTwoThroughNineFullyHidden" fullname="Mallang.RR02.Tests.EditMode.Rr02ChartTests.InfinitePhraseCyclesRoundTwoThroughNineFullyHidden" methodname="InfinitePhraseCyclesRoundTwoThroughNineFullyHidden" classname="Mallang.RR02.Tests.EditMode.Rr02ChartTests" runstate="Runnable" seed="1170350065" result="Failed" label="Error" start-time="2026-11-07 11:52:29Z" end-time="2026-11-07 11:52:29Z" duration="0.001932" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02ChartTests.LoadChart () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ChartTests.cs:20 
+  at Mallang.RR02.Tests.EditMode.Rr02ChartTests.InfinitePhraseCyclesRoundTwoThroughNineFullyHidden () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ChartTests.cs:119 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1201" name="InfinitePhraseNeverReusesTwoSoundIntroPattern" fullname="Mallang.RR02.Tests.EditMode.Rr02ChartTests.InfinitePhraseNeverReusesTwoSoundIntroPattern" methodname="InfinitePhraseNeverReusesTwoSoundIntroPattern" classname="Mallang.RR02.Tests.EditMode.Rr02ChartTests" runstate="Runnable" seed="1278171498" result="Failed" label="Error" start-time="2026-11-07 11:52:29Z" end-time="2026-11-07 11:52:29Z" duration="0.001433" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02ChartTests.LoadChart () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ChartTests.cs:20 
+  at Mallang.RR02.Tests.EditMode.Rr02ChartTests.InfinitePhraseNeverReusesTwoSoundIntroPattern () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ChartTests.cs:136 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1203" name="LoadFromJsonRejectsMalformedChart" fullname="Mallang.RR02.Tests.EditMode.Rr02ChartTests.LoadFromJsonRejectsMalformedChart" methodname="LoadFromJsonRejectsMalformedChart" classname="Mallang.RR02.Tests.EditMode.Rr02ChartTests" runstate="Runnable" seed="704690718" result="Failed" start-time="2026-11-07 11:52:29Z" end-time="2026-11-07 11:52:29Z" duration="0.157792" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[  Expected: <System.ArgumentException>
+  But was:  <System.NotImplementedException: The method or operation is not implemented.
+  at Mallang.RR02.Tests.EditMode.Rr02ChartTests+<>c.<LoadFromJsonRejectsMalformedChart>b__14_0 () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ChartTests.cs:176 
+  at NUnit.Framework.Assert.Throws (NUnit.Framework.Constraints.IResolveConstraint expression, NUnit.Framework.TestDelegate code, System.String message, System.Object[] args) [0x0002f] in <f577cd9686154d6ab10efd7e65e64366>:0 >
+]]></message>
+                    <stack-trace><![CDATA[at Mallang.RR02.Tests.EditMode.Rr02ChartTests.LoadFromJsonRejectsMalformedChart () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ChartTests.cs:176
+]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1195" name="LoadsNineNormalRounds" fullname="Mallang.RR02.Tests.EditMode.Rr02ChartTests.LoadsNineNormalRounds" methodname="LoadsNineNormalRounds" classname="Mallang.RR02.Tests.EditMode.Rr02ChartTests" runstate="Runnable" seed="205433432" result="Failed" label="Error" start-time="2026-11-07 11:52:29Z" end-time="2026-11-07 11:52:29Z" duration="0.001845" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02ChartTests.LoadChart () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ChartTests.cs:20 
+  at Mallang.RR02.Tests.EditMode.Rr02ChartTests.LoadsNineNormalRounds () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ChartTests.cs:46 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1199" name="NotesAreSingleInstantTapsWithoutHoldsOrChords" fullname="Mallang.RR02.Tests.EditMode.Rr02ChartTests.NotesAreSingleInstantTapsWithoutHoldsOrChords" methodname="NotesAreSingleInstantTapsWithoutHoldsOrChords" classname="Mallang.RR02.Tests.EditMode.Rr02ChartTests" runstate="Runnable" seed="167089441" result="Failed" label="Error" start-time="2026-11-07 11:52:29Z" end-time="2026-11-07 11:52:29Z" duration="0.002418" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02ChartTests.LoadChart () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ChartTests.cs:20 
+  at Mallang.RR02.Tests.EditMode.Rr02ChartTests.NotesAreSingleInstantTapsWithoutHoldsOrChords () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ChartTests.cs:104 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1196" name="RoundOneUsesOnlyRabbitAndCapybaraEightBeats" fullname="Mallang.RR02.Tests.EditMode.Rr02ChartTests.RoundOneUsesOnlyRabbitAndCapybaraEightBeats" methodname="RoundOneUsesOnlyRabbitAndCapybaraEightBeats" classname="Mallang.RR02.Tests.EditMode.Rr02ChartTests" runstate="Runnable" seed="891728535" result="Failed" label="Error" start-time="2026-11-07 11:52:30Z" end-time="2026-11-07 11:52:30Z" duration="0.001713" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02ChartTests.LoadChart () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ChartTests.cs:20 
+  at Mallang.RR02.Tests.EditMode.Rr02ChartTests.RoundOneUsesOnlyRabbitAndCapybaraEightBeats () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ChartTests.cs:56 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1202" name="ScheduleMatchesChallengeTimingArithmetic" fullname="Mallang.RR02.Tests.EditMode.Rr02ChartTests.ScheduleMatchesChallengeTimingArithmetic" methodname="ScheduleMatchesChallengeTimingArithmetic" classname="Mallang.RR02.Tests.EditMode.Rr02ChartTests" runstate="Runnable" seed="1411512262" result="Failed" label="Error" start-time="2026-11-07 11:52:30Z" end-time="2026-11-07 11:52:30Z" duration="0.006917" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02ChartTests.ScheduleMatchesChallengeTimingArithmetic () [0x0001b] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ChartTests.cs:152 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1198" name="TargetTicksConvertToMicrosecondsAtOneBeatPer400000Us" fullname="Mallang.RR02.Tests.EditMode.Rr02ChartTests.TargetTicksConvertToMicrosecondsAtOneBeatPer400000Us" methodname="TargetTicksConvertToMicrosecondsAtOneBeatPer400000Us" classname="Mallang.RR02.Tests.EditMode.Rr02ChartTests" runstate="Runnable" seed="1283063080" result="Failed" label="Error" start-time="2026-11-07 11:52:30Z" end-time="2026-11-07 11:52:30Z" duration="0.002747" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.Rr02ChartTests.LoadChart () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ChartTests.cs:20 
+  at Mallang.RR02.Tests.EditMode.Rr02ChartTests.TargetTicksConvertToMicrosecondsAtOneBeatPer400000Us () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/Rr02ChartTests.cs:86 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                  <output><![CDATA[Saving results to: /Users/easyoon/Library/Application Support/is404notfound/Mallang Brain · Gate 1/TestResults.xml
+]]></output>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

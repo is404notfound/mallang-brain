@@ -1,0 +1,13 @@
+{
+  "name": "Mallang.RR02.Tests.EditMode",
+  "rootNamespace": "Mallang.RR02.Tests.EditMode",
+  "references": [
+    "Mallang.RR02.Runtime"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

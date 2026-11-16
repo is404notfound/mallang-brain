@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="7" result="Failed(Child)" total="7" passed="0" failed="7" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-07 12:42:37Z" end-time="2026-11-07 12:42:37Z" duration="0.0358114">
+  <test-suite type="TestSuite" id="1000" name="Mallang Brain · Gate 1" fullname="Mallang Brain · Gate 1" runstate="Runnable" testcasecount="217" result="Failed" site="Child" start-time="2026-11-07 12:42:37Z" end-time="2026-11-07 12:42:37Z" duration="0.035811" total="7" passed="0" failed="7" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1263" name="Mallang.RR02.Tests.EditMode.dll" fullname="/Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Library/ScriptAssemblies/Mallang.RR02.Tests.EditMode.dll" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 12:42:37Z" end-time="2026-11-07 12:42:37Z" duration="0.026950" total="7" passed="0" failed="7" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="52909" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1264" name="Mallang" fullname="Mallang" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 12:42:37Z" end-time="2026-11-07 12:42:37Z" duration="0.025978" total="7" passed="0" failed="7" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1265" name="RR02" fullname="Mallang.RR02" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 12:42:37Z" end-time="2026-11-07 12:42:37Z" duration="0.025107" total="7" passed="0" failed="7" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestSuite" id="1266" name="Tests" fullname="Mallang.RR02.Tests" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 12:42:37Z" end-time="2026-11-07 12:42:37Z" duration="0.024297" total="7" passed="0" failed="7" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="TestSuite" id="1267" name="EditMode" fullname="Mallang.RR02.Tests.EditMode" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-11-07 12:42:37Z" end-time="2026-11-07 12:42:37Z" duration="0.023297" total="7" passed="0" failed="7" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-suite type="TestFixture" id="1186" name="RankingSubmissionTests" fullname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests" classname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests" runstate="Runnable" testcasecount="7" result="Failed" site="Child" start-time="2026-11-07 12:42:37Z" end-time="2026-11-07 12:42:37Z" duration="0.020567" total="7" passed="0" failed="7" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[One or more child tests had errors]]></message>
+                </failure>
+                <test-case id="1187" name="DuplicateRunIdGetsSameResponseAndSingleAggregation" fullname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests.DuplicateRunIdGetsSameResponseAndSingleAggregation" methodname="DuplicateRunIdGetsSameResponseAndSingleAggregation" classname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests" runstate="Runnable" seed="1845053953" result="Failed" label="Error" start-time="2026-11-07 12:42:37Z" end-time="2026-11-07 12:42:37Z" duration="0.007522" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingSubmissionTests.DuplicateRunIdGetsSameResponseAndSingleAggregation () [0x0000d] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingSubmissionTests.cs:35 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1193" name="FakeServerIsIdempotentForSameRunId" fullname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests.FakeServerIsIdempotentForSameRunId" methodname="FakeServerIsIdempotentForSameRunId" classname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests" runstate="Runnable" seed="1548788269" result="Failed" label="Error" start-time="2026-11-07 12:42:37Z" end-time="2026-11-07 12:42:37Z" duration="0.000251" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingSubmissionTests.FakeServerIsIdempotentForSameRunId () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingSubmissionTests.cs:114 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1191" name="FakeServerRejectsIneligibleRun" fullname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests.FakeServerRejectsIneligibleRun" methodname="FakeServerRejectsIneligibleRun" classname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests" runstate="Runnable" seed="1564030348" result="Failed" label="Error" start-time="2026-11-07 12:42:37Z" end-time="2026-11-07 12:42:37Z" duration="0.000177" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingSubmissionTests.FakeServerRejectsIneligibleRun () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingSubmissionTests.cs:93 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1192" name="FakeServerRejectsMismatchedRulesVersion" fullname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests.FakeServerRejectsMismatchedRulesVersion" methodname="FakeServerRejectsMismatchedRulesVersion" classname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests" runstate="Runnable" seed="1218651992" result="Failed" label="Error" start-time="2026-11-07 12:42:37Z" end-time="2026-11-07 12:42:37Z" duration="0.000191" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingSubmissionTests.FakeServerRejectsMismatchedRulesVersion () [0x00000] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingSubmissionTests.cs:104 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1188" name="IneligibleRunIsRejectedAndNotAggregated" fullname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests.IneligibleRunIsRejectedAndNotAggregated" methodname="IneligibleRunIsRejectedAndNotAggregated" classname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests" runstate="Runnable" seed="1981761251" result="Failed" label="Error" start-time="2026-11-07 12:42:37Z" end-time="2026-11-07 12:42:37Z" duration="0.000198" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingSubmissionTests.IneligibleRunIsRejectedAndNotAggregated () [0x00006] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingSubmissionTests.cs:50 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1190" name="TimeoutMovesToHeldAndKeepsPriorConfirmedRecord" fullname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests.TimeoutMovesToHeldAndKeepsPriorConfirmedRecord" methodname="TimeoutMovesToHeldAndKeepsPriorConfirmedRecord" classname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests" runstate="Runnable" seed="1202201000" result="Failed" label="Error" start-time="2026-11-07 12:42:37Z" end-time="2026-11-07 12:42:37Z" duration="0.000206" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingSubmissionTests.TimeoutMovesToHeldAndKeepsPriorConfirmedRecord () [0x0000c] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingSubmissionTests.cs:78 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1189" name="VerifyingStateIsNotTreatedAsConfirmed" fullname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests.VerifyingStateIsNotTreatedAsConfirmed" methodname="VerifyingStateIsNotTreatedAsConfirmed" classname="Mallang.RR02.Tests.EditMode.RankingSubmissionTests" runstate="Runnable" seed="1572225077" result="Failed" label="Error" start-time="2026-11-07 12:42:37Z" end-time="2026-11-07 12:42:37Z" duration="0.000176" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                    <stack-trace><![CDATA[  at Mallang.RR02.Tests.EditMode.RankingSubmissionTests.VerifyingStateIsNotTreatedAsConfirmed () [0x0000c] in /Users/easyoon/orca/workspaces/mallang-brain/palolo/unity/Assets/Mallang/RR02/Tests/EditMode/RankingSubmissionTests.cs:64 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <4ac0ee785b7843ea944af6fc649f4ee5>:0 ]]></stack-trace>
+                  </failure>
+                  <output><![CDATA[Saving results to: /Users/easyoon/Library/Application Support/is404notfound/Mallang Brain · Gate 1/TestResults.xml
+]]></output>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
