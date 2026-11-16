@@ -67,3 +67,6 @@ temp/
 __pycache__/
 *.pyc
 unity/Assets/Screenshots/
+
+# Local agent tool mirrors (sync of .claude/skills for other CLIs)
+.agents/

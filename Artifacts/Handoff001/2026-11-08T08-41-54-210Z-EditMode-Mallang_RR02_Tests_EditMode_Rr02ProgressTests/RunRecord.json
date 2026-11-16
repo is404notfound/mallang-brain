@@ -1,0 +1,41 @@
+{
+  "id": "2026-11-08T08-41-54-210Z-EditMode-Mallang_RR02_Tests_EditMode_Rr02ProgressTests",
+  "platform": "EditMode",
+  "filter": "Mallang.RR02.Tests.EditMode.Rr02ProgressTests",
+  "startedUtc": "2026-11-08T08:41:54.215Z",
+  "scope": "Unity automated tests only; logic-lane check for specs/001-listen-and-repeat-core",
+  "source": "711f0bf12a4ebeec31e201ad942b523e076bfe1a",
+  "dirty": true,
+  "command": [
+    "/Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/MacOS/Unity",
+    "-batchmode",
+    "-projectPath",
+    "/Users/easyoon/orca/workspaces/mallang-brain/palolo/unity",
+    "-runTests",
+    "-testPlatform",
+    "EditMode",
+    "-testResults",
+    "/Users/easyoon/orca/workspaces/mallang-brain/palolo/Artifacts/Handoff001/2026-11-08T08-41-54-210Z-EditMode-Mallang_RR02_Tests_EditMode_Rr02ProgressTests/TestResults.xml",
+    "-logFile",
+    "/Users/easyoon/orca/workspaces/mallang-brain/palolo/Artifacts/Handoff001/2026-11-08T08-41-54-210Z-EditMode-Mallang_RR02_Tests_EditMode_Rr02ProgressTests/Unity.log",
+    "-testFilter",
+    "Mallang.RR02.Tests.EditMode.Rr02ProgressTests"
+  ],
+  "unityExit": 2,
+  "totalTests": 11,
+  "result": "failed",
+  "failedSample": [
+    "- Compute_full_all_on: System.NotImplementedException : The method or operation is not implemented.",
+    "- Compute_negative_clamps_to_zero: System.NotImplementedException : The method or operation is not implemented.",
+    "- Compute_none_all_off: System.NotImplementedException : The method or operation is not implemented.",
+    "- Compute_overflow_clamps_to_total: System.NotImplementedException : The method or operation is not implemented.",
+    "- Compute_partial_lights_left_to_right: System.NotImplementedException : The method or operation is not implemented.",
+    "- Compute_zero_total_is_empty: System.NotImplementedException : The method or operation is not implemented.",
+    "- JustLit_clamps_to_total: System.NotImplementedException : The method or operation is not implemented.",
+    "- JustLit_jump_returns_latest_index: System.NotImplementedException : The method or operation is not implemented.",
+    "- JustLit_none_when_already_full: System.NotImplementedException : The method or operation is not implemented.",
+    "- JustLit_none_when_no_progress: System.NotImplementedException : The method or operation is not implemented.",
+    "- JustLit_returns_newly_lit_index: System.NotImplementedException : The method or operation is not implemented."
+  ],
+  "completedUtc": "2026-11-08T08:42:13.202Z"
+}
