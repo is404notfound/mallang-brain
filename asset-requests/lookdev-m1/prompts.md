@@ -1,64 +1,149 @@
-# M1 룩뎁 프롬프트 팩 (스타일 카드 v4 기준 · 2026-11-17)
+# M1 룩뎁·소품 프롬프트 팩 (스타일 카드 v5 기준 · 2026-11-19 개정)
 
-스타일 카드 v4(승인됨, 외곽선 있는 툰)를 기준으로 만든 룩뎁용 프롬프트 3종입니다. 생성은 사람이 하고, 선택본은 지정 파일명으로 `~/Desktop/schedule/lookdev/`에 저장하면 프로젝트 보드 갤러리에 자동 표시됩니다. 탈락 변형은 `-alt1`, `-alt2`로 같은 폴더에 보관합니다 (증거).
+스타일 카드 v5(클레이 디오라마판, 승인 2026-11-19)를 기준으로 하는 생성 프롬프트 모음입니다. 생성은 사람이 하고, 선택본은 지정 파일명으로 저장합니다. 탈락 변형은 `-alt1`, `-alt2`로 보관합니다 (증거).
+
+## 공통 생성 설정 (Krea)
+
+| 설정 | 값 |
+| --- | --- |
+| Model | Krea 2 Medium |
+| Aspect Ratio | 1:1 |
+| Resolution | 1K |
+| Creativity | Raw |
+| Moodboard | Malang Brain M1 v2 (`daeeb5d1-55ec-4b51-bc47-5d166693d550`) |
+| Moodboard Strength | 0.22~0.28 |
 
 공통 규칙:
-- **레퍼런스 첨부** (필수): 캐릭터 프롬프트에는 `art-direction/references/charactors.png`와 `asset-requests/_inbox/AST-001-friend-rabbit.png`(토끼 낱장)를 image→image로 첨부합니다. 무드보드에는 `art-direction/references/screen-play-final.png`를 팔레트 참고로 첨부합니다.
-- **공통 네거티브**: photorealistic, realistic fur texture, plastic glossy skin, extra limbs, human fingers, angry eyebrows, multiple eyelashes, large white sclera, hard cel-shading edges, text, watermark, UI elements
-- 이 이미지들은 목표 룩 참고용입니다. 게임 화면에 잘라 넣지 않습니다 (필수).
+- **공통 네거티브**: photorealistic, realistic fabric/fur, sharp metallic details, extra objects, text, letters, logos, watermark, hands, characters
+- 세 소품은 각각 따로 생성해도 **같은 조명 방향·그림자 농도·무광 클레이 질감**이어야 합니다 (아래 QA 표로 검수).
+- 생성물은 목표 룩 참고와 3D 모델링 레퍼런스용입니다. 전체 화면 완성컷 생성은 금지 (필수).
 
 ---
 
-## LKD-001 · 캐릭터 1호(토끼) 3D 목표 룩 — 워크플로 1~2단계
+## Part A. 룩뎁 3장 — 완료 (2026-11-17~19 승인)
 
-- 저장: 선택본 → `lookdev/m1-character.png`
-- 감성 목표: 따뜻함 + 매사에 열심인 설렘 ("연주 직전, 말렛을 꼭 쥔 한 순간")
-- 진행: 아래 프롬프트를 **Krea 2 계열과 Nano Banana 계열 두 모델에 같이** 넣어 4장씩 일괄 생성 → 실루엣 기준 1장 선택 → 인페인팅으로 귀·나비넥타이·말렛만 보정. 모델별 차이를 체험 로그 wf-1에 기록합니다.
-
-**본 프롬프트 (텍스트 생성용 — Krea 2 등):**
-
-> A cute chubby cream-white lop-eared rabbit character rendered as a soft matte 3D toon figurine, in the style of a cozy life-sim game. Rounded mallow-soft body, head-to-body ratio 1:1, short stubby arms without fingers, droopy long rounded ears with soft pink inner ear, black dot eyes with a single white highlight each, tiny w-shaped mouth, three small red blush strokes on each cheek, dark charcoal graduation cap with a yellow tassel, coral bow tie, holding two small xylophone mallets close to its chest, leaning slightly forward with earnest sparkling anticipation — the moment just before playing. Thin soft dark-brown outline around the silhouette, matte 2–3 step toon shading (no hard cel edges, no plastic gloss). Lighting: cool navy-violet dusk ambience with a warm golden key light as if lit by festival string lights, gentle warm rim light. Plain soft gradient background (pale lavender-grey), full body, centered, slight 3/4 front angle.
-
-**편집 프롬프트 (참조 편집용 — Nano Banana 계열, 토끼 낱장 첨부):**
-
-> Keep this exact character design, proportions and face. Re-render it as a soft matte 3D toon figurine (cozy life-sim game style): volumetric rounded body, matte 2–3 step toon shading, thin soft dark-brown outline, warm golden key light with cool navy-violet dusk ambience and a gentle rim light. Plain pale lavender-grey background, full body, slight 3/4 front angle. Do not change the ears, blush strokes, graduation cap, bow tie, or xylophone mallets.
-
-**변형 지시**: V1 그대로 / V2 연주 직전 대신 "수줍게 웃는 정면" / V3 림 라이트를 더 강하게(저녁 무드 강조). 변수는 한 번에 하나만 바꿉니다.
+LKD-001(토끼 콘셉트)·LKD-002(턴어라운드)·LKD-003(축제 무드보드)는 승인되어 스타일 카드 v5의 캔버스로 승격되었습니다. 산출물: `~/Desktop/schedule/lookdev/m1-cast.png`, `m1-character-turnaround.png`, `m1-play.png`. 이 절의 구버전 프롬프트는 git 이력(커밋 224eb3b)에 있습니다.
 
 ---
 
-## LKD-002 · 토끼 3면 턴어라운드 — 워크플로 3단계
+## Part B. 소품 3종 (PROP-001~003)
 
-- 저장: `lookdev/m1-character-turnaround.png` (Tripo 입력용 원본은 배경 제거 후 `asset-requests/_inbox/`에)
-- 진행: LKD-001 선택본을 첨부하고 참조 편집 모델로 생성 → 배경 제거 → 흰 테두리·그림자 잘림 확인(wf-4 기록).
+생성 순서 추천: ① 학사모(세계관 소품 질감 확인) → ② 실로폰(다색 오브젝트 통일성 확인) → ③ 입력 카드(게임 UI 재질·형태 확정).
 
-**프롬프트 (LKD-001 선택본 첨부):**
+### PROP-001 · 학사모 (graduation-cap)
 
-> Character turnaround sheet of this exact rabbit figurine: three views side by side — front view, side view, back view. Same character, same proportions, same soft matte 3D toon shading and thin dark-brown outline in every view. Neutral standing pose, arms relaxed, ears hanging naturally, graduation cap and bow tie visible in all views, tail visible in back view. Flat even lighting, plain solid pale grey background, no ground shadow, no text or labels. Consistent scale and feet position across all three views.
+- 저장: `asset-requests/_inbox/PROP-001-graduation-cap.png` (3D 소품 모델링 레퍼런스)
+- 디자인 결정(2026-11-19): 먹색 → **라벤더 본체 + 아이보리 밴드 + 버터 옐로 술** (스타일 카드 v5.1)
+- 체크 포인트: 네모판이 너무 납작하거나 뾰족하면 안 됩니다. 동물 머리에 얹었을 때 살짝 폭신한 느낌 (필수).
 
-**검수 포인트** (필수): 측면·후면에서 귀 길이와 몸 비율이 정면과 같은가, 뒷모습에 모자 술·꼬리가 있는가. 오추정은 인페인팅으로 수정합니다.
+```text
+A single beautifully crafted miniature graduation cap prop for an original cozy casual game called "Malang Brain Music Academy".
+
+DESIGN:
+A charming, compact graduation cap designed for tiny round animal students. The square mortarboard has softly rounded corners, gently puffed edges and a slightly cushioned appearance rather than sharp geometric edges. The cap base is a small rounded fabric-like crown that gives the object a soft, wearable silhouette.
+
+Use a sophisticated pastel color combination: muted lavender for the main cap, warm creamy ivory for the lower band, and a delicate buttery-yellow tassel. The tassel hangs naturally from one corner, with a tiny rounded decorative end.
+
+ART DIRECTION:
+Soft handcrafted miniature 3D game asset, smooth matte polymer clay and painted resin materials, rounded sculptural forms, subtle tactile surface, gentle ambient occlusion, soft studio lighting, delicate contact shadow.
+
+The design should feel like a premium collectible miniature belonging to the same world as adorable chubby clay animal musicians. Cute, elegant, warm, youthful and carefully designed.
+
+COMPOSITION:
+One complete graduation cap only, isolated and centered, viewed from a slightly elevated three-quarter angle. Show the top board, soft crown and hanging tassel clearly. Keep the entire object inside the frame with comfortable margins.
+
+Plain warm ivory studio background. No characters, no mannequin, no head, no text, no letters, no logos, no watermark, no additional props, no photorealistic fabric, no sharp metallic details.
+```
+
+### PROP-002 · 실로폰 (xylophone)
+
+- 저장: `asset-requests/_inbox/PROP-002-xylophone.png` (토끼 악기 — 3D 소품 레퍼런스)
+- 체크 포인트: 음판 7개가 무지개색 한 판으로 합쳐지지 않고 **각각 독립 막대**여야 합니다 (필수) — Unity에서 음판별 반응 애니메이션을 넣기 위한 조건입니다.
+
+```text
+A single adorable miniature xylophone instrument prop for an original cozy casual game called "Malang Brain Music Academy".
+
+DESIGN:
+A small, beautifully designed wooden toy xylophone with seven individual rounded rectangular tone bars arranged in a clear ascending musical scale.
+
+Each tone bar has a softly beveled edge, a slightly domed surface and a distinct pastel color. Use a harmonious palette of creamy yellow, peach pink, soft coral, powder blue, mint green, pale lavender and warm ivory.
+
+The bars are mounted on a compact warm maple-colored wooden base with gently rounded edges. The base should look handcrafted and sturdy, with simple curved supports that keep the colorful bars visibly separated.
+
+Include exactly two small matching mallets placed neatly beside the xylophone. Each mallet has a slim rounded handle and a soft spherical striking head in warm cream.
+
+ART DIRECTION:
+Soft handcrafted miniature 3D game asset, smooth matte polymer clay and painted wood materials, rounded sculptural forms, subtle tactile finish, gentle ambient occlusion, soft studio lighting and delicate contact shadows.
+
+The xylophone must feel like a collectible miniature musical instrument from the same world as cute chubby clay animal musicians. Refined pastel styling, playful but not overly childish, charming and visually readable.
+
+COMPOSITION:
+One complete xylophone with two mallets, isolated and centered, viewed from a slightly elevated three-quarter angle. All seven tone bars must be individually visible and clearly separated. The instrument should occupy most of the frame without cropping.
+
+Plain warm ivory studio background. No characters, no hands, no musical notes floating in the air, no sound waves, no text, no labels, no logos, no watermark, no extra instruments, no photorealistic metal.
+```
+
+### PROP-003 · 멜로디 입력 카드 (input-card-material)
+
+- 저장: `asset-requests/_inbox/PROP-003-input-card.png` (플레이 화면 카드 재질·형태 기준)
+- **가장 중요한 에셋**: 장식 카드가 아니라 플레이어가 멜로디를 기억해 직접 탭하는 악보의 한 칸(8칸 중 1칸)입니다.
+- 체크 포인트: 중앙은 비워 둡니다 (필수) — 캐릭터 음색 표시·커서 활성 효과·눌림 애니메이션이 들어갈 자리입니다. **파란 O·분홍 X·커서·발광·눌림 상태는 이 에셋에 넣지 않고 Unity 런타임 상태로 구현합니다** (스타일 카드 v5.1). 그래야 8장이 같은 규칙으로 작동합니다.
+
+```text
+A single reusable melody input card tile for the core rhythm gameplay of an original cozy casual game called "Malang Brain Music Academy".
+
+GAMEPLAY CONTEXT:
+This card is one of eight identical reusable tiles arranged in a 2-column by 4-row grid during gameplay. During the listening phase, a musical cursor travels across the cards in melody order, showing which animal friend's sound occurs at each beat. During the player's repeat phase, the player taps the corresponding card in rhythm. Correct and incorrect inputs are indicated by separate blue O and pink X feedback overlays.
+
+The card itself represents one position in the musical score. It must be instantly recognizable as a tactile, tappable game tile.
+
+DESIGN:
+Create ONE standalone square melody input card with generously rounded corners, a softly raised cushioned surface and a subtle beveled edge.
+
+The overall silhouette should be a rounded square, with balanced proportions that remain clear and readable when eight copies are arranged in a compact 2x4 grid on a mobile screen.
+
+Use a warm creamy ivory base color, with very subtle pastel lavender undertones. The surface should feel like smooth matte polymer clay combined with thick premium textured paper. The edge should have a slightly visible thickness, creating the impression of a small physical tile rather than a flat vector button.
+
+The center should remain visually clean and mostly empty, leaving enough negative space for future musical symbols, cursor highlights and interaction feedback.
+
+Add only extremely subtle surface detailing, such as a faint inset border or a delicate embossed rim. Avoid decorative illustrations that compete with gameplay readability.
+
+ART DIRECTION:
+Soft handcrafted miniature 3D game UI asset, smooth matte polymer clay, tactile premium paper-like surface, rounded sculptural geometry, gentle ambient occlusion, soft studio lighting, subtle contact shadow.
+
+Match the exact visual language of the pastel clay animal musicians and miniature props from "Malang Brain Music Academy". Warm ivory, pale lavender, muted mint and delicate peach color harmony. Cute, calm, polished and highly readable.
+
+COMPOSITION:
+One single card tile only, viewed from a slightly elevated three-quarter angle. Show the entire square card and its thickness. Center it with comfortable margins.
+
+Plain warm ivory studio background.
+
+IMPORTANT:
+This is a reusable gameplay tile, NOT a complete interface screen. Do not generate eight cards, a grid, a music keyboard, a piano, a musical staff, or a full mobile UI.
+
+Do not include O or X symbols, numbers, letters, musical notation, character portraits, animal icons, cursor arrows, hands, touch indicators, text, logos, watermarks or extra objects.
+```
 
 ---
 
-## LKD-003 · 플레이 화면 무드보드 — 분위기·조명·재질 참고 전용
+## 소품 일관성 QA (생성 결과 검수표)
 
-- 저장: `lookdev/m1-play.png`
-- 감성 목표: 아늑한 저녁 축제의 평화로움 ("따뜻한 빛 웅덩이 속에서 음악이 시작되기 직전")
-- 주의 (필수): UI·글자·캐릭터 클로즈업 없이 **공간의 분위기만**. 이 그림을 게임 배경으로 잘라 쓰지 않습니다. 1:1로 생성 후 아웃페인팅으로 16:9 확장해 보고 wf-5에 기록합니다.
+| 항목 | 학사모 | 실로폰 | 입력 카드 |
+| --- | --- | --- | --- |
+| 둥근 실루엣 | ☐ | ☐ | ☐ |
+| 무광 클레이 질감 | ☐ | ☐ | ☐ |
+| 파스텔 팔레트 (v5) | ☐ | ☐ | ☐ |
+| 3/4 시점·조명 방향 동일 | ☐ | ☐ | ☐ |
+| 단일 오브젝트 (화면·그리드 아님) | ☐ | ☐ | ☐ |
+| 게임 내 기능 명확성 | ☐ | ☐ | ☐ |
 
-**프롬프트 (screen-play-final.png를 팔레트 참고로 첨부):**
-
-> Mood reference of a small cozy evening campus festival plaza, rendered as a soft 3D toon diorama (cozy life-sim game look). Deep navy-violet dusk sky gradient, warm golden string lights hanging above and glowing softly, cream-colored clock tower building softly blurred in the background, striped pastel festival stall awnings on one side, small wooden stage with warm spotlights on the other, grey-violet tiled ground reflecting warm pools of light, a few floating light particles and drifting cherry-blossom petals. Soft matte materials, gentle depth of field, no characters in focus, no UI, no text. Peaceful, warm, about-to-begin atmosphere. Square 1:1 composition with the empty plaza center kept clear.
-
-**변형 지시**: V1 그대로 / V2 카메라를 약간 낮춰 전구 스트링이 화면 위를 가로지르게 / V3 황혼을 10% 더 밝게(접근성 확인용).
-
----
+추가 확인: 그림자 농도·재질 부드러움이 세 장에서 비슷한가 / 사실적이거나 평면 일러스트로 흐르지 않았는가 / 캐스트(m1-cast.png)와 같은 세계로 보이는가.
 
 ## manifest (파일명 → 자리)
 
-| 생성물 | 저장 파일명 | 자리(용도) |
-|---|---|---|
-| LKD-001 선택본 | `m1-character.png` | plan.html 갤러리 · 3D 모델링 목표 룩 |
-| LKD-001 탈락 변형 | `m1-character-alt1.png`, `-alt2.png` | 선택 과정 증거 |
-| LKD-002 3면 시트 | `m1-character-turnaround.png` | Tripo 입력 · 갤러리 |
-| LKD-003 무드보드 | `m1-play.png` | plan.html 갤러리 · 조명/재질 참고 |
+| ID | 저장 파일명 | 자리(용도) |
+| --- | --- | --- |
+| LKD 선택본 3장 | `lookdev/m1-*.png` | 캔버스 (승인 완료) |
+| PROP-001 | `_inbox/PROP-001-graduation-cap.png` | 학사모 3D 소품 모델링 레퍼런스 |
+| PROP-002 | `_inbox/PROP-002-xylophone.png` | 토끼 악기 3D 소품 레퍼런스 |
+| PROP-003 | `_inbox/PROP-003-input-card.png` | 플레이 화면 카드 재질·형태 기준 (상태 연출은 Unity) |
