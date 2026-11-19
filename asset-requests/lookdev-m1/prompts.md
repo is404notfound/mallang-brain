@@ -147,3 +147,20 @@ Do not include O or X symbols, numbers, letters, musical notation, character por
 | PROP-001 | `_inbox/PROP-001-graduation-cap.png` | 학사모 3D 소품 모델링 레퍼런스 |
 | PROP-002 | `_inbox/PROP-002-xylophone.png` | 토끼 악기 3D 소품 레퍼런스 |
 | PROP-003 | `_inbox/PROP-003-input-card.png` | 플레이 화면 카드 재질·형태 기준 (상태 연출은 Unity) |
+
+---
+
+## Part C. 턴어라운드·보조 뷰 메타 프롬프트 (2026-11-20)
+
+GPT에 붙여 영어 생성 프롬프트 5개(햄스터·양·여우 턴어라운드, 실로폰 탑뷰, 토끼+실로폰 스케일 검증 컷)를 뽑는 한국어 지시문입니다. 첨부 이미지 3장(m1-cast, m1-character-turnaround, PROP-002)과 함께 쓰세요. 지시문 본문은 세션 기록(2026-11-20)과 동일하며, 핵심 제약은: 토끼 시트와 동일 구성(4면·포즈·배경·조명), 캐릭터 맨몸(소품 분리 제작 원칙), 실로폰 탑뷰는 수직 구도, 검증 컷은 에셋 아님 명시, 실로폰 폭 ≤ 토끼 몸폭 1.2배.
+
+생성물 저장:
+| 생성물 | 저장 파일명 |
+| --- | --- |
+| 햄스터 턴어라운드 | `lookdev/m1-hamster-turnaround.png` |
+| 양 턴어라운드 | `lookdev/m1-sheep-turnaround.png` |
+| 여우 턴어라운드 | `lookdev/m1-fox-turnaround.png` |
+| 실로폰 탑뷰 | `_inbox/PROP-002-xylophone-top.png` |
+| 스케일 검증 컷 | `lookdev/m1-scale-check.png` (에셋 아님, 레퍼런스) |
+
+3D 변환(Hunyuan) 투입 규칙: 캐릭터는 시트를 4면 개별 컷으로 잘라 배경 제거 후 멀티뷰 투입(시트 통짜 금지), 대칭 소품은 단일 뷰, 실로폰은 3/4+탑뷰 멀티뷰.
