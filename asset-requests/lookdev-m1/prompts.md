@@ -33,8 +33,8 @@ LKD-001(토끼 콘셉트)·LKD-002(턴어라운드)·LKD-003(축제 무드보드
 ### PROP-001 · 학사모 (graduation-cap)
 
 - 저장: `asset-requests/_inbox/PROP-001-graduation-cap.png` (3D 소품 모델링 레퍼런스)
-- 디자인 결정(2026-11-19): 먹색 → **라벤더 본체 + 아이보리 밴드 + 버터 옐로 술** (스타일 카드 v5.1)
-- 체크 포인트: 네모판이 너무 납작하거나 뾰족하면 안 됩니다. 동물 머리에 얹었을 때 살짝 폭신한 느낌 (필수).
+- 디자인 결정(2026-11-20, v5.2): **먹색(따뜻한 차콜) + 버터 옐로 술로 회귀** — 라벤더 안 취소. 1차 생성본의 형태·색은 승인, 크라운의 얼룩 질감만 3D에서 깨끗한 무광 클레이로 교정합니다 (재생성 불필요).
+- 체크 포인트: 네모판이 너무 납작하거나 뾰족하면 안 됩니다. 동물 머리에 얹었을 때 살짝 폭신한 느낌 (필수). 재생성이 필요해지면 아래 프롬프트의 색 지시를 사용: "deep warm charcoal (soft near-black ink color) for the entire cap, clean smooth matte polymer clay surface with NO mottled, leathery or camouflage texture, delicate buttery-yellow tassel".
 
 ```text
 A single beautifully crafted miniature graduation cap prop for an original cozy casual game called "Malang Brain Music Academy".
